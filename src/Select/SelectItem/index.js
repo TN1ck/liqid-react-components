@@ -4,6 +4,7 @@ import styles from '../styles.css';
 
 /**
  * Class represeting a single SeletItem
+ * @namespace Select
  * @extends React.Component
  */
 class SelectItem extends React.Component {
@@ -34,6 +35,39 @@ class SelectItem extends React.Component {
         );
     }
 }
+
+/**
+ * @memberof SelectItem
+ * @namespace props
+ * @prop {Object} propTypes         - the props that are passed to this component
+ */
+SelectItem.propTypes = {
+    /**
+     * @memberof Select.props
+     * @prop {Boolean} active       - is the item currently active?
+     */
+    active: React.PropTypes.string,
+    /**
+     * @memberof Select.props
+     * @prop {Boolean} selected     - is the item currently selected?
+     */
+    selected: React.PropTypes.bool,
+    /**
+     * @memberof Select.props
+     * @prop {Boolean} disabled     - is the item currently disabled?
+     */
+    disabled: React.PropTypes.bool,
+    /**
+     * @memberof Select.props
+     * @prop {Boolean} separator    - is the item a spearator?
+     */
+    separator: React.PropTypes.bool,
+    /**
+     * @memberof Select.props
+     * @prop {String} children       - text in SelectItem
+     */
+    children: React.PropTypes.string
+};
 
 export default SelectItem;
 export { SelectItem };
