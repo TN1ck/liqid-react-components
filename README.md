@@ -7,10 +7,10 @@ Library of reusable components we use.
 * Just add following to your package.json:
 
 ```
-"liqid-components": "git@github.com:LIQIDTechnology/liqid-components.git"
+"liqid-components": "https://github.com/LIQIDTechnology/liqid-react-components.git"
 ```
 
-* Just find the comopnent you want to add and include it like this: 
+* Just find the comopnent you want to add and include it like this:
 
 ```js
 const {
@@ -43,7 +43,6 @@ const {
 * Add a ```.test``` folder and add your integration tests - to run your tests run ```$ npm run test```
 * Wen your component is done and fully tested, push your changes to a new branch and create a PR
 * When the PR is merged release a new version tag and write a changelog
-* To test / use the new version with the new component you have to adjust the tag version of the components module in the LIQID app / website.
 
 ## Hints for Testers
 * When you run the project locally (which is very easy to set up) and you miss something in the storybook - just add your own cases. Visit ```{root}/src/{component-of-your-choice}/story.js``` and see the already placed cases.
