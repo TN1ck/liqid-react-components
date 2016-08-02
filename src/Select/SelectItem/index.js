@@ -29,6 +29,7 @@ class SelectItem extends React.Component {
                 className={classes}
                 onMouseEnter={this.onMouseEnter}
                 onMouseDown={this.props.onMouseDown}
+                data-value={this.props.value}
             >
                 {content}
             </li>
@@ -46,7 +47,7 @@ SelectItem.propTypes = {
      * @memberof Select.props
      * @prop {Boolean} active       - is the item currently active?
      */
-    active: React.PropTypes.string,
+    active: React.PropTypes.bool,
     /**
      * @memberof Select.props
      * @prop {Boolean} selected     - is the item currently selected?

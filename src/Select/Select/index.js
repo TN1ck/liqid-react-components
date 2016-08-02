@@ -371,6 +371,7 @@ class Select extends React.Component {
                     disabled={this.props.disabled}
                     className={[styles.selectSimpleInput]}
                     onClick={this.toggleList}
+                    name={this.props.name}
                     onKeyDown={this.keyOnDropdown}
                     onBlur={this.closeList}
                     value={this.createShownValue()}
