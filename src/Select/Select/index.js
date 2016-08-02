@@ -363,7 +363,10 @@ class Select extends React.Component {
             [styles.disabled]: this.props.disabled
         }, this.props.className);
         return (
-            <div className={wrapperClasses}>
+            <div
+                className={wrapperClasses}
+                data-name={this.props.name}
+            >
                 <div className={styles.overlay} />
                 <input
                     type='text'
