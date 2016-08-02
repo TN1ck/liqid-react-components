@@ -102,7 +102,10 @@ class Select extends React.Component {
      * @returns {Boolean} true if item is deactivated
      */
     isDeactivatedItem (index) {
-        return this.props.children[index] && this.props.children[index].props.disabled;
+        if (index >= 0) {
+            return this.props.children[index] && this.props.children[index].props.disabled;
+        }
+        return false;
     }
     /**
      * Open select list

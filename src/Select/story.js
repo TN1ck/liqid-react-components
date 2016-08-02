@@ -131,19 +131,6 @@ storiesOf('Select', module)
                 disabled
                 defaultValue={'test'}
             >
-                <SelectItem value={'test'} disabled>
-                    {'Test'}
-                </SelectItem>
-                <SelectItem value={'test2'}>
-                    {'Test2'}
-                </SelectItem>
-                <SelectItem
-                    separator
-                    disabled
-                />
-                <SelectItem value={'test3'}>
-                    {'Test3'}
-                </SelectItem>
             </Select>
         ), {
             source: true,
