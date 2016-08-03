@@ -83,6 +83,7 @@
 }
 .selectSimpleListItem {
     border-bottom: 1px solid #eee;
+    box-sizing: content-box;
     cursor: pointer;
     font-size: 12px;
     height: 16px;
