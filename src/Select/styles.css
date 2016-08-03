@@ -2,6 +2,7 @@
     font-family: "Mark Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
     position: relative;
 }
+/* In FF a blinking caret is shown - to hide it use color: transparent and give color to the text via text-shadow; */
 .selectSimpleInput[type=text][readonly] {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -14,6 +15,8 @@
     border-radius: 0;
     box-sizing: border-box;
     box-shadow: inset 0 -2px 0 #ddd;
+    color: transparent;
+    cursor: default;
     font-size: 16px;
     height: 36px;
     line-height: 1.5;
@@ -25,6 +28,7 @@
     -moz-user-select: none;      /* Firefox */
     -ms-user-select: none;       /* Internet Explorer/Edge */
     user-select: none;           /* Non-prefixed version, currently */
+    text-shadow: 0px 0px 0px #252731;
     width: 100%;
 }
 .selectSimple input[type=text][readonly]:focus {
@@ -43,6 +47,7 @@
     max-height: 150px;
     min-width: 100%;
     overflow: scroll;
+    overflow-x:hidden;
     padding: 0;
     position: absolute;
     top: 100%;
@@ -80,6 +85,8 @@
     border-bottom: 1px solid #eee;
     cursor: pointer;
     font-size: 12px;
+    height: 16px;
+    line-height: 16px;
     padding: 7px 10px;
     white-space: nowrap;
 }
