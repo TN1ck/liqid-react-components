@@ -1,12 +1,12 @@
 {
   "name": "liqid-components",
-  "version": "0.0.1",
+  "version": "0.1.1",
   "description": "LIQID component library",
   "scripts": {
     "build": "npm run babel && npm run css",
     "storybook": "start-storybook -p 9001",
     "test": "mocha --require .scripts/mocha_runner.js ./src/**/.test/test.js",
-    "babel": "babel src -d lib",
+    "babel": "./node_modules/.bin/babel src -d lib",
     "css": "cpx './src/**/*.css' ./lib",
     "lint:js": "eslint src  || true",
     "lint:css": "csslint src  || true",
