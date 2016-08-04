@@ -5,11 +5,11 @@
   "scripts": {
     "build": "npm run babel && npm run css",
     "storybook": "start-storybook -p 9001",
-    "test": "mocha --require .scripts/mocha_runner.js ./src/**/.test/test.js",
-    "babel": "./node_modules/.bin/babel src -d lib",
-    "css": "cpx './src/**/*.css' ./lib",
-    "lint:js": "eslint src  || true",
-    "lint:css": "csslint src  || true",
+    "test": "$(npm bin)/mocha --require .scripts/mocha_runner.js ./src/**/.test/test.js",
+    "babel": "$(npm bin)/babel src -d lib",
+    "css": "$(npm bin)/cpx './src/**/*.css' ./lib",
+    "lint:js": "$(npm bin)/eslint src  || true",
+    "lint:css": "$(npm bin)/csslint src  || true",
     "install": "npm run build"
   },
   "keywords": [
