@@ -9,8 +9,7 @@
     "babel": "./node_modules/.bin/babel src -d lib",
     "css": "./node_modules/.bin/cpx './src/**/*.css' ./lib",
     "lint:js": "./node_modules/.bin/eslint src  || true",
-    "lint:css": "./node_modules/.bin/csslint src  || true",
-    "install": "npm run build"
+    "lint:css": "./node_modules/.bin/csslint src  || true"
   },
   "keywords": [
     "react",

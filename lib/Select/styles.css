@@ -1,0 +1,123 @@
+.selectSimple {
+    font-family: "Mark Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    position: relative;
+}
+/* In FF a blinking caret is shown - to hide it use color: transparent and give color to the text via text-shadow; */
+.selectSimpleInput[type=text][readonly] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAMAAACelLz8AAAAJ1BMVEVmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmaP/QSjAAAADHRSTlMAAgMJC0uWpKa6wMxMdjkoAAAANUlEQVR4AeXJyQEAERAAsNl7Hf3X6xt0QL6JpZWq30pdvdadme+0PMdzvHm8YThHcT1H7K0BtOMDniZhWOgAAAAASUVORK5CYII=);
+    background-size: 13px;
+    background-repeat: no-repeat;
+    background-position: right center;
+    border: 0;
+    border-radius: 0;
+    box-sizing: border-box;
+    box-shadow: inset 0 -2px 0 #ddd;
+    color: transparent;
+    cursor: default;
+    font-size: 16px;
+    height: 36px;
+    line-height: 1.5;
+    padding: 6px 25px 6px 6px;
+    position: relative;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none;   /* Chrome/Safari/Opera */
+    -khtml-user-select: none;    /* Konqueror */
+    -moz-user-select: none;      /* Firefox */
+    -ms-user-select: none;       /* Internet Explorer/Edge */
+    user-select: none;           /* Non-prefixed version, currently */
+    text-shadow: 0px 0px 0px #252731;
+    width: 100%;
+}
+.selectSimple input[type=text][readonly]:focus {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAMAAACelLz8AAAAJ1BMVEUhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISF8S9ewAAAADHRSTlMAAgMJC0uWpKa6wMxMdjkoAAAANUlEQVR4AeXJyQEAERAAsNl7Hf3X6xt0QL6JpZWq30pdvdadme+0PMdzvHm8YThHcT1H7K0BtOMDniZhWOgAAAAASUVORK5CYII=);
+    box-shadow: inset 0 -2px 0 #6290C3;
+}
+.selectSimpleList {
+    background: #FFF;
+    border-top: 1px solid #EEE;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.26);
+    display: none;
+    font-size: 16px;
+    left: 0;
+    list-style: none;
+    margin-top: 1px;
+    max-height: 150px;
+    min-width: 100%;
+    overflow: scroll;
+    overflow-x:hidden;
+    padding: 0;
+    position: absolute;
+    top: 100%;
+    z-index: 1;
+}
+@media (max-width: 779px) {
+    .overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: rgba(100, 100, 100, 0.8);
+        z-index: 10;
+    }
+    .selectSimpleOpen .overlay {
+        display: block;
+    }
+    .selectSimpleList {
+        border-top: none;
+        bottom: auto;
+        box-shadow: 0 0px 4px rgba(0, 0, 0, 0.26);
+        left: 20px;
+        max-height: 50vh;
+        min-width: calc(100% - 40px);
+        position: fixed;
+        transform: translate(0, -50%);
+        top: 50%;
+        width: calc(100% - 40px);
+        z-index: 11;
+    }
+}
+.selectSimpleListItem {
+    border-bottom: 1px solid #eee;
+    box-sizing: content-box;
+    cursor: pointer;
+    font-size: 12px;
+    height: 16px;
+    line-height: 16px;
+    padding: 7px 10px;
+    white-space: nowrap;
+}
+.selectSimpleListItemSelected {
+    background: #f8f8f8;
+}
+.selectSimpleListItemActive {
+    color: #6290C3;
+}
+.selectSimpleListItemDisabled {
+    cursor: default;
+    opacity: 0.3;
+}
+.selectSimpleListItemDisabled.selectSimpleListItemSelected {
+    background: none;
+}
+.listSeparator {
+    position: relative;
+}
+.listSeparator::after {
+    border-top: 1px dashed #333;
+    content: "";
+    display: block;
+    height: 1px;
+    left: 20px;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    width: calc(100% - 40px);
+}
+.selectSimpleOpen .selectSimpleList {
+    display: block;
+}
