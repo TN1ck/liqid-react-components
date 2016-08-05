@@ -10,7 +10,7 @@ Library of reusable components we use.
 "liqid-components": "https://github.com/LIQIDTechnology/liqid-react-components.git"
 ```
 
-* Just find the comopnent you want to add and include it like this:
+* Just find the component you want to add and include it like this:
 
 ```js
 const {
