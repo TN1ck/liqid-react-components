@@ -13,13 +13,28 @@ class Button extends React.Component {
     constructor (props) {
         super(props);
     }
+    createWithButtonTag (buttonStyles) {
+        return (
+            <button
+                type='button'
+                className={buttonStyles}
+            >
+                {this.props.children}
+            </button>
+        );
+    }
     render () {
         const buttonStyles = classNames(styles.button, {
             [styles.primary]: this.props.type === 'primary' || !this.props.type,
+            [styles.primaryOutlined]: this.props.type === 'primaryOutlined',
             [styles.secondary]: this.props.type === 'secondary',
-            [styles.ghost]: this.props.style === 'ghost',
+            [styles.secondaryOutlined]: this.props.type === 'secondaryOutlined',
             [styles.deactivated]: this.props.deactivated
         }, this.props.className);
+
+        if (this.props.tag === 'button') {
+            return this.createWithButtonTag(buttonStyles);
+        }
         return (
             <div
                 className={buttonStyles}
@@ -46,11 +61,6 @@ Button.propTypes = {
      * @prop {String} tag           - the tag of the button (for example a link ..)
      */
     tag: React.PropTypes.string,
-    /**
-     * @memberof Button.props
-     * @prop {String} style         - the style of the button
-     */
-    style: React.PropTypes.string,
     /**
      * @memberof Button.props
      * @prop {String} deactivated   - should the button be deactivated?
