@@ -23,17 +23,39 @@ class Button extends React.Component {
             </button>
         );
     }
+    createAsSubmit (buttonStyle) {
+        return (
+            <input
+                type='submit'
+                value={this.props.children}
+                className={buttonStyle}
+            />
+        );
+    }
     render () {
         const buttonStyles = classNames(styles.button, {
+            // types
             [styles.primary]: this.props.type === 'primary' || !this.props.type,
             [styles.primaryOutlined]: this.props.type === 'primaryOutlined',
             [styles.secondary]: this.props.type === 'secondary',
             [styles.secondaryOutlined]: this.props.type === 'secondaryOutlined',
-            [styles.deactivated]: this.props.deactivated
-        }, this.props.className);
+            [styles.link]: this.props.type === 'link',
+
+            // deactivated
+            [styles.deactivated]: this.props.deactivated,
+
+            // sizes
+            [styles.small]: this.props.small,
+            [styles.large]: this.props.large
+        },
+            this.props.className
+        );
 
         if (this.props.tag === 'button') {
             return this.createWithButtonTag(buttonStyles);
+        }
+        if (this.props.tag === 'submit') {
+            return this.createAsSubmit(buttonStyles);
         }
         return (
             <div
@@ -65,7 +87,12 @@ Button.propTypes = {
      * @memberof Button.props
      * @prop {String} deactivated   - should the button be deactivated?
      */
-    deactivated: React.PropTypes.bool
+    deactivated: React.PropTypes.bool,
+    /**
+     * @memberof Button.props
+     * @prop {String} size          - normal, large or small button
+     */
+    size: React.PropTypes.string
 };
 
 export default Button;
