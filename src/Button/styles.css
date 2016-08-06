@@ -19,6 +19,16 @@
     vertical-align: middle;
     white-space: nowrap;
 }
+.button:active, .button:focus {
+    outline: none;
+}
+
+.small {
+    padding: 3px 15px;
+}
+.large {
+    padding: 8px 30px;
+}
 
 /**
  * Types for the button
@@ -33,13 +43,14 @@
     border-color: #d00f27;
 }
 .secondary {
-    background-color: #bfbfbf;
-    border-color: #bfbfbf;
+    background-color: #6290c3;
+    border-color: #6290c3;
     color: #FFF;
 }
 .secondary:hover {
+    background-color: #4376af;
+    border-color: #4376af;
 }
-
 .primaryOutlined {
     color: #ef233c;
 }
@@ -49,9 +60,20 @@
     color: #FFF;
 }
 .secondaryOutlined {
-    color: #bfbfbf;
+    color: #6290c3;
 }
 .secondaryOutlined:hover {
+    background-color: #4376af;
+    border-color: #4376af;
+    color: #FFF;
+}
+.link {
+    background: none;
+    border: none;
+    color: #ef233c;
+}
+.link:hover {
+    color: #d00f27;
 }
 
 
@@ -61,9 +83,19 @@
 }
 .deactivated.primary:hover {
     background-color: #ef233c;
+    border-color: #ef233c;
 }
 .deactivated.primaryOutlined:hover {
     background: none;
     border-color: #ef233c;
     color: #ef233c;
+}
+.deactivated.secondary:hover {
+    background-color: #6290c3;
+    border-color: #6290c3;
+}
+.deactivated.secondaryOutlined:hover {
+    background: none;
+    border-color: #6290c3;
+    color: #6290c3;
 }
