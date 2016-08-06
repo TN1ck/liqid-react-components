@@ -150,4 +150,36 @@ storiesOf('Button', module)
             propTables: [Button]
         }
     )
+    .addWithInfo(
+        'Button: OnClick',
+        'Just add the onClick property to add a callback',
+        () => (
+            <div>
+                <Button
+                    onClick={() => alert('hi')}
+                >
+                    {'Abschicken'}
+                </Button>
+            </div>
+        ), {
+            source: true,
+            inline: true,
+            propTables: [Button]
+        }
+    )
+    .addWithInfo(
+        'Button: Loading',
+        'When passing the loading property the button should show a loading indicator',
+        () => (
+            <div>
+                <Button loading>
+                    {'Abschicken'}
+                </Button>
+            </div>
+        ), {
+            source: true,
+            inline: true,
+            propTables: [Button]
+        }
+    )
 ;

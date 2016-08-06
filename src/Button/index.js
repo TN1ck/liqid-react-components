@@ -17,19 +17,32 @@ class Button extends React.Component {
         return (
             <button
                 type='button'
+                onClick={this.props.onClick}
                 className={buttonStyles}
             >
                 {this.props.children}
             </button>
         );
     }
-    createAsSubmit (buttonStyle) {
+    createAsSubmit (buttonStyles) {
         return (
             <input
                 type='submit'
+                onClick={this.props.onClick}
                 value={this.props.children}
-                className={buttonStyle}
+                className={buttonStyles}
             />
+        );
+    }
+    createLink (buttonStyles) {
+        return (
+            <a
+                onClick={this.props.onClick}
+                href={this.props.href}
+                className={buttonStyles}
+            >
+                {this.props.children}
+            </a>
         );
     }
     render () {
@@ -51,6 +64,9 @@ class Button extends React.Component {
             this.props.className
         );
 
+        if (this.props.tag === 'a') {
+            return this.createLink(buttonStyles);
+        }
         if (this.props.tag === 'button') {
             return this.createWithButtonTag(buttonStyles);
         }
@@ -59,6 +75,7 @@ class Button extends React.Component {
         }
         return (
             <div
+                onClick={this.props.onClick}
                 className={buttonStyles}
             >
                 {this.props.children}
@@ -85,14 +102,24 @@ Button.propTypes = {
     tag: React.PropTypes.string,
     /**
      * @memberof Button.props
-     * @prop {String} deactivated   - should the button be deactivated?
+     * @prop {Boolean} deactivated  - should the button be deactivated?
      */
     deactivated: React.PropTypes.bool,
     /**
      * @memberof Button.props
      * @prop {String} size          - normal, large or small button
      */
-    size: React.PropTypes.string
+    size: React.PropTypes.string,
+    /**
+     * @memberof Button.props
+     * @prop {Func} onClick         - function called after pressing link
+     */
+    onClick: React.PropTypes.func,
+    /**
+     * @memberof Button.props
+     * @prop {Boolean} loading      - should the Button show a loading indicator?
+     */
+    loading: React.PropTypes.bool
 };
 
 export default Button;
