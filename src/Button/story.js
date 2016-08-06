@@ -27,7 +27,7 @@ storiesOf('Button', module)
     )
     .addWithInfo(
         'Button Secondary',
-        'General button without specific properties',
+        'General button with type secondary',
         () => (
             <Button
                 type='secondary'
@@ -41,12 +41,44 @@ storiesOf('Button', module)
         }
     )
     .addWithInfo(
+        'Button Ghost Primary',
+        'General button with ghost and primary style',
+        () => (
+            <Button
+                type='primary'
+                style='ghost'
+            >
+                {'Abschicken'}
+            </Button>
+        ), {
+            source: true,
+            inline: true,
+            propTables: [Button]
+        }
+    )
+    .addWithInfo(
         'Button Primary as usual link',
-        'General button without specific properties',
+        'Primary button with link tag',
         () => (
             <Button
                 type='primary'
                 tag='a'
+            >
+                {'Abschicken'}
+            </Button>
+        ), {
+            source: true,
+            inline: true,
+            propTables: [Button]
+        }
+    )
+    .addWithInfo(
+        'Button Primary deactivated',
+        'Deactivated button',
+        () => (
+            <Button
+                type='primary'
+                deactivated
             >
                 {'Abschicken'}
             </Button>

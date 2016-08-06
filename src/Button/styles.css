@@ -1,6 +1,9 @@
+/**
+ * Basic button style
+ */
 .button {
     background-image: none;
-    border: none;
+    border: 1px solid;
     cursor: pointer;
     display: inline-block;
     font-weight: 300;
@@ -15,17 +18,47 @@
     vertical-align: middle;
     white-space: nowrap;
 }
+
+/**
+ * Types for the button
+ */
 .primary {
     background-color: #ef233c;
+    border-color: #ef233c;
     color: #FFF;
 }
 .primary:hover {
     background-color: #d00f27;
+    border-color: #d00f27;
 }
-
 .secondary {
     background-color: #bfbfbf;
+    border-color: #bfbfbf;
     color: #FFF;
 }
 .secondary:hover {
+}
+
+/**
+ * Styles for the button
+ */
+.ghost {
+    background: none;
+}
+.ghost.primary {
+    color: #ef233c;
+}
+.ghost.primary:hover {
+    color: #FFF;
+}
+.ghost.secondary {
+    color: #bfbfbf;
+}
+.ghost.secondary:hover {
+}
+
+
+.deactivated {
+    cursor: not-allowed;
+    opacity: .65;
 }

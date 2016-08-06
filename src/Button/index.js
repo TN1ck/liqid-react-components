@@ -16,7 +16,9 @@ class Button extends React.Component {
     render () {
         const buttonStyles = classNames(styles.button, {
             [styles.primary]: this.props.type === 'primary' || !this.props.type,
-            [styles.secondary]: this.props.type === 'secondary'
+            [styles.secondary]: this.props.type === 'secondary',
+            [styles.ghost]: this.props.style === 'ghost',
+            [styles.deactivated]: this.props.deactivated
         }, this.props.className);
         return (
             <div
@@ -41,9 +43,19 @@ Button.propTypes = {
     type: React.PropTypes.string,
     /**
      * @memberof Button.props
-     * @prop {String} tag           - the tag of the button (for example a for link ..)
+     * @prop {String} tag           - the tag of the button (for example a link ..)
      */
-    tag: React.PropTypes.string
+    tag: React.PropTypes.string,
+    /**
+     * @memberof Button.props
+     * @prop {String} style         - the style of the button
+     */
+    style: React.PropTypes.string,
+    /**
+     * @memberof Button.props
+     * @prop {String} deactivated   - should the button be deactivated?
+     */
+    deactivated: React.PropTypes.bool
 };
 
 export default Button;
