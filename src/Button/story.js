@@ -13,12 +13,24 @@ setAddon(infoAddon);
 
 storiesOf('Button', module)
     .addWithInfo(
-        'Button Primary',
-        'General button without specific properties',
+        'Button: General types',
+        'General button with different types',
         () => (
-            <Button>
-                {'Abschicken'}
-            </Button>
+            <div>
+                <Button>
+                    {'Abschicken'}
+                </Button>
+                <Button
+                    type='secondary'
+                >
+                    {'Abschicken'}
+                </Button>
+                <Button
+                    type='link'
+                >
+                    {'Abschicken'}
+                </Button>
+            </div>
         ), {
             source: true,
             inline: true,
@@ -26,23 +38,8 @@ storiesOf('Button', module)
         }
     )
     .addWithInfo(
-        'Button Secondary',
-        'General button with type secondary',
-        () => (
-            <Button
-                type='secondary'
-            >
-                {'Abschicken'}
-            </Button>
-        ), {
-            source: true,
-            inline: true,
-            propTables: [Button]
-        }
-    )
-    .addWithInfo(
-        'Button outlined',
-        'General buttons with outline',
+        'Button: Outlined',
+        'Buttons with outline instead of being filled',
         () => (
             <div>
                 <Button
@@ -63,8 +60,8 @@ storiesOf('Button', module)
         }
     )
     .addWithInfo(
-        'Button Primary with different tags',
-        'Primary button with link tag',
+        'Button: Tags',
+        'The button can be used with different tags to use it in different situations.',
         () => (
             <div>
                 <Button
@@ -79,6 +76,12 @@ storiesOf('Button', module)
                 >
                     {'Abschicken'}
                 </Button>
+                <Button
+                    type='primary'
+                    tag='submit'
+                >
+                    {'Abschicken'}
+                </Button>
             </div>
         ), {
             source: true,
@@ -87,28 +90,59 @@ storiesOf('Button', module)
         }
     )
     .addWithInfo(
-        'Button deactivated',
+        'Button: Deactivated',
         'Deactivated buttons',
         () => (
             <div>
-            <Button
-                type='primary'
-                deactivated
-            >
-                {'Abschicken'}
-            </Button>
-            <Button
-                type='primaryOutlined'
-                deactivated
-            >
-                {'Abschicken'}
-            </Button>
-            <Button
-                type='secondary'
-                deactivated
-            >
-                {'Abschicken'}
-            </Button>
+                <Button
+                    type='primary'
+                    deactivated
+                >
+                    {'Abschicken'}
+                </Button>
+                <Button
+                    type='primaryOutlined'
+                    deactivated
+                >
+                    {'Abschicken'}
+                </Button>
+                <Button
+                    type='secondary'
+                    deactivated
+                >
+                    {'Abschicken'}
+                </Button>
+                <Button
+                    type='secondaryOutlined'
+                    deactivated
+                >
+                    {'Abschicken'}
+                </Button>
+            </div>
+        ), {
+            source: true,
+            inline: true,
+            propTables: [Button]
+        }
+    )
+    .addWithInfo(
+        'Button: Sizes',
+        'Three sizes are available - small, regular, large',
+        () => (
+            <div>
+                <Button>
+                    {'Abschicken'}
+                </Button>
+                <Button
+                    small
+                >
+                    {'Abschicken'}
+                </Button>
+                <Button
+                    large
+                >
+                    {'Abschicken'}
+                </Button>
             </div>
         ), {
             source: true,
