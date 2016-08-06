@@ -41,15 +41,21 @@ storiesOf('Button', module)
         }
     )
     .addWithInfo(
-        'Button Ghost Primary',
-        'General button with ghost and primary style',
+        'Button outlined',
+        'General buttons with outline',
         () => (
-            <Button
-                type='primary'
-                style='ghost'
-            >
-                {'Abschicken'}
-            </Button>
+            <div>
+                <Button
+                    type='primaryOutlined'
+                >
+                    {'Abschicken'}
+                </Button>
+                <Button
+                    type='secondaryOutlined'
+                >
+                    {'Abschicken'}
+                </Button>
+            </div>
         ), {
             source: true,
             inline: true,
@@ -57,15 +63,23 @@ storiesOf('Button', module)
         }
     )
     .addWithInfo(
-        'Button Primary as usual link',
+        'Button Primary with different tags',
         'Primary button with link tag',
         () => (
-            <Button
-                type='primary'
-                tag='a'
-            >
-                {'Abschicken'}
-            </Button>
+            <div>
+                <Button
+                    type='primary'
+                    tag='a'
+                >
+                    {'Abschicken'}
+                </Button>
+                <Button
+                    type='primary'
+                    tag='button'
+                >
+                    {'Abschicken'}
+                </Button>
+            </div>
         ), {
             source: true,
             inline: true,
@@ -73,15 +87,29 @@ storiesOf('Button', module)
         }
     )
     .addWithInfo(
-        'Button Primary deactivated',
-        'Deactivated button',
+        'Button deactivated',
+        'Deactivated buttons',
         () => (
+            <div>
             <Button
                 type='primary'
                 deactivated
             >
                 {'Abschicken'}
             </Button>
+            <Button
+                type='primaryOutlined'
+                deactivated
+            >
+                {'Abschicken'}
+            </Button>
+            <Button
+                type='secondary'
+                deactivated
+            >
+                {'Abschicken'}
+            </Button>
+            </div>
         ), {
             source: true,
             inline: true,
