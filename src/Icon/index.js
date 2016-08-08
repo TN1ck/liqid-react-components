@@ -1,9 +1,7 @@
 import React from 'react';
 
 import styles from './styles.css';
-import classNames from 'classnames';
-
-import leftArrow from './assets/icons/arrow-left.svg';
+import icons from './getIcons';
 
 /**
  * Class representing an Icon
@@ -12,9 +10,11 @@ import leftArrow from './assets/icons/arrow-left.svg';
  */
 class Icon extends React.Component {
     render () {
+        console.log(this.props.value);
         return (
             <div
-                dangerouslySetInnerHTML={{__html: leftArrow}}
+                className={styles.icon}
+                dangerouslySetInnerHTML={{__html: icons[this.props.value]}}
             />
         );
     }
