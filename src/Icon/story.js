@@ -18,7 +18,10 @@ storiesOf('Icon', module)
         () => (
             <div>
                 <Icon
-                    value='leftArrow'
+                    value='arrowLeft'
+                />
+                <Icon
+                    value='arrowRight'
                 />
             </div>
         ), {
