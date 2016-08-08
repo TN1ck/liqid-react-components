@@ -10,7 +10,6 @@ import icons from './getIcons';
  */
 class Icon extends React.Component {
     render () {
-        console.log(this.props.value);
         return (
             <div
                 className={styles.icon}
