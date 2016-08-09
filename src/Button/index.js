@@ -1,5 +1,6 @@
 import React from 'react';
 
+import CSSModules from 'react-css-modules';
 import styles from './styles.css';
 import classNames from 'classnames';
 
@@ -18,7 +19,7 @@ class Button extends React.Component {
             <button
                 type='button'
                 onClick={this.props.onClick}
-                className={buttonStyles}
+                styleName={buttonStyles}
             >
                 {this.props.children}
             </button>
@@ -30,7 +31,7 @@ class Button extends React.Component {
                 type='submit'
                 onClick={this.props.onClick}
                 value={this.props.children}
-                className={buttonStyles}
+                styleName={buttonStyles}
             />
         );
     }
@@ -39,30 +40,28 @@ class Button extends React.Component {
             <a
                 onClick={this.props.onClick}
                 href={this.props.href}
-                className={buttonStyles}
+                styleName={buttonStyles}
             >
                 {this.props.children}
             </a>
         );
     }
     render () {
-        const buttonStyles = classNames(styles.button, {
+        const buttonStyles = classNames({
             // types
-            [styles.primary]: this.props.type === 'primary' || !this.props.type,
-            [styles.primaryOutlined]: this.props.type === 'primaryOutlined',
-            [styles.secondary]: this.props.type === 'secondary',
-            [styles.secondaryOutlined]: this.props.type === 'secondaryOutlined',
-            [styles.link]: this.props.type === 'link',
+            'primary': this.props.type === 'primary' || !this.props.type,
+            'primary-outlined': this.props.type === 'primaryOutlined',
+            'secondary': this.props.type === 'secondary',
+            'secondary-outlined': this.props.type === 'secondaryOutlined',
+            'link': this.props.type === 'link',
 
             // deactivated
-            [styles.deactivated]: this.props.deactivated,
+            'deactivated': this.props.deactivated,
 
             // sizes
-            [styles.small]: this.props.small,
-            [styles.large]: this.props.large
-        },
-            this.props.className
-        );
+            'small': this.props.small,
+            'large': this.props.large
+        });
 
         if (this.props.tag === 'a') {
             return this.createLink(buttonStyles);
@@ -76,7 +75,7 @@ class Button extends React.Component {
         return (
             <div
                 onClick={this.props.onClick}
-                className={buttonStyles}
+                styleName={buttonStyles}
             >
                 {this.props.children}
             </div>
@@ -121,6 +120,8 @@ Button.propTypes = {
      */
     loading: React.PropTypes.bool
 };
+
+Button = CSSModules(Button, styles, {allowMultiple: true});
 
 export default Button;
 export { Button };

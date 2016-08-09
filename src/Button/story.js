@@ -1,6 +1,7 @@
 import React from 'react';
 import {
-    Button
+    Button,
+    Icon
 } from '../index.js';
 
 import {
@@ -173,6 +174,22 @@ storiesOf('Button', module)
         () => (
             <div>
                 <Button loading>
+                    {'Abschicken'}
+                </Button>
+            </div>
+        ), {
+            source: true,
+            inline: true,
+            propTables: [Button]
+        }
+    )
+    .addWithInfo(
+        'Button: With Icon',
+        'Show a button with icons using the Icon component',
+        () => (
+            <div>
+                <Button loading>
+                    <Icon value='arrowLeft' />
                     {'Abschicken'}
                 </Button>
             </div>
