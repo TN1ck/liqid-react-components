@@ -1,5 +1,6 @@
 /**
  * Basic button style
+ * only used to compose new buttons
  */
 .button {
     background-image: none;
@@ -23,26 +24,22 @@
     outline: none;
 }
 
-.small {
-    padding: 3px 15px;
-}
-.large {
-    padding: 8px 30px;
-}
-
 /**
  * Types for the button
  */
 .primary {
+    composes: button;
     background-color: #ef233c;
     border-color: #ef233c;
     color: #FFF;
+    fill: #FFF;
 }
 .primary:hover {
     background-color: #d00f27;
     border-color: #d00f27;
 }
 .secondary {
+    composes: button;
     background-color: #6290c3;
     border-color: #6290c3;
     color: #FFF;
@@ -51,23 +48,26 @@
     background-color: #4376af;
     border-color: #4376af;
 }
-.primaryOutlined {
+.primary-outlined {
+    composes: button;
     color: #ef233c;
 }
-.primaryOutlined:hover {
+.primary-outlined:hover {
     background-color: #d00f27;
     border-color: #d00f27;
     color: #FFF;
 }
-.secondaryOutlined {
+.secondary-outlined {
+    composes: button;
     color: #6290c3;
 }
-.secondaryOutlined:hover {
+.secondary-outlined:hover {
     background-color: #4376af;
     border-color: #4376af;
     color: #FFF;
 }
 .link {
+    composes: button;
     background: none;
     border: none;
     color: #ef233c;
@@ -77,6 +77,12 @@
 }
 
 
+.small {
+    padding: 3px 15px;
+}
+.large {
+    padding: 8px 30px;
+}
 .deactivated {
     cursor: not-allowed;
     opacity: .65;
@@ -85,7 +91,12 @@
     background-color: #ef233c;
     border-color: #ef233c;
 }
-.deactivated.primaryOutlined:hover {
+.deactivated.primary-outlined:hover {
+    background: none;
+    border-color: #ef233c;
+    color: #ef233c;
+}
+.deactivated.secondary-outlined:hover {
     background: none;
     border-color: #ef233c;
     color: #ef233c;
@@ -94,7 +105,7 @@
     background-color: #6290c3;
     border-color: #6290c3;
 }
-.deactivated.secondaryOutlined:hover {
+.deactivated.secondary-outlined:hover {
     background: none;
     border-color: #6290c3;
     color: #6290c3;

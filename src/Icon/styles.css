@@ -1,3 +1,5 @@
 .icon {
-    width: 20px;
+    display: inline-block;
+    width: 10px;
 }
+.icon svg {}
