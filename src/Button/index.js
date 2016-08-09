@@ -3,6 +3,9 @@ import React from 'react';
 import CSSModules from 'react-css-modules';
 import styles from './styles.css';
 import classNames from 'classnames';
+import _ from 'lodash';
+
+import Icon from '../Icon';
 
 /**
  * Class representing a Button in different variations.
@@ -13,15 +16,20 @@ import classNames from 'classnames';
 class Button extends React.Component {
     constructor (props) {
         super(props);
+
+        this.createWithButtonTag = this.createWithButtonTag.bind(this);
+        this.createAsSubmit = this.createAsSubmit.bind(this);
+        this.createLink = this.createWithButtonTag.bind(this);
+        this.createAsDiv = this.createAsDiv.bind(this);
     }
-    createWithButtonTag (buttonStyles) {
+    createWithButtonTag (buttonStyles, content) {
         return (
             <button
                 type='button'
                 onClick={this.props.onClick}
                 styleName={buttonStyles}
             >
-                {this.props.children}
+                {content}
             </button>
         );
     }
@@ -35,51 +43,60 @@ class Button extends React.Component {
             />
         );
     }
-    createLink (buttonStyles) {
+    createLink (buttonStyles, content) {
         return (
             <a
                 onClick={this.props.onClick}
                 href={this.props.href}
                 styleName={buttonStyles}
             >
-                {this.props.children}
+                {content}
             </a>
         );
     }
-    render () {
-        const buttonStyles = classNames({
-            // types
-            'primary': this.props.type === 'primary' || !this.props.type,
-            'primary-outlined': this.props.type === 'primaryOutlined',
-            'secondary': this.props.type === 'secondary',
-            'secondary-outlined': this.props.type === 'secondaryOutlined',
-            'link': this.props.type === 'link',
-
-            // deactivated
-            'deactivated': this.props.deactivated,
-
-            // sizes
-            'small': this.props.small,
-            'large': this.props.large
-        });
-
-        if (this.props.tag === 'a') {
-            return this.createLink(buttonStyles);
-        }
-        if (this.props.tag === 'button') {
-            return this.createWithButtonTag(buttonStyles);
-        }
-        if (this.props.tag === 'submit') {
-            return this.createAsSubmit(buttonStyles);
-        }
+    createAsDiv (buttonStyles, content) {
         return (
             <div
                 onClick={this.props.onClick}
                 styleName={buttonStyles}
             >
-                {this.props.children}
+                {content}
             </div>
         );
+    }
+    render () {
+        const type = this.props.type || 'primary';
+        const buttonStyles = classNames({
+            [_.kebabCase(type)]: type,
+            // deactivated
+            'deactivated': this.props.deactivated,
+            // sizes
+            'small': this.props.small,
+            'large': this.props.large
+        });
+
+        const tagFunctions = {
+            'a': this.createLink,
+            'button': this.createWithButtonTag,
+            'submit': this.createAsSubmit,
+            'div': this.createAsDiv
+        };
+        const tag = this.props.tag || 'div';
+
+        let icon;
+        if (this.props.icon) {
+            icon = (
+                <Icon
+                    value={this.props.icon}
+                />
+            );
+        }
+
+        let content = [icon, this.props.children];
+        if (this.props.iconPosition === 'right') {
+            content = _.reverse(content);
+        }
+        return tagFunctions[tag](buttonStyles, content);
     }
 }
 
