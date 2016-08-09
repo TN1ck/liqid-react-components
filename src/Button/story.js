@@ -1,7 +1,6 @@
 import React from 'react';
 import {
-    Button,
-    Icon
+    Button
 } from '../index.js';
 
 import {
@@ -188,9 +187,18 @@ storiesOf('Button', module)
         'Show a button with icons using the Icon component',
         () => (
             <div>
-                <Button loading>
-                    <Icon value='arrowLeft' />
-                    {'Abschicken'}
+                <Button
+                    loading
+                    icon='arrowLeft'
+                >
+                    {'Back'}
+                </Button>
+                <Button
+                    loading
+                    icon='arrowRight'
+                    iconPosition='right'
+                >
+                    {'Next'}
                 </Button>
             </div>
         ), {
