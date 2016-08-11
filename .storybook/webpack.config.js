@@ -20,11 +20,6 @@ var config = {
                 test: /\.js$/,
                 loader: 'eslint-loader',
                 exclude: /node_modules/
-            },
-            {
-                test: /\.css$/,
-                loader: 'csslint?failOnWarning=false',
-                exclude: /node_modules/
             }
         ],
     }
