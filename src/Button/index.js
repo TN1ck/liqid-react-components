@@ -68,8 +68,10 @@ class Button extends React.Component {
         const type = this.props.type || 'primary';
         const buttonStyles = classNames({
             [_.kebabCase(type)]: type,
+
             // deactivated
             'deactivated': this.props.deactivated,
+
             // sizes
             'small': this.props.small,
             'large': this.props.large
