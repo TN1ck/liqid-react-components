@@ -54,6 +54,7 @@
     "file-loader": "^0.8.4",
     "jsdom": "^8.3.1",
     "mocha": "^2.4.5",
+    "node-sass": "3.8.0",
     "postcss": "^5.1.1",
     "postcss-browser-reporter": "^0.5.0",
     "postcss-color-rebeccapurple": "^1.1.0",
