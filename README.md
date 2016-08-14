@@ -7,7 +7,7 @@ Library of reusable components we use.
 * Just add following to your package.json:
 
 ```
-"liqid-components": "https://github.com/LIQIDTechnology/liqid-react-components.git"
+"liqid-react-components": "https://github.com/LIQIDTechnology/liqid-react-components.git"
 ```
 
 * Just find the component you want to add and include it like this:
@@ -16,7 +16,7 @@ Library of reusable components we use.
 const {
     Select,
     SelectItem
-} = require('liqid-components');
+} = require('liqid-react-components');
 ```
 
 ## Setup & Integration
