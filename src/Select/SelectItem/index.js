@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import styles from '../styles.css';
+import styles from '../styles.scss';
 
 /**
  * Class represeting a single SeletItem

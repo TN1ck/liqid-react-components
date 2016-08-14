@@ -1,7 +1,7 @@
 import React from 'react';
 
 import CSSModules from 'react-css-modules';
-import styles from './styles.css';
+import styles from './styles.scss';
 import classNames from 'classnames';
 import _ from 'lodash';
 
@@ -70,18 +70,18 @@ class Button extends React.Component {
             [_.kebabCase(type)]: type,
 
             // deactivated
-            'deactivated': this.props.deactivated,
+            deactivated: this.props.deactivated,
 
             // sizes
-            'small': this.props.small,
-            'large': this.props.large
+            small: this.props.small,
+            large: this.props.large
         });
 
         const tagFunctions = {
-            'a': this.createLink,
-            'button': this.createWithButtonTag,
-            'submit': this.createAsSubmit,
-            'div': this.createAsDiv
+            a: this.createLink,
+            button: this.createWithButtonTag,
+            submit: this.createAsSubmit,
+            div: this.createAsDiv
         };
         const tag = this.props.tag || 'div';
 

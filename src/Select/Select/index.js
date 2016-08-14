@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import SelectItem from '../SelectItem';
 import ReactDom from 'react-dom';
 
-import styles from '../styles.css';
+import styles from '../styles.scss';
 
 let noMouseTimeout;
 
