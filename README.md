@@ -1,4 +1,4 @@
-LIQID Components
+LIQID React Components
 ============
 
 Library of reusable components we use.
