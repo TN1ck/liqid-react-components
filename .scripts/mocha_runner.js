@@ -1,10 +1,14 @@
 require('babel-core/register');
 require('babel-polyfill');
-require('css-modules-require-hook')({
+var sass = require('node-sass')
+var hook = require('css-modules-require-hook')({
+  extensions: [ '.scss' ],
+  preprocessCss: data => sass.renderSync({ data }).css,
   generateScopedName: function(exportedName, path) {
     return exportedName;
   }
 });
+
 
 var jsdom = require('jsdom').jsdom;
 
