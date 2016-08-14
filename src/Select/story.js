@@ -86,8 +86,7 @@ storiesOf('Select', module)
             <Select
                 defaultValue={'test'}
             >
-                <SelectItem value={''}>
-                </SelectItem>
+                <SelectItem value={''} />
                 <SelectItem value={'test'} disabled>
                     {'Test'}
                 </SelectItem>
@@ -130,8 +129,7 @@ storiesOf('Select', module)
             <Select
                 disabled
                 defaultValue={'test'}
-            >
-            </Select>
+            />
         ), {
             source: true,
             inline: true,

@@ -4,7 +4,7 @@ import SelectItem from '../SelectItem';
 import ReactDom from 'react-dom';
 import _ from 'lodash';
 
-import styles from '../styles.css';
+import styles from '../styles.scss';
 
 let noMouseTimeout;
 

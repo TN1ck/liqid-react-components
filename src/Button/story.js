@@ -156,7 +156,7 @@ storiesOf('Button', module)
         () => (
             <div>
                 <Button
-                    onClick={() => alert('hi')}
+                    onClick={function () { alert('hi');}} // eslint-disable-line no-alert
                 >
                     {'Abschicken'}
                 </Button>
