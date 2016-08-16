@@ -1,0 +1,11 @@
+/**
+ * Basic spinner style
+ */
+.spinner {
+    background-color: yellow;
+}
+
+.normal {
+    composes: spinner;
+    height: 100px;
+}
