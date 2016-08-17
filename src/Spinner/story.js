@@ -1,6 +1,8 @@
 import React from 'react';
+import _ from 'lodash';
 import {
-    Spinner
+    Spinner,
+    Loader
 } from '../index.js';
 
 import {
@@ -17,11 +19,7 @@ storiesOf('Spinner', module)
         'Spinner description',
         () => (
             <div>
-                <Spinner
-                    type='color'
-                    color
-                >
-                </Spinner>
+                <Spinner />
             </div>
         ), {
             source: true,

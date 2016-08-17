@@ -1,7 +1,7 @@
 import React from 'react';
 
 import CSSModules from 'react-css-modules';
-import styles from './styles.css';
+import styles from '../styles.css';
 import classNames from 'classnames';
 import _ from 'lodash';
 
@@ -15,6 +15,8 @@ class Spinner extends React.Component {
         super(props);
         // this.createAsDiv = this.createAsDiv.bind(this);
         console.log('log from constructor');
+
+        // this.correctCenter = this.correctCenter.bind(this);
     }
 
     render () {
@@ -22,26 +24,24 @@ class Spinner extends React.Component {
         const spinnerStyles = classNames({
             [_.kebabCase(type)]: type,
 
-            // deactivated
-            'color': this.props.color
+            'spinner': true,
+            // 'spinner--correct': this.props.correctCenter,
+            'spinner--long-delay': this.props.longDelay
         });
 
         let content = this.props.children;
 
         return (
-            <div styleName={spinnerStyles}></div>
+            <div styleName={spinnerStyles}>
+                <div styleName='spinner__inner'></div>
+            </div>
         );
     }
 }
 
 Spinner.propTypes = {
-    type: React.PropTypes.string,
-
-    /**
-     * @memberof Button.props
-     * @prop {Boolean} deactivated  - should the button be deactivated?
-     */
-    color: React.PropTypes.bool
+    correctCenter: React.PropTypes.bool,
+    longDelay: React.PropTypes.bool
 };
 
 Spinner.defaultProps = {
