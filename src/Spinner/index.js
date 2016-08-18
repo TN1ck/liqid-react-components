@@ -1,7 +1,7 @@
 import React from 'react';
 
 import CSSModules from 'react-css-modules';
-import styles from '../styles.css';
+import styles from './styles.css';
 import classNames from 'classnames';
 import _ from 'lodash';
 
@@ -26,8 +26,8 @@ class Spinner extends React.Component {
         });
 
         return (
-            <div styleName={spinnerStyles} key='one'>
-                <div styleName='spinner__inner'></div>
+            <div styleName={spinnerStyles}>
+                <div className='spinner__inner'></div>
             </div>
         );
     }
