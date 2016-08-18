@@ -86,13 +86,38 @@ storiesOf('Loader', module)
         }
     )
     .addWithInfo(
-        'NewSpinner: Small',
-        'NewSpinner standing alone',
+        'NewLoader: Small - Alone',
+        'NewLoader standing alone',
         () => (
                 <NewLoader
                     loading
                     small
+                />
+        ), {
+            source: true,
+            inline: true,
+            propTables: [Spinner]
+        }
+    )
+    .addWithInfo(
+        'NewLoader: Big - Alone',
+        'NewLoader standing alone',
+        () => (
+                <NewLoader loading />
+        ), {
+            source: true,
+            inline: true,
+            propTables: [Spinner]
+        }
+    )
+    .addWithInfo(
+        'NewLoader: Big - Wrapper',
+        'NewLoader as Wrapper',
+        () => (
+                <NewLoader
+                    loading
                 >
+                    Content
                 </NewLoader>
         ), {
             source: true,
@@ -101,27 +126,14 @@ storiesOf('Loader', module)
         }
     )
     .addWithInfo(
-        'NewSpinner: Inline',
-        'NewSpinner standing alone',
+        'NewLoader: Inline - Wrapper',
+        'Inline Loader standing alone',
         () => (
                 <NewLoader
                     loading
                     inline
                 >
-                </NewLoader>
-        ), {
-            source: true,
-            inline: true,
-            propTables: [Spinner]
-        }
-    )
-    .addWithInfo(
-        'NewSpinner: Big as Wrapper',
-        'NewSpinner standing alone',
-        () => (
-                <NewLoader
-                    loading
-                >
+                    Content
                 </NewLoader>
         ), {
             source: true,

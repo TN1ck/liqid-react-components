@@ -3,7 +3,6 @@
  * If the component is in loading state, an animated css-loader will be shown instead of the content.
  */
 import React from 'react';
-import styles from '../styles.css';
 
 import BigLoader from '../BigLoader';
 import SmallLoader from '../SmallLoader';
@@ -36,25 +35,32 @@ class NewLoader extends React.Component {
 
     getInlineLoader () {
         return (
-            <InlineLoader loading={this.props.loading} />
+            <InlineLoader loading={this.props.loading}>
+                {this.props.children}
+            </InlineLoader>
         );
     }
 
     getLoader () {
         return (
-            <Loader loading={this.props.loading} />
+            <Loader loading={this.props.loading}>
+                {this.props.children}
+            </Loader>
         );
     }
 
     render () {
-        if (this.props.loading && this.props.big) {
+        if (this.props.loading && this.props.big && this.props.children) {
             this.loader = this.getLoader();
+        }
+        if (this.props.inline && this.props.loading && this.props.children) {
+            this.loader = this.getInlineLoader();
         }
         if (this.props.small && this.props.loading) {
             this.loader = this.getSmallLoader();
         }
-        if (this.props.inline && this.props.loading) {
-            this.loader = this.getInlineLoader();
+        if (!this.props.small && this.props.loading) {
+            this.loader = this.getBigLoader();
         }
 
         return (
