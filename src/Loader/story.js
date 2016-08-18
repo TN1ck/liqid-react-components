@@ -3,7 +3,10 @@ import _ from 'lodash';
 import {
     Spinner,
     Loader,
-    BigLoader
+    BigLoader,
+    SmallLoader,
+    InlineLoader,
+    NewLoader
 } from '../index.js';
 
 import {
@@ -16,16 +19,12 @@ setAddon(infoAddon);
 
 storiesOf('Loader', module)
     .addWithInfo(
-        'Loader: Loader Wrapper Loading',
-        'Loader in loading state',
+        'BigLoader',
+        'BigLoader in loading state',
         () => (
-            <div>
-                <Loader
-                    loading
-                >
-                    WrapperBigLoader
-                </Loader>
-            </div>
+            <BigLoader
+                loading
+            />
         ), {
             source: true,
             inline: true,
@@ -33,17 +32,68 @@ storiesOf('Loader', module)
         }
     )
     .addWithInfo(
-        'Loader: InlineLoader Wrapper Loading',
-        'InlineLoader in loading state',
+        'Loader',
+        'Loader in loading state',
         () => (
-            <div>
-                <Loader
+            <Loader
+                loading
+            >
+                <div>
+                    Content
+                </div>
+            </Loader>
+        ), {
+            source: true,
+            inline: true,
+            propTables: [Spinner]
+        }
+    )
+    .addWithInfo(
+        'SmallLoader',
+        'SmallLoader in loading state',
+        () => (
+            <SmallLoader
+                loading
+            />
+        ), {
+            source: true,
+            inline: true,
+            propTables: [Spinner]
+        }
+    )
+    .addWithInfo(
+        'Spinner',
+        'Spinner standing alone',
+        () => (
+                <Spinner
+                    loading
+                />
+        ), {
+            source: true,
+            inline: true,
+            propTables: [Spinner]
+        }
+    )
+    .addWithInfo(
+        'InlineLoader',
+        'InlineLoader',
+        () => (
+                <InlineLoader loading />
+        ), {
+            source: true,
+            inline: true,
+            propTables: [Spinner]
+        }
+    )
+    .addWithInfo(
+        'NewSpinner: Small',
+        'NewSpinner standing alone',
+        () => (
+                <NewLoader
                     loading
                     small
                 >
-                    Wrapper: Inline Loader
-                </Loader>
-            </div>
+                </NewLoader>
         ), {
             source: true,
             inline: true,
@@ -51,15 +101,14 @@ storiesOf('Loader', module)
         }
     )
     .addWithInfo(
-        'Loader: Big Loader Alone',
-        'Big Loader standing alone',
+        'NewSpinner: Inline',
+        'NewSpinner standing alone',
         () => (
-            <div>
-                <Loader
+                <NewLoader
                     loading
-                    alone
-                />
-            </div>
+                    inline
+                >
+                </NewLoader>
         ), {
             source: true,
             inline: true,
@@ -67,31 +116,13 @@ storiesOf('Loader', module)
         }
     )
     .addWithInfo(
-        'Loader: Small Loader Alone',
-        'Small standing alone',
+        'NewSpinner: Big as Wrapper',
+        'NewSpinner standing alone',
         () => (
-                <div>
-                    <Loader
-                        loading
-                        small
-                        alone
-                    />
-                </div>
-        ), {
-            source: true,
-            inline: true,
-            propTables: [Spinner]
-        }
-    )
-    .addWithInfo(
-        'BigLoader: BigLoader',
-        'BigLoader standing alone',
-        () => (
-                <div>
-                    <BigLoader
-                        loading
-                    />
-                </div>
+                <NewLoader
+                    loading
+                >
+                </NewLoader>
         ), {
             source: true,
             inline: true,

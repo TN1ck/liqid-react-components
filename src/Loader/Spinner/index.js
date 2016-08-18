@@ -41,4 +41,4 @@ Spinner.propTypes = {
 Spinner = CSSModules(Spinner, styles, {allowMultiple: true});
 
 export default Spinner;
-export { Spinner };
+export { Spinner as Spinner };
