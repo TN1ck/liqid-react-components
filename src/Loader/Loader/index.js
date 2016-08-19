@@ -104,4 +104,5 @@ Loader.defaultProps = {
 
 Loader = CSSModules(Loader, styles, {allowMultiple: true});
 
+export default Loader;
 export { Loader as Loader };

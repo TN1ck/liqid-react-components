@@ -117,7 +117,7 @@ storiesOf('Loader', module)
                 <NewLoader
                     loading
                 >
-                    Content
+                    <div>Content</div>
                 </NewLoader>
         ), {
             source: true,
@@ -133,7 +133,7 @@ storiesOf('Loader', module)
                     loading
                     inline
                 >
-                    Content
+                    <div>Content</div>
                 </NewLoader>
         ), {
             source: true,

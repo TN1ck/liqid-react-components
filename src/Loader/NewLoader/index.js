@@ -74,8 +74,9 @@ class NewLoader extends React.Component {
 NewLoader.propTypes = {
     loading: React.PropTypes.bool,
     small: React.PropTypes.bool,
+    big: React.PropTypes.bool,
     inline: React.PropTypes.bool
 };
 
-
+export default NewLoader;
 export { NewLoader as NewLoader };

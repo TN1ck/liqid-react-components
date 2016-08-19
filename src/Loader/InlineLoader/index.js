@@ -14,7 +14,7 @@ class InlineLoader extends React.Component {
         super(props);
     }
 
-    spinner () {
+    createSpinner () {
         const spinnerClasses = classNames('sk-three-bounce', {
             'sk-three-bounce--absolute': this.props.absolute
         });
@@ -36,7 +36,7 @@ class InlineLoader extends React.Component {
             );
         } else {
             elements.push(
-                this.spinner()
+                this.createSpinner()
             );
         }
 
@@ -67,4 +67,5 @@ InlineLoader.propTypes = {
 
 InlineLoader = CSSModules(InlineLoader, styles, {allowMultiple: true});
 
+export default InlineLoader;
 export { InlineLoader as InlineLoader };

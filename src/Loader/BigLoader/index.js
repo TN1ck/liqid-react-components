@@ -34,4 +34,5 @@ BigLoader.propTypes = {
 
 BigLoader = CSSModules(BigLoader, styles, {allowMultiple: true});
 
+export default BigLoader;
 export { BigLoader as BigLoader};
