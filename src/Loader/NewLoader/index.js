@@ -10,7 +10,7 @@ import InlineLoader from '../InlineLoader';
 import Loader from '../Loader';
 
 /**
- * Class representing a NewLoader in different variations.
+ * Class representing a NewLoader.
  * The tag property allows the button to be used in various situations
  * @namespace NewLoader
  * @extends React.Component
@@ -29,7 +29,9 @@ class NewLoader extends React.Component {
 
     getSmallLoader () {
         return (
-            <SmallLoader loading={this.props.loading} />
+            <SmallLoader loading={this.props.loading}>
+                {this.props.children}
+            </SmallLoader>
         );
     }
 
@@ -50,16 +52,16 @@ class NewLoader extends React.Component {
     }
 
     render () {
-        if (this.props.loading && this.props.big && this.props.children) {
+        if (this.props.loading && this.props.children && !this.props.inline) {
             this.loader = this.getLoader();
         }
-        if (this.props.inline && this.props.loading && this.props.children) {
+        if (this.props.inline && this.props.loading) {
             this.loader = this.getInlineLoader();
         }
-        if (this.props.small && this.props.loading) {
+        if (this.props.small && this.props.loading && !this.props.inline) {
             this.loader = this.getSmallLoader();
         }
-        if (!this.props.small && this.props.loading) {
+        if (!this.props.small && this.props.loading && !this.props.inline && this.props.big) {
             this.loader = this.getBigLoader();
         }
 
@@ -71,11 +73,32 @@ class NewLoader extends React.Component {
     }
 }
 
+/**
+ * @memberof NewLoader
+ * @namespace props
+ * @prop {Object} propTypes         - the props that are passed to this component
+ */
 NewLoader.propTypes = {
-    loading: React.PropTypes.bool,
-    small: React.PropTypes.bool,
+    /**
+     * @memberof NewLoader.props
+     * @prop {Boolean} big          - show the big loading indicator
+     */
     big: React.PropTypes.bool,
-    inline: React.PropTypes.bool
+    /**
+     * @memberof NewLoader.props
+     * @prop {Boolean} inline       - should the loading indicator be used inline?
+     */
+    inline: React.PropTypes.bool,
+    /**
+     * @memberof NewLoader.props
+     * @prop {Boolean} loading      - toogle loading state
+     */
+    loading: React.PropTypes.bool,
+    /**
+     * @memberof NewLoader.props
+     * @prop {Boolean} small        - show the small loading indicatpr
+     */
+    small: React.PropTypes.bool
 };
 
 export default NewLoader;

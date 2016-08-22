@@ -6,7 +6,8 @@ import {
     BigLoader,
     SmallLoader,
     InlineLoader,
-    NewLoader
+    NewLoader,
+    Button
 } from '../index.js';
 
 import {
@@ -114,11 +115,11 @@ storiesOf('Loader', module)
         'NewLoader: Big - Wrapper',
         'NewLoader as Wrapper',
         () => (
-                <NewLoader
-                    loading
-                >
-                    <div>Content</div>
-                </NewLoader>
+            <NewLoader
+                loading
+            >
+                <div>Content</div>
+            </NewLoader>
         ), {
             source: true,
             inline: true,
@@ -129,12 +130,30 @@ storiesOf('Loader', module)
         'NewLoader: Inline - Wrapper',
         'Inline Loader standing alone',
         () => (
+            <NewLoader
+                loading
+                inline
+            >
+                {'Abschicken'}
+            </NewLoader>
+        ), {
+            source: true,
+            inline: true,
+            propTables: [Spinner]
+        }
+    )
+    .addWithInfo(
+        'NewLoader: Inline - BUTTON',
+        'Inline Loader standing alone',
+        () => (
+            <Button>
                 <NewLoader
                     loading
                     inline
                 >
-                    <div>Content</div>
+                    {'Abschicken'}
                 </NewLoader>
+            </Button>
         ), {
             source: true,
             inline: true,

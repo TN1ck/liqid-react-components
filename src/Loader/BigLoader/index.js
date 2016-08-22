@@ -5,34 +5,36 @@ import classNames from 'classnames';
 import Spinner from '../Spinner';
 
 /**
- * Class representing a BigLoader for Loader component
- * @namespace BigLoader
- * @extends React.Component
+ * Returns big standalone loading indicator or empty span-tag.
+ * @param {Boolean} props       - The employee who is responsible for the project.
+ * @return {Object} Loader      - The loading indicator.
  */
-class BigLoader extends React.Component {
-    constructor (props) {
-        super(props);
+function BigLoader (props) {
+    if (!props.loading) {
+        return <span></span>;
     }
 
-    render () {
-
-        if (!this.props.loading) {
-            return <span></span>;
-        }
-
-        return (
-            <div styleName={classNames('liq_loader', 'liq_loader--standalone')}>
-                <Spinner center />
-            </div>
-        );
-    }
+    return (
+        <div styleName={classNames('liq_loader', 'liq_loader--standalone')}>
+            <Spinner center />
+        </div>
+    );
 }
 
+/**
+ * @memberof BigLoader
+ * @namespace props
+ * @prop {Object} propTypes         - the props that are passed to this component
+ */
 BigLoader.propTypes = {
+    /**
+     * @memberof BigLoader.props
+     * @prop {Boolean} loading      - toogles loading state
+     */
     loading: React.PropTypes.bool
 };
 
-BigLoader = CSSModules(BigLoader, styles, {allowMultiple: true});
+const _BigLoader = CSSModules(BigLoader, styles, {allowMultiple: true});
 
-export default BigLoader;
-export { BigLoader as BigLoader};
+export default _BigLoader;
+export { _BigLoader as BigLoader};

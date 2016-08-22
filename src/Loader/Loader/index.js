@@ -85,14 +85,31 @@ class Loader extends React.Component {
     }
 }
 
+/**
+ * @memberof Loader
+ * @namespace props
+ * @prop {Object} propTypes         - the props that are passed to this component
+ */
 Loader.propTypes = {
-    // Toggle the loading state
+    /**
+     * @memberof NewLoader.props
+     * @prop {Boolean} big          - toogle the loading state
+     */
     loading: React.PropTypes.bool.isRequired,
-    // CSS value for float to const the loader float
+    /**
+     * @memberof NewLoader.props
+     * @prop {Boolean} big          - CSS value for float to const the loader float
+     */
     floatCSS: React.PropTypes.string,
-    // use the correct centering for the circle, looks better for small areas
+    /**
+     * @memberof NewLoader.props
+     * @prop {Boolean} big          - use the correct centering for the circle, looks better for small areas
+     */
     correctCenter: React.PropTypes.bool,
-    // long dealy
+    /**
+     * @memberof NewLoader.props
+     * @prop {Boolean} big          - use the correct centering for the circle, looks better for small areas
+     */
     longDelay: React.PropTypes.bool,
     // no spinner
     noSpinner: React.PropTypes.bool

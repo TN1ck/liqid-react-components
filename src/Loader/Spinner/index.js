@@ -3,42 +3,45 @@ import React from 'react';
 import CSSModules from 'react-css-modules';
 import styles from '../styles.css';
 import classNames from 'classnames';
-import _ from 'lodash';
 
 /**
- * Class representing a Spinners for Loader component
- * @namespace Spinner
- * @extends React.Component
+ * Spinner for the big loading indicators.
+ * @param {Boolean} props       - The employee who is responsible for the project.
+ * @return {Object} Object      - Spinner for the big loading indicators.
  */
-class Spinner extends React.Component {
-    constructor (props) {
-        super(props);
-    }
+function Spinner (props) {
+    const _classNames = classNames({
+        'spinner': true,
+        'spinner--correct': props.correctCenter,
+        'spinner--long-delay': props.longDelay
+    });
 
-    render () {
-        const type = this.props.type;
-        const spinnerStyles = classNames({
-            [_.kebabCase(type)]: type,
-
-            'spinner': true,
-            'spinner--correct': this.props.correctCenter,
-            'spinner--long-delay': this.props.longDelay
-        });
-
-        return (
-            <div styleName={spinnerStyles} key='one'>
-                <div styleName='spinner__inner'></div>
-            </div>
-        );
-    }
+    return (
+        <div styleName={_classNames} key='one'>
+            <div styleName='spinner__inner'></div>
+        </div>
+    );
 }
 
+/**
+ * @memberof Spinner
+ * @namespace props
+ * @prop {Object} propTypes                 - the props that are passed to this component
+ */
 Spinner.propTypes = {
+    /**
+     * @memberof Spinner.props
+     * @prop {Boolean} correctCenter        - use the correct centering for the circle, looks better for small areas
+     */
     correctCenter: React.PropTypes.bool,
+    /**
+     * @memberof Spinner.props
+     * @prop {Boolean} longDelay            - Should the loading indicator animation have a longer delay?
+     */
     longDelay: React.PropTypes.bool
 };
 
-Spinner = CSSModules(Spinner, styles, {allowMultiple: true});
+const _Spinner = CSSModules(Spinner, styles, {allowMultiple: true});
 
-export default Spinner;
-export { Spinner as Spinner };
+export default _Spinner;
+export { _Spinner as Spinner };
