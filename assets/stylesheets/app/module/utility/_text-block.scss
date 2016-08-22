@@ -1,0 +1,29 @@
+.liq_text-block {
+    font-size: $font-size-h4;
+    font-weight: $weight__light;
+
+    p {
+        margin: 5px 0;
+    }
+
+    @media (max-width: $screen-xs-max) {
+        font-size: 14px;
+        font-weight: $weight__semi-bold;
+        line-height: 21px;
+    }
+
+    &--larger-text {
+        font-size: 22px;
+        font-weight: $weight__light;
+
+        @media (max-width: $screen-xs-max) {
+            font-size: 16px;
+            font-weight: $weight__light;
+            line-height: 23px;
+        }
+    }
+
+    &--bottom-margin-default {
+        margin-bottom: 30px;
+    }
+}

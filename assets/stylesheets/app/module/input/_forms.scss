@@ -1,0 +1,30 @@
+.liq_optional-hidden-label {
+    top: 41px;
+    font-size: 11px;
+    font-weight: $weight__bold;
+    cursor: pointer;
+    padding-bottom: 1px;
+    margin-bottom: 30px;
+    transition: color 200ms ease;
+
+    &:hover, &:active, &:focus {
+        color: $brand-info;
+        padding-bottom: 0px;
+        border-bottom: 1px solid $brand-info;
+    }
+
+    &--active {
+        display: none;
+    }
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+    border-bottom: 2px solid #eee !important;
+}
+
+.liq_input__select {
+    label {
+        color: $brand-info;
+    }
+}

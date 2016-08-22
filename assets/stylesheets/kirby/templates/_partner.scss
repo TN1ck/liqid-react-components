@@ -1,0 +1,21 @@
+.liq_t_partner__section {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    border-bottom: 1px solid #eee;
+}
+
+.liq_t_partner__section:last-child {
+    border-bottom: none;
+}
+
+.liq_t_partner__logo {
+    max-width: 80%;
+    display: block;
+    margin: 50px auto;
+    max-height: 100px;
+    @media (min-width: $screen-sm-max) {
+      max-height: 200px;
+      margin: 100px auto 0;
+    }
+
+}

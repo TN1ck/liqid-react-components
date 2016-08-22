@@ -1,0 +1,83 @@
+.liq_md-table + table, .table-follows table {
+    @extend .table;
+    @extend .table-hover;
+    @extend .table-responsive;
+
+    @media print {
+        td {
+            padding: 60px;
+            line-height: 1.41803;
+        }
+    }
+}
+
+.liq_md-table--costs + table {
+    @media screen and (max-width: $screen-xs-max) {
+        &, tr, tbody {
+            display: block;
+        }
+
+        thead, th {
+            display: none;
+        }
+
+        tbody {
+            tr {
+                border-bottom: 1px solid transparent;
+                overflow: hidden;
+                // hate deep nesting, but just do it like twitter bootstrap to prevent it from overwriting our styles
+                td {
+                    border: none;
+                    float: left;
+                    width: 100%;
+                    white-space: normal;
+
+                    &:first-child {
+                        font-weight: $weight__normal;
+                        padding-top: 15px;
+                        padding-bottom: 5px;
+                        text-align: center;
+                        width: 100%;
+                        white-space: normal;
+                        font-weight: $weight__semi-bold;
+                    }
+                }
+
+                $asset-label-list: "Index" "Zeitraum" "ETF-Kosten";
+                @for $i from 1 through length($asset-label-list) {
+                    $label: nth($asset-label-list, $i);
+
+                    td:nth-child(#{$i + 1}) {
+                        text-align: right;
+                        &:before {
+                            float: left;
+                            font-weight: $weight__semi-bold;
+                            content: "#{$label}: ";
+                        }
+                    }
+
+                }
+
+            }
+        }
+        thead {
+            tr {
+                border-bottom-color: #333;
+                td:first-child, th:first-child {
+                    display: none;
+                }
+            }
+        }
+        tbody {
+            tr {
+                border-bottom-color: #eee;
+                padding-bottom: 10px;
+
+                &:last-child {
+                    border: none;
+                }
+            }
+        }
+    }
+
+}

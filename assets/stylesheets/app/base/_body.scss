@@ -1,0 +1,87 @@
+$font-size-base: 14px;
+
+html {
+    height: 100%;
+    box-sizing: border-box;
+}
+
+body {
+    font-weight: $weight__normal;
+    position: relative;
+    min-height: 100%;
+     -webkit-font-smoothing: subpixel-antialiased;
+
+    $footer-additionial-padding: 100px;
+
+    @media (min-width: $screen-md) {
+        padding-bottom: 402px + $footer-additionial-padding;
+    }
+
+    @media (max-width: $screen-sm-max) {
+        padding-bottom: 726px + $footer-additionial-padding;
+    }
+
+    @media (max-width: $screen-xs-max) {
+        padding-bottom: 928px + $footer-additionial-padding;
+    }
+
+    @media all and (display-mode: standalone) {
+        padding-bottom: 0;
+    }
+}
+
+@media (min-width: $screen-md-min) {
+    .col-md-offset-1-5 {
+        margin-left: 12.5%;
+    }
+}
+
+.margin-bottom-regular {
+    margin-bottom: 30px;
+}
+.margin-bottom-medium {
+    margin-bottom: 20px;
+}
+.margin-bottom-small {
+    margin-bottom: 10px;
+}
+.word-break-forced {
+    -ms-word-break: break-all;
+    word-break: break-all;
+
+    /* Non standard for webkit */
+    word-break: break-word;
+
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+// tabable styles
+
+.focus-outline {
+    *:focus {
+        outline: 1px dotted #666;
+    }
+    button {
+        // TODO: change to variables as soon as merged with color variables
+        &:focus {
+            border: 1px dotted #444;
+            box-shadow: 0 0 7px #777;
+            outline: none;
+        }
+    }
+}
+
+.no-focus-outline {
+    button:focus {
+        box-shadow: none;
+    }
+    a:focus {
+        outline: 0;
+    }
+}

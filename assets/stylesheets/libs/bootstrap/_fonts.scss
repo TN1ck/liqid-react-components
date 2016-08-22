@@ -1,0 +1,194 @@
+// Sets up @font-face
+// Order of the includes matters, and it is: normal, bold, italic, bold+italic.
+// Based on: bourbon.io
+
+$base-path: "~assets/fonts/" !default;
+
+@mixin font-face($font-family, $file-path, $weight: normal, $style: normal, $svg: null)
+{
+	@font-face
+	{
+		font-family: $font-family;
+		font-weight: $weight;
+		font-style: $style;
+
+		src: url('#{$base-path}eot/#{$file-path}.eot');
+	    src: url('#{$base-path}eot/#{$file-path}.eot?#iefix') format('embedded-opentype'),
+	         url('#{$base-path}woff2/#{$file-path}.woff2') format('woff2'),
+	         url('#{$base-path}woff/#{$file-path}.woff') format('woff'),
+	         url('#{$base-path}ttf/#{$file-path}.ttf') format('truetype');
+	}
+
+    .font-face-#{$file-path} {
+        font-weight: $weight;
+        font-family: $font-family;
+        font-style: $style;
+    }
+}
+
+@font-face{
+    font-family: "Mark Pro";
+    font-weight: 900;
+    font-style: normal;
+    src:url("~assets/fonts/mark/1465992/f8542f32-b58c-4ef9-a46e-29cfa3d5b00b.eot?#iefix");
+    src:url("~assets/fonts/mark/1465992/f8542f32-b58c-4ef9-a46e-29cfa3d5b00b.eot?#iefix") format("eot"),url("~assets/fonts/mark/1465992/85713fd2-52a0-496e-8b71-d133a498bc1a.woff2") format("woff2"),url("~assets/fonts/mark/1465992/84dd992d-39d4-4d4c-a197-8f422350ea3d.woff") format("woff"),url("~assets/fonts/mark/1465992/7369152c-c442-4221-bfd0-38c4639bc146.ttf") format("truetype");
+}
+@font-face{
+    font-family: "Mark Pro";
+    font-weight: 900;
+    font-style: italic;
+    src:url("~assets/fonts/mark/1465996/d7788e3d-ec7d-4f45-9d34-5ece8a9a9d60.eot?#iefix");
+    src:url("~assets/fonts/mark/1465996/d7788e3d-ec7d-4f45-9d34-5ece8a9a9d60.eot?#iefix") format("eot"),url("~assets/fonts/mark/1465996/a3e65bc5-6a4c-4e62-bf3f-b113728539ad.woff2") format("woff2"),url("~assets/fonts/mark/1465996/df4d125c-09ba-4f74-b5ce-29eb2e8d88e6.woff") format("woff"),url("~assets/fonts/mark/1465996/47d183e1-0615-4d72-a0d0-6a51638e7ce1.ttf") format("truetype");
+}
+@font-face{
+    font-family: "Mark Pro";
+    font-weight: 700;
+    font-style: normal;
+    src:url("~assets/fonts/mark/1466000/021bca8a-04d2-4658-9598-7f54e37255a3.eot?#iefix");
+    src:url("~assets/fonts/mark/1466000/021bca8a-04d2-4658-9598-7f54e37255a3.eot?#iefix") format("eot"),url("~assets/fonts/mark/1466000/911d53bf-61c5-453a-ba54-6c6b12e432d8.woff2") format("woff2"),url("~assets/fonts/mark/1466000/9069c8de-de1f-4c7e-b81f-dee8057e98f8.woff") format("woff"),url("~assets/fonts/mark/1466000/dafbeddd-575a-4f74-b362-b0a940ee73e4.ttf") format("truetype");
+}
+@font-face{
+    font-family: "Mark Pro";
+    font-weight: 700;
+    font-style: italic;
+    src:url("~assets/fonts/mark/1466004/16cc261b-84af-47f6-8d94-2aefdec6b0af.eot?#iefix");
+    src:url("~assets/fonts/mark/1466004/16cc261b-84af-47f6-8d94-2aefdec6b0af.eot?#iefix") format("eot"),url("~assets/fonts/mark/1466004/f0f2f51b-457f-421b-84ad-d16904a25256.woff2") format("woff2"),url("~assets/fonts/mark/1466004/bff3b82f-65c2-4675-b198-6ae01148202f.woff") format("woff"),url("~assets/fonts/mark/1466004/ea7e6d52-8f94-4356-a7ed-6e98dbbb178d.ttf") format("truetype");
+}
+@font-face{
+    font-family: "Mark Pro";
+    font-weight: 500;
+    font-style: normal;
+    src:url("~assets/fonts/mark/1466008/c8d2735e-31d3-4ef3-afd6-fd90b2d676b5.eot?#iefix");
+    src:url("~assets/fonts/mark/1466008/c8d2735e-31d3-4ef3-afd6-fd90b2d676b5.eot?#iefix") format("eot"),url("~assets/fonts/mark/1466008/3aa6bb54-ca02-4151-b68b-6ff14032a915.woff2") format("woff2"),url("~assets/fonts/mark/1466008/402ed54f-43f7-485b-a00d-f040e9f745c8.woff") format("woff"),url("~assets/fonts/mark/1466008/2aeaf649-60fa-4de9-a492-17700d78dfc5.ttf") format("truetype");
+}
+@font-face{
+    font-family: "Mark Pro";
+    font-weight: 500;
+    font-style: italic;
+    src:url("~assets/fonts/mark/1466012/51f41e18-fc48-468a-b71d-8e6aaa65ed3b.eot?#iefix");
+    src:url("~assets/fonts/mark/1466012/51f41e18-fc48-468a-b71d-8e6aaa65ed3b.eot?#iefix") format("eot"),url("~assets/fonts/mark/1466012/de0a82de-c38c-4ab1-b49c-b39d148b272b.woff2") format("woff2"),url("~assets/fonts/mark/1466012/80fa00c5-8145-4786-a95e-a0a6ce3f70b8.woff") format("woff"),url("~assets/fonts/mark/1466012/33d82961-ea11-4531-bd86-1791c5a2c74e.ttf") format("truetype");
+}
+@font-face{
+    font-family: "Mark Pro";
+    font-weight: 200;
+    font-style: normal;
+    src:url("~assets/fonts/mark/1466016/dae3f3db-d97d-4fe3-952e-17342806f6a2.eot?#iefix");
+    src:url("~assets/fonts/mark/1466016/dae3f3db-d97d-4fe3-952e-17342806f6a2.eot?#iefix") format("eot"),url("~assets/fonts/mark/1466016/88eaa196-693f-44d4-abe1-14bac9021c3b.woff2") format("woff2"),url("~assets/fonts/mark/1466016/d7feada4-4ae8-4c93-b8f5-e02e11e1959f.woff") format("woff"),url("~assets/fonts/mark/1466016/60dc4cd8-fa0e-4a24-b966-56719afbaa9c.ttf") format("truetype");
+}
+@font-face{
+    font-family: "Mark Pro";
+    font-weight: 200;
+    font-style: italic;
+    src:url("~assets/fonts/mark/1466020/f0329268-3f7b-4252-8f6e-4410943acb83.eot?#iefix");
+    src:url("~assets/fonts/mark/1466020/f0329268-3f7b-4252-8f6e-4410943acb83.eot?#iefix") format("eot"),url("~assets/fonts/mark/1466020/990bc6f4-b3c6-41ba-a23a-ce5849a54003.woff2") format("woff2"),url("~assets/fonts/mark/1466020/9db0573d-9359-40b3-8d09-b4e6173e7a55.woff") format("woff"),url("~assets/fonts/mark/1466020/aceb7447-4e1a-4e4d-955b-cf1ace480a94.ttf") format("truetype");
+}
+@font-face{
+    font-family: "Mark Pro";
+    font-weight: 800;
+    font-style: normal;
+    src:url("~assets/fonts/mark/1466032/1c14a94a-75a9-48ed-ae6c-3f822076cdaf.eot?#iefix");
+    src:url("~assets/fonts/mark/1466032/1c14a94a-75a9-48ed-ae6c-3f822076cdaf.eot?#iefix") format("eot"),url("~assets/fonts/mark/1466032/16cde9a4-6a50-4dc7-802c-6a3325343fab.woff2") format("woff2"),url("~assets/fonts/mark/1466032/c825e1c2-ff60-4843-b360-2a84a2436e85.woff") format("woff"),url("~assets/fonts/mark/1466032/617f9efc-7295-4a05-85ce-41497de28777.ttf") format("truetype");
+}
+@font-face{
+    font-family: "Mark Pro";
+    font-weight: 800;
+    font-style: italic;
+    src:url("~assets/fonts/mark/1466036/ccc71c05-c73d-4c04-b1f3-c45740be6145.eot?#iefix");
+    src:url("~assets/fonts/mark/1466036/ccc71c05-c73d-4c04-b1f3-c45740be6145.eot?#iefix") format("eot"),url("~assets/fonts/mark/1466036/997e639b-31dd-49e9-bd89-2f9a2a1efd13.woff2") format("woff2"),url("~assets/fonts/mark/1466036/b5e705fb-a5e1-46f1-b471-650b33817b32.woff") format("woff"),url("~assets/fonts/mark/1466036/e09c303b-72af-4262-9f98-e657538d280c.ttf") format("truetype");
+}
+@font-face{
+    font-family: "Mark Pro";
+    font-weight: 400;
+    font-style: italic;
+    src:url("~assets/fonts/mark/1466040/269db647-d404-4493-8868-b6cf3f614720.eot?#iefix");
+    src:url("~assets/fonts/mark/1466040/269db647-d404-4493-8868-b6cf3f614720.eot?#iefix") format("eot"),url("~assets/fonts/mark/1466040/571ba0e5-2832-47e0-9f84-d1231fec7ab2.woff2") format("woff2"),url("~assets/fonts/mark/1466040/08746de8-65db-4b05-9ac2-867be4fd513b.woff") format("woff"),url("~assets/fonts/mark/1466040/78ed72eb-be0e-4668-bee7-ad60f9ddeb38.ttf") format("truetype");
+}
+@font-face{
+    font-family: "Mark Pro";
+    font-weight: 400;
+    font-style: normal;
+    src:url("~assets/fonts/mark/1466068/76b78c7b-50e8-443f-947d-491bd1363209.eot?#iefix");
+    src:url("~assets/fonts/mark/1466068/76b78c7b-50e8-443f-947d-491bd1363209.eot?#iefix") format("eot"),url("~assets/fonts/mark/1466068/b3504f0d-8be1-4759-bb03-dd041a630b85.woff2") format("woff2"),url("~assets/fonts/mark/1466068/f4f1b391-1256-4245-ba89-842d884c1e51.woff") format("woff"),url("~assets/fonts/mark/1466068/1f72bfeb-0b2a-45fa-aaee-bbd991d40541.ttf") format("truetype");
+}
+@font-face{
+    font-family: "Mark Pro";
+    font-weight: 300;
+    font-style: normal;
+    src:url("~assets/fonts/mark/1466044/facc6c7f-7ed1-4f2d-ba43-f3cf9a0c74fc.eot?#iefix");
+    src:url("~assets/fonts/mark/1466044/facc6c7f-7ed1-4f2d-ba43-f3cf9a0c74fc.eot?#iefix") format("eot"),url("~assets/fonts/mark/1466044/405c77e4-565d-4c0a-a587-997e21a69bfd.woff2") format("woff2"),url("~assets/fonts/mark/1466044/c06780df-78e9-4c65-9f9d-c5c193054ae0.woff") format("woff"),url("~assets/fonts/mark/1466044/75b8110b-7c69-427e-a341-ee1f7124317c.ttf") format("truetype");
+}
+@font-face{
+    font-family: "Mark Pro";
+    font-weight: 300;
+    font-style: italic;
+    src:url("~assets/fonts/mark/1466048/695757a1-c6a6-4eb2-b0c2-519d372ec70f.eot?#iefix");
+    src:url("~assets/fonts/mark/1466048/695757a1-c6a6-4eb2-b0c2-519d372ec70f.eot?#iefix") format("eot"),url("~assets/fonts/mark/1466048/4e1a0746-044d-40cc-bca9-2cf65cc96748.woff2") format("woff2"),url("~assets/fonts/mark/1466048/7807ca40-1af0-4ab5-891f-97ed40282668.woff") format("woff"),url("~assets/fonts/mark/1466048/e280a26f-b14b-4105-8355-36b8630276ba.ttf") format("truetype");
+}
+@font-face{
+    font-family: "Mark Pro";
+    font-weight: 600;
+    font-style: normal;
+    src:url("~assets/fonts/mark/1466052/32a550c1-2bd0-41e2-ba81-dc666b15df72.eot?#iefix");
+    src:url("~assets/fonts/mark/1466052/32a550c1-2bd0-41e2-ba81-dc666b15df72.eot?#iefix") format("eot"),url("~assets/fonts/mark/1466052/0dc0af66-6f8b-4e8d-b349-c1ecd4502ff0.woff2") format("woff2"),url("~assets/fonts/mark/1466052/374b5f1e-ca5f-4ed8-b876-045f2b8387de.woff") format("woff"),url("~assets/fonts/mark/1466052/b0678d8f-c1b3-42e1-b35a-712675f9048b.ttf") format("truetype");
+}
+@font-face{
+    font-family: "Mark Pro";
+    font-weight: 600;
+    font-style: italic;
+    src:url("~assets/fonts/mark/1466056/44b19db9-e975-4857-a65c-372c39974135.eot?#iefix");
+    src:url("~assets/fonts/mark/1466056/44b19db9-e975-4857-a65c-372c39974135.eot?#iefix") format("eot"),url("~assets/fonts/mark/1466056/a9be8647-c177-4260-9a39-3a48b1aa72e4.woff2") format("woff2"),url("~assets/fonts/mark/1466056/e376884a-d63b-44ae-a94e-5f81792e858d.woff") format("woff"),url("~assets/fonts/mark/1466056/9c6b992e-4fb7-4675-a23e-5cd34062888e.ttf") format("truetype");
+}
+@font-face{
+    font-family: "Mark Pro";
+    font-weight: 100;
+    font-style: normal;
+    src:url("~assets/fonts/mark/1466060/71424f3f-1233-410d-a66a-9f808ab3bf4c.eot?#iefix");
+    src:url("~assets/fonts/mark/1466060/71424f3f-1233-410d-a66a-9f808ab3bf4c.eot?#iefix") format("eot"),url("~assets/fonts/mark/1466060/2dc4852f-3c35-4ae9-b5ea-7a312484600e.woff2") format("woff2"),url("~assets/fonts/mark/1466060/dcca8311-49f1-45e8-a607-e43b642c15e7.woff") format("woff"),url("~assets/fonts/mark/1466060/050329c2-c5f0-428a-994a-f8e1ced48f21.ttf") format("truetype");
+}
+@font-face{
+    font-family: "Mark Pro";
+    font-weight: 100;
+    font-style: italic;
+    src:url("~assets/fonts/mark/1466064/0b2d213d-9bf8-432b-baea-72115cf5d8aa.eot?#iefix");
+    src:url("~assets/fonts/mark/1466064/0b2d213d-9bf8-432b-baea-72115cf5d8aa.eot?#iefix") format("eot"),url("~assets/fonts/mark/1466064/97b84035-e8f6-453e-a2c1-c332463b6e90.woff2") format("woff2"),url("~assets/fonts/mark/1466064/7b3e33c8-fbae-4797-8258-9e457f3d7c52.woff") format("woff"),url("~assets/fonts/mark/1466064/c8850368-c555-4ad5-a186-920d198f41ef.ttf") format("truetype");
+}
+
+
+
+
+
+@font-face{
+    font-family:"Mark Pro Ultra";
+    src:url("~assets/fonts/mark/5085660/48d35d45-3e8d-4755-a8c5-e409d2acc335.eot?#iefix");
+    src:url("~assets/fonts/mark/5085660/48d35d45-3e8d-4755-a8c5-e409d2acc335.eot?#iefix") format("eot"),url("~assets/fonts/mark/5085660/2a7717e9-2480-4214-a41a-0ac712d98972.woff2") format("woff2"),url("~assets/fonts/mark/5085660/30ecb2d4-7b80-45bc-825d-23d526064e29.woff") format("woff"),url("~assets/fonts/mark/5085660/6edf1276-b4c8-4fdc-9a5a-e47747e082b7.ttf") format("truetype");
+}
+@font-face{
+    font-family:"Mark Pro Hairline";
+    font-weight: 300;
+    font-style: normal;
+    src:url("~assets/fonts/mark/1466024/a1250dfb-40ac-4c8c-a91f-e1f6b5bf18f9.eot?#iefix");
+    src:url("~assets/fonts/mark/1466024/a1250dfb-40ac-4c8c-a91f-e1f6b5bf18f9.eot?#iefix") format("eot"),url("~assets/fonts/mark/1466024/d33e2295-31f7-4f1d-b140-a00ff51fcf3f.woff2") format("woff2"),url("~assets/fonts/mark/1466024/235fe195-6afe-4529-af3c-4da83dc3e6c6.woff") format("woff"),url("~assets/fonts/mark/1466024/508a9173-3152-46b7-aec6-fdeeae456602.ttf") format("truetype");
+}
+@font-face{
+    font-family:"Mark Pro Hairline";
+    font-weight: 300;
+    font-style: italic;
+    src:url("~assets/fonts/mark/1466028/d07301e6-7ef2-42f6-b951-acfb3d234ef0.eot?#iefix");
+    src:url("~assets/fonts/mark/1466028/d07301e6-7ef2-42f6-b951-acfb3d234ef0.eot?#iefix") format("eot"),url("~assets/fonts/mark/1466028/713609a3-caa7-4d00-96ac-e9893e77c636.woff2") format("woff2"),url("~assets/fonts/mark/1466028/d720f02a-8444-4ce9-94fc-065c5ce6ff95.woff") format("woff"),url("~assets/fonts/mark/1466028/7d78c967-486e-4ad1-8908-2b86ad20698d.ttf") format("truetype");
+}
+
+$weights: 100, 200, 300, 400, 500, 600, 700, 800, 900;
+
+@each $weight in $weights {
+  .mark-font-style-italic-#{$weight} {
+    font-weight: $weight;
+    font-style: italic;
+    font-family: 'Mark Pro,Helvetica Neue,Helvetica,Arial,sans-serif';
+  }
+
+  .mark-font-style-normal-#{$weight} {
+    font-weight: $weight;
+    font-style: normal;
+    font-family: 'Mark Pro,Helvetica Neue,Helvetica,Arial,sans-serif';
+  }
+}

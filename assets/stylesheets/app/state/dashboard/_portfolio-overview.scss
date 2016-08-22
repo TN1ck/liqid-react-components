@@ -1,0 +1,34 @@
+.liq_portfolio-overview-box {
+    .liq_print-button {
+        margin-top: 23px;
+    }
+    @media screen and (max-width: $screen-xs-max) {
+        .liq_content-area__right {
+            margin-top: 15px;
+        }
+        .liq_print-button {
+            margin-top: 10px;
+        }
+    }
+    &__total-value {
+        margin-bottom: -5px;
+    }
+}
+
+.liq_all-portfolios-card {
+    &__subheader {
+        display: inline;
+        &--muted {
+            color: $color__grey;
+        }
+    }
+
+}
+
+.liq_portfolio-overview-sparkline {
+    margin-top: 22px;
+}
+.liq_portfolio-overview-sparkline-text {
+    color: $color__grey;
+    text-align: center;
+}

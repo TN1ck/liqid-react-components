@@ -1,0 +1,22 @@
+.liq_press-item {
+  &__headline-container {
+    @media (min-width: $screen-sm-max) {
+      border-left: 1px solid $gray-lighter;
+    }
+    font-size: $font-size-base;
+    padding-left: 12px;
+  }
+
+  &__headline {
+    display: block;
+    font-size: 24px;
+    line-height: 32px;
+    margin: 5px 0 45px;
+  }
+
+  &__logo {
+    display: block;
+    margin: 0 auto 20px;
+    max-width: 165px;
+  }
+}

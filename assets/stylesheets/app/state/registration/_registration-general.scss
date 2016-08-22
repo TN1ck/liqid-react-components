@@ -1,0 +1,79 @@
+.liq_registration-right-panel-container {
+    border-top: 1px solid #eee;
+    margin-top: 62px;
+    padding-top: 5px;
+
+    > h2 {
+	    margin-bottom: 23px;
+    }
+}
+.liq_registration-header {
+    padding: 0;
+    .liq_progress {
+        padding: 10px 0;
+    }
+}
+.liq_registration-hint-inline {
+    color: $gray-light;
+    margin-left: 45px;
+    max-width: 500px;
+
+    .liq_input-formatted__help-block {
+        position: static;
+        top: auto;
+    }
+}
+.liq_chosen-depot-info {
+    &__title {
+        .liq_registration-sub-header {
+            margin-bottom: 5px;
+        }
+    }
+}
+
+
+.liq_register-send-signature-table {
+    border: 1px solid #eee;
+    margin-top: 15px;
+    padding: 15px 20px;
+
+    h3 {
+        border-bottom: 1px solid #eee;
+        font-size: 14px;
+        font-weight: $weight__bold;
+        margin: 0 0 5px;
+        padding: 0 0 10px;
+    }
+
+    ul {
+        list-style-position: inside;
+        margin: 0;
+        padding: 0;
+    }
+
+    a:link, a:visited, a {
+        cursor: pointer;
+    }
+}
+
+.liq_registration-checkbox-select-form {
+    &__item {
+        min-height: 45px;
+    }
+    &__item-head {
+        font-weight: $weight__bold;
+    }
+    .liq_checkbox {
+        margin-top: 12px;
+    }
+    .form-group {
+        margin-bottom: 0;
+    }
+    .liq_input__select {
+        @media (max-width: $screen-xs-max) {
+            margin-bottom: 20px;
+            display: block;
+            margin-top: 6px;
+        }
+    }
+}

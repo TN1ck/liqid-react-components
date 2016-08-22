@@ -1,0 +1,16 @@
+$shadow: 0px 3px 20px 0px rgba(#252731, 0.3);
+
+.popover {
+  background-color: $popover-bg;
+  background-clip: padding-box;
+  padding: 0px;
+  box-shadow: $shadow;
+  border: none;
+  border-radius: $border-radius-large;
+
+}
+
+.popover-title {
+  background-color: $gray-lighter;
+  border: none;
+}

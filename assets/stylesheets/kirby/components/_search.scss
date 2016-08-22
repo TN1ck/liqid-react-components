@@ -1,0 +1,23 @@
+.liq_search {
+    position: relative;
+
+    &__input {
+        border: 1px solid $gray-lighter;
+        box-shadow: 0px 3px 6px 0px rgba(36,39,48,0.30);
+        display: block;
+        font-size: 18px;
+        margin: 40px 0;
+        padding: 15px 15px 15px 80px;
+        width: 100%;
+    }
+
+    &__icon {
+      background: url('/public/images/icons/search.svg') no-repeat;
+      border-right: 1px solid $gray-lighter;
+      height: 33px;
+      left: 10px;
+      position: absolute;
+      top: 15px;
+      width: 50px;
+    }
+}

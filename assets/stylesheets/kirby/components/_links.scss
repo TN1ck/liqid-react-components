@@ -1,0 +1,28 @@
+.liq-link--big {
+    color: $brand-primary;
+    font-size: 28px;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.liq-link--back {
+    color: $text-color;
+    font-size: 15px;
+    margin: 0 0 20px;
+    display: block;
+
+    &:hover {
+        color: $text-color;
+        text-decoration: underline;
+    }
+
+    &::before {
+        content:'';
+        display:inline-block;
+        vertical-align:top;
+        width:24px;
+        height:24px;
+        background:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAALRJREFUeNpi/P//PwMtARMDjcGoBQQBCyEF+e0LcEm5AnHaxMqEUIoswAE8gHgREAfRIoi8gXgp1PAj1LYgEIjnA7EPMYaTakEIEM+EGn6capGMZPg0IPYE4rNUTUVAMBlqgRsQXxiSGS0XircDsTHVMxoUrIHS26GRfIraFsAs+QvEW4DYn9iURGpOXg/Ev5AsOUKLSN4KxNFAvBGIbWiVinYAcQSoLCSkkHG0yhz+FgAEGACc6iQSX5pgXgAAAABJRU5ErkJggg==") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    }
+}

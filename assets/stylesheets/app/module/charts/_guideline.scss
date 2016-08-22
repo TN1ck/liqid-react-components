@@ -1,0 +1,29 @@
+$guideline-line: black;
+$guideline-circle-outer: $brand-info;
+$guideline-circle: black;
+
+.liq_guideline {
+    // transition-property: all;
+    // transition-duration: 0.5s;
+    pointer-events: none;
+
+    &__line {
+        stroke: $guideline-line;
+        pointer-events: none;
+    }
+
+    &__circle {
+        fill: $guideline-circle;
+        stroke: none;
+        pointer-events: none;
+
+        &--outer {
+            fill-opacity: 0.2;
+            pointer-events: none;
+            stroke: none;
+            fill: $guideline-circle-outer;
+        }
+
+
+    }
+}

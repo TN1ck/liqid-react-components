@@ -1,0 +1,64 @@
+.pricing-chart-section {
+	margin-top: 40px;
+	.nav-liq-tabs {
+		li {
+			&:before {
+				content: none;
+			}
+			a, a:link, a:visited {
+				background: none;
+				border: none;
+				border-bottom: 1px solid #eee;
+				color: #bfbfbf;
+				text-transform: uppercase;
+			}
+			a:hover, a:active {
+				color: #6290C3;
+			}
+			&.active {
+				a, a:link, a:visited {
+					border: none;
+					border-bottom: 1px solid #eee;
+					color: #6290C3;
+					position: relative;
+
+					&:before {
+						background: #6290C3;
+						bottom: -2px;
+						content: "";
+						height: 3px;
+						left: 0;
+						position: absolute;
+						width: 100%;
+					}
+				}
+				a:hover, a:active {
+					color: #bfbfbf;
+				}
+			}
+		}
+	}
+
+	&__explanation {
+		margin-top: 40px;
+	}
+
+	.liq_fancy-headline-container {
+		padding-bottom: 15px;
+
+		@media (max-width: $screen-xs-max) {
+			white-space: normal;
+		}
+	}
+	.liq_fancy-headline-container--side-bordered:hover > :first-child {
+		@media (max-width: $screen-xs-max) {
+			padding: 0;
+		}
+	}
+}
+.table--pricing-tooltip {
+	> tbody > tr > td {
+		border: none;
+		line-height: 1.8;
+	}
+}

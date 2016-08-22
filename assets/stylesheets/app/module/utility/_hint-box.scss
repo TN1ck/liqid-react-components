@@ -1,0 +1,98 @@
+.liq_hint-box {
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    box-sizing: border-box;
+    margin: 15px 0;
+    padding: 25px 20px 30px 85px;
+    position: relative;
+    text-align: left;
+
+    p {
+        margin: 0;
+        padding: 0;
+    }
+
+    &--warning {
+        &:before {
+            background-image: url('../../assets/images/icons/alert.svg');
+            background-size: cover;
+            content: "";
+            height: 45px;
+            left: 0;
+            margin-top: -23px;
+            position: absolute;
+            top: 50%;
+            width: 53px;
+        }
+    }
+
+    &--error {
+        @media (max-width: $screen-xs-max) {
+            padding-left: 35px;
+        }
+        &:before {
+            background-image: url('../../assets/images/icons/alert-red.svg');
+            background-size: cover;
+            content: "";
+            height: 45px;
+            left: 0;
+            margin-top: -23px;
+            position: absolute;
+            top: 50%;
+            width: 53px;
+
+            @media (max-width: $screen-xs-max) {
+                height: 21px;
+                width: 25px;
+            }
+        }
+    }
+
+    &--recap-history {
+        border-top: none;
+        margin: 0;
+
+        &:before {
+            background-image: url('../../assets/images/icons/alert-red.svg');
+            background-size: cover;
+            content: "";
+            height: 45px;
+            left: 0;
+            margin-top: -27px;
+            position: absolute;
+            top: 50%;
+            width: 53px;
+        }
+    }
+
+    &--info {
+        padding-left: 0;
+    }
+
+    &--warning-center {
+        &:before {
+            background-image: url('../../assets/images/icons/alert-red.svg');
+            background-size: cover;
+            content: "";
+            height: 45px;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-top: -23px;
+            position: absolute;
+            top: 40px;
+            width: 53px;
+        }
+
+        text-align: center;
+        padding-left: 0px;
+        padding-top: 67px;
+        padding-bottom: 20px;
+    }
+
+    &__header {
+        margin-bottom: 10px;
+    }
+
+    &__body {
+    }
+}

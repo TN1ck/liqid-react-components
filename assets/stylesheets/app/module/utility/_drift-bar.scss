@@ -1,0 +1,70 @@
+.liq_drift-bar-element {
+    height: 25px;
+    position: relative;
+    width: 100%;
+
+    &__bar {
+        background: red;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 1%;
+        transition: width 1.8s ease;
+    }
+    &__bar-label {
+        color: $color__grey;
+        font-size: $font-size__running--small;
+        font-weight: $weight__normal;
+        left: 100%;
+        margin-left: 10px;
+        position: absolute;
+        top: 3px;
+    }
+    &__bar-divergence-indicator {
+        background: #222;
+        height: calc(100% + 4px);
+        right: 0%;
+        position: absolute;
+        top: -2px;
+        width: 1px;
+
+        transition: right 1.8s ease;
+    }
+
+    &__tooltip {
+        font-size: $font-size__running--normal;
+        h2 {
+            border-bottom: 1px solid #eee;
+            font-size: $font-size__running--normal;
+            margin: 0 0 10px;
+            padding: 0 0 10px;
+        }
+        h3 {
+            color: $color__grey;
+            font-size: $font-size__running--small;
+            margin: 0 0 2px;
+            padding: 0;
+        }
+        ul {
+            font-weight: $weight__semi-bold;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+
+            li {
+                margin: 5px 0;
+            }
+        }
+
+        &-value-container {
+            @extend .clearfix;
+        }
+        &-value-container-left {
+            float: left;
+        }
+        &-value-container-right {
+            float: right;
+        }
+    }
+}

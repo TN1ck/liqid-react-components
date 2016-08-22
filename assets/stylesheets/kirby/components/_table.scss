@@ -1,0 +1,22 @@
+.liq_table {
+  width: 100%;
+  font-size: $font-size-base;
+  text-align: right;
+
+  th {
+    border-bottom: 2px solid $gray-lighter;
+    text-align: right;
+  }
+
+  tr {
+    border-bottom: 1px solid $gray-lighter;
+  }
+
+  tbody tr:hover {
+      background-color: $gray-lighter;
+    }
+
+  td {
+    padding: 10px 5px;
+  }
+}

@@ -1,0 +1,17 @@
+.liq_step {
+
+    &--done {
+        opacity: 0.3;
+    }
+
+    &__text {
+        margin-top: 20px;
+        color: $gray;
+        font-weight: $weight__semi-bold;
+
+        ul {
+            padding-left: 10px;
+        }
+    }
+
+}

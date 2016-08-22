@@ -1,0 +1,168 @@
+.liq_select {
+
+    margin-bottom: -20px;
+
+    $tile-margin: 10px;
+
+    padding-left: $tile-margin / 2;
+    padding-right: $tile-margin / 2;
+    padding-bottom: $tile-margin / 2;
+
+    $color-express: $brand-primary;
+
+    &__wrap {
+        margin-bottom: 80px;
+        margin-top: 40px;
+        position: relative;
+
+        &--bordered {
+            &:after, &:before {
+                background: #DDD;
+                content: "";
+                display: block;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                width: 1px;
+            }
+            &:after {
+                left: 25%;
+            }
+            &:before {
+                left: 50%;
+            }
+
+            @media (max-width: $screen-sm-max) {
+                &:before, &:after {
+                    content: none;
+                }
+            }
+        }
+    }
+
+    &__wrap_inner {
+        overflow: hidden;
+        &--bordered {
+            &:before {
+                background: #DDD;
+                content: "";
+                display: block;
+                left: 75%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                width: 1px;
+            }
+            @media (max-width: $screen-sm-max) {
+                &:before {
+                    content: none;
+                }
+            }
+        }
+    }
+
+    &__tile-container {
+        border-left: 1px solid #DDD;
+        &:first-child {
+            border-left: none;
+        }
+        @media (max-width: $screen-sm-max) {
+            border: none;
+        }
+        padding-left: 22px;
+        padding-right: 22px;
+
+        &.is-active {
+            .liq_select__tile--skip {
+                background-color: $color-express;
+                color: white;
+            }
+        }
+    }
+
+    &__tile {
+        position: relative;
+        border-radius: 15px;
+        padding: 15px 10px;
+        margin-top: 20px;
+        color: white;
+        text-align: center;
+
+        transition-duration: 200ms;
+        transition-property: background-color, color;
+        transition-timing-function: ease;
+
+        &__header {
+            vertical-align: middle;
+            font-size: 14px;
+            display: inline-block;
+            line-height: 21px;
+            margin-top: 5px;
+        }
+
+        &--profiler {
+            cursor: pointer;
+            border: 1px solid $color-express;
+            background-color: $color-express;
+            color: white;
+            &:hover, &:active {
+                background-color: $brand-primary-dark;
+                border: 1px solid $brand-primary-dark;
+            }
+        }
+
+        &--skip {
+            cursor: pointer;
+            border: 2px solid $color-express;
+            color: $color-express;
+            &:hover, &:active {
+                background-color: $color-express;
+                color: white;
+            }
+
+            img {
+                width: 60px;
+            }
+        }
+    }
+
+    &__copy {
+        color: #999;
+        margin-bottom: 20px;
+        padding-top: 20px;
+
+        @media (max-width: $screen-sm-max) {
+            margin-bottom: 30px;
+            padding-top: 10px;
+        }
+    }
+
+    &__tile-choice {
+        text-align: center;
+        font-size: $font-size-h4;
+        padding: 27px 10px;
+    }
+
+    &--fixed-bottom {
+        @media screen and (min-width: $screen-sm-min) {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+        }
+    }
+}
+
+
+.form-control:focus {
+    box-shadow: inset 0 -2px 0 $brand-info;
+}
+
+.has-error  {
+  .form-control {
+    border-color: $brand-danger;
+    box-shadow: inset 0 -2px 0 $gray-light;
+  }
+  .form-control:focus {
+      box-shadow: inset 0 -2px 0 $brand-danger;
+  }
+}

@@ -1,0 +1,57 @@
+// GRADIENTS
+
+#liq_investment-temperament-chart-upward {
+	.stop1 {
+		stop-color: $brand-info;
+	}
+
+	.stop2 {
+		stop-color: $brand-info;
+	}
+}
+
+#liq_investment-temperament-chart-downward {
+
+	.stop1 {
+		stop-color: $gray-light;
+	}
+
+	.stop2 {
+		stop-color: $gray-light;
+	}
+}
+
+.liq_investment-temperament-chart {
+
+    border: 1px solid $gray-light;
+    border-radius: 10px;
+
+    &-upward {
+        &-text {
+            text-anchor: end;
+            font-size: $font-size-h4;
+            font-weight: $weight__semi-bold;
+        }
+        &-area {
+            fill-opacity: 0.1;
+        }
+        &-line {
+            stroke: $brand-info;
+        }
+	}
+
+	&-downward {
+        &-text {
+            text-anchor: start;
+            font-size: $font-size-h4;
+            font-weight: $weight__semi-bold;
+        }
+        &-area {
+            fill-opacity: 0.1;
+        }
+
+        &-line {
+            stroke: $gray-light;
+        }
+	}
+}

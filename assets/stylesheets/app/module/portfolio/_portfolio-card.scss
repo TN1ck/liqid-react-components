@@ -1,0 +1,100 @@
+.liq_portfolio-card {
+    @extend .clearfix;
+    &__left-container {
+        float: left;
+
+        @media screen and (max-width: $screen-xs-max) {
+            float: none;
+            text-align: center;
+        }
+    }
+    &__right-container {
+        float: right;
+
+        @media screen and (max-width: $screen-xs-max) {
+            float: none;
+            text-align: center;
+        }
+    }
+    &__right-container-inner {
+        float: left;
+        + .liq_portfolio-card__right-container-inner {
+            border-left: 1px solid #eee;
+            margin-left: 20px;
+            padding-left: 20px;
+            text-align: center;
+            @media screen and (max-width: $screen-xs-max) {
+                border-left: none;
+                padding-left: 0;
+                margin-top: 10px;
+                margin-left: 0;
+            }
+        }
+        @media screen and (max-width: $screen-xs-max) {
+            float: none;
+
+            &.text-right {
+                text-align: center;
+            }
+        }
+    }
+    &__headline {
+        margin: 12px 0 0;
+        padding: 0;
+        &--marginTop {
+
+        }
+    }
+    &__sub-headline {
+        margin: 0;
+        padding: 0;
+    }
+
+    // In the special case of the recap header we show a special mobile view
+    &--recap-header {
+        @media screen and (max-width: $screen-xs-max) {
+            h1 {
+                font-size: $font-size__heading--normal;
+            }
+            .liq_portfolio-card__headline {
+                margin-top: 11px;
+            }
+            .btn-ghost {
+                border: none;
+                padding: 0;
+                vertical-align: top;
+
+                &:hover, &:active, &:focus {
+                    background: none;
+                    border: none;
+                    color: $color__primary;
+                }
+            }
+
+
+            .liq_portfolio-card__left-container {
+                float: left;
+                text-align: left;
+                width: 50%;
+
+                .btn-ghost {
+                    text-align: left;
+                }
+            }
+            .liq_portfolio-card__right-container {
+                float: none;
+
+                .liq_portfolio-card__right-container-inner {
+                    float: right;
+                    text-align: right;
+                    width: 50%;
+                }
+                .liq_portfolio-card__right-container-inner + .liq_portfolio-card__right-container-inner {
+                    float: left;
+                    text-align: center;
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

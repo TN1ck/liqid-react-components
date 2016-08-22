@@ -1,0 +1,168 @@
+.liq_register {
+
+    &__card {
+        @include card-shadow();
+        padding: 25px 15px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    &__form {
+        &__divider {
+            background-color: $gray-lighter;
+            height: 1px;
+            width: 100%;
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+        .liq_slider {
+            .x {
+                .tick {
+                    opacity: 0;
+                }
+            }
+        }
+    }
+
+    &__side-progress {
+        position: relative;
+        border: 1px solid $gray-lighter;
+        font-size: $font-size__running--small;
+        padding: 10px;
+        padding-bottom: 15px;
+        margin-bottom: 25px;
+        text-align: center;
+
+        @media (max-width: $screen-sm-max) {
+            border-left: none;
+            border-top: none;
+            border-right: none;
+            margin-top: -30px;
+        }
+
+        &-bar {
+            width: calc(100% - 55px);
+        }
+
+        &-icon {
+            position: absolute;
+            top: 0;
+            right: 0px;
+            height: 60px;
+            width: 56px;
+            padding: 16px 15px;
+            opacity: 0.6;
+            border-left: 1px solid $gray-lighter;
+            overflow: hidden;
+
+            img {
+                width: 100%;
+            }
+        }
+    }
+
+    &__side-panel {
+        @media (max-width: $screen-md) {
+            margin-top: 50px;
+        }
+    }
+
+    &__panel {
+        border: 1px solid $gray-lighter;
+        margin-bottom: 0;
+
+        &--margin-top {
+            margin-top: 30px;
+        }
+
+        &--reduced-vertical-padding {
+            > .panel-body {
+                padding: 10px 25px;
+            }
+        }
+
+        + .liq_register__panel {
+            margin-top: 28px;
+        }
+    }
+
+    &__errors {
+        margin-bottom: -31px;
+        .liq_hint-box__body {
+            > ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+
+                > li {
+                    font-weight: $weight__bold;
+                    margin-bottom: 10px;
+                    padding-left: 20px;
+                    position: relative;
+                    &:before {
+                        background: #EF233C;
+                        content: "";
+                        height: 5px;
+                        left: 5px;
+                        position: absolute;
+                        top: 9px;
+                        width: 5px;
+                    }
+
+                    > ul {
+                        list-style: none;
+                        margin: 3px 0 0;
+                        padding: 0;
+                        > li {
+                            font-weight: $weight__normal;
+                            padding-left: 15px;
+                            position: relative;
+                            &:before {
+                                content: '- ';
+                                left: 0;
+                                position: absolute;
+                                top: -1px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &__slider-wrap {
+        margin-bottom: 25px;
+
+        @media (max-width: $screen-xs-max) {
+            margin-bottom: 35px;
+        }
+    }
+    &__slider {
+    }
+    &__slider-slider {
+        @media (max-width: $screen-xs-max) {
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+    }
+    &__slider-input {
+        margin-top: -22px;
+
+        @media (max-width: $screen-xs-max) {
+            margin-top: -15px;
+        }
+    }
+    &__slider-error {
+        color: #EF233C;
+        font-weight: 400;
+        font-size: $font-size__running--small;
+        margin-top: -11px;
+        padding-right: 20px;
+        text-align: right;
+
+        @media (max-width: $screen-xs-max) {
+            left: 0;
+            margin-top: 0;
+        }
+    }
+}

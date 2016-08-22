@@ -1,0 +1,57 @@
+.liq_simulator {
+
+    &__inputs {
+        margin-bottom: 40px;
+
+        &__label {
+            font-size: 12px;
+        }
+    }
+
+    &__buttons {
+        .btn[disabled] {
+            background: #d2d3d8;
+            border-color: #d2d3d8;
+
+            &.btn-ghost {
+                background: transparent;
+                color: #d2d3d8;
+            }
+        }
+    }
+
+}
+
+.liq_simulator-control-card {
+    @media (max-width: $screen-sm-max) {
+        margin-bottom: 30px;
+    }
+    .liq_inline-card__body {
+         @media (max-width: $screen-sm-max) {
+            float: left;
+            padding-right: 20px;
+            width: 60%;
+         }
+         @media (max-width: $screen-xs-max) {
+            float: none;
+            padding-right: 0;
+            padding-left: 0;
+            width: 100%;
+         }
+    }
+    .liq_inline-card__footer {
+        @media (max-width: $screen-sm-max) {
+            border-top: none;
+            float: left;
+            padding-left: 20px;
+            width: 40%;
+        }
+         @media (max-width: $screen-xs-max) {
+            border-top: 1px solid #EEEEEE;
+            float: none;
+            padding-right: 0;
+            padding-left: 0;
+            width: 100%;
+         }
+    }
+}

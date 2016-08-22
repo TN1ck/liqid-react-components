@@ -1,0 +1,52 @@
+.liq_waterfall {
+
+    &__container {
+        float: left;
+    }
+
+    &__bar-container {
+        position: relative;
+    }
+
+    &__bar {
+        position: relative;
+    }
+
+    &__bar-between {
+        position: relative;
+        height: 1;
+        border-top: dashed $gray 1px,
+    }
+
+    &__bar-legend {
+        position: relative;
+        border-top: 2px solid $gray-light;
+        padding-top: 10px;
+        width: 100%;
+        overflow: visible;
+        text-align: center;
+    }
+
+    &__bar-legend-label {
+        position: relative;
+        width: 200%;
+        left: -50%;
+        color: $color__grey;
+        font-weight: $weight__semi-bold;
+    }
+
+    &__bar-legend-between-label {
+        color: $gray-light;
+        font-size: $font-size-h3;
+        font-weight: $weight__semi-bold;
+    }
+
+}
+
+@media (max-width: $screen-xs-max) {
+    .liq_waterfall__bar-legend,
+    .liq_waterfall__bar-legend-label,
+    .liq_waterfall__bar-legend-between-label {
+        font-size: 11px;
+    }
+}

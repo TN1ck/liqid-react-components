@@ -1,0 +1,58 @@
+// Navbar
+.navbar {
+
+    @include card-shadow();
+
+    .navbar-brand {
+        font-size: $font-size-large;
+        color: #fff;
+        height: 100%;
+        img {
+            height: 40px;
+            margin-bottom: -3px;
+        }
+    }
+    .navbar-icon {
+        height: 20px;
+        &--support {
+            height: 20px;
+            padding-left: 10px;
+            vertical-align: initial;
+        }
+    }
+
+    &-text--support {
+        display: inline-block;
+        text-align: right;
+        p {
+            margin-bottom: 0px;
+            font-size: 12px;
+            line-height: 16px;
+            b {
+                font-weight: 400;
+            }
+        }
+    }
+
+    .navbar-nav {
+        font-weight: 300;
+    }
+
+}
+
+// Subheader
+.subheader {
+    border-top: none;
+    background-color: $gray;
+    @include card-shadow($gray, $gray-light);
+    padding: 10px 0;
+
+    &__title {
+        color: $text-color;
+    }
+
+    &__actions {
+        color: $text-color;
+        text-align: right;
+    }
+}

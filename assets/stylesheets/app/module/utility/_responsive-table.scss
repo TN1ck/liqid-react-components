@@ -1,0 +1,126 @@
+// add directly to table element itself
+.responsive-table.responsive-table {
+    border-radius: 6px;
+    // use first TD of each row as headline in separated row and still show all other TDs floated
+    &--comparison {
+        @media screen and (max-width: $screen-xs-max) {
+            &, tr, thead, tbody {
+                display: block;
+            }
+            thead, tbody {
+                tr {
+                    border-bottom: 1px solid transparent;
+                    overflow: hidden;
+                    // hate deep nesting, but just do it like twitter bootstrap to prevent it from overwriting our styles
+                    td {
+                        border: none;
+                        float: left;
+                        width: 33.33%;
+                        white-space: normal;
+                        &:first-child {
+                            font-weight: $weight__semi-bold;
+                            padding-top: 15px;
+                            padding-bottom: 5px;
+                            text-align: center;
+                            width: 100%;
+                            white-space: normal;
+                        }
+                    }
+                }
+            }
+            thead {
+                tr {
+                    border-bottom-color: #333;
+                    td:first-child, th:first-child {
+                        display: none;
+                    }
+                }
+            }
+            tbody {
+                tr {
+                    border-bottom-color: #eee;
+                    padding-bottom: 10px;
+
+                    &:last-child {
+                        border: none;
+                    }
+                }
+            }
+        }
+    }
+
+    td {
+        &.no-border {
+            border-top-color: transparent;
+        }
+    }
+
+    &--large {
+        tbody, thead {
+            tr {
+                td {
+                    padding: 16px;
+                }
+            }
+        }
+    }
+
+    &--slider {
+
+        tbody tr td:first-child {
+            width: auto;
+        }
+
+        @media screen and (max-width: $screen-xs-max) {
+            &, tr, thead, tbody {
+                display: block;
+            }
+            thead, tbody {
+                tr {
+                    border-bottom: 1px solid transparent;
+                    overflow: hidden;
+                    // hate deep nesting, but just do it like twitter bootstrap to prevent it from overwriting our styles
+                    td {
+                        border: none;
+                        float: left;
+                        white-space: normal;
+                        &:first-child {
+                            font-weight: $weight__semi-bold;
+                            padding-top: 15px;
+                            padding-bottom: 5px;
+                            text-align: center;
+                            width: 100%;
+                            white-space: normal;
+                        }
+                    }
+                }
+            }
+            thead {
+                tr {
+                    border-bottom-color: #F1F1F1;
+                    background: #EFEFEF;
+                    td:first-child, th:first-child {
+                        display: none;
+                    }
+                }
+            }
+            tbody {
+                tr {
+                    border-bottom-color: #eee;
+                    padding-bottom: 10px;
+
+                    &:last-child {
+                        border: none;
+                    }
+                }
+            }
+        }
+    }
+
+    // only table-layout:fixed guarantess that the table is not cut off when not enough width available
+    &--assured-max-width {
+        @media screen and (max-width: $screen-xs-max) {
+            table-layout: fixed;
+        }
+    }
+}

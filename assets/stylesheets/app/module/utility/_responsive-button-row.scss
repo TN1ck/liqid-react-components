@@ -1,0 +1,25 @@
+.responsive-button-row {
+    .btn {
+        @media screen and (max-width: $screen-xs-max) {
+            width: 100%;
+
+            + .btn {
+                margin-top: 10px;
+                margin-left: 0;
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+// button + label (or) + button
+.button-decision-row {
+    @media screen and (max-width: $screen-sm-max) {
+        .btn {
+            margin: 10px 0;
+        }
+        .liq_tile__or {
+            margin: 0;
+        }
+    }
+}

@@ -1,0 +1,18 @@
+.liq_partner-section {
+    background-color: $gray-lighter;
+    padding: 40px 0;
+    @media (max-width: $screen-sm-max) {
+        margin-top: 50px;
+        text-align: center;
+    }
+
+    &__logo {
+        max-width: 100%;
+        display: block;
+        padding: 25px 0;
+
+        @media (max-width: $screen-sm-max) {
+          margin: 0 auto;
+        }
+    }
+}

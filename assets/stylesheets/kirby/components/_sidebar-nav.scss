@@ -1,0 +1,82 @@
+.liq_sidebar-nav {
+
+    &.affix-bottom {
+        // without this, the affix will break if the user scrolls back up
+        // when the end is reached
+        position: relative;
+    }
+
+    top: 85px;
+    z-index: 1;
+
+    &--starts-at-zero {
+      top: 0;
+    }
+
+    &__title {
+      font-size: $font-size-large;
+      padding: 7px;
+      text-align: center;
+      border-bottom: 1px solid #eee;
+      margin: 10px;
+    }
+
+    a {
+      color: $brand-base !important;
+    }
+
+    &__list {
+      font-size: 14px;
+      margin-bottom: 0 !important;
+      padding: 0 !important;
+
+      &--counter {
+        counter-reset: counter;
+
+        &__item:before {
+          content: counter(counter)"." !important;
+          counter-increment: counter;
+          display: block !important;
+          color: $brand-base !important;
+          position: absolute;
+          top: 10px !important;
+          left: 15px !important;
+        }
+      }
+
+      &__item {
+        position: relative;
+        padding-left: 20px;
+        margin-bottom: 20px !important;
+      }
+
+    }
+
+    .active {
+        color: $brand-primary;
+        &:before,
+        &:after,
+        a {
+            color: $brand-primary !important;
+        }
+    }
+
+    li {
+        a {
+            color: $gray-light;
+        }
+
+        &:before{
+            display: none;
+        }
+
+        a:hover,
+        a:focus {
+          background-color: transparent;
+        }
+
+        li {
+            display: none;
+        }
+    }
+}

@@ -1,0 +1,74 @@
+.liq_tile {
+
+    user-select: none;
+    text-align: center;
+    height: 100%;
+    padding-bottom: 0px;
+    margin: 10px 0;
+    border: 1px solid $gray-light;
+    border-radius: 5px;
+    background-color: white;
+    transition: all 0.2s ease-in;
+
+    &__container {
+        border-radius: 5px;
+        width: 100%;
+        float: left;
+        border: 1px solid $gray-light;
+        background-color: $gray-lighter;
+        padding: 5px 15px;
+
+        @media screen and (max-width: $screen-xs-max) {
+            padding: 5px;
+            margin: 5px;
+            width: calc(100% - 10px);
+        }
+    }
+
+    &__heading {
+        text-align: center;
+        font-size: $font-size-h4;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    &__button {
+        margin: 15px 0 0;
+        max-width: 100%;
+        white-space: normal;
+
+        @media screen and (max-width: $screen-xs-max) {
+            margin-top: 10px;
+        }
+    }
+
+    &__or {
+        margin: 20px 0px;
+        padding: 6px 25px;
+    }
+
+    &__value {
+        font-size: $font-size-base;
+        margin-top: 10px;
+        textpath {
+            text-anchor: middle;
+        }
+    }
+
+    &__chart {
+        height: 150px;
+
+        svg {
+            height: 100%;
+        }
+
+        #gradient_fill {
+            .stop1 {
+                stop-color: $brand-info-dark;
+            }
+            .stop2 {
+                stop-color: $brand-info;
+            }
+        }
+    }
+}

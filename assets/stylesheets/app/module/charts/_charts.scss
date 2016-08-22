@@ -1,0 +1,489 @@
+$path__default__color: $brand-base;
+
+$y-tick__text: $gray-darker;
+$y-tick__line: rgba($gray, 0.2);
+$ease: cubic-bezier(0.455, 0.030, 0.515, 0.955);
+
+@-webkit-keyframes fadeIn {
+	0% { opacity: 0;}
+	100% { opacity: 1;}
+}
+
+@-webkit-keyframes fadeOut {
+	0% { opacity: 1; }
+	100% { opacity: 0; }
+}
+
+.fade {
+
+	&-enter, &-appear {
+        opacity: 0.01;
+        transition: opacity .25s $ease;
+
+		&.fade-enter-active, &.fade-appear-active {
+			animation: fadeIn 0.25s $ease forwards;
+		}
+	}
+
+	&-leave {
+
+		&.fade-leave-active {
+			animation: fadeOut 0.25s $ease forwards;
+		}
+	}
+}
+
+// COLORS
+
+.chart__area__primary {
+	fill: $brand-info;
+}
+
+.chart__area__secondary {
+	fill: $brand-info-dark;
+}
+
+.chart__path__primary {
+	stroke: $brand-info-dark;
+}
+
+// COMPONENTS
+
+.chart {
+
+	@media print {
+		svg {
+			overflow: visible !important;
+		}
+	}
+
+	text, tspan {
+		-webkit-font-smoothing: antialiased;
+	}
+
+	&__behaviour {
+		margin-top: 25px;
+		margin-bottom: 25px;
+
+		&__bar {
+			stroke: $gray-lighter;
+			stroke-width: 1px;
+			fill: $brand-info-dark;
+			&--empty {
+				fill: white;
+			}
+
+			&--impact {
+				fill: $brand-info;
+			}
+
+			&__text {
+				text-anchor: middle;
+				fill: $gray;
+				font-weight: $weight__semi-bold;
+				font-size: 12px;
+
+                @media screen and (max-width: $screen-xs-max) {
+                    font-size: 10px;
+                }
+			}
+		}
+
+		&__section {
+			&__text {
+				fill: $gray;
+				font-weight: $weight__semi-bold;
+				font-size: 12px;
+			}
+		}
+
+		&__line {
+			stroke: $gray-lighter;
+		}
+	}
+
+    &--maximal-portfolio-drawdown {
+        margin-top: 25px;
+        margin-bottom: 25px;
+
+        &__bar {
+            stroke: $gray-lighter;
+            stroke-width: 1px;
+            fill: #EF233C;
+            &--empty {
+                fill: white;
+            }
+
+            &--impact {
+                fill: $brand-info;
+            }
+
+            &__label {
+                font-size: 12px;
+            }
+
+            &__text {
+                text-anchor: middle;
+                fill: $gray;
+                font-weight: $weight__semi-bold;
+                font-size: 12px;
+
+                @media screen and (max-width: $screen-xs-max) {
+                    font-size: 10px;
+                }
+            }
+        }
+
+        &__section {
+            &__text {
+                fill: $gray;
+                font-weight: $weight__semi-bold;
+                font-size: 12px;
+            }
+        }
+
+        &__line {
+            stroke: $gray-lighter;
+        }
+    }
+
+	&__pie {
+
+		transform: scale(1.0);
+
+		path {
+			transition: fill 0.15s $ease;
+		}
+
+		&__grouped {
+			opacity: 0;
+
+			&--hover {
+				opacity: 1.0;
+			}
+		}
+
+		&__label {
+
+			text-anchor: middle;
+			font-weight: $weight__semi-bold;
+			fill: black;
+
+			&--hover {
+				font-weight: $weight__bold;
+			}
+
+			&--big {
+				font-size: $font-size-h2;
+				transform: translateY($font-size-h2 / 4);
+			}
+		}
+
+		&--hover {
+			transform: scale(1.06);
+		}
+
+	}
+
+    &__container {
+		position: relative;
+        width: 100%;
+    }
+
+	&__headline {
+		position: absolute;
+	}
+
+    &__legend {
+		position: absolute;
+		top: 10px;
+        font-size: 11px;
+		pointer-events: none;
+		background-color: white;
+
+		&--responsive {
+			@media screen and (max-width: $screen-xs-max) {
+				position: relative;
+			}
+		}
+
+		&--horizontal {
+			.chart__legend__list-container {
+				overflow: hidden;
+			}
+			.chart__legend__list-item {
+				float: left;
+				margin-right: 20px;
+			}
+		}
+
+        &__list-container {
+
+        }
+
+        &__list-item {
+        }
+    }
+
+    &__tooltip {
+		top: 0;
+		left: 0;
+		z-index: 99999;
+        position: absolute;
+        pointer-events: none;
+        background-color: white;
+        padding: 10px;
+        opacity: 0;
+        box-shadow: 0px 4px 10px rgba(black, 0.35);
+        transition-property: opacity;
+		transition-timing-function: $ease;
+        transition-duration: 0.15s;
+		font-size: 11px;
+
+		max-width: 350px;
+
+		@media screen and (max-width: $screen-xs-max) {
+            max-width: 250px;
+        }
+
+		&__benchmark {
+			&__performance {
+				text-align: right;
+			}
+		}
+
+        &__header {
+            color: $brand-primary;
+            font-weight: normal;
+        }
+
+        &__subheader {
+            font-size: 11px;
+        }
+
+        &__list {
+            display: block;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            font-size: 11px;
+            text-align: left;
+        }
+
+        &--right {
+
+            &:before, &:after {
+                top: 0;
+                margin-bottom: -19px;
+                left: 0;
+                border: solid transparent;
+                content: " ";
+                height: 0;
+                width: 0;
+                position: absolute;
+                pointer-events: none;
+            }
+            &:after {
+                border-right-color: white;
+                border-width: 10px;
+                margin-left: -19px;
+                z-index: 1;
+            }
+
+        }
+
+        &--left {
+
+            &:before, &:after {
+                top: 0;
+                right: 0;
+                border: solid transparent;
+                content: " ";
+                height: 0;
+                width: 0;
+                position: absolute;
+                pointer-events: none;
+            }
+            &:after {
+                border-left-color: white;
+                border-width: 10px;
+                margin-right: -19px;
+                z-index: 1;
+            }
+
+        }
+    }
+
+    height: 100%;
+    width: 100%;
+
+    &__tick {
+
+		&__crisis {
+			font-size: 10px;
+			text-anchor: start;
+			transition: opacity .25s $ease;
+		}
+
+        &__text {
+            text-anchor: middle;
+			user-select: none;
+            font-size: 10px;
+            font-weight: 400;
+            fill: $y-tick__text;
+
+			&--above {
+				fill: $brand-danger;
+			}
+
+			&--below {
+				fill: $brand-success;
+			}
+        }
+
+        &__line {
+            stroke: black;
+			shape-rendering: crispEdges;
+
+            &--y {
+                stroke: $y-tick__line;
+            }
+
+			&--bold {
+				stroke-width: 3px;
+				stroke: $brand-base;
+				shape-rendering: auto;
+			}
+
+			&--above {
+				stroke: $brand-danger;
+			}
+
+			&--below {
+				stroke: $brand-success;
+			}
+        }
+
+    }
+
+    .interactive-layer {
+        // react does not support this attribute yet, that's why i put it here
+        // clip-path: url(#interactive__viewport);
+		position: relative;
+
+        &__rect {
+            fill: transparent;
+        }
+    }
+
+    &__axis {
+        &__domain {
+        	stroke: $gray-light;
+        }
+        &__name {
+            text-anchor: middle;
+            fill: $gray;
+            font-weight: $weight__semi-bold;
+            font-size: 12px;
+        }
+    }
+
+    &__area {
+        stroke: none;
+        stroke-width: 0;
+        fill: $brand-info;
+        fill-opacity: 0.5;
+
+    }
+
+    &__line {
+		shape-rendering: geometricPrecision;
+        fill: none;
+		opacity: 1;
+        stroke: $path__default__color;
+        stroke-width: 2px;
+    }
+
+	&__line--invisible {
+		stroke: transparent !important;
+	}
+
+    &-equity {
+
+    }
+}
+
+.chart_arrow {
+	stroke-width:5;
+	stroke:#000;
+	stroke-dasharray:5, 5;
+}
+
+.chart--pie-chart {
+	min-height: 100px;
+}
+
+.chart__container--behaviour {
+	.chart__legend {
+		right: 0;
+	}
+}
+
+.chart--simple-pie-chart {
+    &__label {
+        -webkit-font-smoothing: antialiased;
+        &--small {
+            fill: #B0B0B0;
+            font-size: 10px;
+            font-weight: $weight__bold;
+            text-transform: uppercase;
+        }
+        &--large {
+            fill: $color__black;
+            font-size: 25px;
+            font-weight: $weight__semi-bold;
+        }
+    }
+}
+
+.chart_risk {
+
+	&-textpath--shift {
+		baseline-shift: -20px;
+	}
+
+	&-line {
+		stroke-width: 2px;
+		&--dashed {
+			stroke-width: 3px;
+			stroke-linecap: round;
+			stroke-dasharray: 1, 15;
+		}
+	}
+
+	&-area {
+		fill-opacity: 1;
+		&--blue {
+			fill: lighten($brand-info, 30%);
+		}
+
+		&--red {
+			fill: lighten($brand-primary, 30%);
+		}
+
+		&--gray {
+			fill: darken($gray-lighter, 10%);
+		}
+	}
+
+}
+
+// TODO: find a better place
+.liq_chart-tag-container {
+    min-height: 300px;
+    @media print {
+        min-height: auto;
+        margin: -10pt auto -40pt auto;
+        width: 380pt;
+	}
+}

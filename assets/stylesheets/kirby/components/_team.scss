@@ -1,0 +1,89 @@
+.liq_story {
+    padding-bottom: 30px;
+
+    &__navigation-buttons {
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin: 65px 0px 10px -10px;
+    }
+
+    &__navigation-button {
+        display: flex;
+        padding: 0 15px;
+        width: 33%;
+
+        @media (max-width: $screen-sm-max) {
+            width: 100%;
+        }
+    }
+}
+
+.liq_team {
+    background-color: $body-bg;
+    margin-bottom: -40px;
+    padding: 20px 0 40px;
+    text-align: center;
+
+    &__separating-headline {
+        margin-top: 40px;
+    }
+
+    &__member {
+        background-color: #fff;
+        margin: 10px 0;
+        padding: 20px;
+        text-align: left;
+        @include card-shadow();
+        transition: all 0.2s;
+        &__smaller {
+            margin: 15px 0;
+            padding: 10px;
+        }
+        &:hover {
+            @include card-shadow(5px, 10px);
+        }
+        &__meta {
+            &__photo {
+                width: 100%;
+                margin-bottom: 20px;
+                background-position: center;
+                background-size: cover;
+            }
+            &__photo--full {
+                width: 100%;
+                margin-bottom: 0px;
+                background-position: center;
+                background-size: cover;
+            }
+
+            &__social {
+                padding-bottom: 10px;
+                &__icon {
+                    width: 15px;
+                    height: 15px;
+                    margin-right: 10px;
+                }
+            }
+        }
+
+        &__info {
+            &__name {
+                font-size: $font-size-h3;
+                margin-bottom: 0px;
+            }
+
+            &__bio {
+                font-size: 75%;
+            }
+
+            &__position,
+            &__name {
+                color: $brand-primary;
+            }
+        }
+    }
+}

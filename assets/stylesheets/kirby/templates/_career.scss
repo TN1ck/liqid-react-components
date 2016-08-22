@@ -1,0 +1,19 @@
+.liq {
+  &_t {
+    &_career {
+      padding: 0 0 40px;
+      &__content {
+          padding: 40px 0 0 0;
+          background-color: $brand-base;
+          background-size: cover;
+          color: #fff;
+          height: 240px;
+          margin-bottom: 20px;
+      }
+      &__boxes {
+        margin-top: 50px;
+        margin-bottom: 50px;
+      }
+    }
+  }
+}

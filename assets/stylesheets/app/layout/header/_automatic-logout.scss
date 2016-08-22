@@ -1,0 +1,22 @@
+.liq_automatic-logout {
+    position: relative;
+    padding-top: 11px;
+    padding-bottom: 14px;
+    line-height: 22px;
+    float: left;
+    &__message {
+        color: $gray;
+        font-size: 10px;
+    }
+    &__progress {
+        width: 100%;
+        top: 34px;
+        position: absolute;
+        .progress {
+            border-radius: 10px;
+            .progress-bar {
+                background-color: $gray-light;
+            }
+        }
+    }
+}

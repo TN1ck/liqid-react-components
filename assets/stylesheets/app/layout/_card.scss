@@ -1,0 +1,281 @@
+.liq_container {
+    padding-top: 20px;
+    padding-bottom: 100px;
+
+    &--small {
+        padding-top: 50px;
+        padding-bottom: 50px;
+
+        @media (max-width: $screen-xs-max) {
+            padding-top: 10px;
+        }
+    }
+    &--no-bottom-padding {
+        padding-bottom: 0;
+    }
+    &--explanation {
+        margin-top: -80px;
+    }
+}
+/**
+ * Block liq_card
+ */
+.liq_card {
+    @include card-shadow();
+    padding: 0 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    @extend .clearfix;
+
+    /**
+     * Modifieres
+     */
+    &--ghost {
+        background: transparent;
+        box-shadow: none;
+    }
+    &--low-height {
+        position: relative;
+        min-height: 420px;
+        padding-bottom: 100px;
+
+        @media (max-width: $screen-sm-max) {
+            min-height: 0;
+        }
+    }
+    &--regular-height {
+        position: relative;
+        min-height: 500px;
+        padding-bottom: 100px;
+
+        .centered-content {
+            position: absolute;
+            text-align: center;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        @media (max-width: $screen-sm-max) {
+            min-height: 0;
+        }
+    }
+    &--expanded--height {
+        position: relative;
+        min-height: 575px;
+
+        @media (max-width: $screen-sm-max) {
+            min-height: 0;
+        }
+    }
+    &--large-padding {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+    &--padding-none {
+        padding: 0;
+    }
+    &--sticky-footer {
+        padding-bottom: 96px;
+        position: relative;
+        .liq_card__footer {
+            bottom: 0;
+            left: 10px;;
+            position: absolute;
+            right: 10px;
+        }
+        @media (max-width: $screen-sm-max) {
+            padding-bottom: 0;
+            .liq_card__footer {
+                position: static;
+            }
+        }
+    }
+    &--border-light {
+        border: 1px solid #F7F7F7;
+    }
+    &--padding-small {
+        padding: 15px;
+    }
+    &--padding-simple {
+        padding: 30px;
+    }
+
+    /**
+     * Elements
+     */
+    &__header {
+        @extend .clearfix;
+        margin: 30px 0 30px;
+        text-align: center;
+        h1 {
+            margin: 0;
+            padding: 0;
+
+            @media (max-width: $screen-xs-max) {
+                font-size: $font-size__heading--normal;
+            }
+        }
+
+        &--low-margin {
+            margin: 15px 0 15px;
+        }
+
+        &--has-thin-font {
+            h3 {
+                font-weight: $weight__normal;
+            }
+        }
+
+        &--has-bottom-border {
+            border-bottom: 1px solid #eee;
+            margin: 30px 0 30px;
+            padding-bottom: 25px;
+        }
+
+        > .liq_step-indicator {
+            margin-top: 14px;
+            margin-bottom: -36px;
+            cursor: default;
+
+            small {
+                background: #FFF;
+                border: 1px solid $gray-lighter;
+                border-radius: 10px;
+                display: inline-block;
+                padding: 0 5px;
+
+                span {
+                    padding: 0 2px;
+                }
+            }
+        }
+    }
+    &__footer {
+        @extend .clearfix;
+        border-top: 1px solid #eee;
+        margin-top: 30px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+
+        &--no-top-margin {
+            border-top: none;
+            margin-top: 0;
+            padding-top: 0;
+        }
+        &--min-height {
+            min-height: 67px;
+        }
+        &--large-top-margin {
+            margin-top: 60px;
+        }
+    }
+    &__sidebar {
+        border-right: 1px solid #eee;
+        float: left;
+        margin: 25px 0 25px -15px;
+        overflow: hidden;
+        width: 200px;
+
+        + .liq_card__content {
+            border-left: 1px solid #eee;
+            float: left;
+            margin: 25px 0 25px -1px;
+            padding-left: 75px;
+            width: calc(100% - 200px);
+        }
+
+        &--navigation-container {
+            -webkit-transition: width 0.5s ease;
+
+            @media screen and (max-width: $screen-xs-max) {
+                width: 50px;
+            }
+
+            + .liq_card__content {
+                transition: width 0.5s 0s ease, padding 0.5s 0s ease;
+
+                @media screen and (max-width: $screen-xs-max) {
+                    padding-left: 20px;
+                    width: calc(100% - 60px);
+                }
+            }
+        }
+    }
+    &__content {
+        @extend .clearfix;
+
+        &--relative {
+            position: relative;
+        }
+
+        &--enhanced-margin {
+            margin-top: 80px;
+            margin-bottom: 80px;
+
+            @media (max-width: $screen-xs-max) {
+                margin-top: 30px;
+                margin-bottom: 10px;
+            }
+
+            @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+                margin-top: 30px;
+                margin-bottom: 10px;
+            }
+        }
+        &--low-margin {
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+    }
+
+    /**
+     * Modified elements inside a Card
+     */
+    > .liq_loader {
+        float: none;
+        position: static;
+    }
+}
+
+.liq_content-area {
+    position: relative;
+    @extend .clearfix;
+    &__left {
+        float: left;
+        @media screen and (max-width: $screen-xs-max) {
+            float: none;
+            text-align: center;
+        }
+    }
+    &__right {
+        float: right;
+        @media screen and (max-width: $screen-xs-max) {
+            float: none;
+            text-align: center;
+        }
+    }
+}
+
+.liq_card-modal {
+    .modal-content {
+        padding: 0 20px;
+    }
+    &__close-button {
+        color: #3a3939;
+        cursor: pointer;
+        font-size: 35px;
+        font-weight: $weight__normal;
+        line-height: 16px;
+        padding: 10px;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+}
+
+
+.portfolio_finder--radio_page {
+    .liq_card--height {
+        padding-bottom: 150px;
+    }
+}

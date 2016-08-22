@@ -1,0 +1,57 @@
+.liq_faq {
+    &__list {
+        margin: 25px 0 75px 0;
+
+        &__title {
+            -webkit-touch-callout: none; /* iOS Safari */
+            border-top: 1px solid $gray-lighter;
+            color: $brand-primary;
+            cursor: pointer;
+            font-weight: 300;
+            padding: 12px 0;
+            user-select: none;
+
+            &:before {
+                content: '+';
+                display: inline-block;
+                margin-right: 7px;
+                width: 13px;
+            }
+
+            &--open {
+                &:before {
+                    content: '-';
+                }
+
+                + .liq_faq__list__description {
+                    display: block !important;
+                    padding: 0 20px;
+                }
+            }
+        }
+    }
+
+    mark {
+        background-color: $brand-info;
+        color: #fff;
+        padding: 0;
+    }
+
+    &__contact {
+        display: block;
+        padding: 20px 0 20px 38px;
+
+        &--chat {
+            background: url('/public/images/icons/chat.svg') no-repeat 0px 18px;
+        }
+
+        &--email {
+            background: url('/public/images/icons/email.svg') no-repeat 0px 18px;
+        }
+
+        &--phone {
+            background: url('/public/images/icons/phone.svg') no-repeat 9px 18px;
+        }
+    }
+
+}

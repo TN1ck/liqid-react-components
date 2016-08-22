@@ -1,0 +1,38 @@
+.liq_margin-to-columns {
+    margin-bottom: 20px;
+    float: left;
+    width: 100%;
+}
+
+.liq_seperator {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.liq_full-width {
+    width: 100%;
+}
+
+.liq_big-modal {
+
+    width: 95%;
+    word-wrap: break-word;
+
+    .modal-content {
+        padding: 20px;
+    }
+}
+
+.liq_modal-footer-centered {
+    .modal-footer {
+        text-align: center;
+    }
+}
+
+// needed for charts
+.visible-hidden {
+    position: absolute;
+    pointer-events: none;
+    width: 100%;
+    visibility: hidden;
+}

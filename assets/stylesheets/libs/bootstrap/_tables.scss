@@ -1,0 +1,36 @@
+.table-borderless {
+    tbody {
+        tr {
+            td {
+                border-top: none;
+                line-height: 1.0;
+            }
+        }
+    }
+}
+
+
+.table-nice {
+
+    thead {
+        font-weight: bold;
+    }
+
+    tbody, thead {
+        tr {
+            td {
+                text-align: center;
+                vertical-align: middle !important;
+
+                &:first-child {
+                    text-align: left;
+                }
+            }
+        }
+    }
+
+    &__icon {
+        height: 1.5em;
+    }
+
+}

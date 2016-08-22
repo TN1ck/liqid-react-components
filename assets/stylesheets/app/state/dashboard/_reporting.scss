@@ -1,0 +1,103 @@
+.liq_reporting-waterfall {
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.liq_reporting-time-weighted {
+    margin-top: 40px;
+    margin-bottom: 45px;
+
+    @media screen and (max-width: 479px) {
+        .liq_number {
+            border-right: none;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+    }
+}
+
+.liq_reporting-absolute {
+    margin-top: 10px;
+    margin-bottom: 20px;
+
+    @media screen and (max-width: 479px) {
+        .liq_number {
+            border-right: none;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+    }
+}
+.liq_reporting-kpis {
+    margin-bottom: 20px;
+    @extend .clearfix;
+    @media screen and (max-width: 479px) {
+        .liq_number {
+            border-right: none;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+    }
+}
+
+.liq_reporting-chart-controls {
+    margin-top: 20px;
+    @media screen and (max-width: $screen-xs-max) {
+        .liq_content-area__left {
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        },
+        .liq_content-area__left,
+        .liq_content-area__right {
+
+            text-align: left;
+        }
+    }
+}
+
+.liq_reporting-transactions {
+    margin-top: 60px;
+    &__header {
+        .pull-left {
+            margin-top: -5px;
+            position: absolute;
+            top: 50%;
+            transform: translate(0, -50%);
+
+            @media screen and (max-width: $screen-xs-max) {
+                float: none !important;
+                position: static;
+                transform: none;
+                text-align: left;
+                top: 0;
+            }
+        }
+        .pull-right {
+            @media screen and (max-width: $screen-xs-max) {
+                float: none !important;
+            }
+            .liq_floating-label {
+                text-align: right;
+                @media screen and (max-width: $screen-xs-max) {
+                    text-align: left;
+                }
+
+                input {
+                    text-align: right;
+                    @media screen and (max-width: $screen-xs-max) {
+                        text-align: left;
+                    }
+                }
+            }
+        }
+        .liq_floating-label {
+            font-weight: $weight__semi-bold;
+            margin-top: -8px;
+            text-align: right;
+        }
+    }
+}

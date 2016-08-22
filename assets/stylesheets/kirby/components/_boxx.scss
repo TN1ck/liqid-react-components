@@ -1,0 +1,44 @@
+.liq_boxx {
+  background: #fff;
+  border: 1px solid $brand-primary;
+  height: 360px;
+  margin: -1px -1px 0 0;
+  @media (max-width: $screen-xs-max) {
+    margin: -1px 15px;
+    height: auto;
+  }
+  left: 1px;
+
+  &:after,
+  &:before {
+    content:'';
+    position: absolute;
+    background: #fff;
+  }
+
+  &:before{
+    width: calc(100% + 2px);
+    height: calc(100%  - 40px);
+    top: 18px;
+    left: -1px;
+  }
+
+  &:after {
+    width: calc(100% - 40px);
+    height: calc(100%  + 2px);
+    top: -1px;
+    left: 20px;
+  }
+
+  &__inner {
+    position: relative;
+    z-index: 1;
+    padding: 20px;
+    height: 100%;
+    margin: 0 -15px;
+
+    &:hover {
+      box-shadow: 0px 10px 15px 0px rgba(36,39,48,0.10);
+    }
+  }
+}

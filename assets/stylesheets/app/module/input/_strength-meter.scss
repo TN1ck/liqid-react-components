@@ -1,0 +1,18 @@
+.liq_strength-meter {
+  border-radius: 2px;
+  height: 4px;
+  transition: width 0.15s ease-out;
+  width: 0%;
+
+  &--strength-1,
+  &--strength-0,
+  &--strength-2 {
+    background-color: $brand-danger;
+  }
+
+  &--strength-3,
+  &--strength-4,
+  &--strength-5 {
+      background-color: $brand-success;
+  }
+}

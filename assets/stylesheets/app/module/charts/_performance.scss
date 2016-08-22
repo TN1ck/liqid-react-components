@@ -1,0 +1,31 @@
+.liq_performance-chart {
+
+    &__red-area {
+        fill: lighten($brand-primary, 20);
+        stroke-width: 2px;
+        stroke: lighten($brand-primary, 20);
+        // fill-opacity: 0.2;
+    }
+
+    &__green-area {
+        fill: $brand-green;
+        fill-opacity: 0.4;
+    }
+
+    &__line {
+        stroke-width: 2px;
+
+        &--red {
+            stroke: $brand-primary;
+        }
+        &--green {
+            stroke: $brand-green;
+        }
+    }
+    &__green-area {
+        fill: $brand-green;
+        fill-opacity: 0.4;
+        stroke: darken($brand-green, 5);
+        stroke-width: 2px;
+    }
+}

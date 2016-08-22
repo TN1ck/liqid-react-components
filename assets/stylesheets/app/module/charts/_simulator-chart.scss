@@ -1,0 +1,42 @@
+.liq_simulator-chart {
+    &-forecast {
+
+        &__line-median {
+            stroke: $brand-info-dark;
+        }
+
+        &__line-profit-upper {
+            stroke: $brand-info;
+        }
+
+        &__line-loss-upper {
+            stroke: $brand-primary;
+        }
+
+        &__line-base {
+            stroke: $brand-base;
+        }
+
+        &__area-90 {
+            fill-opacity: 0.3 !important;
+        }
+
+        &__area-95 {
+            fill-opacity: 0.36!important;
+        }
+
+        &__area-10 {
+            fill-opacity: 0.3 !important;
+        }
+
+        &__area-5 {
+            fill-opacity: 0.3 !important;
+        }
+    }
+
+    &-tooltip {
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+}

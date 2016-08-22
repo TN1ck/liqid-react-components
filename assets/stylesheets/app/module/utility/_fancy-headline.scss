@@ -1,0 +1,71 @@
+// The element inside the container is the headline itself
+// Container for applying special styles which are not possible
+// without parent element
+.liq_fancy-headline-container {
+    position: relative;
+    white-space: nowrap;
+
+    &--margin-top {
+        margin-top: 10px;
+    }
+
+    &--side-bordered {
+        overflow: hidden;
+        text-align: center;
+        // there is no guarantee that there is an h1,.. inside the container,
+        // so use whatever is inside
+        > :first-child {
+            display: inline-block;
+            cursor: pointer;
+            padding: 0 15px;
+            position: relative;
+            transition: padding 0.3s ease, color 0.3s ease;
+            color: $gray-light;
+            &:before, &:after {
+                background: #ccc;
+                content: "";
+                display: block;
+                height: 1px;
+                position: absolute;
+                top: 50%;
+                transition: background 0.3s ease;
+                width: 1000%;
+            }
+            &:before {
+                right: 100%;
+            }
+            &:after {
+                left: 100%;
+            }
+
+
+        }
+
+        &--portfolio > :first-child  {
+            color: $brand-base !important;
+            cursor: pointer;
+            font-size: $font-size-small;
+            font-weight: $weight__bold;
+            margin-top: 10px;
+            margin-bottom: 20px;
+
+            &:before, &:after {
+                background: #eee;
+            }
+        }
+
+        &:hover {
+            > :first-child {
+                color: $brand-primary;
+                // also overwrite pseudo-class-properties
+                &:link, &:visited {
+                    color: $brand-primary;
+                }
+                padding: 0 40px;
+                &:before, &:after {
+                    background: $brand-primary;
+                }
+            }
+        }
+    }
+}

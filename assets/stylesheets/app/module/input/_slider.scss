@@ -1,0 +1,137 @@
+.liq_slider {
+
+    $slider-stroke-width: 4px;
+
+    &.liq_slider--disabled {
+        pointer-events: none;
+        .background {
+            cursor: default !important;
+        }
+    }
+
+    &__text-center {
+        margin-top: 4px;
+    }
+
+    &__container {
+        width: 100%;
+        overflow: visible !important;
+    }
+
+    &__tick {
+        fill: #fff;
+        stroke: #fff;
+        // stroke-width: $slider-stroke-width;
+        opacity: 0;
+
+        &:first-child, &:last-child {
+            opacity: 0;
+        }
+    }
+
+    &__min-max-text {
+        fill: $gray-dark;
+        font-size: 12px;
+        font-weight: $weight__bold;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+    }
+
+    &__marked-line {
+        stroke-width: $slider-stroke-width;
+        stroke: $brand-base;
+        stroke-linecap: round;
+
+        &--perfect {
+            stroke-width: $slider-stroke-width;
+            stroke: $brand-info-dark;
+        }
+
+        &--good {
+            opacity: 0.4;
+            stroke-width: $slider-stroke-width;
+            stroke: $brand-info;
+        }
+
+        &--left {
+            stroke: $brand-info;
+            stroke-width: $slider-stroke-width;
+        }
+    }
+
+    .axis {
+
+        font: 10px sans-serif;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+
+        .halo {
+            fill: none;
+            stroke: $gray-light;
+            stroke-width: 8px;
+            stroke-linecap: round;
+        }
+
+        .domain {
+            fill: none;
+            stroke: $gray-light;
+            stroke-opacity: .3;
+            stroke-width: $slider-stroke-width;
+            stroke-linecap: round;
+        }
+
+    }
+
+    .background {
+        cursor: pointer !important;
+    }
+
+
+    &__handle {
+        fill: #fff;
+        stroke: $brand-info;
+        stroke-width: 2px;
+        cursor: pointer;
+    }
+
+}
+
+
+.liq_question-choice-slider {
+
+    &__container {
+        width: 80%;
+        padding-top: 7px;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+    .liq_slider {
+
+        .liq_slider__tick {
+            opacity: 0.8;
+            &--hide {
+                stroke: none;
+            }
+        }
+
+        .liq_slider__min-max-text {
+            opacity: 0;
+            text {
+                opacity: 0;
+            }
+        }
+
+        .axis {
+            .tick {
+                fill: none;
+                text {
+                    opacity: 0;
+                }
+            }
+        }
+
+    }
+}

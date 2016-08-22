@@ -1,0 +1,100 @@
+.liq_documents-table-unread {
+    tbody {
+        tr {
+            background-color: $gray-lighter;
+            td {
+                border-bottom-color: $gray-light;
+                color: $gray;
+            }
+        }
+    }
+}
+
+.liq_documents-table-read {
+    &__header {
+        margin-top: 20px;
+    }
+}
+
+.liq_documents-table {
+    &__download-button {
+        color: $gray;
+    }
+}
+
+
+.liq_documents-show-all {
+    cursor: pointer;
+    color: $gray-light;
+    float: left;
+    left: 50%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 40px; // for the +-button
+    position: relative;
+    text-align: center;
+    transition: all 0.2s ease-out;
+    transform: translateX(-50%);
+    &:hover {
+        color: $gray;
+        .liq_documents-show-all__button {
+            &:after {
+                border-color: $gray;
+            }
+        }
+        .liq_animated-plus-button {
+            border: 1px solid $gray;
+            color: $gray;
+            .one, .two {
+                background: $gray;
+            }
+        }
+    }
+    &__button {
+        width: 10px;
+        &:after {
+            border-radius: 20px;
+            border: 1px solid $gray-lighter;
+            content: "+";
+            margin-right: 5px;
+            padding: 10px;
+            width: 10px;
+        }
+    }
+}
+
+@media (max-width: $screen-xs-max and not print) {
+    .liq_documents-table-unread {
+        tbody {
+            tr {
+                background-color: #FBFBFB;
+                border-bottom-color: $gray-light;
+            }
+        }
+    }
+
+    .liq_documents-table {
+        &__download-container {
+            margin-top: 15px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        &__download-button {
+            background-color: white;
+            border: 1px solid $gray-light;
+            border-radius: 5px;
+            color: $gray;
+            padding: 10px;
+        }
+    }
+
+}
+
+.liq_documents-no-results {
+    color: $color__grey;
+    font-weight: $weight__semi-bold;
+    font-size: 16px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+}

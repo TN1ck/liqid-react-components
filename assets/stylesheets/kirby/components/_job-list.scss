@@ -1,0 +1,37 @@
+.liq_job-list {
+  &__item {
+    border-bottom: 1px solid $brand-base;
+    padding: 0 0 5px 15px;
+
+    &:before {
+      left: 0!important;
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &__link {
+      color: $text-color;
+      display: block;
+
+      &:hover {
+        color: $text-color;
+        text-decoration: underline;
+      }
+
+      &__tag {
+        @media (min-width: $screen-xs) {
+          float: right;
+        }
+        opacity: 0.3;
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .liq_job-list__item__tag {
+    display: none;
+  }
+}

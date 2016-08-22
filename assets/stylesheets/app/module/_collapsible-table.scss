@@ -1,0 +1,184 @@
+.liq_collapsable-table {
+    font-weight: $weight__semi-bold;
+    padding-bottom: 8px;
+    width: 100%;
+
+    &__table-head-row {
+        border-bottom: 1px solid $color__grey--light;
+        overflow: hidden;
+        padding-top: 5px;
+        padding-bottom: 16px;
+
+        .liq_collapsable-table__column {
+            @extend .headline--uppercase-small;
+            padding-top: 1px;
+        }
+    }
+    &__row-container {
+        &--first-level {
+            > .liq_collapsable-table__row {
+                font-weight: $weight__bold;
+            }
+        }
+        &--final {
+            border-top: 2px solid #eee;
+        }
+        &--second-level {
+            > .liq_collapsable-table__row {
+                &:hover {
+                    background: #F9F9F9;
+                    cursor: pointer;
+                }
+            }
+            &.liq_collapsable-table__row-container--has-sub {
+                > .liq_collapsable-table__row > .liq_collapsable-table__column:first-child:before {
+                    color: #aaa;
+                    content: "+";
+                    display: inline-block;
+                    font-weight: $weight__bold;
+                    padding-right: 5px;
+                    width: 12px;
+                }
+            }
+            &.liq_collapsable-table__row-container--has-sub > .liq_collapsable-table__row {
+                &:hover {
+                    background: #F9F9F9;
+                    cursor: pointer;
+                }
+            }
+        }
+        &--has-sub-active {
+            > .liq_collapsable-table__row-container {
+                display: block;
+            }
+
+            &.liq_collapsable-table__row-container--second-level {
+                > .liq_collapsable-table__row {
+                    > .liq_collapsable-table__column:first-child:before {
+                        content: "-";
+                        display: inline-block;
+                        width: 12px;
+                    }
+                    // so we can do some javascript on it
+                    &--after {
+                        background: #fff;
+                        border-radius: 50%;
+                        box-shadow: 0 0 5px #aaa;
+                        bottom: -7px;
+                        cursor: pointer;
+                        left: 50%;
+                        position: absolute;
+                        height: 13px;
+                        width: 13px;
+                        font-size: 9px;
+                        text-align: center;
+                        font-weight: $weight__bold;
+                        color: #999;
+                        font-family: Courier;
+                        line-height: 16px;
+                        margin-left: -5px;
+                        &:after {
+                            content: "^";
+                        }
+
+                        @media print {
+                            display: none;
+                        }
+                    }
+
+                }
+
+                border-bottom: 1px solid #eee;
+                position: relative;
+
+                > .liq_collapsable-table__row {
+                    border-bottom: 2px solid #eee;
+                    > .liq_collapsable-table__column:first-child {
+                    }
+                }
+            }
+        }
+        &--third-level {
+            display: none;
+            .liq_collapsable-table__column:first-child {
+                padding-left: 17px;
+            }
+            @media print {
+                display: block;
+                .liq_collapsable-table__column:first-child {
+                    padding-left: 25px;
+                }
+            }
+        }
+    }
+    &__row {
+        overflow: hidden;
+        -webkit-transition: background 0.6s ease;
+
+        @media print {
+            font-size: 11px;
+        }
+
+        &--append-to-previous {
+            margin-top: -12px;
+        }
+    }
+    &__column {
+        float: left;
+        padding: 5px 15px 5px 5px;
+        width: 33.33%;
+
+        @media print {
+            padding: 2px 15px 2px 5px;
+        }
+
+        &:nth-child(1) {
+            width: 60%;
+        }
+        &:nth-child(2) {
+            width: 20%;
+        }
+        &:nth-child(3) {
+            float: left;
+            width: 20%;
+            text-align: right;
+        }
+
+        &--full {
+            width: 100% !important;
+        }
+    }
+
+    &--dashboard {
+        @media (max-width: $screen-xs-max) {
+            font-size: $font-size__running--smaller;
+        }
+        .liq_collapsable-table__column {
+            &:nth-child(1) {
+                width: 43%;
+            }
+            &:nth-child(2) {
+                width: 20%;
+                text-align: right;
+            }
+            &:nth-child(3) {
+                float: left;
+                text-align: left;
+                width: 19%;
+
+                @media (max-width: $screen-xs-max) {
+                    display: none;
+                }
+            }
+            &:nth-child(4) {
+                float: left;
+                width: 18%;
+                text-align: right;
+
+                @media (max-width: $screen-xs-max) {
+                    width: 37%;
+                }
+            }
+        }
+    }
+}

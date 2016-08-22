@@ -1,0 +1,80 @@
+.liq_confirmation-section-row + .liq_confirmation-section-row {
+    margin-top: 25px;
+}
+.liq_confirmation-sub-section-wrap + .liq_confirmation-sub-section-wrap {
+    @media (max-width: $screen-md-min) {
+        margin-top: 25px;
+    }
+}
+.liq_confirmation-section-row {
+    @media (min-width: $screen-md-min) {
+        .col-md-5 {
+            width: 47%;
+        }
+        .col-md-offset-2 {
+            margin-left: 6%;
+        }
+    }
+}
+.liq_confirmation-sub-section {
+    &__heading-wrap {
+        border-bottom: 1px solid #eee;
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+        position: relative;
+
+        @media (max-width: $screen-md-max) {
+            padding-bottom: 0;
+        }
+
+        .liq_confirmation-sub-section__change-data-link {
+            padding-bottom: 7px;
+            position: absolute;
+            right: 0;
+            transform: translate(0, -50%);
+            top: 50%;
+
+            @media (max-width: $screen-md-max) {
+                margin-top: 8px;
+                position: static;
+            }
+            @media (max-width: $screen-md-max) {
+                padding-bottom: 0;
+            }
+
+            @media (max-width: $screen-xs-min) {
+                margin-top: 8px;
+                position: static;
+            }
+        }
+    }
+    &__headline {
+        margin: 0;
+    }
+    &__change-data-link {
+        color: $brand-info;
+        cursor: pointer;
+    }
+}
+.liq_confirmation-field {
+    @extend .clearfix;
+    &__label {
+        color: $brand-info;
+        float: left;
+        width: 50%;
+        word-wrap: break-word;
+
+        @media (max-width: $screen-xs-min) {
+            width: 100%;
+        }
+    }
+    &__content {
+        float: left;
+        margin-bottom: 4px;
+        width: 50%;
+
+        @media (max-width: $screen-xs-min) {
+            width: 100%;
+        }
+    }
+}

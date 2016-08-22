@@ -1,0 +1,9 @@
+.liq_step-indicator {
+    &__filled {
+        color: $brand-primary;
+    }
+
+    &__unfilled {
+        color: $gray-light;
+    }
+}

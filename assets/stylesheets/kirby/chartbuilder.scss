@@ -1,0 +1,33 @@
+@import './variables';
+@import '../app/variables';
+@import '../libs/bootstrap/variables';
+@import '../app/module/charts/charts';
+@import '../app/module/charts/guideline';
+@import '../app/module/charts/linechart';
+
+.field-toggleable {
+    .field-toggleable-header h2:before {
+        content: '▸ ';
+    }
+
+    .field-toggleable-header:hover {
+        cursor: pointer;
+    }
+
+    &.field-toggleable-expanded {
+        .field-toggleable-section {
+            display: block;
+            pointer-events: all;
+        }
+
+        .field-toggleable-header h2:before {
+            content: '▾ ';
+        }
+    }
+
+    .field-toggleable-section {
+        display: none;
+        pointer-events: none;
+    }
+
+}

@@ -1,0 +1,24 @@
+.liq_icon-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    &:after {
+        height: 20px;
+        width: 23px;
+    }
+    &--icon-printer {
+        &:after {
+            background: url('../../assets/images/icons/print.svg') no-repeat 0 0;
+            content: "";
+            display: inline-block;
+        }
+    }
+    &__screen-reader-text {
+        left: -10000px;
+        height: 1px;
+        overflow: hidden;
+        position: absolute;
+        top: auto;
+        width: 1px;
+    }
+}

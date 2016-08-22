@@ -1,0 +1,175 @@
+.liq_registration {
+    &-header {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    &-sub-header {
+        margin-bottom: 10px;
+    }
+}
+
+
+$identifaction-left-width: 50px;
+$identifaction-number-width: 40px;
+
+.liq_registration-identification-step {
+    &__container {
+        padding-left: $identifaction-left-width;
+
+        @media (max-width: $screen-xs-max) {
+            padding-left: 0;
+        }
+    }
+
+    &__left {
+        margin-left: -$identifaction-left-width - 25px;
+        margin-bottom: 10px;
+        width: $identifaction-left-width + 25px;
+        text-align: center;
+        float: left;
+
+        @media (max-width: $screen-xs-max) {
+            float: none;
+            margin-left: 0;
+            width: 100%;
+        }
+
+    }
+
+    &__right {
+        float: left;
+
+        @media (max-width: $screen-xs-max) {
+            float: none;
+            width: 100%;
+        }
+    }
+
+    &__header {
+        line-height: 36px;
+
+        @media (max-width: $screen-xs-max) {
+            line-height: $line-height__heading;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+    }
+
+    &__body {
+    }
+
+    &__number {
+        position: relative;
+        left: $identifaction-left-width / 2 - 10px;
+        width: $identifaction-number-width;
+        height: $identifaction-number-width;
+        font-size: $font-size-h3;
+        color: white;
+        line-height: 36px;
+        background-color: $gray-light;
+        border-radius: 100px;
+
+        @media (max-width: $screen-xs-max) {
+            display: inline-block;
+            margin-left: -22px;
+        }
+
+        &--active {
+            background-color: $brand-primary;
+        }
+
+        &--done {
+            background-color: $brand-primary;
+            line-height: 33px;
+            transform: scaleX(-1) rotate(-45deg);
+        }
+    }
+
+    &__button-container {
+        margin-top: 20px;
+    }
+
+    &__seperator {
+        width: 5px;
+        margin-left: ($identifaction-left-width + 25px) / 2 - 5px;
+        background-color: $gray-lighter;
+        height: 30px;
+        @media (max-width: $screen-xs-max) {
+            margin-left: 50%;
+        }
+
+        &--active {
+            background-color: $brand-primary;
+        }
+    }
+
+    .liq_transactions-deposit {
+        border: 1px solid $gray-lighter;
+        border-radius: 3px;
+        overflow: auto;
+        padding: 10px 13px;
+
+        &__bank-account {
+            width: 50%;
+
+            @media (max-width: $screen-md-max) {
+                width: 100%;
+            }
+
+            dl {
+                border-top: 1px solid $gray-lighter;
+                margin-bottom: 8px;
+                margin-top: 6px;
+                padding-top: 8px;
+
+                dt {
+                    line-height: 2.0;
+                    color: $brand-info;
+                    float: left;
+                    font-weight: $weight__semi-bold;
+                    text-align: left;
+                    overflow: hidden;
+                    clear: left;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+
+                    @media (max-width: $screen-xs-max) {
+                        float: none;
+                        line-height: 1.62;
+                    }
+                }
+
+                dd {
+                    line-height: 2.0;
+                    margin-left: 85px;
+                    min-height: 33px;
+
+                    @media (max-width: $screen-xs-max) {
+                        line-height: 1.62;
+                        margin-left: 0;
+                        margin-bottom: 10px;
+                    }
+                }
+            }
+        }
+    }
+
+    @media (max-width: $screen-md-max) {
+        .liq_transactions-deposit > .liq_transactions-deposit__bank-account {
+            margin-bottom: 18px;
+        }
+    }
+
+    .liq_transactions-deposit__transfer-order-download {
+        border: 1px solid $gray-lighter;
+        border-radius: 3px;
+        margin: 25px 0 20px 0;
+        padding: 10px 13px 19px;
+
+        &__description {
+            border-top: 1px solid $gray-lighter;
+            margin-top: 6px;
+            padding-top: 8px;
+        }
+    }
+}

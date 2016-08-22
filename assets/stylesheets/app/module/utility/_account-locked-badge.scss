@@ -1,0 +1,30 @@
+.account-locked-badge {
+    background: url('../../assets/images/icons/account_locked_badge.svg') no-repeat center 20px;
+    background-size: 130px;
+    color: #DCDCDC;
+    height: 275px;
+    letter-spacing: 0.5px;
+    margin: 0 auto;
+    padding-top: 230px;
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+    width: 200px;
+
+    &:before, &:after {
+        background: -webkit-linear-gradient(left, rgba(220,220,220,0) 0%,rgba(220,220,220,1) 25%,rgba(220,220,220,1) 75%,rgba(220,220,220,0) 100%);
+        content: "";
+        height: 2px;
+        left: 0;
+        position: absolute;
+        width: 100%;
+    }
+
+    &:before {
+        top: 0;
+    }
+
+    &:after {
+        bottom: 55px;
+    }
+}

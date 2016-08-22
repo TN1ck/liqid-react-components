@@ -1,0 +1,135 @@
+.contact-information-heading {
+	margin-bottom: 20px;
+
+    .contact-information--horizontal & {
+        margin-bottom: 0;
+        margin-right: 40px;
+    }
+}
+.contact-information {
+    &--horizontal {
+        align-items: center;
+        display: flex;
+
+        hr {
+            display: none;
+        }
+
+        .contact-information__mandatory-info {
+            margin-left: auto;
+
+            @media (max-width: $screen-sm-max) {
+                margin-top: 15px;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: $screen-sm-max) {
+            display: block;
+        }
+    }
+}
+.contact-information-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+    .contact-information--horizontal & {
+        align-items: center;
+        display: flex;
+
+        @media (max-width: $screen-xs-min) {
+            display: block;
+        }
+    }
+}
+.contact-information-list-item {
+    .contact-information--horizontal & {
+        margin-right: 20px;
+
+        @media (max-width: $screen-xs-min) {
+            margin-top: 15px;
+        }
+    }
+	/**
+	 * General Tag-Styling inside
+	 */
+	a, a:link, a:visited {
+		cursor: pointer;
+		display: block;
+		line-height: 20px;
+		padding-left: 38px;
+		padding-top: 6px;
+		position: relative;
+	}
+
+	+ .contact-information-list-item {
+		margin-top: 10px;
+
+        .contact-information--horizontal & {
+            margin-top: 0;
+
+            @media (max-width: $screen-xs-min) {
+                margin-top: 15px;
+            }
+        }
+	}
+
+	/**
+	 * Elements
+	 */
+	&__icon {
+		left: 0;
+		position: absolute;
+		top: 3px;
+
+        .contact-information--horizontal & {
+            top: 50%;
+            transform: translate(0, -50%);
+        }
+	}
+	&__title {
+		display: block;
+	}
+	&__title-sub {
+		color: #333;
+		display: block;
+	}
+
+
+	/**
+	 * Modifiers
+	 */
+	&--chat {
+	}
+	&--mail {
+	}
+	&--smartphone {
+		.contact-information-list-item__icon {
+			left: 6px;
+			top: 12px;
+
+            .contact-information--horizontal & {
+                top: 50%;
+                transform: translate(0, -50%);
+            }
+		}
+	}
+}
+
+@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+    .contact-information-list-item {
+        float: left;
+        width: 25%;
+        + .contact-information-list-item {
+    		margin-top: 0;
+    	}
+
+        &--smartphone {
+            width: 50%;
+    		.contact-information-list-item__icon {
+    			top: 4px;
+    		}
+    	}
+    }
+}

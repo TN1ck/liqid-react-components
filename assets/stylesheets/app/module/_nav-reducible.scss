@@ -1,0 +1,134 @@
+.nav-reducable {
+    padding-right: 75px;
+    position: relative;
+
+    &--expanded-navigation-contains-all {
+        .nav-reducable__expand-button-container {
+            &:after {
+                pointer-events: none;
+                opacity: 0;
+            }
+        }
+    }
+
+    .nav-reducable-items {
+        @extend .clearfix;
+        color: $color__grey;
+        font-size: $font-size__running--small;
+        font-weight: $weight__semi-bold;
+        list-style: none;
+        margin: 0;
+        overflow: hidden;
+        padding: 0;
+        text-transform: uppercase;
+        width: 100%;
+        white-space: nowrap;
+
+        //
+        // the item-container is set by NavigationReducible and is used
+        // to set different styles to the element it contains when the element
+        // is visible or hidden
+        //
+
+        &__item-container {
+            &--visible {
+                display: inline-block;
+            }
+
+            &--hidden {
+                display: block;
+                .nav-reducable-items__item {
+                    cursor: pointer;
+                    padding: 10px 28px;
+
+                    &:hover {
+                        color: $gray;
+                    }
+                }
+            }
+        }
+
+        //
+        // This is a default item one can use, it is not mandatory
+        //
+
+        &__item {
+            color: $color__grey;
+            cursor: pointer;
+            display: inline-block;
+            padding: 15px 14px 16px;
+
+            &--active {
+                color: $gray;
+                font-weight: $weight__bold;
+            }
+            &:hover {
+                color: $gray;
+            }
+        }
+    }
+
+    &__expand-button-container {
+        background:$color__primary;
+        cursor: pointer;
+        color: #FFF;
+        font-weight: $weight__bold;
+        height: calc(100% + 2px);
+        letter-spacing: 4px;
+        line-height: 52px;
+        margin-top: -1px;
+        position: absolute;
+        right: 20px;
+        @media (max-width: $screen-xs-max) {
+            right: 35px;
+        }
+        top: 0;
+        text-align: center;
+        width: 50px;
+
+        &:after {
+            transition: opacity 0.2s ease-out;
+            background: #FFF;
+            content: "";
+            height: 100%;
+            opacity: 0.5;
+            position: absolute;
+            right: 100%;
+            width: 30px;
+        }
+    }
+    &__expanded-navigation {
+        background: #FFF;
+        box-shadow: 0 0 5px $gray-light;
+        color: $color__grey;
+        display: none;
+        font-size: 12px;
+        font-weight: $weight__semi-bold;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        right: 20px;
+        top: calc(100% - 10px);
+        text-transform: uppercase;
+        z-index: 2;
+
+        &--active {
+            display: block;
+        }
+
+        &--left {
+            left: 100%;
+            margin-left: -70px;
+            right: auto;
+
+            @media (max-width: $screen-xs-max) {
+                margin-left: -85px
+            }
+        }
+
+        .nav-reducable-items__item {
+            display: block;
+        }
+    }
+}

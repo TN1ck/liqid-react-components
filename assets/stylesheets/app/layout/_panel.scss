@@ -1,0 +1,240 @@
+.panel-group:last-child {
+    > .liq_panel--grouped {
+        border-bottom: none;
+    }
+}
+
+.liq_panel {
+    box-shadow: none;
+    margin-bottom: 0;
+
+    &__header {
+        padding-right: 30px;
+        position: relative;
+
+        > a {
+            color: #333333;
+            display: block;
+        }
+
+        &--bottom-margin {
+            padding: 10px 0;
+        }
+
+        &:hover {
+            .liq_panel__button {
+                color: $brand-base;
+                border: 1px solid $brand-base;
+                .one, .two {
+                    background: $brand-base;
+                }
+                &--tiny {
+                    border: none;
+                }
+            }
+        }
+    }
+
+    &__body {
+        &--padding-left-arrow {
+            padding-left: 16px;
+        }
+    }
+
+    &__put-right {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    &--mobile-break {
+         @media (max-width: $screen-xs-max) {
+            .liq_panel__put-right {
+                font-weight: $weight__semi-bold;
+                position: relative;
+                margin-top: 10px;
+            }
+         }
+    }
+
+    &--margin-top {
+        margin-top: 40px;
+    }
+
+    &--margin-top-small {
+        margin-top: 20px;
+    }
+
+    &--padding-right {
+        padding-right: 30px;
+    }
+
+    &--padding-left {
+        padding-left: 40px;
+    }
+
+    @media print {
+        padding-left: 0;
+    }
+
+    &--large-header {
+        > .panel-heading .panel-title a {
+            font-size: 19px;
+            line-height: 23px;
+            padding-top: 2px;
+            strong {
+                font-weight: $weight__semi-bold;
+            }
+        }
+    }
+
+    &--grouped {
+
+        &:not(:last-child) {
+            border-bottom: 1px solid #e1e1e1;
+        }
+
+        .liq_panel__button {
+            border-color: transparent;
+            &:hover {
+                border-color: transparent;
+            }
+        }
+        .liq_panel__header:hover {
+            .liq_panel__button {
+                border-color: transparent;
+            }
+        }
+
+        .panel-collapse .panel-body {
+            padding-top: 0;
+            padding-bottom: 10px;
+        }
+    }
+
+    &--compact {
+        .panel-body {
+            padding-top: 0;
+        }
+    }
+
+    &--no-description {
+        .panel-heading {
+            pointer-events: none;
+            .liq_panel__button {
+                .one {
+                    border-radius: 50%;
+                    height: 10px;
+                    top: calc(50% - 5px);
+                    width: 10px;
+                }
+                .two {
+                    display: none;
+                }
+                pointer-events: none;
+            }
+        }
+        .panel-body {
+            display: none;
+        }
+    }
+
+    &--has-top-border {
+        border-top: 1px solid #ECECEC;
+    }
+
+    &__button {
+
+        $button-size: 15px * 2;
+        $button-border: 1px;
+        $button-height: 2px;
+        $button-margin: 8px;
+
+        @media print {
+            display: none;
+        }
+
+        transition: all 200ms ease;
+        position: absolute;
+        top: calc(50% - 15px);
+        font-size: $button-size;
+        font-weight: $weight__semi-bold;
+        line-height: $button-size;
+        color: rgba($brand-base, 0.5);
+        height: $button-size;
+        width: $button-size;
+        background-color: white;
+        border: $button-border solid rgba($brand-base, 0.2);
+        border-radius: 50px;
+
+        &:hover {
+            color: $brand-base;
+            border: 1px solid $brand-base;
+            .one, .two {
+                background: $brand-base;
+            }
+        }
+
+
+        .one, .two {
+            position: absolute;
+            border-radius: 3px;
+            background: $gray-light;
+            transform: rotate(0deg);
+            transition: 300ms all ease-out;
+
+            top: $button-margin;
+            left: $button-size / 2 - ($button-height / 2 + $button-border);
+            bottom: $button-margin;
+            width: $button-height;
+        }
+
+        .one {
+            transform: rotate(-90deg);
+        }
+        .two {
+             transform: rotate(-90deg);
+        }
+
+        &--right {
+            right: -30px;
+        }
+
+        &--left {
+            left: -40px;
+        }
+
+        &--tiny {
+            border: none;
+            transform: scale(0.6);
+            top: calc(50% - 16px);
+
+            &:hover {
+                border: none;
+            }
+        }
+    }
+
+    .panel-heading {
+        padding: 0px;
+        position: relative;
+        .panel-title {
+            font-size: 14px;
+        }
+
+        .panel-title--no-margin {
+            margin: 0px;
+        }
+    }
+
+    .panel-body {
+        padding: 5px 0 0;
+
+        .liq_panel__header {
+            font-size: $font-size__running--small;
+            font-weight: $weight__semi-bold;
+        }
+    }
+
+}

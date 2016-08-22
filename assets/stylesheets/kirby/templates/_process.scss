@@ -1,0 +1,128 @@
+.liq_t_process__step {
+  background-color: #eee;
+  border-radius: 50%;
+  color: $gray-base;
+  height: 300px;
+  margin: 90px auto;
+  overflow: hidden;
+  padding: 36px;
+  text-align: center;
+  transition: background-color 0.3s ease-out;
+  width: 300px;
+
+  &__number {
+    font-size: 38px;
+    line-height: normal;
+
+    @media (max-width: $screen-xs-max) {
+      font-size: 33px;
+      margin-top: 24px;
+    }
+  }
+}
+
+.liq_t_process__step_title {
+  font-size: $font-size-large;
+  margin: 6px 0 11px;
+}
+
+.liq_t_process__step_description {
+  font-size: 14px;
+}
+
+.liq_t_process__step:hover {
+  background-color: #ddd;
+  transition: background-color 0.3s ease-out;
+}
+
+.liq_t_process__description {
+  padding: 80px 0 40px;
+  position: relative;
+
+  &:last-child {
+    margin-bottom: 150px;
+  }
+}
+
+
+.liq_t_process__description:before,
+.liq_t_process__description:after {
+  position: absolute;
+  content: '';
+  background-color: #eee;
+  width: 5px;
+  height: 100%;
+  top: 80px;
+  left: -145px;
+}
+
+.liq_t_process__description:after {
+  background-color: $brand-primary;
+  height: 0px;
+  transition: height 0.3s ease-out;
+}
+
+.liq_t_process__description--completed:after  {
+  background-color: $brand-primary;
+  height: 100%;
+  transition: height 1s ease-out;
+}
+
+.liq_t_process__number {
+  background: #eee;
+  border-radius: 50%;
+  font-size: 23px;
+  height: 40px;
+  left: -162px;
+  line-height: 37px;
+  position: absolute;
+  text-align: center;
+  top: 79px;
+  width: 40px;
+  z-index: 1;
+
+  transition-delay: 0.2s, 0s;
+  transition-duration: 0.2s, 0.5s;
+  transition-timing-function: ease-out;
+  transition-property: background, color;
+}
+
+.liq_t_process__description--completed .liq_t_process__number {
+  background: $brand-primary;
+  color: #fff;
+  transition: background-color 0.3s ease-out;
+}
+
+.liq_t_process__description__title {
+  margin-bottom: 2.3rem;
+  margin-top: 0;
+}
+
+.liq_t_process__link--down {
+  display: block;
+  margin: 0px auto;
+  text-align: center;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+@media only screen
+  and (min-width: $screen-xs-max)
+  and (max-width: $screen-sm-max) {
+
+  .liq_t_process__description {
+    padding: 80px 0 40px 100px;
+  }
+
+  .liq_t_process__description:before,
+  .liq_t_process__description:after {
+    left: 28px;
+  }
+
+  .liq_t_process__number {
+    left: 10px;
+  }
+
+}

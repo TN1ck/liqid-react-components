@@ -1,0 +1,46 @@
+.btn-hero-container {
+    cursor: pointer;
+    margin-bottom: 30px;
+    padding: 20px 0;
+    position: relative;
+    text-align: center;
+
+    &:hover {
+        button {
+            background-color: #EF233C;
+            color: #fff;
+        }
+    }
+
+    &:before, &:after {
+        @include linear-gradient(to right, rgba(236,236,238,1) 0%,#C8C8CB 50%,rgba(236,236,238,1) 100%);
+        content: "";
+        height: 1px;
+        left: 0;
+        position: absolute;
+        width: 100%;
+    }
+    &:before {
+        top: 0;
+    }
+    &:after {
+        bottom: 0;
+    }
+
+    button {
+        display: inline-block;
+        margin: 0;
+        width: auto;
+    }
+
+    &__copy {
+        color: $gray-light;
+        display: inline-block;
+        margin-right: 20px;
+    }
+}
+
+.btn-hero-container--strategy-finder {
+    margin-top: 30px;
+    margin-bottom: 20px;
+}

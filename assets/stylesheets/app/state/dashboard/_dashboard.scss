@@ -1,0 +1,30 @@
+.liq_dashboard {
+    &__headline-outside {
+        margin-top: 20px;
+        margin-bottom: 8px;
+    }
+}
+
+.liq_dashboard-overview {
+    padding-bottom: 20px;
+    text-align: right;
+
+    @media (max-width: $screen-xs-max) {
+        text-align: center;
+    }
+
+    &__header {
+    }
+
+    &__subheader {
+        color: $brand-info;
+    }
+}
+
+.liq_dashboard-no-data-message {
+    margin-top: 20px;
+
+    @media screen and (max-width: $screen-xs-max) {
+        margin-top: 10px;
+    }
+}

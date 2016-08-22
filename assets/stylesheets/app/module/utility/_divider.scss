@@ -1,0 +1,19 @@
+.liq_divider {
+    clear: both;
+    background-color: $gray-lighter;
+    height: 1px;
+    width: 100%;
+
+    &--margin {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    &--margin-bottom {
+        margin-bottom: 30px;
+    }
+
+    &--visible-in-print {
+        background-color: $gray-lighter !important;
+    }
+}

@@ -1,0 +1,122 @@
+.liq_liqid-team {
+    background-color: $body-bg;
+    margin-bottom: -40px;
+    padding: 20px 0 40px;
+    text-align: center;
+
+    &__member {
+        background-color: #fff;
+        margin: 10px 0;
+        height: 350px;
+        text-align: center;
+        box-shadow: 0px 3px 6px 0px rgba(36,39,48,0.30);
+        transition: all 0.2s;
+        overflow: hidden;
+        position: relative;
+
+        &:hover {
+            @include card-shadow(5px, 10px);
+        }
+        &__meta {
+            &__photo {
+                width: 100%;
+                height: 240px;
+                margin-bottom: 20px;
+                background-position: center;
+                background-size: cover;
+            }
+
+            &__social {
+                padding-bottom: 10px;
+                &__icon {
+                    width: 15px;
+                    height: 15px;
+                    margin-right: 10px;
+                }
+            }
+        }
+
+        &__info {
+
+            &__bio {
+                background-color: rgba(255,255,255,0.95);
+                bottom: 0;
+                font-size: 68%;
+                font-weight: 300;
+                height: 240px;
+                left: 0;
+                line-height: 17px;
+                overflow: hidden;
+                padding: 10px;
+                position: absolute;
+                text-align: left;
+                top: 0;
+                opacity: 0;
+                transition: opacity 0.3s linear;
+            }
+
+            &__position,
+            &__name {
+                color: $brand-primary;
+                margin-bottom: 0px;
+            }
+
+            &__name {
+                margin-top: 10px;
+            }
+
+            &__position {
+                font-size: 12px;
+            }
+        }
+    }
+}
+
+.liq_liqid-team__member--big .liq_liqid-team__member__meta__photo {
+    height: 350px;
+    width: 50%;
+    float: left;
+}
+
+.liq_liqid-team__member--big .team__member__info {
+    padding-top: 130px;
+}
+
+.liq_liqid-team__member--big .liq_liqid-team__member__info__bio {
+    width: 50%;
+    right: auto;
+    height: 350px;
+    opacity: 0;
+    transition: opacity 0.3s linear;
+}
+
+.liq_liqid-team__member--active .liq_liqid-team__member__info__bio,
+.liq_liqid-team__member:hover .liq_liqid-team__member__info__bio {
+    opacity: 1;
+    transition: opacity 0.3s linear;
+}
+
+
+.liq_team-flex-container {
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+}
+.liq_team-flex-box {
+    display: flex;
+    padding: 15px;
+    width: 50%;
+
+    @media (max-width: $screen-sm-max) {
+        width: 100%;
+    }
+
+    .liq_team__member {
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+}

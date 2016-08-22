@@ -1,0 +1,14 @@
+.liq_onboarding-account-card {
+    &__errors {
+        padding: 15px;
+        margin-top: -30px;
+        margin-bottom: 25px;
+        color: white;
+        background-color: $brand-primary;
+
+        &--no-margins {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+    }
+}

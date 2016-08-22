@@ -1,0 +1,153 @@
+//
+// -- Start editing -- //
+//
+
+@import "./flexbox";
+
+// Set the number of columns you want to use on your layout.
+$fb-grid-columns: $grid-columns;
+// Set the gutter between columns.
+// should be the same as the one set in bootstraps _variables
+$fb-gutter-width: $grid-gutter-width;
+// Set a margin for the container sides.
+$fb-outer-margin: 2rem !default;
+// Create or remove breakpoints for your project
+// Syntax:
+// name SIZErem,
+$fb-breakpoints:
+xs 0 100%,
+sm $screen-sm $container-sm,
+md $screen-md $container-md,
+lg $screen-lg $container-lg;
+$flexboxgrid-max-width: 1200px !default;
+
+//
+// -- Stop editing -- //
+//
+
+$gutter-compensation: $fb-gutter-width * .5 * -1;
+$half-gutter-width: $fb-gutter-width * .5;
+
+.fb-wrapper {
+    box-sizing: border-box;
+    max-width: $flexboxgrid-max-width;
+    margin: 0 auto;
+}
+
+.fb-container-fluid {
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: floor(($fb-gutter-width / 2));;
+    padding-left: ceil(($fb-gutter-width / 2));
+}
+
+.fb-row {
+    box-sizing: border-box;
+    @include flexbox();
+    @include flex(0, 1, auto);
+    @include flex-direction(row);
+    @include flex-wrap(wrap);
+    margin-right: $gutter-compensation;
+    margin-left: $gutter-compensation;
+}
+
+.fb-row.reverse {
+    @include flex-direction(row-reverse);
+}
+
+.fb-col.reverse {
+    @include flex-direction(column-reverse);
+}
+
+@mixin flexboxgrid-sass-col-common {
+    box-sizing: border-box;
+    @include flex(0, 0, auto);
+    padding-right: $half-gutter-width;
+    padding-left: $half-gutter-width;
+}
+
+.fb-flex {
+    @include flexbox();
+}
+
+
+
+@each $breakpoint in $fb-breakpoints {
+    $name: nth($breakpoint, 1);
+    $size: nth($breakpoint, 2);
+    $container: nth($breakpoint, 3);
+    @media only screen and (min-width: $size) {
+        .fb-container {
+            width: $container;
+        }
+
+        .fb-col-#{$name} {
+            @include flexboxgrid-sass-col-common;
+            @include flex-grow(1);
+            @include flex-basis(0);
+            max-width: 100%;
+        }
+
+        @for $i from 1 through $fb-grid-columns {
+            .fb-col-#{$name}-#{$i} {
+                @include flexboxgrid-sass-col-common;
+                @include flex-basis(100% / $fb-grid-columns * $i);
+                max-width: 100% / $fb-grid-columns * $i;
+            }
+        }
+
+        @for $i from 1 through $fb-grid-columns {
+            .fb-col-#{$name}-offset-#{$i} {
+                @include flexboxgrid-sass-col-common;
+                margin-left: 100% / $fb-grid-columns * $i
+            }
+        }
+
+        .fb-start-#{$name} {
+            @include justify-content(flex-start);
+            text-align: start;
+        }
+
+        .fb-center-#{$name} {
+            @include justify-content(center);
+            text-align: center;
+        }
+
+        .fb-end-#{$name} {
+            @include justify-content(flex-end);
+            text-align: end;
+        }
+
+        .fb-top-#{$name} {
+            @include align-items(flex-start);
+        }
+
+        .fb-middle-#{$name} {
+            @include align-items(center);
+        }
+
+        .fb-stretch-#{$name} {
+            @include align-items(stretch);
+        }
+
+        .fb-bottom-#{$name} {
+            @include align-items(flex-end);
+        }
+
+        .fb-around-#{$name} {
+            @include justify-content(space-around);
+        }
+
+        .fb-between-#{$name} {
+            @include justify-content(space-between);
+        }
+
+        .fb-first-#{$name} {
+            order: -1;
+        }
+
+        .fb-last-#{$name} {
+            order: 1;
+        }
+    }
+}

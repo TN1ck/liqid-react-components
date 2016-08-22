@@ -1,0 +1,67 @@
+.liq_transactions-form {
+    &__button {
+        margin-top: 25px;
+        width: 100%;
+        bottom: 0;
+    }
+}
+
+.liq_transactions-tab {
+    margin-top: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
+    &--left {
+        border-right: 1px solid $gray-lighter;
+    }
+}
+
+.liq_transactions-payout {
+    &-number {
+        font-size: $font-size-h3;
+    }
+}
+
+.liq_transactions-deposit {
+    &__bank-account {
+        dl {
+            margin-bottom: 0;
+            dt {
+                line-height: 2.0;
+                color: $brand-info;
+                float: left;
+                font-weight: $weight__semi-bold;
+                text-align: left;
+                overflow: hidden;
+                clear: left;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+
+                @media (max-width: $screen-xs-max) {
+                    float: none;
+                    line-height: 1.62;
+                }
+            }
+
+            dd {
+                line-height: 2.0;
+                margin-left: 230px;
+
+                @media (max-width: $screen-xs-max) {
+                    line-height: 1.62;
+                    margin-left: 0;
+                    margin-bottom: 10px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: $screen-xs-max) {
+    .liq_transactions-deposit__bank-account {
+        float: left;
+    }
+
+    .liq_transactions-tab--left {
+        border-right: none;
+    }
+}

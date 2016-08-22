@@ -1,0 +1,179 @@
+.liq_main--home {
+    &__mag_teasered-articles {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+    &__mag_teasered-articles-cta {
+        margin-top: 25px;
+        text-align: center;
+    }
+    &__mag_article-list {
+        border-bottom: 1px solid $mag-light-grey-color;
+        list-style: none;
+        margin: 40px 0 0 0 !important;
+        padding: 0;
+        li {
+            margin: 0;
+        }
+        li:before, li:after {
+            content: none !important;
+        }
+        &--header {
+            margin-top: 25px;
+            margin-bottom: 12.5px;
+            text-align: center;
+        }
+        &--vertical {
+            li {
+                border-bottom: 1px solid $mag-light-grey-color;
+                margin-bottom: 25px;
+                padding-bottom: 25px;
+                &:last-child {
+                    border-bottom: none;
+                    margin-bottom: 0;
+                    padding-bottom: 0;
+                }
+            }
+        }
+        &--large-padding {
+            li {
+                padding-bottom: 70px;
+                margin-bottom: 70px;
+                &:last-child {
+                    padding-bottom: 0;
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        &--horizontal {
+            @extend .clearfix;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            li {
+                display: flex;
+                width: 50%;
+
+                @media (max-width: $screen-xs-max) {
+                    width: 100%;
+                }
+
+                .mag_article-short {
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+
+                    .mag_goto-link {
+                        margin-bottom: 20px;
+                        margin-top: auto;
+                    }
+                }
+                .mag_blogpost-short {
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+
+                    .mag_goto-link {
+                        margin-top: auto;
+                    }
+                }
+            }
+        }
+        &--two {
+            margin: 0 -17px;
+            justify-content: center;
+            li {
+                max-width: 420px;
+                padding: 0 17px;
+                width: 49.9%;
+
+                @media (max-width: $screen-xs-max) {
+                    width: 100%;
+                }
+            }
+        }
+        &--three {
+            margin: 0 -17px;
+            li {
+                padding: 0 17px;
+                width: 33.3%;
+
+                @media (max-width: $screen-md-max) {
+                    width: 50%;
+                }
+
+                @media (max-width: $screen-xs-max) {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+
+    .mag_article-short {
+        &--vertical-view {
+            border: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
+            .mag_meta-oneliner {
+                display: none;
+            }
+            .mag_article-short__image {
+                margin-bottom: 25px;
+                overflow: hidden;
+                img {
+                    width: 100%;
+                }
+            }
+            .mag_headline--medium-pre {
+                margin-bottom: 5px;
+            }
+            .mag_headline--medium {
+                margin-bottom: 30px;
+            }
+            .mag_teaser-text {
+                margin-bottom: 0;
+            }
+        }
+        &--horizontal-view {
+            @extend .clearfix;
+            margin: 60px auto 0;
+            max-width: 1000px;
+            .mag_article-short__left {
+                float: left;
+                padding: 0 17px;
+                width: 40%;
+
+                @media (max-width: $screen-sm-max) {
+                    width: 100%;
+
+                    img {
+                        margin-bottom: 25px;
+                    }
+                }
+
+                img {
+                    width: 100%;
+                }
+            }
+            .mag_article-short__right {
+                float: left;
+                padding: 0 17px;
+                width: 60%;
+
+                @media (max-width: $screen-sm-max) {
+                    width: 100%;
+                }
+            }
+            .mag_article-short__image {
+            }
+            .mag_headline--medium-pre {
+                margin-bottom: 10px;
+            }
+            .mag_headline--medium {
+                margin-bottom: 25px;
+            }
+        }
+    }
+}

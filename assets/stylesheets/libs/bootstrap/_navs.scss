@@ -1,0 +1,29 @@
+.nav {
+    &.nav-tabs.nav-justified {
+        li {
+            float: left;
+            display: block;
+            width: 33%;
+            @media (max-width: $screen-sm-max) {
+				width: 100%;
+			}
+            margin-bottom: 1em;
+            a {
+                text-transform: uppercase;
+                color: $gray-light;
+                border-bottom: 1px solid $gray-light;
+                margin-top: -3px;
+            }
+            &.active {
+                a {
+                    color: $brand-info;
+                    margin-top: -2px;
+                    background-color: transparent;
+                    border: none;
+                    padding-bottom: 9px;
+                    border-bottom: 3px solid $brand-info;
+                }
+            }
+        }
+    }
+}

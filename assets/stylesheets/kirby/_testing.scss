@@ -1,0 +1,6 @@
+.js-testing {
+  // make the header "invisible" for clicks/mouse events
+  .liq_header {
+    pointer-events: none;
+  }
+}

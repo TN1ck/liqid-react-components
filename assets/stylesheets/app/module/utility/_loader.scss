@@ -1,0 +1,194 @@
+$base-size: 70px;
+$ring-size: 12px;
+
+$circle-size: $base-size / 2.5;
+$inner-circle-position: ($base-size / 2) - ($circle-size / 2);
+$outer-circle-position: -$circle-size / 1.5;
+
+.liq_loader {
+
+    $animation-duration: 800ms;
+
+    position: relative;
+    float: left;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: background-color $animation-duration ease;
+
+    @media print {
+        float: none;
+    }
+
+    &__inner {
+        transition: opacity $animation-duration ease;
+        opacity: 0;
+    }
+
+    &--active {
+        pointer-events: none;
+        > .liq_loader__inner {
+            opacity: 0;
+        }
+    }
+
+    &--min-height {
+        min-height: 300px;
+    }
+
+    &--max-height {
+        max-height: 100vh;
+        overflow: hidden;
+    }
+
+    &--center-from-top {
+        transition: height 0.6s linear;
+        overflow: hidden;
+        .liq_spinner {
+            top: calc(50vh - 100px) !important;
+        }
+    }
+
+    &--active-background {
+        background-color: white;
+        @include card-shadow();
+    }
+
+    &--inactive {
+
+        background-color: transparent;
+
+
+        > .liq_loader__inner {
+            opacity: 1;
+        }
+
+    }
+
+    &--standalone {
+        height: 500px;
+        float: none;
+    }
+
+    .liq_spinner {
+        position: absolute;
+        top: calc(50% - 100px);
+        right: calc(50% - 70px);
+
+        &--correct {
+            top: calc(50% - 70px) !important;
+        }
+    }
+
+}
+
+.liq_spinner {
+
+    $animation-pulse-duration: 400ms;
+    $animation-pulse-delay: 200ms;
+
+    box-sizing: border-box;
+    position: relative;
+    margin: ($base-size / 2);
+    height: $base-size;
+    width: $base-size;
+    border: 0px solid transparent;
+    border-radius: 50%;
+    box-shadow: 0 0 0 $ring-size $brand-primary inset;
+    animation: pulse $animation-pulse-duration 1 ease;
+    animation-fill-mode: forwards;
+    animation-delay: $animation-pulse-delay;
+    opacity: 0;
+
+    &:before {
+        content: "";
+        position: absolute;
+        top: $inner-circle-position;
+        left: $inner-circle-position;
+        width: $circle-size;
+        height: $circle-size;
+        border-radius: 50%;
+        background-color: $brand-primary;
+        animation: pulse $animation-pulse-duration 1 ease;
+        animation-delay: $animation-pulse-delay;
+        animation-fill-mode: forwards;
+        opacity: 0;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+
+    &__inner {
+        position: absolute;
+        width: $base-size;
+        height: $base-size;
+        animation: rotate 1.5s infinite ease;
+        animation-delay: $animation-pulse-duration + $animation-pulse-delay;
+        visibility: hidden;
+
+        &:before {
+            content: "";
+            position: absolute;
+            bottom: $outer-circle-position;
+            right: $outer-circle-position;
+            width: $circle-size;
+            height: $circle-size;
+            border-radius: 50%;
+            background-color: $brand-primary;
+            animation: pulse $animation-pulse-duration 1 ease;
+            animation-fill-mode: forwards;
+            animation-delay: $animation-pulse-delay;
+            opacity: 0;
+            visibility: visible;
+        }
+    }
+
+    &--long-delay {
+        animation-delay: 1000ms;
+
+        &:before {
+            animation-delay: $animation-pulse-delay;
+        }
+
+        .liq_spinner__inner {
+            animation-delay: 1000ms;
+
+            &:before {
+                animation-delay: 1000ms;
+            }
+        }
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+        visibility: visible;
+    }
+    100% {
+        transform: rotate(360deg);
+        visibility: visible;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0);
+        box-shadow: 0 0 0 1px $brand-primary inset;
+        opacity: 0;
+    }
+    50% {
+        transform: scale(0.3);
+        box-shadow: 0 0 0 1px $brand-primary inset;
+    }
+    70% {
+        transform: scale(1.2);
+        box-shadow: 0 0 0 ($ring-size / 5) $brand-primary inset;
+    }
+
+    100% {
+        transform: scale(1.0);
+        box-shadow: 0 0 0 $ring-size $brand-primary inset;
+        opacity: 1;
+    }
+}

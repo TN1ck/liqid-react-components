@@ -1,0 +1,219 @@
+body.cms { padding-bottom: 0!important; }
+
+.liq_footer {
+
+    // this only works with the media queries for body
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: $brand-base;
+    color: #fff;
+    font-weight: $weight__light;
+    font-size: 14px;
+    overflow: hidden;
+    padding: 60px 0 40px;
+
+    @media all and (display-mode: standalone) {
+        display: none;
+    }
+
+    @media print {
+        font-size: 10.5pt;
+        font-weight: 400;
+        line-height: 13pt;
+        margin: 0;
+        page-break-inside: avoid;
+        page-break-before: always;
+    }
+
+    &__logo {
+        img {
+          height: 90px;
+          display: block;
+          margin: -5px auto;
+
+          @media (max-width: $screen-sm-max) {
+            margin: 40px auto;
+          }
+        }
+        @media print {
+            display: none;
+        }
+    }
+    &__logo-summit {
+        display: block;
+        margin: 11px auto 0;
+        width: 150px;
+
+        @media (max-width: $screen-sm-max) {
+            margin-bottom: 45px;
+            margin-top: 45px;
+        }
+    }
+    &__magazine-navigation {
+        .footer__col {
+            font-size: 15px;
+            font-weight: $weight__bold;
+            text-align: center;
+            text-transform: uppercase;
+
+            a:link, a:visited {
+                color: #FFF;
+
+                @media (max-width: $screen-sm-max) {
+                    display: block;
+                    font-size: 17px;
+                    font-weight: $weight__semi-bold;
+                    padding: 11px;
+                    text-transform: none;
+                }
+            }
+        }
+    }
+
+    &--fixed {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+    &__divider {
+        width: 100%;
+        background-color: lighten($brand-base, 10%);
+        height: 1px;
+        margin: 47px 0;
+    }
+
+    &__link {
+        color: #F7F7FF;
+        display: block;
+        padding: 3px 0 6px;
+        font-size: 14px;
+
+        @media (max-width: $screen-sm-max) {
+            padding: 7px 0 12px;
+            font-size: 15px;
+        }
+
+        &:first-child {
+            text-transform: uppercase;
+            font-weight: $weight__bold;
+        }
+    }
+
+    @media (min-width: $screen-sm-max) {
+        &__link--address {
+            padding: 0px;
+        }
+    }
+
+    &__link:hover,
+    &__link:focus,
+    &__link--active {
+        color: #F7F7FF;
+        text-decoration: underline;
+    }
+
+    &__headline {
+        font-weight: $weight__bold;
+    }
+
+    &__col {
+        margin-bottom: 20px;
+    }
+
+    &__address {
+      @media (max-width: $screen-sm-max) {
+        text-align: center;
+      }
+    }
+
+    &__regulatory {
+        small {
+            font-weight: normal;
+            color: $gray-light;
+            line-height: 19px;
+            display: block;
+        }
+    }
+
+    &__regulatory-note {
+        font-weight: $weight__bold;
+        color: #707489;
+        font-size: 12px;
+        text-align: left;
+
+        @media print {
+            color: #333333;
+        }
+
+        a {
+            color: #707489;
+        }
+    }
+
+    &__hr {
+        width: 100%;
+        border-color: $gray-light;
+        margin-top:    $line-height-computed;
+        margin-bottom: $line-height-computed;
+        border: 0;
+        background-color: transparent;
+        border-top: 1px solid $hr-border;
+    }
+
+    &__socialicons {
+        @media (max-width: $screen-sm-max) {
+            text-align: center;
+        }
+        @media print {
+            display: none;
+        }
+    }
+
+    &__logo-container {
+        @media print {
+            display: none;
+        }
+    }
+
+    &__social-icon {
+      width: 50px;
+      padding: 20px 25px 20px 0;
+
+      @media (max-width: $screen-sm-max) {
+        width: 80px;
+        padding: 25px;
+      }
+
+    }
+
+    &__mixpanel {
+      margin-top: 50px;
+      display: block;
+    }
+
+    &--summit {
+
+    }
+}
+
+
+@media (max-width: $screen-sm-max) {
+    .liq_footer__address {
+        div[itemprop="address"],
+        strong {
+            display: block;
+            padding: 7px 0 12px;
+        }
+        br {
+            display: none;
+        }
+    }
+}
+
+.cms .liq_footer {
+    position: relative;
+}

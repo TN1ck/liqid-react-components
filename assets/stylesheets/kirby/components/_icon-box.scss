@@ -1,0 +1,19 @@
+.liq {
+   &_icon-box {
+    min-height: 220px;
+
+    &--headline {
+      font-size: 28px;
+    }
+
+    &__icon {
+      position: relative;
+      top: -3px;
+      margin-right: 10px;
+    }
+
+    &__headline {
+      font-size: 28px;
+    }
+  }
+}

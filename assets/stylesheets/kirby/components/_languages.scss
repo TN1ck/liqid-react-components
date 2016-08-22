@@ -1,0 +1,15 @@
+.liq_languages {
+  float: right;
+  margin: 16px 0;
+
+  a {
+    border-radius: 40px;
+    color: #fff;
+    display: inline-block;
+    padding: 2px 12px;
+  }
+
+  &--active {
+    box-shadow: 0 0 4px #fff;
+  }
+}

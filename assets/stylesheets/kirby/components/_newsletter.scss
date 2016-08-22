@@ -1,0 +1,74 @@
+.liq_newsletter__section {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.liq_newsletter {
+    padding: 60px 0;
+    text-align: center;
+    overflow: hidden;
+    @media (max-width: $screen-sm-max) {
+        padding: 0 15px 50px 15px;
+    }
+
+    &--separator {
+        border-top: 1px solid $gray-lighter;
+    }
+
+    &__button,
+    &__email {
+        display: block;
+        margin: 10px auto;
+        width: 80%;
+        max-width: 360px;
+    }
+
+    &__headliner {
+        font-size: 30px;
+        font-weight: 200;
+        margin-bottom: 40px;
+    }
+
+    &__section {
+        background-color: #fff;
+        position: relative;
+    }
+
+    &__invalid-input-message {
+        color: #EF233C;
+        display: none;
+
+        &--active {
+            display: block;
+        }
+    }
+    &__optional-text {
+        color: $gray-brighter;
+        margin-top: 5px;
+        font-size: 14px;
+        line-height: 22px;
+    }
+}
+
+input[type=text].liq_newsletter__email {
+    border: none;
+    border-bottom: 2px solid $gray-lighter !important;
+    border: none;
+    box-shadow: none;
+    font-size: 18px;
+    height: 33px;
+    line-height: 33px;
+    margin-top: 25px;
+    outline: none;
+    padding: 1px 15px !important;
+    transition: all 0.2s ease;
+    text-align: center;
+}
+
+input[type=text].liq_newsletter__email:focus {
+    border-bottom-color: $brand-info !important;
+    box-shadow: none;
+}
+
+.liq_no_script,
+.no-js .liq_script { display: none }
+.no-js .liq_no_script { display: block }

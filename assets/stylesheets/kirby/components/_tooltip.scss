@@ -1,0 +1,78 @@
+//  Based on
+//  Kirby Tooptip
+//  made by Claus Artz @mydarktime
+
+// variables
+$tooltip-distance: 1.5em;
+$tooltip-triangle-width: 0.5em;
+$tooltip-link-color: #0000ff;
+$tooltip-hover-link-color: darken($tooltip-link-color, 25);
+$tooltip-font-color: #000;
+$tooltip-background-color: #fff;
+
+$tooltip-shadow: 0px 3px 20px 0px rgba(#252731, 0.3);
+
+
+.liq_tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: help;
+  // border-bottom: 1px dotted $tooltip-link-color;
+  // color: $tooltip-link-color;
+
+  &:after {
+    box-shadow: $tooltip-shadow;
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 2.1em;
+    right: -1em;
+    min-width: 15em;
+    max-width: 30em;
+    text-align: center;
+    padding: 10px 15px;
+    pointer-events: none;
+    font-size: 12px;
+    background-color: $tooltip-background-color;
+    color: $tooltip-font-color;
+  }
+
+  &:before {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    right: 5px;
+    bottom: 18px;
+    border-left: $tooltip-triangle-width solid transparent;
+    border-right: $tooltip-triangle-width solid transparent;
+    border-top: $tooltip-triangle-width solid $tooltip-background-color;
+    z-index: 2;
+  }
+
+  &:before, &:after {
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.2s ease-out, margin 1.2s ease-out;
+  }
+
+  &:hover, &:focus {
+    &:before, &:after {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+
+.liq_tooltip__icon {
+    height: 1em;
+    width: 1em;
+    margin: 0 3px;
+    position: relative;
+    top: 2px;
+}
+
+.liq_tooltip__icon path {
+    fill: #bfbfbf;
+    opacity: .6;
+}

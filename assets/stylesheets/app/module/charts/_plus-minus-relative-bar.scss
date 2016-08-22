@@ -1,0 +1,58 @@
+.liq_plus-minus-relative-bar-container {
+    height: 50px;
+    position: relative;
+    width: 100%;
+    &:after {
+        background: #ccc;
+        content: "";
+        height: 100%;
+        left: 50%;
+        position: absolute;
+        top: 0;
+        width: 1px;
+    }
+}
+.liq_plus-minus-relative-bar {
+    height: 35px;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    width: 50%;
+    &__bar {
+        background: #6290c3;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        transition: width 1.5s ease-out;
+    }
+    &__label {
+        margin-right: 10px;
+        position: absolute;
+        right: 100%;
+        top: 50%;
+        transform: translate(0, -50%);
+
+        &:before {
+            content: "+";
+        }
+    }
+
+    &--negative {
+        .liq_plus-minus-relative-bar__bar {
+            background: #ef233c;
+            left: auto;
+            right: 100%;
+        }
+        .liq_plus-minus-relative-bar__label {
+            left: 0;
+            right: auto;
+            margin-right: 0;
+            margin-left: 10px;
+            &:before {
+                content: none;
+            }
+        }
+    }
+}

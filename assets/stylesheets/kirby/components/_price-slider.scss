@@ -1,0 +1,92 @@
+.liq_pricing {
+  text-align: center;
+  margin-bottom: 85px;
+  transition: opacity 0.3s ease-out;
+
+  &--inactive {
+    opacity: 0.2;
+    transition: opacity 0.3s ease-out;
+  }
+
+  &__title {
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 30px;
+    margin: 20px 0 18px 0;
+
+    @media (max-width: $screen-xs-max) {
+      font-size: 28px;
+      line-height: 25px;
+    }
+  }
+  &__cost {
+    font-size: 13px;
+    line-height: 23px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    position: relative;
+
+    &:after {
+      background: #eee;
+      bottom: 0px;
+      content: "";
+      height: 1px;
+      left: 50%;
+      margin-left: -100px;
+      position: absolute;
+      width: 200px;
+    }
+  }
+  &__amount {
+    font-size: 17px;
+    line-height: 17px;
+    color: #a1a1a1;
+  }
+  &__ter {
+    font-size: 12px;
+    color: $gray-light;
+  }
+}
+
+.liq_slider {
+    margin-bottom: 25px;
+}
+
+.liq_slider-container {
+  border-bottom: 1px solid #eee;
+  margin-bottom: 28px;
+  padding-bottom: 17px;
+}
+
+.liq_portfolioSliderHint {
+  border-top: 1px solid #eee;
+  color: gray;
+  font-size: 14px;
+  padding-bottom: 100px;
+  padding-top: 10px;
+  text-align: center;
+}
+
+.liq_slider__tt {
+  text-align: center;
+  width: 250px;
+  position: relative;
+  margin-left: -122px;
+  margin-top: 40px;
+  // transition: left 0.3s ease-out;
+  // will-change: transform;
+
+  @media (max-width: $screen-xs-max) {
+    left: 50% !important;
+  }
+
+  &__amount {
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 30px;
+  }
+  &__description {
+    color: #9B9B9B;
+  }
+}

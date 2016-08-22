@@ -1,0 +1,16 @@
+hr {
+    background-color: $brand-primary;
+    border: 0;
+    height: 2px;
+    margin: 1em 0;
+    text-align: left;
+    width: 72px;
+}
+
+.hr--full {
+    background-color: $gray-light;
+    border: 0;
+    height: 1px;
+    margin: 1em 0;
+    width: 100%;
+}

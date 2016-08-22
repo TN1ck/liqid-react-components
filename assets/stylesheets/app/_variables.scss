@@ -1,0 +1,296 @@
+// Our three layers for typographie
+// 1st: font-sizes defined only for the purpose of headlines and running text and basic colors
+// 2nd: Classes with valid combinations of colors, weights and font sizes for headlines and running text
+// 3rd: Headline and running text components using these combination for named headlines / text blocks
+
+// !Important!
+// Only add anything to the first two layer if you don't find anything already used at all
+// Check the styleguide for the current look of headlines and text blocks
+
+
+// Base font size used on page
+$font-size-base: 14px !default;
+$line-height--base: 1.618;
+
+
+// Font sizes for running text
+$font-size__running--smaller: 10px;
+$font-size__running--small: 12px;
+$font-size__running--normal: 14px;
+$font-size__running--large: 16px;
+$font-size__running--larger: 18px;
+// Font sizes for headlines
+$font-size__heading--smallest: 10px;
+$font-size__heading--smaller: 12px;
+$font-size__heading--small: 16px;
+$font-size__heading--normal: 18px;
+$font-size__heading--large: 22px;
+$font-size__heading--larger: 26px;
+
+
+// General pool of colors used
+$color__black: #252731;
+$color__primary: #EF233C;
+$color__grey--lighter: #EEEEEE;
+$color__grey--light: #EEEEEE;
+$color__grey: #A1A1A1;
+$color__blue--light: #F6F8FB;
+$color__blue: #6290C3;
+
+
+// General pool of font-weights
+$weight__light: 200;
+$weight__normal: 300;
+$weight__semi-bold: 400;
+$weight__bold: 600;
+
+$line-height__heading: 1.618;
+$line-height__small-text: 1.8;
+
+
+
+.text-reset {
+    margin: 0;
+    padding: 0;
+}
+
+// Running text comobinations
+.text-running {
+    &__simple {
+        font-weight: $weight__normal;
+        &--smaller {
+            font-size: $font-size__running--smaller;
+        }
+        &--small {
+            font-size: $font-size__running--small;
+            font-weight: $weight__semi-bold;
+        }
+        &--normal {
+            font-size: $font-size__running--normal;
+        }
+        &--large {
+            font-size: $font-size__running--large;
+        }
+        &--larger {
+            font-size: $font-size__running--larger;
+        }
+    }
+
+    &__muted {
+        &--small {
+            color: $color__grey;
+            font-size: $font-size__running--small;
+            font-weight: $weight__semi-bold;
+            line-height: $line-height--base;
+        }
+        &--normal {
+            color: $color__grey;
+            font-size: $font-size__running--normal;
+            font-weight: $weight__semi-bold;
+        }
+    }
+}
+
+// Heading combinations
+.heading {
+    // Simple headings
+    // - use the base font color
+    // - only differ in font size
+    &__simple {
+        color: $color__black;
+        &--larger {
+            font-size: $font-size__heading--larger;
+
+            &-bold {
+                font-weight: $weight__bold;
+            }
+        }
+        &--large {
+            font-size: $font-size__heading--large;
+
+            &-semi-bold {
+                font-weight: $weight__semi-bold;
+            }
+        }
+        &--normal {
+            font-size: $font-size__heading--normal;
+
+            &-normal {
+                font-weight: $weight__normal;
+            }
+            &-bold {
+                font-weight: $weight__bold;
+            }
+        }
+        &--small {
+            font-size: $font-size__heading--small;
+        }
+        &--smaller {
+            font-size: $font-size__heading--smaller;
+        }
+        &--small-grey {
+            color: $color__grey;
+            font-size: $font-size__heading--small;
+        }
+    }
+    // Uppercase headings
+    // - Are used for special occasions
+    // - Use the base font size
+    &__uppercase {
+        &--smallest-grey {
+            color: $color__grey;
+            font-size: $font-size__heading--smallest;
+            font-weight: $weight__semi-bold;
+            text-transform: uppercase;
+        }
+        &--small {
+            color: $color__black;
+            font-size: $font-size__heading--smaller;
+            font-weight: $weight__semi-bold;
+            text-transform: uppercase;
+        }
+        &--small-grey {
+            color: $color__grey;
+            font-size: $font-size__heading--smaller;
+            font-weight: $weight__semi-bold;
+            text-transform: uppercase;
+        }
+        &--normal {
+            color: $color__grey;
+            font-size: $font-size-base;
+            font-weight: $weight__normal;
+            text-transform: uppercase;
+        }
+    }
+}
+
+.margin-bottom {
+    &--regular {
+        margin-bottom: $line-height--base * 3;
+    }
+    &--large {
+        margin-bottom: $line-height--base * 6;
+    }
+    &--larger {
+        margin-bottom: $line-height--base * 12;
+    }
+}
+
+
+
+// General requirements
+// Components do not automatically set margins to top or bottom
+// Only exceptions can be specific textblocks to each other
+
+
+
+////// Very Basic
+.textblock {
+    // TextBlock large (18px, 200 FW,)
+    &--large {
+        @extend .text-reset;
+        @extend .text-running__simple;
+        @extend .text-running__simple--large;
+    }
+    // TextBlock regular (14px, 300 FW)
+    &--regular {
+        @extend .text-reset;
+        @extend .text-running__simple;
+        @extend .text-running__simple--normal;
+    }
+    // TextBlock small (12px, 300 FW)
+    &--small {
+        @extend .text-reset;
+        @extend .text-running__simple;
+        @extend .text-running__simple--small;
+    }
+
+    // TextBlock small Aside (12px, 300 FEW, light grey)
+    &--muted-small {
+        @extend .text-reset;
+        @extend .text-running__muted--small;
+    }
+    &--muted-normal {
+        @extend .text-reset;
+        @extend .text-running__muted--normal;
+    }
+
+
+    &--limittedWidth {
+        display: block;
+        max-width: 650px;
+    }
+}
+
+.headline {
+    &--max {
+        line-height: $line-height__heading;
+        @extend .text-reset;
+        @extend .heading__simple;
+        @extend .heading__simple--larger;
+        @extend .heading__simple--larger-bold;
+    }
+    &--large {
+        line-height: $line-height__heading;
+        @extend .text-reset;
+        @extend .heading__simple;
+        @extend .heading__simple--large;
+        @extend .heading__simple--large-semi-bold;
+    }
+    &--regular {
+        line-height: $line-height__heading;
+        @extend .text-reset;
+        @extend .heading__simple;
+        @extend .heading__simple--normal;
+        @extend .heading__simple--normal-normal;
+    }
+    &--regular-bold {
+        line-height: $line-height__heading;
+        @extend .text-reset;
+        @extend .heading__simple;
+        @extend .heading__simple--normal;
+        @extend .heading__simple--normal-bold;
+    }
+    &--small {
+        line-height: $line-height__heading;
+        @extend .text-reset;
+        @extend .heading__simple;
+        @extend .heading__simple--small;
+    }
+    &--smaller {
+        line-height: $line-height__heading;
+        @extend .text-reset;
+        @extend .heading__simple;
+        @extend .heading__simple--smaller;
+    }
+    &--small-grey {
+        line-height: $line-height__heading;
+        @extend .text-reset;
+        @extend .heading__simple;
+        @extend .heading__simple--small-grey;
+    }
+
+    &--uppercase {
+        line-height: $line-height__heading;
+        @extend .text-reset;
+        @extend .heading__uppercase--normal;
+    }
+
+    &--uppercase-small-grey {
+        line-height: $line-height__heading;
+        @extend .text-reset;
+        @extend .heading__uppercase--small-grey;
+    }
+
+    &--uppercase-small {
+        line-height: $line-height__heading;
+        @extend .text-reset;
+        @extend .heading__uppercase--small;
+    }
+
+    &--uppercase-smallest-grey {
+        line-height: $line-height__heading;
+        @extend .text-reset;
+        @extend .heading__uppercase--smallest-grey;
+    }
+}

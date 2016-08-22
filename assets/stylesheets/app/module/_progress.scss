@@ -1,0 +1,113 @@
+.liq_progress {
+
+    position: relative;
+
+    .progress {
+
+        height: 5px;
+        border-radius: 10px;
+        margin-bottom: 0px;
+        &-bar {
+            background-color: $brand-info;
+            background: linear-gradient(to right, $brand-info 50%, darken($brand-info, 10%) 100%);
+            &:last-child:before {
+                border-radius: 10px;
+            }
+        }
+
+    }
+
+    &--is-hidden {
+        display: none;
+    }
+
+    &__section {
+
+		transition: all 0.2s ease;
+		display: block !important;
+		float: left;
+		margin-bottom: 7px;
+		text-align: center;
+		color: $gray-light;
+		font-size: 14px;
+
+		@media (max-width: $screen-xs-max) {
+			font-size: 10px;
+			line-height: 22px;
+		}
+
+		&-triangle {
+			transition: left 0.6s ease;
+			position: absolute;
+			top: 14px;
+			border: solid transparent;
+			border-bottom-color: $brand-info;
+			border-width: 10px;
+			margin-left: -10px;
+			z-index: 1;
+			content: " ";
+			height: 0;
+			width: 0;
+			pointer-events: none;
+		}
+
+		a {
+			color: $brand-base;
+            display: block;
+			font-weight: $weight__semi-bold;
+			transition: all 0.2s ease;
+		}
+
+		&:hover {
+
+			a {
+				color: $brand-info;
+			}
+		}
+
+		&--done {
+			border-color: $gray;
+			color: $gray-light;
+		}
+
+		&--hide {
+			cursor: default !important;
+		}
+
+		&--active {
+			border-color: $gray;
+			color: $gray;
+			border-bottom-color: $gray;
+
+			a {
+				font-weight: $weight__bold;
+			}
+
+			.badge {
+				background-color: $brand-primary;
+			}
+		}
+
+        &--inactive {
+            pointer-events: none;
+            &:hover {
+                cursor: default;
+                a {
+                    cursor: default;
+                    color: $gray-light;
+                }
+            }
+            a {
+                cursor: default;
+                color: $gray-light;
+            }
+        }
+
+        &--is-in-header {
+            float: left;
+            // 31 is the width of an vertical seperator
+            width: calc(100% - 62px);
+            margin-top: 5px;
+        }
+	}
+}

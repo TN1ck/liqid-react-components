@@ -1,0 +1,118 @@
+$background-color: rgba(white, 0.95);
+
+.liq_header {
+    // Helvetica for instant loading
+    font-size: 15px;
+
+    .navbar {
+        box-shadow: none;
+        @media (max-width: 995px) {
+            .container {
+                width: 100%;
+            }
+        }
+        @media (max-width: $screen-xs-max) {
+            .container {
+                overflow: hidden;
+            }
+        }
+    }
+
+    .navbar-brand {
+        padding: 11px 15px 0px;
+    }
+
+    .liq_logo {
+        height: 23px;
+        margin-top: 5px;
+        padding-right: 1px;
+    }
+
+    .navbar-nav {
+        margin-top: 3px;
+    }
+
+    nav {
+        .liq_header__logo {
+            color: $brand-primary;
+            img {
+                height: 2em;
+            }
+        }
+        li {
+            a {
+                font-size: 15px;
+                line-height: 2em;
+            }
+        }
+        @media (max-width: $screen-xs-max) {
+            background-color: $background-color;
+            .navbar-header {
+                .navbar-toggle {
+                    .icon-bar {
+                        background-color: $brand-base;
+                    }
+                }
+            }
+            li {
+                a {
+                    color: $brand-base !important;
+                }
+            }
+        }
+        @media (min-width: $screen-sm-min) {
+            li.liq_header__divider {
+                opacity: 0.2;
+                height: 2em;
+                margin: 14px 10px;
+                border-right: 1px solid $gray-lighter;
+                border-left: 1px solid $gray-lighter;
+            }
+        }
+    }
+}
+
+.no-touch .liq_header nav .dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.liq_header--light {
+    .navbar {
+        box-shadow: 0 1px 3px 0 rgba(37,39,49,.1);
+    }
+
+    nav {
+        background-color: $background-color;
+        animation: fadeBackground 500ms ease-in-out;
+        .navbar-header {
+            .navbar-toggle {
+                .icon-bar {
+                    background-color: $brand-base;
+                }
+            }
+        }
+        li {
+            a {
+                color: $brand-base !important;
+            }
+        }
+        li.liq_header__divider {
+            opacity: 1;
+        }
+    }
+}
+
+@media (min-width: $screen-sm-min ) {
+    .navbar > .container .navbar-brand {
+        margin-top: 5px;
+    }
+}
+
+@keyframes fadeBackground {
+  0%   {
+          background-color: transparent;
+        }
+  100% {
+          background-color: $background-color;
+        }
+}

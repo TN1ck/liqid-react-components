@@ -1,0 +1,1159 @@
+.mag_main {
+    padding-bottom: 40px;
+    padding-top: 40px;
+
+    margin: 0 auto;
+    overflow: hidden;
+    padding-left: 15px;
+    padding-right: 15px;
+    max-width: 1170px;
+    width: 100%;
+
+    @media (max-width: $screen-md-max) {
+        padding-left: 45px;
+        padding-right: 45px;
+    }
+
+    @media (max-width: $screen-sm-max) {
+        padding-left: 4%;
+        padding-right: 4%;
+    }
+
+    @media (max-width: $screen-xs-max) {
+        padding-left: 6%;
+        padding-right: 6%;
+    }
+
+    @media print {
+        page-break-before: avoid;
+    }
+}
+.mag_grid {
+    @extend .clearfix;
+    margin: 0 -17px;
+    &__col {
+        float: left;
+        padding: 0 17px;
+        &--8 {
+            width: 70%;
+
+            @media (max-width: $screen-md-max) {
+                width: 50%;
+            }
+
+            @media (max-width: $screen-xs-max) {
+                width: 100%;
+            }
+        }
+        &--4 {
+            width: 30%;
+
+            @media (max-width: $screen-md-max) {
+                width: 50%;
+            }
+
+            @media (max-width: $screen-xs-max) {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.mag_link-list {
+    a {
+        color: $mag-primary-color;
+    }
+    &--comma-separated {
+        a:link, a:visited {
+            &:after {
+                content: ', ';
+            }
+
+            &:last-child {
+                &:after {
+                    content: none;
+                }
+            }
+        }
+    }
+}
+.mag_image {
+    &--rounded {
+        border-radius: 50%;
+    }
+}
+.mag_centered-content {
+    text-align: center;
+}
+.mag_headline {
+    color: $mag-primary-color;
+    margin: 0;
+    padding: 0;
+
+    a:link, a:visited {
+        color: $mag-primary-color;
+    }
+
+    &--v-large {
+        font-size: 64px;
+        font-weight: 700;
+
+        @media (max-width: $screen-sm-max) {
+            font-size: 42px;
+        }
+        @media (max-width: $screen-xs-max) {
+            font-size: 28px;
+        }
+        @media print {
+            color: $mag-primary-color !important;
+            font-size: 35pt;
+        }
+    }
+    &--v-large-pre {
+        font-size: 25px;
+        font-weight: 400;
+
+        @media (max-width: $screen-sm-max) {
+            font-size: 21px;
+        }
+        @media (max-width: $screen-xs-max) {
+            font-size: 20px;
+        }
+        @media print {
+            font-size: 13pt !important;
+            font-weight: 600 !important;
+            margin-bottom: 4pt;
+        }
+    }
+
+    &--large-pre {
+        font-size: 25px;
+        font-weight: 400;
+
+        @media (max-width: $screen-sm-max) {
+            font-size: 21px;
+        }
+        @media (max-width: $screen-xs-max) {
+            font-size: 20px;
+        }
+    }
+    &--large {
+        font-size: 54px;
+        font-weight: 700;
+
+        @media (max-width: $screen-sm-max) {
+            font-size: 36px;
+        }
+        @media (max-width: $screen-xs-max) {
+            font-size: 28px;
+        }
+    }
+
+    &--medium {
+        font-size: 25px;
+        font-weight: 700;
+    }
+    &--medium-pre {
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    &--inverted {
+        color: #FFF;
+    }
+}
+.mag_goto-link {
+    color: $mag-primary-color;
+    font-weight: 400;
+    &:after {
+        content: ' »';
+        padding-left: 0;
+        transition: padding 0.3s ease;
+    }
+    &--primary {
+        color: $mag-text-color;
+        font-size: 25px;
+        text-align: center;
+
+        @media (max-width: $screen-xs-max) {
+            font-size: 16px;
+        }
+
+        &:hover {
+            color: $mag-primary-color;
+        }
+    }
+    &:hover {
+        &:after {
+            padding-left: 5px;
+        }
+    }
+}
+.mag_goto-button {
+    background: #FFF;
+    border-radius: 20px;
+    color: $mag-primary-color;
+    display: inline-block;
+    font-weight: 400;
+    padding: 7px 35px;
+
+    &:after {
+        content: ' »';
+    }
+}
+.mag_meta-oneliner {
+    font-weight: 600;
+}
+.mag_teaser-text {
+    font-size: $mag-default-font-size;
+    font-weight: 400;
+}
+.mag_running-text {
+    font-weight: 400;
+    font-size: 18px;
+
+    @media print {
+        width: 110%;
+
+        p {
+            color: #000;
+            hyphens: auto;
+            font-size: 10.5pt;
+            font-weight: 500;
+            line-height: 13.7pt;
+            padding: 0 8pt;
+            width: 421pt;
+        }
+    }
+
+    &--bold {
+        font-weight: 600;
+        @media print {
+            p {
+                color: #000;
+                font-weight: 700;
+                line-height: 14.6pt;
+                padding: 0 8pt;
+                hyphens: auto;
+            }
+        }
+    }
+
+    a {
+        color: $mag-primary-color;
+        @media print{
+            &:after{
+                content:" (" attr(href) ") ";
+            }
+        }
+    }
+
+    h2 {
+        font-size: 25px;
+
+        @media print {
+            font-size: 13pt;
+            font-weight: 700;
+            letter-spacing: -0.1pt;
+            margin-bottom: 6pt;
+            margin-top: 25pt;
+        }
+    }
+    h3 {
+        font-size: 18px;
+        font-weight: 600;
+
+        @media print {
+            font-size: 11pt;
+            padding: 0 8pt;
+        }
+        // force the style when the class is present
+        &.mag_headline--v-large-pre {
+            font-size: 25px;
+            font-weight: 400;
+
+            @media (max-width: $screen-sm-max) {
+                font-size: 21px;
+            }
+            @media (max-width: $screen-xs-max) {
+                font-size: 20px;
+            }
+        }
+    }
+
+    table {
+        font-size: 14px;
+        @media print {
+            font-size: 8pt;
+            font-weight: 600;
+            margin-bottom: 3pt;
+
+            td {
+                line-height: 1.4 !important;
+            }
+        }
+    }
+}
+.mag_category-divider {
+    color: $mag-dark-grey-color;
+    font-size: 25px;
+    font-weight: 400;
+    margin: 60px 0 35px;
+    padding: 0;
+    position: relative;
+    text-align: center;
+
+    @media print {
+        padding-top: 15pt;
+    }
+
+    &__inner {
+        background: #FFF;
+        display: inline-block;
+        padding: 0 15px;
+        position: relative;
+        z-index: 1;
+
+        @media print {
+            background-color: transparent;
+            padding: 0 0 1pt 0;
+        }
+    }
+    &:after {
+        background: $mag-dark-grey-color;
+        content: "";
+        height: 1px;
+        left: 0;
+        position: absolute;
+        top: 50%;
+        width: 100%;
+
+        @media print {
+            display: none;
+        }
+    }
+    &--large {
+        font-size: 34px;
+        margin: 100px 0 50px;
+
+        @media (max-width: $screen-xs-max) {
+            font-size: 24px;
+        }
+    }
+
+    &--small {
+        font-size: 19px;
+        font-weight: 400;
+    }
+
+    &--smaller-padding-bottom {
+        margin-bottom: 20px;
+
+        @media print {
+            color: #000;
+            font-weight: 600;
+            font-size: 11pt;
+            margin-bottom: 0;
+            margin-top: 5pt;
+            text-align: left;
+        }
+    }
+
+    @media (max-width: $screen-xs-max) {
+        margin-left: -80px;
+        margin-right: -80px;
+    }
+}
+
+.mag_article-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+        margin: 0;
+    }
+    li:before, li:after {
+        content: none !important;
+    }
+    &--vertical {
+        li {
+            border-bottom: 1px solid $mag-light-grey-color;
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            &:last-child {
+                border-bottom: none;
+                margin-bottom: 0;
+                padding-bottom: 0;
+            }
+        }
+    }
+    &--large-padding {
+        li {
+            padding-bottom: 70px;
+            margin-bottom: 70px;
+            &:last-child {
+                padding-bottom: 0;
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    &--horizontal {
+        @extend .clearfix;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        li {
+            display: flex;
+            width: 50%;
+
+            @media (max-width: $screen-xs-max) {
+                width: 100%;
+            }
+
+            .mag_article-short {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+
+                .mag_goto-link {
+                    margin-top: auto;
+                }
+            }
+            .mag_blogpost-short {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+
+                .mag_goto-link {
+                    margin-top: auto;
+                }
+            }
+        }
+    }
+    &--two {
+        margin: 0 -17px;
+        li {
+            padding: 0 17px;
+            width: 49.9%;
+
+            @media (max-width: $screen-xs-max) {
+                width: 100%;
+            }
+        }
+    }
+    &--three {
+        margin: 0 -17px;
+        li {
+            padding: 0 17px;
+            width: 33.3%;
+
+            @media (max-width: $screen-md-max) {
+                width: 33.3%;
+            }
+
+            @media (max-width: $screen-xs-max) {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.mag_article-teaser {
+    @media print {
+        page-break-inside: avoid;
+    }
+    h1, h2, .mag_meta-oneliner {
+        text-align: center;
+    }
+   img {
+        width: 100%;
+        @media print {
+            display: none;
+        }
+    }
+    &--left {
+        h1, h2, .mag_meta-oneliner {
+            text-align: left;
+            max-width: 800px;
+        }
+        @media print {
+            h1, h2, .mag_meta-oneliner {
+                position: absolute;
+            }
+            h1 {
+                top: 20pt;
+            }
+            h2 {
+                top: 0pt;
+            }
+
+            .mag_meta-oneliner {
+                color: #333333;
+                height: 100%;
+                position: relative;
+                top: 115pt;
+            }
+        }
+    }
+    &--centered {
+        max-width: 700px;
+        width: 70%;
+    }
+    &__content {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -17px;
+
+        &--reverse {
+            flex-direction: row-reverse;
+        }
+
+        .mag_goto-link {
+            margin-top: auto;
+        }
+    }
+    &__image {
+        padding-bottom: 50px;
+        margin-top: -40px;
+
+        &--wider {
+            width: 147%;
+
+            @media (max-width: $screen-sm-max) {
+                width: 100%;
+            }
+        }
+    }
+    &__content-image {
+        display: flex;
+        flex-direction: column;
+        padding: 0 17px;
+        width: 60%;
+
+        @media (max-width: $screen-sm-max) {
+            width: 100%;
+
+            img {
+                margin-bottom: 25px;
+            }
+        }
+
+        &--holds-image {
+            overflow: hidden;
+            img {
+                float: left;
+            }
+        }
+    }
+    &__content-text {
+        display: flex;
+        flex-direction: column;
+        padding: 0 17px;
+        width: 40%;
+
+        @media (max-width: $screen-sm-max) {
+            width: 100%;
+        }
+
+        &--holds-image {
+            overflow: hidden;
+            img {
+                float: left;
+            }
+        }
+    }
+
+    // paddings / margins
+    .mag_headline--v-large {
+        margin-bottom: 20px;
+    }
+    .mag_meta-oneliner {
+        margin-bottom: 30px;
+    }
+    .mag_goto-button {
+        margin-top: 30px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.mag_article-short {
+    &--vertical-view {
+        border-bottom: 1px solid $mag-light-grey-color;
+        padding-bottom: 30px;
+        margin-bottom: 30px;
+        .mag_meta-oneliner {
+            margin-bottom: 15px;
+        }
+        .mag_article-short__image {
+            margin-bottom: 25px;
+            overflow: hidden;
+            img {
+                width: 100%;
+            }
+        }
+        .mag_headline--medium-pre {
+            margin-bottom: 5px;
+        }
+        .mag_headline--medium {
+            margin-bottom: 30px;
+        }
+        .mag_teaser-text {
+            margin-bottom: 15px;
+        }
+    }
+    &--horizontal-view {
+        @extend .clearfix;
+        margin: 0 -17px;
+        .mag_article-short__left {
+            float: left;
+            padding: 0 17px;
+            width: 40%;
+
+            @media (max-width: $screen-sm-max) {
+                width: 100%;
+
+                img {
+                    margin-bottom: 25px;
+                }
+            }
+
+            img {
+                width: 100%;
+            }
+        }
+        .mag_article-short__right {
+            float: left;
+            padding: 0 17px;
+            width: 60%;
+
+            @media (max-width: $screen-sm-max) {
+                width: 100%;
+            }
+        }
+        .mag_article-short__image {
+        }
+        .mag_headline--medium-pre {
+            margin-bottom: 10px;
+        }
+        .mag_headline--medium {
+            margin-bottom: 25px;
+        }
+    }
+}
+
+.mag_blogpost-short {
+    border-bottom: 1px solid $mag-dark-grey-color;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+
+    // paddings / margins
+    &__image {
+        margin-bottom: 20px;
+        img {
+            height: 100px;
+            width: 100px;
+        }
+    }
+    .mag_meta-oneliner {
+        margin-bottom: 40px;
+    }
+    .mag_headline--medium-pre {
+        margin-bottom: 10px;
+    }
+    .mag_headline--medium {
+        margin-bottom: 30px;
+    }
+    .mag_teaser-text {
+        margin-bottom: 30px;
+    }
+
+    &--teasered {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+
+        // paddings / margins
+        .mag_headline--v-large-pre {
+            margin-bottom: 10px;
+        }
+        .mag_headline--v-large {
+            margin-bottom: 35px;
+        }
+    }
+}
+
+
+.mag_article-grid {
+    display: flex;
+    margin: 0 -15px;
+
+    @media print {
+        flex-direction: column-reverse;
+    }
+
+    @media (max-width: $screen-sm-max) {
+        display: block;
+    }
+    &__left {
+        display: flex;
+        flex-direction: column;
+        padding-left: 15px;
+        padding-right: 15px;
+        width: 66.66667%;
+
+        @media (max-width: $screen-sm-max) {
+            display: block;
+            width: 100%;
+        }
+        @media print {
+            margin: 0 0 0 30pt;
+            width: 421pt;
+        }
+    }
+    &__right {
+        display: flex;
+        float: left;
+        flex-direction: column;
+        font-size: 10pt;
+        padding-left: 9%;
+        padding-right: 15px;
+        position: relative;
+        width: 33.33333%;
+
+        @media (max-width: $screen-sm-max) {
+            display: block;
+            width: 100%;
+        }
+
+        @media print {
+            margin: 0;
+            padding: 0;
+            position: relative;
+            width: 100%;
+        }
+    }
+}
+
+.mag_blogpost {
+    padding-left: 20%;
+
+    @media (max-width: $screen-lg-min) {
+        padding-left: 12%;
+    }
+
+    @media (max-width: $screen-sm-max) {
+        padding-left: 20%;
+    }
+
+    @media (max-width: $screen-xs-max) {
+        padding-left: 0;
+    }
+
+    @media print {
+        padding: 0;
+	}
+
+    .mag_headline--large {
+        margin-bottom: 20px;
+    }
+    .mag_meta-oneliner {
+        margin-bottom: 70px;
+    }
+
+    @media print {
+        .mag_headline--large, .mag_headline--large-pre, .mag_meta-oneliner {
+            left: 50pt;
+            position: absolute;
+            width: 800px;
+        }
+        .mag_headline--large {
+            font-size: 36pt;
+            top: 185pt;
+        }
+        .mag_headline--large-pre {
+            top: 160pt;
+        }
+
+        .mag_meta-oneliner {
+            color: #333333;
+            height: 100%;
+            margin-left: 0;
+            margin-top: -830pt;
+        }
+    }
+
+    .mag_running-text--bold {
+        margin-bottom: 20px;
+    }
+    .mag_running-text {
+        h1 {
+            margin-top: 60px;
+            margin-bottom: 30px;
+        }
+    }
+}
+
+.mag_highlighted-element {
+    margin-left: -25%;
+    margin-top: 18px;
+    margin-bottom: 18px;
+    width: 125%;
+
+    @media (max-width: $screen-lg-min) {
+        margin-left: -12%;
+        width: 112%
+    }
+
+    @media (max-width: $screen-sm-max) {
+        margin-left: -20%;
+        width: 120%;
+    }
+
+    @media (max-width: $screen-xs-max) {
+        padding-left: 0;
+        margin-left: -3%;
+        width: 103%;
+    }
+
+    @media print {
+        margin: 32pt 0;
+        page-break-inside: avoid;
+        width: 100%;
+    }
+
+    &--flow-left {
+        float: left;
+        padding-right: 30px;
+        width: 90%;
+
+        @media (max-width: $screen-xs-max) {
+            width: 103%;
+        }
+    }
+
+    &--flow-none {
+        display: block;
+        margin-bottom: 8px;
+        margin-left: 0% !important;
+        margin-top: 8px;
+        width: 100%;
+
+        @media print {
+            margin-top: 24pt;
+        }
+    }
+
+    &--description {
+    	color: #555555;
+    	font-size: 12px;
+    	text-align: right;
+    }
+}
+
+.mag_author-short {
+    @media print {
+        padding-bottom: 13pt;
+    }
+
+    .mag_image {
+        float: left;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        width: 110px;
+
+        @media print {
+            margin-bottom: 9pt;
+            margin-top: 0;
+            width: 50pt;
+        }
+    }
+    &__name {
+        font-weight: 500;
+        margin-bottom: 5px;
+
+        @media print {
+            padding-top: 5pt;
+        }
+
+        a:link, a:visited {
+            color: $mag-text-color;
+        }
+    }
+    &__contact {
+        display: block;
+        margin-bottom: 0px;
+    }
+
+    &__social-icon {
+        width: 15px;
+        height: 15px;
+        margin-right: 15px;
+    }
+
+    &--small {
+        .mag_image {
+            width: 75px;
+
+            @media print {
+                margin-bottom: 9pt;
+                margin-top: 0;
+                width: 50px;
+            }
+        }
+    }
+    @media print {
+        a {
+            display: none;
+        }
+
+        p {
+            font-size: 8pt;
+            line-height: 12pt;
+            margin-top: 0;
+            padding-left: 57pt;
+            width: 350pt;
+        }
+    }
+}
+
+.mag_newsletter-signup {
+    &__email {
+        height: 26px;
+        box-shadow: inset 0 -1px 0 #ddd !important;
+        text-align: center;
+    }
+
+    &__form {
+        margin: 0;
+        overflow: hidden;
+        padding: 10px 15px 0 15px;
+        text-align: center;
+    }
+
+    &__button {
+        display: block;
+        height: 37px;
+        margin: 10px auto;
+        width: 100%;
+    }
+
+    &__spinner {
+        margin: 25px auto 25px auto;
+    }
+
+    &__show {
+        display: block;
+    }
+
+    &__hide {
+        display: none;
+    }
+}
+
+.mag_blockquote {
+    border-left: none;
+    color: $mag-primary-color;
+    font-size: 26px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 41px;
+    padding: 0;
+    padding-right: 24px;
+
+    &:before {
+        content: "\201E";
+    }
+    &:after {
+        content: "\201D";
+    }
+
+    @media (max-width: $screen-xs-max) {
+        font-size: 24px;
+        line-height: 32px;
+    }
+
+    @media print {
+        font-size: 15pt;
+        hyphens: none;
+        line-height: 20.5pt;
+        margin: 7pt 0 9pt -6pt;
+        font-weight: 700;
+        width: 100%;
+    }
+}
+
+
+
+.mag_teasered-articles {
+    margin-left: 9%;
+    margin-right: 9%;
+
+    @media (max-width: $screen-xs-max) {
+        margin-left: 0%;
+        margin-right: 0%;
+    }
+}
+
+.mag_sidebar {
+    @media (max-width: $screen-sm-max) {
+        margin-top: 80px;
+        padding-left: 20%;
+
+        .liq_sidebar-nav {
+            position: static !important;
+            width: 100% !important;
+        }
+
+        .mag_category-divider {
+            margin-left: 0;
+            margin-right: 0;
+        }
+    }
+    @media (max-width: $screen-xs-max) {
+        padding-left: 15px;
+    }
+    > .mag_category-divider:first-child {
+        margin-top: -8px;
+        padding-top: 0;
+    }
+    @media print {
+        left: 46pt;
+        page-break-inside: avoid;
+        position: absolute;
+        top: 280pt;
+
+        .hide-in-print {
+            display: none;
+        }
+    }
+}
+
+
+.flex-margin-top-top {
+    margin-top: auto;
+}
+
+.fixed-starts-at-bottom {
+    .mag_category-divider {
+        margin-top: 0;
+    }
+}
+
+
+.mag_unordered-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+        padding: 6px 0px 0px 20px;
+        position: relative;
+
+        &:after {
+            background: $mag-primary-color;
+            content: "";
+            height: 5px;
+            left: 5px;
+            position: absolute;
+            top: 14px;
+            width: 5px;
+        }
+    }
+}
+
+.mag_number-list {
+    counter-reset: section;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    .active {
+        color: $mag-primary-color;
+        a {
+            color: $mag-primary-color !important;
+        }
+    }
+
+    li {
+        padding: 6px 0px 0px 20px;
+        position: relative;
+
+        a {
+            color: $mag-primary-color;
+        }
+
+        &:after {
+            counter-increment: section;
+            content: counter(section) ")";
+            left: 0;
+            position: absolute;
+            top: 6px;
+        }
+
+        &.active {
+            &:after {
+                color: #FFF;
+            }
+        }
+    }
+
+    &--pointed {
+        li {
+            &:after {
+                content: counter(section) ".";
+            }
+        }
+    }
+
+    &--linklist {
+        li {
+            a:link, a:visited {
+                display: block;
+                padding: 0;
+            }
+
+            &:after {
+                left: 0;
+                top: 6px;
+            }
+        }
+    }
+}
+
+.mag_sources {
+	color: #555555;
+	float: left;
+	font-size: 12px;
+	margin-bottom: 30px;
+	text-align: right;
+	width: 100%;
+
+    @media print {
+        color: #333333;
+        font-size: 6pt;
+        p {
+            color: #333333;
+            font-size: 6pt;
+        }
+    }
+}
+
+@media print {
+    @page {
+        margin: 50pt 0;
+        size: A4;
+    }
+
+    html, body {
+        width: 210mm;
+        height: 297mm;
+    }
+}
+
+.liq_chartbuilder-chart {
+    @extend .clearfix;
+}

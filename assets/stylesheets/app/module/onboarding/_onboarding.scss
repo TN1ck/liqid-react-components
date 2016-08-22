@@ -1,0 +1,351 @@
+.liq_onboarding {
+    &__content {
+        padding-left: 10%;
+        padding-right: 10%;
+        text-align: center;
+        &--min-height {
+            min-height: 250px;
+        }
+        &--no-side-padding-tablet {
+            @media (max-width: $screen-sm-max) {
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
+    }
+    &__left {
+        text-align: left;
+    }
+    &__right {
+        text-align: right;
+    }
+
+    &__inline-header {
+        margin: 0 0 5px;
+    }
+
+    &__large {
+        @media (max-width: $screen-xs-max) {
+            font-size: 14px;
+            font-weight: $weight__semi-bold;
+            line-height: 23px;
+
+            &--bold {
+                font-weight: normal;
+            }
+        }
+
+        + .liq_onboarding__inline-header {
+            margin-top: 10px;
+        }
+    }
+
+    &__subheader {
+        margin-top: 0;
+        margin-bottom: 15px;
+        line-height: 28px;
+
+        + .liq_onboarding__subsubheader {
+            margin-top: -10px;
+        }
+
+        @media (max-width: $screen-xs-max) {
+            font-weight: $weight__semi-bold;
+            font-size: 16px;
+            line-height: 25px;
+        }
+    }
+
+    &__subsubheader {
+        margin-bottom: 10px;
+    }
+
+    &__padding {
+        padding-top: 20px;
+        padding-bottom: 10px;
+    }
+
+    &__next-button {
+        width: 200px;
+        float: right;
+    }
+
+    &__bordered-box {
+        border: 1px solid $gray-lighter;
+        padding: 15px 25px;
+        width: 100%;
+
+        &--negative-margin-left {
+            margin-left: -10px;
+        }
+
+        &--negative-margin-right {
+            margin-right: -10px;
+        }
+    }
+
+}
+
+.liq_onboarding-investment {
+    &-reserve-amount-modal {
+        width: 80%;
+        .modal-content {
+            padding: 20px;
+        }
+    }
+}
+
+.liq_onboarding-risk-profile {
+
+    &-stock-ratio-container {
+        float: left;
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        display: flex;
+    }
+
+    &-stock-ratio-button {
+        min-width: 80px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 10px;
+        flex-grow: 1;
+        flex-basis: 0;
+    }
+
+    &-show-all {
+        margin-top: 20px;
+    }
+
+    &-bhfs-logo {
+        padding-top: 15px;
+        &__image {
+            margin-bottom: 20px;
+        }
+
+        &__text {
+        }
+    }
+
+    &-bhfs-large {
+        border-left: 1px solid $gray-lighter;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        @media (max-width: $screen-sm-max) {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+    }
+}
+
+.liq_onboarding-risk-profile-game {
+    &-header {
+        margin-top: -30px;
+        min-height: 130px;
+        position: relative;
+
+        @media (max-width: $screen-sm-max) {
+            margin-top: 0;
+        }
+
+        .liq_onboarding__subheader {
+            left: 0;
+            position: absolute;
+            transform: translate(0, -50%);
+            top: 50%;
+            width: 100%;
+
+            @media (max-width: $screen-sm-max) {
+                position: static;
+                transform: none;
+                top: auto;
+            }
+        }
+    }
+
+    &-tile {
+        margin-bottom: 10px;
+    }
+
+    &-retake {
+        margin-top: 5px;
+    }
+}
+
+.liq_onboarding-risk-profile-choose {
+    &-pie-chart {
+        margin-top: 10px;
+    }
+    &-button {
+        margin-bottom: 10px;
+    }
+    &-column {
+        display: flex;
+        margin-bottom: 30px;
+
+        + .liq_onboarding-risk-profile-choose-column {
+            border-left: 1px solid $gray-lighter;
+        }
+    }
+    &-tile {
+        flex: auto;
+        float: left;
+        margin-bottom: 20px;
+        padding-bottom: 60px;
+        position: relative;
+        text-align: center;
+        width: 100%;
+
+        button {
+            bottom: 0;
+            left: 0;
+            position: absolute;
+            width: 100%;
+        }
+    }
+    &-description {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        float: left;
+        text-align: left;
+        width: 100%;
+    }
+    &-subnote {
+        float: left;
+        color: #aaa;
+        text-align: left;
+    }
+}
+
+.liq_onboarding-risk-profile-result {
+    &-text {
+        border-left: 1px solid $gray-lighter;
+        margin-bottom: 20px;
+        padding-left: 35px;
+        text-align: left;
+    }
+    &-hint {
+        text-align: left;
+
+        &__legal-hint {
+            text-align: center;
+            margin-top: 10px;
+        }
+    }
+
+    &-change-stock {
+        margin-top: 10px;
+        float: left;
+        text-align: center;
+        width: 100%;
+    }
+
+    &-container {
+        padding-bottom: 40px;
+    }
+}
+
+.liq_onboarding-account {
+    &__bordered-box {
+        padding: 15px;
+    }
+    &__next-step-header {
+        border-bottom: 1px solid $gray-lighter;
+        margin-bottom: 25px;
+        padding-top: 3px;
+        padding-bottom: 18px;
+        text-align: center;
+        width: 100%;
+
+        h2 {
+            margin: 0;
+        }
+    }
+    &__next-step-image {
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    &__next-step-description {
+        margin-bottom: 10px;
+    }
+
+    &__data-privacy-hint {
+        margin-top: 30px;
+        padding-left: 15px;
+        padding-right: 15px;
+        text-align: center;
+    }
+}
+
+.liq_onboarding-risk-profile-investment-temperament-chart {
+    margin-top: 15px;
+}
+
+@media (max-width: $screen-xs-max) {
+
+    .liq_onboarding-risk-profile-stock-ratio-button {
+        flex-basis: 33%;
+    }
+
+    .liq_onboarding {
+        &__left {
+            text-align: center;
+        }
+        &__left {
+            text-align: center;
+        }
+    }
+
+    .liq_onboarding__next-button, .liq_onboarding__back-button {
+        width: 150px;
+    }
+
+    .liq_onboarding-risk-profile-bhfs-large {
+        border-left: none;
+    }
+
+    .liq_onboarding-risk-profile-result {
+        &-text {
+            border-left: none;
+        }
+        &-change-stock {
+            margin-bottom: 20px;
+        }
+    }
+
+    .liq_onboarding-risk-profile-choose-column + .liq_onboarding-risk-profile-choose-column {
+        border: none;
+    }
+
+    .liq_onboarding__bordered-box {
+        margin-top: 10px;
+        &--negative-margin-left {
+            margin-left: 0px;
+        }
+
+        &--negative-margin-right {
+            margin-right: 0px;
+        }
+    }
+
+    .liq_onboarding-account__next-step-description {
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    .liq_onboarding-risk-profile-investment-temperament-chart {
+        margin-bottom: 10px;
+    }
+
+    .liq_onboarding-investment-reserve-amount-modal {
+        width: auto;
+    }
+
+}
+
+@media (max-width: $screen-sm-max) {
+    .liq_onboarding-risk-profile-investment-temperament-chart {
+        margin-bottom: 10px;
+    }
+}

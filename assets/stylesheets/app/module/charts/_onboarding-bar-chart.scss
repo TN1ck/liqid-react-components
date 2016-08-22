@@ -1,0 +1,32 @@
+.liq_onboarding-simple-bar-chart {
+
+    border: 1px solid $gray-light;
+    padding-top: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+
+    &__header {
+        font-weight: $weight__bold;
+    }
+
+    &__subheader, &__footer {
+        color: $gray-light;
+        font-size: $font-size-small;
+    }
+
+    &__line {
+        stroke: $brand-base;
+    }
+
+    &__text {
+        text-anchor: middle;
+        fill: white;
+        &--black {
+            fill: $brand-base;
+        }
+    }
+
+    &__rect {
+        opacity: 0.8;
+    }
+}

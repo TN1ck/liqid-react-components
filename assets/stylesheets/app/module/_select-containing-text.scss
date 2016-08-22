@@ -1,0 +1,26 @@
+.select-containing-text {
+    line-height: 62px;
+
+    @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+        line-height: 50px;
+    }
+
+    @media (max-width: $screen-xs-max) {
+        line-height: 40px;
+    }
+    .form-group {
+        margin-bottom: 0;
+    }
+    .liq_input-formatted {
+        padding-bottom: 0;
+    }
+    .liq_input-formatted__help-block {
+        top: calc(100% + 2px);
+        @media (max-width: $screen-xs-max) {
+            top: calc(100% + -1px);
+        }
+    }
+    select, select.form-control {
+        line-height: 1.3;
+    }
+}

@@ -1,0 +1,171 @@
+.liq_input-focus {
+    .liq_input-formatted--round-style {
+        box-shadow: inset 0 0 5px $brand-info;
+        border: 1px solid $brand-info;
+    }
+}
+
+.liq_input-formatted {
+
+    $formatted-buttons-width: 30px;
+
+    position: relative;
+    display: inline-block;
+    text-align: left;
+
+    label {
+        color: $brand-info;
+    }
+
+    &--round-style {
+        box-shadow: inset 0 0 5px $gray-light;
+        border: 1px solid $gray-light;
+        border-radius: 50px;
+        padding: 0 25px;
+    }
+    &--simple-style {
+        border-bottom: 3px solid $gray-lighter;
+        padding: 0 10px;
+
+        &.liq_input-formatted--error {
+            border-bottom-color: $brand-primary;
+        }
+    }
+    &--round-style, &--simple-style{
+        padding-bottom: 0;
+        text-align: center;
+        transition: all 0.2s ease-out;
+        display: inline-block;
+
+        label {
+            display: none
+        }
+
+        .liq_input-formatted__input, .liq_input-formatted__input:focus  {
+            box-shadow: none;
+            text-align: center;
+        }
+
+        .liq_input-formatted__input:focus  {
+            .liq_input-formatted--round-style {
+                border: 1px solid $brand-info;
+            }
+        }
+
+        .liq_input-formatted__prepend {
+            left: 10px;
+        }
+
+        .liq_input-formatted__input--prepend {
+            padding-left: 30px !important;
+        }
+
+        .liq_input-formatted__input-append {
+            font-size: 16px;
+            padding: 6px 0;
+            text-align: center;
+            position: absolute;
+            top: 0; // the size of 'THE '
+            left: 0;
+            width: 100%;
+            pointer-events: none;
+            color: transparent;
+            &--visible {
+                color: $text-color;
+            }
+        }
+    }
+
+    &--full-width {
+        width: 100%;
+    }
+
+    &--no-bottom-padding {
+        padding-bottom: 0;
+    }
+
+    $help-width: 300px;
+
+    padding-bottom: 20px;
+
+    .has-error {
+        color: $brand-primary;
+    }
+
+    &__container {
+        position: relative;
+        &--with-buttons {
+            padding-right: $formatted-buttons-width * 2;
+        }
+    }
+
+    &__prepend {
+        position: absolute;
+        left: 0;
+        top: calc(0.5em - 1px); // 0.5em is the correct alignment, but it looks better this way
+        color: $gray-light;
+    }
+
+    &__input--prepend {
+        padding-left: 15px !important;
+    }
+
+    &__help-block {
+        position: absolute;
+        top: calc(100% + 5px);
+        left: 0;
+
+        &--static-warning {
+            color: $brand-primary;
+            margin-top: 10px;
+            position: relative;
+            top: 0;
+        }
+
+        &--center {
+            width: $help-width;
+            text-align: center;
+            left: calc(50% - #{$help-width / 2});
+        }
+    }
+
+    &__buttons {
+        position: absolute;
+        top: 25px;
+        left: 100%;
+        transform: translateX($formatted-buttons-width * -2);
+
+    }
+
+    &__button {
+        background-color: transparent;
+        color: $brand-info;
+        line-height: 21px;
+        padding: 3px 0 6px;
+        position: absolute;
+        width: $formatted-buttons-width;
+        transition: background-color 0.2s ease;
+        border: 1px solid $gray-lighter;
+        img {
+          height: 0.6em;
+        }
+        &:hover, &:focus, &:active {
+          background-color: $gray-lighter;
+          outline: none;
+        }
+
+        &--right {
+            left: 30px;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+            border-left: none;
+        }
+
+        &--left {
+            left: 0;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+            border-right: none;
+        }
+    }
+}

@@ -1,0 +1,17 @@
+.liq_browser-upgrade {
+    position: relative;
+    z-index: 10000;
+    background-color: $brand-info;
+    padding: 20px;
+    color: #fff;
+    text-align: center;
+
+    a {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    p {
+      margin: 0;
+    }
+}

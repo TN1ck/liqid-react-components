@@ -1,0 +1,51 @@
+.liq_proofread {
+    font-size: 12px;
+    textarea {
+        font-size: 12px;
+    }
+    blockquote {
+        padding: 5px 10px;
+        font-size: 1em;
+    }
+
+    table {
+        table-layout: fixed;
+        word-wrap: break-word;
+
+    }
+
+    code {
+        white-space: pre-wrap;
+    }
+
+    &__tr--changed {
+        position: relative;
+        &:after {
+            font-size: 1.5em;
+            content: '◉';
+            position: absolute;
+            right: 30px;
+            color: $brand-primary;
+        }
+    }
+
+    @media print  {
+        .NoPrint {
+            visibility:hidden;
+            display:none
+        }
+        table {
+            page-break-inside: auto
+        }
+        tr {
+            page-break-inside: avoid;
+            page-break-after: always
+        }
+        thead {
+            display: table-header-group
+        }
+        a {
+            color:#000000
+        }
+    }
+}

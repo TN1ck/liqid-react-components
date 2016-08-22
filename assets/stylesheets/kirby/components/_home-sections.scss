@@ -1,0 +1,150 @@
+.liq_home-section {
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+    @media (max-width: $screen-xs-min) {
+        padding-bottom: 15px;
+        padding-top: 15px;
+    }
+
+    &__title {
+        margin-bottom: 0;
+    }
+
+    &__image {
+        height: 100px;
+        margin-top: 35px;
+    }
+
+    #pie-chart {
+        margin-top: 50px;
+
+
+        @media (max-width: 550px) {
+            .liq_chart__inner {
+                transform: scale(0.7);
+            }
+        }
+
+        .liq_chart {
+            &__pie {
+                path {
+                    stroke: $brand-primary !important;
+                    stroke-width: 1px;
+                }
+            }
+            &__pie__grouped {
+                opacity: 1;
+                path {
+                    stroke: $brand-primary !important;
+                    stroke-width: 1px;
+                }
+            }
+        }
+    }
+    &__how-it-works {
+        margin-top: 85px;
+    }
+}
+
+#liq_home-section--intro {
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    min-height: 550px;
+
+    .device-showcase {
+        position: absolute;
+        bottom: -265px;
+        left: 65%;
+        &__devices {
+            position: relative;
+
+            &__ipad {
+                width: 565px;
+                height: 802px;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                z-index: 1;
+                visibility: hidden;
+                animation-duration: 1.5s;
+            }
+
+            &__iphone {
+                width: 243px;
+                height: 496px;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                position: absolute;
+                right: 430px;
+                bottom: 129px;
+                z-index: 2;
+                visibility: hidden;
+                animation-delay: 0.5s;
+                animation-duration: 1.5s;
+            }
+
+            .fadeInUp {
+                visibility: visible
+            }
+
+        }
+    }
+
+    .device-showcase--responsive {
+        width: 85%;
+        margin: 120px auto 0 auto;
+        img {
+            width: 100%;
+        }
+    }
+}
+
+#liq_home-section--hqt {
+    background-color: #F0F0F2;
+    position: relative;
+    z-index: 3;
+}
+
+@media (min-width: $screen-md-min) {
+    #liq_home-section--hqt {
+        background-image: url("/public/images/hqt-section-bg.jpg");
+        background-repeat: no-repeat;
+        background-size: auto 100%;
+    }
+}
+
+
+
+.liq_home-section--image {
+    &__label {
+        padding: 5px 0px 20px;
+        text-align: center;
+        font-size: 12px;
+        font-weight: 300;
+
+        &__subline {
+            padding-top: 20px;
+        }
+    }
+}
+
+.liq_home-section--liqid-approach {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 75px;
+    padding-top: 50px;
+
+    &__image-col {
+        text-align: center;
+        img {
+            margin-top: 70px;
+            max-width: 500px;
+
+            @media (max-width: $screen-md-min) {
+                margin-top: 30px;
+            }
+        }
+    }
+}

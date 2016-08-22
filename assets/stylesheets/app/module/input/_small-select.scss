@@ -1,0 +1,11 @@
+.liq_input-small-select {
+    &:focus {
+        outline: none;
+    }
+
+    input[readonly][type=text] {
+        box-shadow: none;
+        font-size: $font-size-base;
+        padding: 4px 25px 6px 6px;
+    }
+}

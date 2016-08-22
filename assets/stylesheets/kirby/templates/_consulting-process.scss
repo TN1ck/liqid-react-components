@@ -1,0 +1,175 @@
+
+.liq_consulting-process {
+    background-color: $body-bg;
+    margin-bottom: 60px;
+    padding: 20px 0 80px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.liq_consulting-process__headline {
+    padding: 12px;
+    margin: 60px auto;
+    background-color: #fff;
+    border-radius: 100px;
+    max-width: 340px;
+    font-size: 28px;
+
+    &--active {
+        background-color: $brand-primary;
+        color: #fff;
+        transition: all  0.3s linear;
+    }
+
+    @media (max-width: $screen-xs-max) {
+        margin: 40px auto 10px;
+    }
+
+    img {
+        margin-top: -6px;
+    }
+
+}
+
+.liq_consulting-process__line {
+    background-color: #fff;
+    height: 3500px;
+    left: 50%;
+    margin-left: -2px;
+    position: absolute;
+    top: 117px;
+    width: 4px;
+
+    &--active {
+        background-color: $brand-primary;
+        height: 0;
+        transition: height 0.3s linear;
+    }
+}
+
+.liq_consulting-process__step {
+    background-color: #fff;
+    box-shadow: 0px 10px 15px 0px rgba(36,39,48,0.10);
+    margin: -20px 9px -20px 0;
+
+    visibility: hidden;
+
+    &.fadeInUp,
+    &.fadeIn,
+    &.fadeInRight,
+    &.fadeInLeft {
+        visibility: visible;
+    }
+
+    @media (max-width: $screen-xs-max) {
+        margin: 30px 0;
+    }
+
+    padding: 20px;
+    position: relative;
+    text-align: left;
+
+    &:before {
+        position: absolute;
+        content: '';
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 18px 0 18px 13px;
+        border-color: transparent transparent transparent #fff;
+        right: -13px;
+        top: 50%;
+        margin-top: -18px;
+
+        @media (max-width: $screen-xs-max) {
+            margin-top: 0;
+            right: 50%;
+            top: auto;
+            bottom: -13px;
+            border-width: 13px 18px 0 18px;
+            border-color:  #fff transparent transparent transparent;
+            margin-right: -18px;
+        }
+    }
+
+    &:after {
+        position: absolute;
+        content: '';
+        background-color: #fff;
+        width: 17px;
+        height: 17px;
+        border-radius: 50%;
+        right: -32px;
+        top: 50%;
+        margin-top: -8px;
+
+        @media (max-width: $screen-xs-max) {
+            right: -32px;
+            top: auto;
+            margin-top: -8px;
+            bottom: -38px;
+            left: 50%;
+            margin-left: -9px;
+        }
+    }
+
+    &--active:after {
+        background-color: $brand-primary;
+    }
+}
+
+.liq_consulting-process__step--right {
+    margin-right: 0;
+    margin-left: 9px;
+
+    @media (max-width: $screen-xs-max) {
+        margin-left: 0;
+    }
+
+    &:before {
+        border-width: 18px 13px 18px 0;
+        border-color: transparent #fff transparent transparent;
+        left: -13px;
+        right: auto;
+
+         @media (max-width: $screen-xs-max) {
+            margin-top: 0;
+            left: auto;
+            right: 50%;
+            top: auto;
+            bottom: -13px;
+            border-width: 13px 18px 0 18px;
+            border-color:  #fff transparent transparent transparent;
+            margin-right: -18px;
+        }
+    }
+
+    &:after {
+        left: -32px;
+        right: auto;
+
+        @media (max-width: $screen-xs-max) {
+            right: -32px;
+            top: auto;
+            margin-top: -8px;
+            bottom: -38px;
+            left: 50%;
+            margin-left: -9px;
+        }
+    }
+}
+
+
+.liq_consulting-process__browser {
+    visibility: hidden;
+    &.fadeInUp {
+        visibility: visible;
+    }
+}
+
+.liq_consulting-process__expert {
+    background-color: $body-bg;
+    margin-bottom: -40px;
+    padding: 40px 0 0;
+    text-align: left;
+}

@@ -1,0 +1,32 @@
+.liq_quote {
+  background-color: $brand-base;
+  color: #fff;
+  margin: -40px 0 70px;
+  padding: 70px 0;
+
+  blockquote {
+    border: none;
+    font-size: 35px;
+    font-style: italic;
+    font-weight: 800;
+    margin: 0;
+    padding: 0 0 0 80px;
+    position: relative;
+
+    &:before {
+      color: $brand-primary;
+      content :'"';
+      font-size: 116px;
+      font-style: italic;
+      left: 10px;
+      position: absolute;
+      top: -30px;
+    }
+  }
+
+  cite {
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 200;
+  }
+}

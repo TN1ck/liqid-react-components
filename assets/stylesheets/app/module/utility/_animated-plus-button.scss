@@ -1,0 +1,80 @@
+.liq_animated-plus-button {
+
+    $button-size: 15px * 2;
+    $button-border: 1px;
+    $button-height: 2px;
+    $button-margin: 8px;
+
+    @media print {
+        display: none;
+    }
+
+    transition: all 200ms ease;
+    position: absolute;
+    top: calc(50% - 15px);
+    font-size: $button-size;
+    font-weight: $weight__semi-bold;
+    line-height: $button-size;
+    color: rgba($brand-base, 0.5);
+    height: $button-size;
+    width: $button-size;
+    background-color: white;
+    border: $button-border solid rgba($brand-base, 0.2);
+    border-radius: 50px;
+
+    &:hover {
+        color: $gray;
+        border: 1px solid $gray;
+        .one, .two {
+            background: $gray;
+        }
+    }
+
+
+    .one, .two {
+        position: absolute;
+        border-radius: 3px;
+        background: $gray-light;
+        transform: rotate(0deg);
+        transition: 300ms all ease-out;
+
+        top: $button-margin;
+        left: $button-size / 2 - ($button-height / 2 + $button-border);
+        bottom: $button-margin;
+        width: $button-height;
+    }
+
+    .one {
+        transform: rotate(-90deg);
+    }
+    .two {
+         transform: rotate(-90deg);
+    }
+
+    &--right {
+        right: -30px;
+    }
+
+    &--left {
+        left: -40px;
+    }
+
+    &--tiny {
+        border: none;
+        transform: scale(0.6);
+        top: calc(50% - 14px);
+
+        &:hover {
+            border: none;
+        }
+    }
+
+    &--active {
+        .one {
+            transform: rotate(90deg);
+        }
+        .two {
+            transform: rotate(0deg);
+        }
+    }
+}

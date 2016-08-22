@@ -1,0 +1,115 @@
+.liq_question {
+
+    &__table {
+
+        table-layout: fixed;
+        border-top: none;
+        margin-bottom: 0px;
+
+        &--negative-margin-top {
+            margin-top: -20px;
+        }
+
+        thead {
+            tr {
+                th {
+                    border-bottom: none;
+                    vertical-align: top;
+                }
+            }
+        }
+
+        tbody {
+            tr {
+                td {
+                    border-top: 1px solid $gray-lighter;
+                    display: table-cell;
+                    padding: 0 3px;
+                    vertical-align: middle;
+                }
+            }
+        }
+
+        td, th {
+            text-align: center;
+            font-weight: $weight__semi-bold;
+            .radio {
+                margin-top: 0px;
+                margin-bottom: 0px;
+            }
+        }
+
+        td:first-child {
+            text-align: left;
+        }
+
+    }
+
+    &__header {
+        margin-bottom: 50px;
+
+        &--fill_container_space {
+            margin-top: 22px;
+        }
+    }
+
+    &__checkbox {
+        span {
+            font-weight: $weight__semi-bold;
+        }
+        padding-top: 5px;
+        padding-bottom: 5px;
+
+        .radio {
+            line-height: 0;
+            margin: 0;
+            label:before, label:after {
+                left: 50%;
+                margin-left: -10px;
+            }
+            @media screen and (max-width: $screen-md-min) {
+                float: left;
+                padding-top: 9px;
+            }
+        }
+        .radio-inline {
+            padding-top: 10px;
+            padding-left: 0;
+
+            @media screen and (max-width: $screen-md-min) {
+                padding-top: 15px;
+                padding-bottom: 13px;
+                text-align: left;
+            }
+        }
+
+        &--scala {
+            display: inline-block;
+            margin-left: 20px;
+            margin-right: 20px;
+
+            @media screen and (max-width: $screen-md-min) {
+                margin: 0;
+                vertical-align: top;
+                border-radius: 32px;
+                border: 1px solid $gray-light;
+                background: $gray-lighter;
+                padding-top: 0;
+                padding-bottom: 0;
+                width: 48%;
+                margin: 1%;
+            }
+
+            @media screen and (max-width: $screen-xs-min) {
+                margin-bottom: 10px;
+                width: 100%;
+            }
+
+            label {
+                font-weight: $weight__semi-bold;
+                display: block;
+            }
+        }
+    }
+
+}

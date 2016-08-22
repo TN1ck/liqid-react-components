@@ -1,0 +1,12 @@
+// Our three layers for typographie
+// 1st: font-sizes defined only for the purpose of headlines and running text and basic colors
+// 2nd: Classes with valid combinations of colors, weights and font sizes for headlines and running text
+// 3rd: Headline and running text components using these combination for named headlines / text blocks
+
+// !Important!
+// Only add anything to the first two layer if you don't find anything already used at all
+// Check the styleguide for the current look of headlines and text blocks
+
+
+// Base font size used on page
+$font-size-base: 16px !default;

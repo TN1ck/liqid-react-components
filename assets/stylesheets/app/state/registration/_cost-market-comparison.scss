@@ -1,0 +1,54 @@
+.liq_market-comparison {
+    margin-top: 70px;
+    @media (max-width: $screen-sm-max) {
+        padding: 15px 30px;
+    }
+    @media (max-width: $screen-xs-max) {
+        padding: 15px 5px;
+    }
+
+    .liq_inline-card__body {
+        display: flex;
+
+        @media (max-width: $screen-sm-max) {
+            flex-direction: column;
+        }
+    }
+    &__container-right {
+        border-left: 1px solid #eee;
+        -webkit-box-flex: 1 1 25%;
+        -webkit-flex: 1 1 25%;
+        -ms-flex: 1 1 25%;
+        flex: 1 1 25%;
+        padding: 0 15px;
+
+        @media (max-width: $screen-sm-max) {
+            border-left: none;
+        }
+    }
+    &__container-left {
+        -webkit-box-flex: 1 1 75%;
+        -webkit-flex: 1 1 75%;
+        -ms-flex: 1 1 75%;
+        flex: 1 1 75%;
+    }
+
+    &__item {
+        -webkit-box-flex: 1;
+        -webkit-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        padding: 25px 0 10px;
+        text-align: center;
+        &--single {
+            margin-top: 12px;
+        }
+    }
+}
+.liq_market-comparison-calculation {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    text-align: center;
+}

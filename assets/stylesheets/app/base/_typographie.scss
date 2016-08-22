@@ -1,0 +1,15 @@
+.liq_blue-label {
+    color: $brand-info;
+}
+
+.liq_red-label {
+    color: $brand-primary;
+}
+
+.liq_clickable {
+    color: $brand-primary;
+    cursor: pointer;
+    &:hover {
+        text-decoration: underline;
+    }
+}

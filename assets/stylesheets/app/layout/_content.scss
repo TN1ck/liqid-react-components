@@ -1,0 +1,8 @@
+.liq_content {
+    &__header {
+        @include card-shadow();
+        border-top: 1px solid $gray-lighter;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+}

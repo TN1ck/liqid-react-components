@@ -1,0 +1,31 @@
+// WebKit-style focus
+@mixin tab-focus() {
+  // Default
+  outline: none;
+  // WebKit
+  outline: none;
+  outline-offset: 0px;
+}
+
+
+// Shadow
+@mixin card-shadow($size: 1px, $blur: 3px, $opacity: 0.1) {
+    background-color: #fff;
+    box-shadow: 0px $size $blur 0px rgba(#252731, $opacity);
+}
+
+// Buttons
+@mixin btn-ghost($color) {
+  background-color: transparent;
+  border: 1px solid $color;
+  color: $color;
+  &:hover, &:active, &:focus, &.active {
+    background-color: $color;
+    color: #fff;
+  }
+
+}
+
+@mixin btn-shadow($width: 3px){
+  box-shadow: 0 1px $width 0 rgba(0,0,0,.25);
+}

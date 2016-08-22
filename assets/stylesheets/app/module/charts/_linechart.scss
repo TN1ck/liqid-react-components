@@ -1,0 +1,14 @@
+.liq_linechart {
+    &__axis-line {
+        stroke: $gray-light;
+    }
+
+    &__axis-text {
+        font-size: 10px;
+        fill: $gray;
+
+        &--right {
+            text-anchor: end;
+        }
+    }
+}

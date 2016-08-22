@@ -1,0 +1,17 @@
+.liq_pager {
+
+    &__left {
+        margin-left: 20px;
+    }
+
+    &--top-margin {
+        margin-top: 50px;
+    }
+
+    &--fixed-bottom {
+        position: absolute;
+        bottom: 20px;
+        left: 0;
+    }
+
+}

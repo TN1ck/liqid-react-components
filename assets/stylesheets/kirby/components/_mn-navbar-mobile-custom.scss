@@ -1,0 +1,79 @@
+// only works in combination with the bootstrap navbar
+.mn-navbar-mobile-custom.navbar {
+    @media (max-width: ($screen-sm-min - 10px) ) {
+        text-align: center;
+        // fixes scrolling when device height of device is lower than navigation height
+        max-height: 100%;
+        overflow: scroll;
+        // fixes false animation when scrolling down on mobile
+        animation: none;
+
+         .navbar-nav {
+            > li {
+                > a {
+                    font-weight: 600;
+                }
+                > ul {
+                    background: none;
+                    box-shadow: none;
+                    display: block;
+                    float: none;
+                    margin-top: -10px;
+                    margin-bottom: 5px;
+                    padding-top: 0;
+                    position: static;
+                    text-align: center;
+                    width: 100%;
+                }
+            }
+
+            .dropdown-menu {
+                .active {
+                    a {
+                        color: #FFF !important;
+                    }
+                }
+            }
+         }
+
+         .navbar-collapse {
+            max-height: none;
+         }
+
+        .navbar-toggle {
+            border: none;
+            background: transparent !important;
+
+            &:hover {
+                background: transparent !important;
+            }
+
+            .icon-bar {
+                width: 22px;
+                transition: all 0.2s;
+            }
+            .top-bar {
+                transform: rotate(45deg);
+                transform-origin: 10% 10%;
+            }
+            .middle-bar {
+                opacity: 0;
+            }
+            .bottom-bar {
+                transform: rotate(-45deg);
+                transform-origin: 10% 90%;
+            }
+        }
+        .navbar-toggle.collapsed {
+            .top-bar {
+                transform: rotate(0);
+            }
+            .middle-bar {
+                opacity: 1;
+            }
+            .bottom-bar {
+                transform: rotate(0);
+            }
+        }
+    }
+}

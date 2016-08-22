@@ -1,0 +1,10 @@
+.liq_back-button {
+    width: 250px;
+    position: relative;
+    img {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 10px;
+    }
+}

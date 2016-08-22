@@ -1,0 +1,5 @@
+.xs-soft-margin {
+    @media screen and (max-width: $screen-xs-max) {
+        margin: 10px 0;
+    }
+}

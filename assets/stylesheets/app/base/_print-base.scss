@@ -1,0 +1,70 @@
+@media print {
+    body {
+        // override the css-footer
+        padding-bottom: 20px;
+    }
+
+    .btn {
+        display: none !important;
+    }
+
+    // counter class to visible-hidden
+    .visible-in-print {
+        visibility: visible !important;
+        position: relative  !important;
+    }
+
+    .do-not-break-in-print {
+        page-break-inside: avoid;
+    }
+
+    .always-page-break-after {
+        page-break-after: always;
+    }
+
+    .always-page-break {
+        page-break-after: always;
+        page-break-before: always;
+    }
+
+    @for $i from 1 through 12 {
+
+        .col-xs-#{$i} {
+            float: none;
+            clear: both;
+        }
+        .col-sm-#{$i} {
+            float: none;
+            clear: both;
+        }
+
+        .col-md-#{$i} {
+            float: none;
+            clear: both;
+        }
+
+        .col-lg-#{$i} {
+            float: none;
+            clear: both;
+        }
+
+        $width: percentage($i / 12);
+
+        // to make sure the correct size is set for print
+        .col-print-#{$i} {
+            clear: none !important;
+            float: left !important;
+            width: $width !important;
+        }
+
+        .col-print-offset-#{$i} {
+            padding-left: $width;
+        }
+    }
+
+    .collapse {
+        display: block !important;
+        height: auto !important;
+    }
+
+}

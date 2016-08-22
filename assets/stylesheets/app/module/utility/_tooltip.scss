@@ -1,0 +1,20 @@
+$shadow: 0px 3px 20px 0px rgba(#252731, 0.3);
+
+.liq_help-tooltip {
+    &__text {
+        padding-right: 5px;
+    }
+    &__icon {
+        height: 1em;
+        width: 1em;
+        max-width: 15px;
+        max-height: 15px;
+        path {
+            fill: $gray-light;
+            opacity: 0.6;
+        }
+        @media print {
+            display: none;
+        }
+    }
+}

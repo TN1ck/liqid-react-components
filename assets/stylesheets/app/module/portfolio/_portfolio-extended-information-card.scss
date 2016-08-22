@@ -1,0 +1,120 @@
+.liq_portfolio-extended-information-card {
+    border: 1px solid #eeeeee;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    margin: 0 15px;
+    padding: 0 15px 15px;
+    position: relative;
+    text-align: center;
+    width: 100%;
+
+    &:hover {
+        .btn {
+            color: #fff;
+            background-color: #d00f27;
+            border-color: #c60e25;
+        }
+    }
+
+    &--deactivated {
+        cursor: default;
+        .liq_portfolio-extended-information-card__overview {
+            opacity: 0.5;
+        }
+        &:hover {
+            .btn {
+                color: #fff;
+                cursor: default;
+                background-color: #EF233C;
+                border-color: #EF233C;
+                &:hover {
+                    color: #fff;
+                    cursor: pointer;
+                    background-color: #d00f27;
+                    border-color: #c60e25;
+                }
+            }
+        }
+    }
+
+    &__headline {
+        margin-top: 15px;
+        margin-bottom: 10px;
+    }
+
+    &__description {
+        margin-bottom: 20px;
+    }
+    &__costs {
+        line-height: 26px;
+        margin: 0;
+        padding-bottom: 3px;
+    }
+    &__costs-caption {
+        margin-bottom: 5px;
+    }
+    &__services-headline {
+    }
+    &__services-headline-left {
+        display: inline-block;
+    }
+    &__services-headline-right {
+        display: inline-block;
+        img {
+            border-left: 1px solid #eee;
+            height: 22px;
+            -webkit-filter: grayscale(100%);
+            margin-left: 10px;
+            opacity: 0.5;
+            padding-left: 10px;
+            width: 80px;
+        }
+    }
+    &__feature {
+        &--hidden {
+            visibility: hidden;
+
+            @media (max-width: $screen-sm-max) {
+                display: none;
+            }
+        }
+    }
+    &__feature-list {
+        list-style: none;
+        margin: 15px 0 0;
+        padding: 0;
+        text-align: left;
+        li {
+            margin-bottom: 10px;
+            padding-left: 30px;
+            position: relative;
+            &:after {
+                background: url('../../assets/images/icons/checked.svg') no-repeat;
+                background-size: 100% 100%;
+                content: "";
+                height: 20px;
+                left: 0;
+                position: absolute;
+                top: 2px;
+                width: 20px;
+            }
+        }
+    }
+    &__asset-list {
+        list-style: none;
+        margin: 0;
+        padding: 0 20px;
+        li {
+            display: inline-block;
+            padding-left: 5px;
+            &:after {
+                content: ", ";
+            }
+            &:last-child {
+                &:after {
+                    content: none;
+                }
+            }
+        }
+    }
+}

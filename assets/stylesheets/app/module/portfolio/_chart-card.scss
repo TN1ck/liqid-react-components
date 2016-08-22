@@ -1,0 +1,108 @@
+.liq_portfolio-chart-card {
+
+	box-shadow: 0 0 13px #bbb;
+    transition: all 0.2s ease;
+	padding-top: 0px;
+    margin-top: 0px;
+
+	&__divider-headline {
+	    border-bottom: 2px solid #eee;
+	    border-bottom-width: 1px;
+	    color: #aaa;
+	    display: block;
+	    font-size: 12px;
+	    font-weight: $weight__bold;
+	    margin-top: 0px;
+	    margin-bottom: 20px;
+	    padding: 5px 15px 5px 5px;
+	    text-transform: uppercase;
+	    text-align: center;
+	}
+
+	&__info {
+		font-weight: $weight__semi-bold;
+		&__heading {
+		}
+		&__explanation {
+			font-size: 12px;
+		}
+		&__test-button {
+			margin-top: 0px;
+			margin-bottom: 20px;
+		}
+		.liq_divider {
+			margin-top: 20px;
+			margin-bottom: 20px;
+			background-color: $gray-light;
+		}
+	}
+
+	&__header {
+		margin: 0px;
+		padding: 5px 15px 5px;
+		text-align: center;
+        small {
+            color: lighten($gray, 20%);
+            font-style: italic;
+        }
+	}
+
+	&__facts {
+		text-align: center;
+		&__label {
+			font-weight: $weight__semi-bold;
+		}
+		&__value {
+			margin-top: 5px;
+			margin-bottom: 5px;
+		}
+		&__pricing {
+			margin-top: 15px;
+			margin-bottom: 5px;
+		}
+	}
+
+	&__explanation {
+		margin-top: 15px;
+	}
+
+	&__overview {
+		margin-top: 30px;
+	}
+
+	&:hover, &:active{
+		box-shadow: 0 0 15px #999;
+	}
+
+	&--selected {
+		transform: scale(1.05);
+		z-index: 9;
+
+		// @include card-shadow(20px, 30px);
+		box-shadow: 0 0 13px #bbb;
+
+		.liq_portfolio-chart-card__header {
+			h3 {
+				font-weight: $weight__bold;
+			}
+		}
+
+		&:hover, &:active{
+			box-shadow: 0 0 15px #999;
+		}
+	}
+
+	&--one-link:hover {
+		cursor: pointer;
+
+		button {
+			background-color: #d00f27;
+			border-color: #c60e25;
+			color: #fff;
+		}
+	}
+
+	&--disabled {
+		opacity: 0.5;
+	}
+}

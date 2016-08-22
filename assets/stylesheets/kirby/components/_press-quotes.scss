@@ -1,0 +1,60 @@
+.liq_home-section--quotes {
+  border-bottom: 1px solid $gray-lighter;
+  min-height: 350px;
+  padding-bottom: 0;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.liq_press-quotes__logos {
+    display: block;
+
+    @media (min-width: $screen-md-min) {
+      align-content: stretch;
+      align-items: flex-start;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-around;
+    }
+
+    &__item {
+      opacity: 0.2;
+
+      @media (max-width: $screen-md-min) {
+        display: block;
+
+        img {
+          display: block;
+          margin: 20px auto;
+        }
+
+      }
+
+      &:hover,
+      &--active {
+        opacity: 1;
+      }
+    }
+
+    li:before {
+      display: none!important;
+    }
+}
+
+.liq_press-quotes__quote {
+  background: url(/public/images/icons/quote.svg) no-repeat;
+  border-left:none;
+  display: none;
+  font-size: 18px;
+  margin: 0 0 22px;
+  position: relative;
+  text-align: center;
+
+  &.animated {
+    display: block;
+  }
+
+  footer:before {
+    display: none;
+  }
+}

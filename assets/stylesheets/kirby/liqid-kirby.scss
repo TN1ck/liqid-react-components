@@ -1,0 +1,154 @@
+@import 'variables';
+@import '../app/variables';
+
+@import 'shared';
+@import 'node_modules/animate.css/source/base';
+@import 'node_modules/animate.css/source/fading_entrances/fadeInUp';
+@import 'node_modules/animate.css/source/fading_entrances/fadeInRight';
+
+@import '../libs/bootstrap/bootstrap_ms';
+
+@import 'components/blog';
+@import 'components/boxx';
+@import 'components/button-large-icon';
+@import 'components/checklist';
+@import 'components/col-headline';
+@import 'components/content-slider';
+@import 'components/cta-section';
+@import 'components/faq';
+@import 'components/header';
+@import 'components/hero';
+@import 'components/home-sections';
+@import 'components/hr';
+@import 'components/icon-box';
+@import 'components/job-list';
+@import 'components/languages';
+@import 'components/links';
+@import 'components/liqid-team';
+@import 'components/list';
+@import 'components/main-section';
+@import 'components/mn-navbar-mobile-custom';
+@import 'components/newsletter';
+@import 'components/partner-section';
+@import 'components/popup-newsletter';
+@import 'components/press';
+@import 'components/press-quotes';
+@import 'components/price-slider';
+@import 'components/pricing-chart-section';
+@import 'components/quote';
+@import 'components/search';
+@import 'components/sidebar-box';
+@import 'components/sidebar-nav';
+@import 'components/spinner';
+@import 'components/table';
+@import 'components/tabs';
+@import 'components/team';
+@import 'components/tooltip';
+@import 'components/browser-upgrade';
+
+// ONLY template related styles
+// styles are not reusable!!
+@import 'templates/career';
+@import 'templates/consulting-process';
+@import 'templates/partner';
+@import 'templates/process';
+@import 'templates/why';
+@import 'templates/magazine/variables';
+@import 'templates/magazine/header';
+@import 'templates/magazine/content';
+@import 'components/home_magazine_teaser';
+
+@import 'testing';
+
+body {
+    background-color: #fff;
+    font-weight: 400;
+}
+
+
+/** 900 is too strong for most cases **/
+b, strong {
+  font-weight: 700;
+}
+
+th {
+  font-weight: 600;
+}
+
+
+@media (max-width: $screen-xs-max) {
+  h1 {
+    font-size: floor(($font-size-h1 / 100 * 75));
+  }
+  h2 {
+    font-size: floor(($font-size-h2 / 100 * 75));
+  }
+  h3 {
+    font-size: floor(($font-size-h3 / 100 * 75));
+  }
+  h4 {
+    font-size: floor(($font-size-h4 / 100 * 75));
+  }
+}
+
+@media print {
+
+    body {
+        margin-top: 15mm;
+        margin-left: 15mm;
+        margin-right: 15mm;
+        margin-bottom: 15mm;
+    }
+
+    p {
+        font-size: 14px;
+        line-height: 2;
+    }
+
+    h2 {
+        font-size: 30px;
+    }
+}
+
+form {
+    margin: 20px 0;
+    overflow: hidden;
+}
+
+// chrome bugfix
+.dropdown-menu { transform: translate3d(0,0,0); }
+
+.liq_footer {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+// TODO: make it reusable
+.liq_t_pricing {
+  padding-top: 0;
+  section {
+    padding: 60px 0;
+  }
+  .centered--grey {
+    background-color: $gray-lighter;
+    background-repeat: no-repeat;
+    text-align: center;
+  }
+  .colored--grey {
+    background-color: $gray-lighter;
+    background-repeat: no-repeat;
+  }
+
+  img {
+    max-width: 100%;
+  }
+}
+
+.liq_portfolioSlider {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.liq_portfolioSliderContainer {
+    margin-top: 67px;
+}
