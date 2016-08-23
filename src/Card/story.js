@@ -23,17 +23,20 @@ setAddon(infoAddon);
 
 storiesOf('Card', module)
     .addWithInfo(
-        'Card',
-        'Card component',
+        'Simple Card component',
+        'Card component with header, content and footer.',
         () => (
-            <WrappedCard>
+            <Card borderLight>
+                <CardHeader>
+                    {'CardHeader'}
+                </CardHeader>
                 <CardContent>
                     {'CardContent'}
                 </CardContent>
                 <CardFooter>
                     {'CardFooter'}
                 </CardFooter>
-            </WrappedCard>
+            </Card>
         ), {
             source: true,
             inline: true,

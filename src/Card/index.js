@@ -11,7 +11,7 @@ import { Col, Row, Grid, Modal } from 'react-bootstrap';
 import BLACK_CIRCLE from '/Users/florianzia/Documents/liqid/liqid-react-components/constants/unicode.js';
 import Loader from '../Loader';
 import createSimpleReactWrapper from '/Users/florianzia/Documents/liqid/liqid-react-components/utils/createSimpleReactWrapper.js';
-import Typography from '../Typography/typography';
+const Typography  = require('/Users/florianzia/Documents/liqid/liqid-react-components/src/Typography/typography/index.js');
 
 /**
  * Returns big standalone loading indicator or empty span-tag.
@@ -20,7 +20,7 @@ import Typography from '../Typography/typography';
  */
 function Container (props) {
     return (
-        <div className={classNames(
+        <div styleName={classNames(
             'liq_container'
         )}
             {...props}
@@ -48,7 +48,7 @@ function Card (props) {
         'liq_card--padding-small': props.paddingSmall,
         'liq_card--padding-none': props.noPadding,
         'liq_card--border-light': props.borderLight
-    }, props.className);
+    }, props.styleName);
 
     let innerContent = props.children;
 
@@ -61,7 +61,7 @@ function Card (props) {
     }
 
     return (
-        <section {...props} className={cardClasses}>
+        <section {...props} styleName={cardClasses}>
             {innerContent}
         </section>
     );
@@ -94,21 +94,21 @@ function CardHeaderDots (props) {
     const questionLength = props.questionLength;
 
     return (
-        <div className='liq_step-indicator'>
+        <div styleName='liq_step-indicator'>
             <small id={`liq_question_${questionCounter}`}>
                 {[...Array(questionCounter)].map((c, i) => {
                     return (
-                        <span key={i} className='liq_step-indicator__unfilled'>
+                        <span key={i} styleName='liq_step-indicator__unfilled'>
                             {BLACK_CIRCLE}
                         </span>
                     );
                 })}
-                <span className='liq_step-indicator__filled'>
+                <span styleName='liq_step-indicator__filled'>
                     {BLACK_CIRCLE}
                 </span>
                 {[...Array(questionLength - questionCounter)].map((c, i) => {
                     return (
-                        <span key={i} className='liq_step-indicator__unfilled'>
+                        <span key={i} styleName='liq_step-indicator__unfilled'>
                             {BLACK_CIRCLE}
                         </span>
                     );
@@ -143,6 +143,7 @@ function CardHeader (props) {
 
     let title = (
         <Typography.Headline
+            className
             type={headlineType}
             tag='h1'
         >
@@ -158,7 +159,7 @@ function CardHeader (props) {
     }
 
     return (
-        <header className={cardHeaderClasses}>
+        <header styleName={cardHeaderClasses}>
             {title}
             {counter}
         </header>
@@ -193,9 +194,9 @@ function CardFooter (props) {
         'liq_card__footer--no-top-margin': props.noTopMargin,
         'liq_card__footer--min-height': props.minHeight,
         'liq_card__footer--large-top-margin': props.largeTopMargin
-    }, props.className);
+    }, props.styleName);
     return (
-        <footer className={cardFooterClasses}>
+        <footer styleName={cardFooterClasses}>
             {props.children}
         </footer>
     );
@@ -214,9 +215,9 @@ CardFooter.propTypes = {
 function CardSidebar (props) {
     const cardSidebarClasses = classNames('liq_card__sidebar', {
         'liq_card__sidebar--navigation-container': props.isResponsiveNavigation
-    }, props.className);
+    }, props.styleName);
     return (
-        <nav className={cardSidebarClasses}>
+        <nav styleName={cardSidebarClasses}>
             {props.children}
         </nav>
     );
@@ -238,9 +239,9 @@ function CardContent (props) {
         'liq_card__content--enhanced-margin': props.enhancedMargin,
         'liq_card__content--relative': props.relative
 
-    }, props.className);
+    }, props.styleName);
     return (
-        <div className={cardContentClasses}>
+        <div styleName={cardContentClasses}>
             {props.children}
         </div>
     );
@@ -263,9 +264,9 @@ const CardContentRight = createSimpleReactWrapper('div', 'liq_content-area__righ
 function CardTextBlock (props) {
     const cardTextBlockClasses = classNames({
         'liq_text-block': true
-    }, props.className);
+    }, props.styleName);
     return (
-        <Row className={cardTextBlockClasses}>
+        <Row styleName={cardTextBlockClasses}>
             <Col xs={12} sm={10} smOffset={1}>
                 <Typography.Textblock
                     type='large'
@@ -303,7 +304,7 @@ function WrappedCard (props) {
             <Grid>
                 <Container>
                     <Col
-                        className='liq_container liq_container--small'
+                        styleName='liq_container liq_container--small'
                         xs={12}
                         sm={6}
                         smOffset={3}
@@ -331,10 +332,10 @@ WrappedCard.propTypes = {
  * @return {Object} Loader      - The loading indicator.
  */
 function ModalCard (props) {
-    const modalCardClasses = classNames('liq_card-modal', props.className);
+    const modalCardClasses = classNames('liq_card-modal', props.styleName);
     return (
-        <Modal {...props} className={modalCardClasses}>
-            <div className='liq_card-modal__close-button' onClick={props.onHide}>
+        <Modal {...props} styleName={modalCardClasses}>
+            <div styleName='liq_card-modal__close-button' onClick={props.onHide}>
                 {'×'}
             </div>
             {props.children}
@@ -342,7 +343,19 @@ function ModalCard (props) {
     );
 }
 
-module.exports = {
+const _Container = CSSModules(Container, styles, {allowMultiple: true});
+const _Card = CSSModules(Card, styles, {allowMultiple: true});
+const _CardHeader = CSSModules(CardHeader, styles, {allowMultiple: true});
+const _CardContent = CSSModules(CardContent, styles, {allowMultiple: true});
+const _CardTextBlock = CSSModules(CardTextBlock, styles, {allowMultiple: true});
+const _CardFooter = CSSModules(CardFooter, styles, {allowMultiple: true});
+const _CardSidebar = CSSModules(CardSidebar, styles, {allowMultiple: true});
+const _CardContentLeft = CSSModules(CardContentLeft, styles, {allowMultiple: true});
+const _CardContentRight = CSSModules(CardContentRight, styles, {allowMultiple: true});
+const _WrappedCard = CSSModules(WrappedCard, styles, {allowMultiple: true});
+const _ModalCard = CSSModules(ModalCard, styles, {allowMultiple: true});
+
+export default {
     Container,
     Card,
     CardHeader,
@@ -354,4 +367,18 @@ module.exports = {
     CardContentRight,
     WrappedCard,
     ModalCard
+};
+
+export {
+    _Container as Container,
+    _Card as Card,
+    _CardHeader as CardHeader,
+    _CardContent as CardContent,
+    _CardTextBlock as CardTextBlock,
+    _CardFooter as CardFooter,
+    _CardSidebar as CardSidebar,
+    _CardContentLeft as CardContentLeft,
+    _CardContentRight as CardContentRight,
+    _WrappedCard as WrappedCard,
+    _ModalCard as ModalCard
 };

@@ -5,6 +5,20 @@ $font-size__heading--normal: 16px;
 $weight__normal: 400;
 $gray-lighter: grey;
 
+/*
+Should be a mixin: @extend .clearfix;
+
+*zoom: 1;
+&:before,
+&:after {
+  display: table;
+  content: "";
+}
+&:after {
+  clear: both;
+}
+*/
+
 .liq_container {
     padding-top: 20px;
     padding-bottom: 100px;
@@ -32,7 +46,17 @@ $gray-lighter: grey;
     padding: 0 15px;
     margin-top: 10px;
     margin-bottom: 10px;
-    @extend .clearfix !optional;
+
+    *zoom: 1;
+    &:before,
+    &:after {
+      display: table;
+      content: "";
+    }
+    &:after {
+      clear: both;
+    }
+
 
     /**
      * Modifieres
@@ -111,7 +135,17 @@ $gray-lighter: grey;
      * Elements
      */
     &__header {
-        @extend .clearfix !optional;
+
+        *zoom: 1;
+        &:before,
+        &:after {
+          display: table;
+          content: "";
+        }
+        &:after {
+          clear: both;
+        }
+
         margin: 30px 0 30px;
         text-align: center;
         h1 {
@@ -158,7 +192,17 @@ $gray-lighter: grey;
         }
     }
     &__footer {
-        @extend .clearfix !optional;
+
+        *zoom: 1;
+        &:before,
+        &:after {
+          display: table;
+          content: "";
+        }
+        &:after {
+          clear: both;
+        }
+
         border-top: 1px solid #eee;
         margin-top: 30px;
         padding-top: 15px;
@@ -209,7 +253,17 @@ $gray-lighter: grey;
         }
     }
     &__content {
-        @extend .clearfix !optional;
+
+        *zoom: 1;
+        &:before,
+        &:after {
+          display: table;
+          content: "";
+        }
+        &:after {
+          clear: both;
+        }
+
 
         &--relative {
             position: relative;
@@ -246,7 +300,17 @@ $gray-lighter: grey;
 
 .liq_content-area {
     position: relative;
-    @extend .clearfix !optional;
+
+    *zoom: 1;
+    &:before,
+    &:after {
+      display: table;
+      content: "";
+    }
+    &:after {
+      clear: both;
+    }
+
     &__left {
         float: left;
         @media screen and (max-width: $screen-xs-max) {
