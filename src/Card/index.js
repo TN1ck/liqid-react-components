@@ -14,9 +14,9 @@ import createSimpleReactWrapper from '/Users/florianzia/Documents/liqid/liqid-re
 const Typography  = require('/Users/florianzia/Documents/liqid/liqid-react-components/src/Typography/typography/index.js');
 
 /**
- * Returns big standalone loading indicator or empty span-tag.
- * @param {Boolean} props       - The employee who is responsible for the project.
- * @return {Object} Loader      - The loading indicator.
+ * Create a container
+ * @param {Object} props            - Props which are passed to the function
+ * @return {Object} Container      - Wrapper for Card
  */
 function Container (props) {
     return (
@@ -31,9 +31,9 @@ function Container (props) {
 }
 
 /**
- * Returns big standalone loading indicator or empty span-tag.
- * @param {Boolean} props       - The employee who is responsible for the project.
- * @return {Object} Loader      - The loading indicator.
+ * Creates a card which classes for styling are defined through the passed props
+ * @param {Object} props            - Props which are passed to the function
+ * @returns {Object} Card           - section with recieved children
  */
 function Card (props) {
     const cardClasses = classNames({
@@ -67,20 +67,56 @@ function Card (props) {
     );
 }
 
+/**
+ * @memberof Card
+ * @namespace props
+ * @prop {Object} propTypes         - the props that are passed to this component
+ */
 Card.propTypes = {
-    // Set if card should have a fixed height (e.g. for questionnaires)
+    /**
+     * @memberof Card.props
+     * @prop {Boolean} fixedHeight           - Set if card should have a fixed height (e.g. for questionnaires)
+     */
     fixedHeight: React.PropTypes.bool,
-    // Set if card should have a low fixed height
+    /**
+     * @memberof Card.props
+     * @prop {Boolean} fixedHeightLow        - Set if card should have a low fixed height
+     */
     fixedHeightLow: React.PropTypes.bool,
-    // Set if card should have a fixed height with larger buttons (e.g. start of risk assessment)
+    /**
+     * @memberof Card.props
+     * @prop {Boolean} fixedHeightLarge      - Set if card should have a fixed height with larger buttons (e.g. start of risk assessment)
+     */
     fixedHeightLarge: React.PropTypes.bool,
-    // Set if card should have transparent background
+    /**
+     * @memberof Card.props
+     * @prop {Boolean} transparent           - Set if card should have transparent background
+     */
     transparent: React.PropTypes.bool,
-    // Set if a loader should be shown in the card
+    /**
+     * @memberof Card.props
+     * @prop {Boolean} loading              - Set if a loader should be shown in the card
+     */
     loading: React.PropTypes.bool,
+    /**
+     * @memberof Card.props
+     * @prop {Boolean} paddingSimple        - Set if there should be a padding in the card
+     */
     paddingSimple: React.PropTypes.bool,
+    /**
+     * @memberof Card.props
+     * @prop {Boolean} paddingSmall        - Set if there should be a small padding in the card
+     */
     paddingSmall: React.PropTypes.bool,
+    /**
+     * @memberof Card.props
+     * @prop {Boolean} noPadding           - Set if there should be no padding in the card
+     */
     noPadding: React.PropTypes.bool,
+    /**
+     * @memberof Card.props
+     * @prop {Boolean} borderLight         - Set if there should be a visible border around the card
+     */
     borderLight: React.PropTypes.bool
 };
 
