@@ -5,7 +5,7 @@ import React from 'react';
 import _ from 'lodash';
 import classNames from 'classnames';
 import CSSModules from 'react-css-modules';
-import styles from '../styles.scss';
+import styles from '../styles.css';
 
 /**
  * Represents a book.

@@ -3,10 +3,6 @@ import _ from 'lodash';
 import {
     Spinner,
     Loader,
-    BigLoader,
-    SmallLoader,
-    InlineLoader,
-    NewLoader,
     Button
 } from '../index.js';
 
@@ -20,12 +16,10 @@ setAddon(infoAddon);
 
 storiesOf('Loader', module)
     .addWithInfo(
-        'BigLoader',
-        'BigLoader in loading state',
+        'Loader: Big',
+        'Big loading indicator standing alone',
         () => (
-            <BigLoader
-                loading
-            />
+                <Loader loading />
         ), {
             source: true,
             inline: true,
@@ -33,15 +27,13 @@ storiesOf('Loader', module)
         }
     )
     .addWithInfo(
-        'Loader',
-        'Loader in loading state',
+        'Loader: Big as wrapper',
+        'Big loading indicator used as wrapper.',
         () => (
             <Loader
                 loading
             >
-                <div>
-                    Content
-                </div>
+                {'Content'}
             </Loader>
         ), {
             source: true,
@@ -50,11 +42,12 @@ storiesOf('Loader', module)
         }
     )
     .addWithInfo(
-        'SmallLoader',
-        'SmallLoader in loading state',
+        'Loader: Small',
+        'Small loading indicator standing alone',
         () => (
-            <SmallLoader
+            <Loader
                 loading
+                type="small"
             />
         ), {
             source: true,
@@ -63,63 +56,15 @@ storiesOf('Loader', module)
         }
     )
     .addWithInfo(
-        'Spinner',
-        'Spinner standing alone',
+        'Loader: Small as wrapper',
+        'Small loading indicator standing alone',
         () => (
-                <Spinner
-                    loading
-                />
-        ), {
-            source: true,
-            inline: true,
-            propTables: [Spinner]
-        }
-    )
-    .addWithInfo(
-        'InlineLoader',
-        'InlineLoader',
-        () => (
-                <InlineLoader loading />
-        ), {
-            source: true,
-            inline: true,
-            propTables: [Spinner]
-        }
-    )
-    .addWithInfo(
-        'NewLoader: Small - Alone',
-        'NewLoader standing alone',
-        () => (
-                <NewLoader
-                    loading
-                    small
-                />
-        ), {
-            source: true,
-            inline: true,
-            propTables: [Spinner]
-        }
-    )
-    .addWithInfo(
-        'NewLoader: Big - Alone',
-        'NewLoader standing alone',
-        () => (
-                <NewLoader loading />
-        ), {
-            source: true,
-            inline: true,
-            propTables: [Spinner]
-        }
-    )
-    .addWithInfo(
-        'NewLoader: Big - Wrapper',
-        'NewLoader as Wrapper',
-        () => (
-            <NewLoader
+            <Loader
                 loading
+                type="small"
             >
-                <div>Content</div>
-            </NewLoader>
+                {'Content'}
+            </Loader>
         ), {
             source: true,
             inline: true,
@@ -127,15 +72,15 @@ storiesOf('Loader', module)
         }
     )
     .addWithInfo(
-        'NewLoader: Inline - Wrapper',
-        'Inline Loader standing alone',
+        'Loader: Inline',
+        'Small loading indicator for using inline.',
         () => (
-            <NewLoader
+            <Loader
                 loading
-                inline
+                type="inline"
             >
-                {'Abschicken'}
-            </NewLoader>
+                {'Content'}
+            </Loader>
         ), {
             source: true,
             inline: true,
@@ -143,16 +88,16 @@ storiesOf('Loader', module)
         }
     )
     .addWithInfo(
-        'NewLoader: Inline - BUTTON',
-        'Inline Loader standing alone',
+        'Loader: Inline in button',
+        'Small loading indicator used in a button.',
         () => (
             <Button>
-                <NewLoader
+                <Loader
                     loading
-                    inline
+                    type="inline"
                 >
-                    {'Abschicken'}
-                </NewLoader>
+                    {'Content'}
+                </Loader>
             </Button>
         ), {
             source: true,
