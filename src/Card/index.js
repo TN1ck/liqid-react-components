@@ -32,7 +32,7 @@ function Container (props) {
 
 /**
  * Creates a card which classes for styling are defined through the passed props
- * @param {Object} props            - Props which are passed to the function
+ * @param {Object} props           - Props which are passed to the function
  * @return {Object} Card           - Section with recieved children
  */
 function Card (props) {
