@@ -14,9 +14,9 @@ import createSimpleReactWrapper from '/Users/florianzia/Documents/liqid/liqid-re
 const Typography  = require('/Users/florianzia/Documents/liqid/liqid-react-components/src/Typography/typography/index.js');
 
 /**
- * Create a container
+ * Creates a container for WrappedCard
  * @param {Object} props            - Props which are passed to the function
- * @return {Object} Container      - Wrapper for Card
+ * @return {Object} Container       - Wrapper for Card
  */
 function Container (props) {
     return (
@@ -33,7 +33,7 @@ function Container (props) {
 /**
  * Creates a card which classes for styling are defined through the passed props
  * @param {Object} props            - Props which are passed to the function
- * @returns {Object} Card           - section with recieved children
+ * @return {Object} Card           - Section with recieved children
  */
 function Card (props) {
     const cardClasses = classNames({
@@ -70,7 +70,7 @@ function Card (props) {
 /**
  * @memberof Card
  * @namespace props
- * @prop {Object} propTypes         - the props that are passed to this component
+ * @prop {Object} propTypes         - Props that are passed to this component
  */
 Card.propTypes = {
     /**
@@ -121,9 +121,9 @@ Card.propTypes = {
 };
 
 /**
- * Returns big standalone loading indicator or empty span-tag.
- * @param {Boolean} props       - The employee who is responsible for the project.
- * @return {Object} Loader      - The loading indicator.
+ * Creates a header for Card with dots
+ * @param {Object} props            - Props which are passed to the function
+ * @return {Object} Object          - Header with dots for Card
  */
 function CardHeaderDots (props) {
     const questionCounter = props.questionCounter;
@@ -155,9 +155,9 @@ function CardHeaderDots (props) {
 }
 
 /**
- * Returns big standalone loading indicator or empty span-tag.
- * @param {Boolean} props       - The employee who is responsible for the project.
- * @return {Object} Loader      - The loading indicator.
+ * Creates a header for Card
+ * @param {Object} props            - Props which are passed to the function
+ * @return {Object} Object          - Header for Card
  */
 function CardHeader (props) {
     let counter;
@@ -203,27 +203,50 @@ function CardHeader (props) {
 }
 
 CardHeader.propTypes = {
+    /**
+     * @memberof Card.props
+     * @prop {Boolean} hasBottomBorder          - Show a border under the card header.
+     */
     hasBottomBorder: React.PropTypes.bool,
-    // show counter
+    /**
+     * @memberof Card.props
+     * @prop {Boolean} hasCounter               - Show the counter in the card header.
+     */
     hasCounter: React.PropTypes.bool,
-    // the number of the current question
+    /**
+     * @memberof Card.props
+     * @prop {number} questionLength            - The number of the current question.
+     */
     questionLength: React.PropTypes.number,
-    // how many questions are there in total
+    /**
+     * @memberof Card.props
+     * @prop {number} questionCounter           - How many questions are there in total?
+     */
     questionCounter: React.PropTypes.number,
-    // Font is very thin (weight 200)
+    /**
+     * @memberof Card.props
+     * @prop {Boolean} hasThinFont              - Should the font be displayed very light (font-weight: 200)
+     */
     hasThinFont: React.PropTypes.bool,
-    // sub-title
+    /**
+     * @memberof Card.props
+     * @prop {Object} subTitle                  - Defines the subtitle.
+     */
     subTitle: React.PropTypes.oneOfType([
         React.PropTypes.string,
         React.PropTypes.object
     ]),
+    /**
+     * @memberof Card.props
+     * @prop {Boolean} blank                    - Should the card header be blank?
+     */
     blank: React.PropTypes.bool
 };
 
 /**
- * Returns big standalone loading indicator or empty span-tag.
- * @param {Boolean} props       - The employee who is responsible for the project.
- * @return {Object} Loader      - The loading indicator.
+ * Creates a footer for Card
+ * @param {Object} props            - Props which are passed to the function
+ * @return {Object} Object          - Footer for Card
  */
 function CardFooter (props) {
     const cardFooterClasses = classNames('liq_card__footer', {
@@ -239,14 +262,22 @@ function CardFooter (props) {
 }
 
 CardFooter.propTypes = {
+    /**
+     * @memberof Card.props
+     * @prop {Boolean} noTopMargin         - Should there be no top margin?
+     */
     noTopMargin: React.PropTypes.bool,
+    /**
+     * @memberof Card.props
+     * @prop {Boolean} largeTopMargin      - Should there be a large top margin?
+     */
     largeTopMargin: React.PropTypes.bool
 };
 
 /**
- * Returns big standalone loading indicator or empty span-tag.
- * @param {Boolean} props       - The employee who is responsible for the project.
- * @return {Object} Loader      - The loading indicator.
+ * Creates a sidebar for Card
+ * @param {Object} props            - Props which are passed to the function
+ * @return {Object} Object          - Sidebar for Card
  */
 function CardSidebar (props) {
     const cardSidebarClasses = classNames('liq_card__sidebar', {
@@ -260,13 +291,17 @@ function CardSidebar (props) {
 }
 
 CardSidebar.propTypes = {
+    /**
+     * @memberof Card.props
+     * @prop {Boolean} isResponsiveNavigation      - Should the navigation be responsive?
+     */
     isResponsiveNavigation: React.PropTypes.bool
 };
 
 /**
- * Returns big standalone loading indicator or empty span-tag.
- * @param {Boolean} props       - The employee who is responsible for the project.
- * @return {Object} Loader      - The loading indicator.
+ * Creates the card content
+ * @param {Object} props            - Props which are passed to the function
+ * @return {Object} Object          - Content for the card
  */
 function CardContent (props) {
     const cardContentClasses = classNames('liq_content-area', {
@@ -284,8 +319,20 @@ function CardContent (props) {
 }
 
 CardContent.propTypes = {
+    /**
+     * @memberof Card.props
+     * @prop {Boolean} lowMargin            - Should the content have a low top margin?
+     */
     lowMargin: React.PropTypes.bool,
+    /**
+     * @memberof Card.props
+     * @prop {Boolean} enhancedMargin       - Should the content have a enhanced margin?
+     */
     enhancedMargin: React.PropTypes.bool,
+    /**
+     * @memberof Card.props
+     * @prop {Boolean} relative             - Should the content be relative positioned?
+     */
     relative: React.PropTypes.bool
 };
 
@@ -293,9 +340,9 @@ const CardContentLeft = createSimpleReactWrapper('div', 'liq_content-area__left'
 const CardContentRight = createSimpleReactWrapper('div', 'liq_content-area__right');
 
 /**
- * Returns big standalone loading indicator or empty span-tag.
- * @param {Boolean} props       - The employee who is responsible for the project.
- * @return {Object} Loader      - The loading indicator.
+ * Creates a Textblock for Card
+ * @param {Object} props            - Props which are passed to the function
+ * @return {Object} Object          - Textblock for the card
  */
 function CardTextBlock (props) {
     const cardTextBlockClasses = classNames({
@@ -316,14 +363,22 @@ function CardTextBlock (props) {
 }
 
 CardTextBlock.propTypes = {
+    /**
+     * @memberof Card.props
+     * @prop {Boolean} largerText          - Should the text be large?
+     */
     largerText: React.PropTypes.bool,
+    /**
+     * @memberof Card.props
+     * @prop {Boolean} bottomMargin        - Should the textblock have a bottom margin?
+     */
     bottomMargin: React.PropTypes.bool
 };
 
 /**
- * Returns big standalone loading indicator or empty span-tag.
- * @param {Boolean} props       - The employee who is responsible for the project.
- * @return {Object} Loader      - The loading indicator.
+ * Creates Card wrapped in Container
+ * @param {Object} props            - Props which are passed to the function
+ * @return {Object} Object          - Wrapped Card
  */
 function WrappedCard (props) {
     let content = (
@@ -359,13 +414,17 @@ function WrappedCard (props) {
 }
 
 WrappedCard.propTypes = {
+    /**
+     * @memberof Card.props
+     * @prop {Boolean} small        - Should the wrapped card be smaller?
+     */
     small: React.PropTypes.bool
 };
 
 /**
- * Returns big standalone loading indicator or empty span-tag.
- * @param {Boolean} props       - The employee who is responsible for the project.
- * @return {Object} Loader      - The loading indicator.
+ * Creates a modal for Card
+ * @param {Object} props            - Props which are passed to the function
+ * @return {Object} Object          - Card in a modal
  */
 function ModalCard (props) {
     const modalCardClasses = classNames('liq_card-modal', props.styleName);
