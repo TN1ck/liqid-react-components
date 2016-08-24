@@ -126,17 +126,17 @@ function Loader (props) {
 /**
  * @memberof SmallLoader
  * @namespace props
- * @prop {Object} propTypes             - the props that are passed to this component
+ * @prop {Object} propTypes             - Props that are passed to this component
  */
 SmallLoader.propTypes = {
     /**
      * @memberof SmallLoader.props
-     * @prop {Boolean} loading          - toogle the loading state
+     * @prop {Boolean} loading          - Toogle the loading state
      */
     loading: React.PropTypes.bool,
     /**
      * @memberof SmallLoader.props
-     * @prop {Boolean} renderAsDiv      - wrap the loading indicator in div-tags
+     * @prop {Boolean} renderAsDiv      - Wrap the loading indicator in div-tags
      */
     renderAsDiv: React.PropTypes.bool
 };

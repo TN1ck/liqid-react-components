@@ -26,12 +26,12 @@ function Spinner (props) {
 /**
  * @memberof Spinner
  * @namespace props
- * @prop {Object} propTypes                 - the props that are passed to this component
+ * @prop {Object} propTypes                 - Props that are passed to this component
  */
 Spinner.propTypes = {
     /**
      * @memberof Spinner.props
-     * @prop {Boolean} correctCenter        - use the correct centering for the circle, looks better for small areas
+     * @prop {Boolean} correctCenter        - Use the correct centering for the circle, looks better for small areas
      */
     correctCenter: React.PropTypes.bool,
     /**

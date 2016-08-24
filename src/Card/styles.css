@@ -6,7 +6,7 @@ $weight__normal: 400;
 $gray-lighter: grey;
 
 /*
-Should be a mixin: @extend .clearfix;
+Following css should be replaced by a mixin (@extend .clearfix):
 
 *zoom: 1;
 &:before,
@@ -343,7 +343,6 @@ Should be a mixin: @extend .clearfix;
         top: 0;
     }
 }
-
 
 .portfolio_finder--radio_page {
     .liq_card--height {

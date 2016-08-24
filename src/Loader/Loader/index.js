@@ -71,17 +71,17 @@ class Loader extends React.Component {
 /**
  * @memberof NewLoader
  * @namespace props
- * @prop {Object} propTypes         - the props that are passed to this component
+ * @prop {Object} propTypes         - Props that are passed to this component
  */
 Loader.propTypes = {
     /**
      * @memberof NewLoader.props
-     * @prop {Boolean} loading      - toogle loading state
+     * @prop {Boolean} loading      - Toogle the loading state
      */
     loading: React.PropTypes.bool,
     /**
      * @memberof NewLoader.props
-     * @prop {string} type          - type of the loader which should be returned
+     * @prop {string} type          - Type of the loader which should be returned
      */
     type: React.PropTypes.string
 };

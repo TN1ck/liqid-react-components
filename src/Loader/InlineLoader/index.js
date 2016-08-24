@@ -113,17 +113,17 @@ function InlineLoader (props) {
 /**
  * @memberof InlineLoader
  * @namespace props
- * @prop {Object} propTypes             - the props that are passed to this component
+ * @prop {Object} propTypes             - Props that are passed to this component
  */
 InlineLoader.propTypes = {
     /**
      * @memberof InlineLoader.props
-     * @prop {Boolean} loading          - toogles loading state
+     * @prop {Boolean} loading          - Toogles the loading state
      */
     loading: React.PropTypes.bool.isRequired,
     /**
      * @memberof InlineLoader.props
-     * @prop {Boolean} white            - show the loading indicator in white
+     * @prop {Boolean} white            - Show the loading indicator in white
      */
     white: React.PropTypes.bool
 };

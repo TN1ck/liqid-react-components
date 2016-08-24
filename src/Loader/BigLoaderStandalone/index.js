@@ -6,8 +6,8 @@ import Spinner from '../Spinner';
 
 /**
  * Returns big standalone loading indicator or empty span-tag.
- * @param {Boolean} props       - The employee who is responsible for the project.
- * @return {Object} Loader      - The loading indicator.
+ * @param {Boolean} props       - Props which are passed to the component
+ * @return {Object} Loader      - The loading indicator
  */
 function BigLoaderStandalone (props) {
     if (!props.loading) {
@@ -24,12 +24,12 @@ function BigLoaderStandalone (props) {
 /**
  * @memberof BigLoaderStandalone
  * @namespace props
- * @prop {Object} propTypes         - the props that are passed to this component
+ * @prop {Object} propTypes         - Props that are passed to this component
  */
 BigLoaderStandalone.propTypes = {
     /**
      * @memberof BigLoaderStandalone.props
-     * @prop {Boolean} loading      - toogles loading state
+     * @prop {Boolean} loading      - Toogles the loading state
      */
     loading: React.PropTypes.bool
 };

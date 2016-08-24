@@ -1,7 +1,5 @@
 import React from 'react';
-import _ from 'lodash';
 import {
-    Spinner,
     Loader,
     Button
 } from '../index.js';
@@ -23,7 +21,7 @@ storiesOf('Loader', module)
         ), {
             source: true,
             inline: true,
-            propTables: [Spinner]
+            propTables: [Loader]
         }
     )
     .addWithInfo(
@@ -38,7 +36,7 @@ storiesOf('Loader', module)
         ), {
             source: true,
             inline: true,
-            propTables: [Spinner]
+            propTables: [Loader]
         }
     )
     .addWithInfo(
@@ -52,7 +50,7 @@ storiesOf('Loader', module)
         ), {
             source: true,
             inline: true,
-            propTables: [Spinner]
+            propTables: [Loader]
         }
     )
     .addWithInfo(
@@ -68,7 +66,7 @@ storiesOf('Loader', module)
         ), {
             source: true,
             inline: true,
-            propTables: [Spinner]
+            propTables: [Loader]
         }
     )
     .addWithInfo(
@@ -84,7 +82,7 @@ storiesOf('Loader', module)
         ), {
             source: true,
             inline: true,
-            propTables: [Spinner]
+            propTables: [Loader]
         }
     )
     .addWithInfo(
@@ -102,7 +100,7 @@ storiesOf('Loader', module)
         ), {
             source: true,
             inline: true,
-            propTables: [Spinner]
+            propTables: [Loader]
         }
     )
 ;

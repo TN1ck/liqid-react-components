@@ -88,12 +88,12 @@ class BigLoader extends React.Component {
 /**
  * @memberof Loader
  * @namespace props
- * @prop {Object} propTypes         - the props that are passed to this component
+ * @prop {Object} propTypes         - Props that are passed to this component
  */
 BigLoader.propTypes = {
     /**
      * @memberof NewLoader.props
-     * @prop {Boolean} big          - toogle the loading state
+     * @prop {Boolean} big          - Toogle the loading state
      */
     loading: React.PropTypes.bool.isRequired,
     /**
@@ -103,12 +103,12 @@ BigLoader.propTypes = {
     floatCSS: React.PropTypes.string,
     /**
      * @memberof NewLoader.props
-     * @prop {Boolean} big          - use the correct centering for the circle, looks better for small areas
+     * @prop {Boolean} big          - Use the correct centering for the circle, looks better for small areas
      */
     correctCenter: React.PropTypes.bool,
     /**
      * @memberof NewLoader.props
-     * @prop {Boolean} big          - use the correct centering for the circle, looks better for small areas
+     * @prop {Boolean} big          - Use the correct centering for the circle, looks better for small areas
      */
     longDelay: React.PropTypes.bool,
     // no spinner
