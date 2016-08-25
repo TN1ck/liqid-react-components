@@ -112,7 +112,7 @@ storiesOf('Card', module)
         'A Card wrapped in a modal.',
         () => (
             <ModalCard>
-                <CardHeader lowMargin>
+                <CardHeader>
                     {'Header'}
                 </CardHeader>
                 <CardContent>
