@@ -11,7 +11,14 @@ import {
     CardContentRight,
     WrappedCard,
     ModalCard
-} from './index.js';
+} from './Card/index.js';
+import {
+    InlineCard,
+    InlineCardHeader,
+    InlineCardSubHeader,
+    InlineCardBody,
+    InlineCardFooter
+} from './InlineCard/index.js';
 
 import {
     storiesOf,
@@ -107,6 +114,27 @@ storiesOf('Card', module)
             source: true,
             inline: true,
             propTables: [ModalCard]
+        }
+    )
+    .addWithInfo(
+        'InlineCard',
+        'A simple InlineCard.',
+        () => (
+            <InlineCard>
+                <InlineCardHeader>
+                    {'Header'}
+                </InlineCardHeader>
+                <InlineCardBody>
+                    {'Body'}
+                </InlineCardBody>
+                <InlineCardFooter>
+                    {'Footer'}
+                </InlineCardFooter>
+            </InlineCard>
+        ), {
+            source: true,
+            inline: true,
+            propTables: [InlineCard]
         }
     )
 ;

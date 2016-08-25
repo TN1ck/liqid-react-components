@@ -4,6 +4,8 @@ $screen-sm-max: 750px;
 $font-size__heading--normal: 16px;
 $weight__normal: 400;
 $gray-lighter: grey;
+$color__grey--light: lightgrey;
+$brand-primary: #EF233C;
 
 /*
 Following css should be replaced by a mixin (@extend .clearfix):
@@ -347,5 +349,124 @@ Following css should be replaced by a mixin (@extend .clearfix):
 .portfolio_finder--radio_page {
     .liq_card--height {
         padding-bottom: 150px;
+    }
+}
+
+
+.liq_inline-card {
+    *zoom: 1;
+    &:before,
+    &:after {
+      display: table;
+      content: "";
+    }
+    &:after {
+      clear: both;
+    }
+
+    border: 1px solid $color__grey--light;
+    padding: 10px;
+    position: relative;
+
+    &--warning {
+        .liq_inline-card__header-inside-top-border {
+            color: $brand-primary;
+            padding-left: 35px;
+            &:before {
+                background-image: url('../../assets/images/icons/alert-red.svg');
+                background-size: cover;
+                content: "";
+                height: 16px;
+                left: 10px;
+                position: absolute;
+                top: 0;
+                width: 20px;
+            }
+        }
+        .liq_inline-card__header {
+            color: $brand-primary;
+            &:before {
+                background-image: url('../../assets/images/icons/alert-red.svg');
+                background-size: cover;
+                content: "";
+                display: inline-block;
+                height: 16px;
+                margin-bottom: -3px;
+                margin-right: 9px;
+                width: 20px;
+            }
+        }
+    }
+
+    &--no-bottom-padding {
+        padding-bottom: 0;
+    }
+
+    &--half-card {
+        border-left: none;
+        border-top: none;
+        border-right: none;
+
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    &__header {
+        *zoom: 1;
+        &:before,
+        &:after {
+          display: table;
+          content: "";
+        }
+        &:after {
+          clear: both;
+        }
+
+        border-bottom: 1px solid $color__grey--light;
+        padding: 5px 10px 17px;
+        position: relative;
+        text-align: center;
+    }
+    &__sub-header {
+        border-bottom: 1px solid $color__grey--light;
+        padding: 5px 10px 17px;
+        margin: 20px 0 13px;
+        text-align: center;
+    }
+    &__header-inside-top-border {
+        background: #FFF;
+        padding: 0 20px;
+        position: absolute;
+        left: 50%;
+        margin: 0;
+        text-align: center;
+        transform: translate(-50%, -50%);
+        top: -2px;
+
+        @media (max-width: $screen-xs-max) {
+            width: 100%;
+        }
+    }
+    &__body {
+        *zoom: 1;
+        &:before,
+        &:after {
+          display: table;
+          content: "";
+        }
+        &:after {
+          clear: both;
+        }
+
+        position: relative;
+
+        &--padding-vertical-regular {
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+    }
+    &__footer {
+        border-top: 1px solid $color__grey--light;
+        padding: 20px 0 0;
     }
 }
