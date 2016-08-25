@@ -142,9 +142,6 @@ storiesOf('Card', module)
         'A simple InlineCard.',
         () => (
             <InlineCard>
-                <InlineCardHeader>
-                    {'Header'}
-                </InlineCardHeader>
                 <InlineCardBody>
                     {'Body'}
                 </InlineCardBody>
@@ -162,17 +159,11 @@ storiesOf('Card', module)
         'InlineCard: Subheader',
         'A simple InlineCard.',
         () => (
-            <InlineCard warning>
-                <InlineCardHeader inHeader>
-                    {'Header'}
-                </InlineCardHeader>
-                <InlineCardSubHeader>
-                    {'SubHeader'}
-                </InlineCardSubHeader>
+            <InlineCard>
                 <InlineCardBody verticalPaddingRegular>
                     {'Body'}
                 </InlineCardBody>
-                <InlineCardFooter hasBorder>
+                <InlineCardFooter>
                     {'Footer'}
                 </InlineCardFooter>
             </InlineCard>

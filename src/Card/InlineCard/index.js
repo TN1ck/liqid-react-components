@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import CSSModules from 'react-css-modules';
 import styles from '../styles.css';
-const Typography  = require('/Users/florianzia/Documents/liqid/liqid-react-components/src/Typography/typography/index.js');
+const Typography  = require('../../Typography/typography/index.js');
 
 /**
  * Creates an InlineCard
@@ -14,13 +14,37 @@ function InlineCard (props) {
         'liq_inline-card--warning': props.warning,
         'liq_inline-card--half-card': props.halfCard,
         'liq_inline-card--no-bottom-padding': props.noBottomPadding
-    }, props.className);
+    }, props.styleName);
+
     return (
         <div styleName={classes}>
             {props.children}
         </div>
     );
 }
+
+InlineCard.propTypes = {
+    /**
+     * @memberof InlineCard.props
+     * @prop {string} styleName             - Custom classnames that are added.
+     */
+    styleName: React.PropTypes.string,
+    /**
+     * @memberof InlineCard.props
+     * @prop {Boolean} warning              - Should the card be used as warning?
+     */
+    warning: React.PropTypes.bool,
+    /**
+     * @memberof InlineCard.props
+     * @prop {Boolean} halfCard             - Should the card be a half card?
+     */
+    halfCard: React.PropTypes.bool,
+    /**
+     * @memberof InlineCard.props
+     * @prop {Boolean} noBottomPadding      - Should the header be inside the top border?
+     */
+    noBottomPadding: React.PropTypes.bool
+};
 
 /**
  * Creates a header for InlineCard
@@ -40,7 +64,7 @@ function InlineCardHeader (props) {
     }
 
     return (
-        <Typography.Headline styleName={classNames(basicClass, props.className)} type={headlineType} tag='h3'>
+        <Typography.Headline styleName={classNames(basicClass, props.styleName)} type={headlineType} tag='h3'>
             {props.children}
         </Typography.Headline>
     );
@@ -122,14 +146,6 @@ InlineCardFooter.propTypes = {
     hasBorder: React.PropTypes.bool
 };
 
-module.exports = {
-    InlineCardHeader,
-    InlineCardSubHeader,
-    InlineCard,
-    InlineCardBody,
-    InlineCardFooter
-};
-
 const _InlineCard = CSSModules(InlineCard, styles, {allowMultiple: true});
 const _InlineCardHeader = CSSModules(InlineCardHeader, styles, {allowMultiple: true});
 const _InlineCardSubHeader = CSSModules(InlineCardSubHeader, styles, {allowMultiple: true});
@@ -137,11 +153,11 @@ const _InlineCardBody = CSSModules(InlineCardBody, styles, {allowMultiple: true}
 const _InlineCardFooter = CSSModules(InlineCardFooter, styles, {allowMultiple: true});
 
 export default {
-    InlineCard,
-    InlineCardHeader,
-    InlineCardSubHeader,
-    InlineCardBody,
-    InlineCardFooter
+    InlineCard: _InlineCardHeader,
+    InlineCardHeader: _InlineCardSubHeader,
+    InlineCardSubHeader: _InlineCard,
+    InlineCardBody: _InlineCardBody,
+    InlineCardFooter: _InlineCardFooter
 };
 
 export {
@@ -150,5 +166,4 @@ export {
     _InlineCardSubHeader as InlineCardSubHeader,
     _InlineCardBody as InlineCardBody,
     _InlineCardFooter as InlineCardFooter
-
 };

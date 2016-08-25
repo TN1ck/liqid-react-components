@@ -8,10 +8,10 @@ import classNames from 'classnames';
 import CSSModules from 'react-css-modules';
 import styles from '../styles.css';
 import { Col, Row, Grid, Modal } from 'react-bootstrap';
-import BLACK_CIRCLE from '/Users/florianzia/Documents/liqid/liqid-react-components/constants/unicode.js';
+import BLACK_CIRCLE from '../../../constants/unicode.js';
 import Loader from '../../Loader';
-import createSimpleReactWrapper from '/Users/florianzia/Documents/liqid/liqid-react-components/utils/createSimpleReactWrapper.js';
-const Typography  = require('/Users/florianzia/Documents/liqid/liqid-react-components/src/Typography/typography/index.js');
+import createSimpleReactWrapper from '../../../utils/createSimpleReactWrapper.js';
+const Typography  = require('../../Typography/typography/index.js');
 
 /**
  * Creates a container for WrappedCard
@@ -451,17 +451,17 @@ const _WrappedCard = CSSModules(WrappedCard, styles, {allowMultiple: true});
 const _ModalCard = CSSModules(ModalCard, styles, {allowMultiple: true});
 
 export default {
-    Container,
-    Card,
-    CardHeader,
-    CardContent,
-    CardTextBlock,
-    CardFooter,
-    CardSidebar,
-    CardContentLeft,
-    CardContentRight,
-    WrappedCard,
-    ModalCard
+    Container: _Container,
+    Card: _Card,
+    CardHeader: _CardHeader,
+    CardContent: _CardContent,
+    CardTextBlock: _CardTextBlock,
+    CardFooter: _CardFooter,
+    CardSidebar: _CardSidebar,
+    CardContentLeft: _CardContentLeft,
+    CardContentRight: _CardContentRight,
+    WrappedCard: _WrappedCard,
+    ModalCard: _ModalCard
 };
 
 export {
