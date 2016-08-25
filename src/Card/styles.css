@@ -470,3 +470,80 @@ Following css should be replaced by a mixin (@extend .clearfix):
         padding: 20px 0 0;
     }
 }
+
+
+// Heading combinations
+.heading {
+    // Simple headings
+    // - use the base font color
+    // - only differ in font size
+    &__simple {
+        color: black;
+        &--larger {
+            font-size: 20px;
+
+            &-bold {
+                font-weight: 500;
+            }
+        }
+        &--large {
+            font-size: 18px;
+
+            &-semi-bold {
+                font-weight: 400;
+            }
+        }
+        &--normal {
+            font-size: 16px;
+
+            &-normal {
+                font-weight: 300;
+            }
+            &-bold {
+                font-weight: 500;
+            }
+        }
+        &--small {
+            font-size: 200;
+        }
+        &--smaller {
+            font-size: 100;
+        }
+        &--small-grey {
+            color: grey;
+            font-size: 12px;
+        }
+
+        // Uppercase headings
+        // - Are used for special occasions
+        // - Use the base font size
+        &__uppercase {
+            &--smallest-grey {
+                color: grey;
+                font-size: 10px;
+                font-weight: 300;
+                text-transform: uppercase;
+            }
+            &--small {
+                color: black;
+                font-size: 12px;
+                font-weight: 300;
+                text-transform: uppercase;
+            }
+            &--small-grey {
+                color: grey;
+                font-size: 14px;
+                font-weight: 300;
+                text-transform: uppercase;
+            }
+            &--normal {
+                color: grey;
+                font-size: 16px;
+                font-weight: 300;
+                text-transform: uppercase;
+            }
+        }
+    }
+
+
+}

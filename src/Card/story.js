@@ -55,18 +55,9 @@ storiesOf('Card', module)
         'A simple Card with a sidebar.',
         () => (
             <Card borderLight>
-                <CardHeader>
-                    {'Header'}
-                </CardHeader>
-                <CardContentRight>
-                    {'ContentRight'}
-                </CardContentRight>
                 <CardSidebar isResponsiveNavigation>
                     {'Sidebar'}
                 </CardSidebar>
-                <CardFooter>
-                    {'Footer'}
-                </CardFooter>
             </Card>
         ), {
             source: true,
@@ -142,6 +133,9 @@ storiesOf('Card', module)
         'A simple InlineCard.',
         () => (
             <InlineCard>
+                <InlineCardHeader>
+                    {'Header'}
+                </InlineCardHeader>
                 <InlineCardBody>
                     {'Body'}
                 </InlineCardBody>

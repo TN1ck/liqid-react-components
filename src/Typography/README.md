@@ -9,7 +9,7 @@ A component for consistent styling of headlines and text the way you defined it 
 
 ## Setup & Integration
 
-* The easiest way ist to use ```npm install …```
+* The easiest way is to use ```npm install …```
 
 ## Usage
 

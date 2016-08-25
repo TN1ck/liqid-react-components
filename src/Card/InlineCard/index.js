@@ -64,7 +64,8 @@ function InlineCardHeader (props) {
     }
 
     return (
-        <Typography.Headline styleName={classNames(basicClass, props.styleName)} type={headlineType} tag='h3'>
+        // <Typography.Headline styleName={classNames(basicClass, props.styleName)} type={headlineType} tag='h3'>
+        <Typography.Headline type={headlineType} tag='h3'>
             {props.children}
         </Typography.Headline>
     );
@@ -92,7 +93,8 @@ function InlineCardSubHeader (props) {
     let classes = 'liq_inline-card__sub-header';
 
     return (
-        <Typography.Headline styleName={classes} type='uppercase-small-grey' tag='h4'>
+        // <Typography.Headline styleName={classes} type='uppercase-small-grey' tag='h4'>
+        <Typography.Headline type='uppercase-small-grey' tag='h4'>
             {props.children}
         </Typography.Headline>
     );
