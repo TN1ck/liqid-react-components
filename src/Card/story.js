@@ -75,6 +75,27 @@ storiesOf('Card', module)
         }
     )
     .addWithInfo(
+        'Card: Loading',
+        'A simple Card in loading state.',
+        () => (
+            <Card loading borderLight>
+                <CardHeader>
+                    {'Header'}
+                </CardHeader>
+                <CardContent>
+                    {'Content'}
+                </CardContent>
+                <CardFooter>
+                    {'Footer'}
+                </CardFooter>
+            </Card>
+        ), {
+            source: true,
+            inline: true,
+            propTables: [Card, CardSidebar]
+        }
+    )
+    .addWithInfo(
         'WrappedCard',
         'A Card wrapped in a container.',
         () => (
@@ -128,6 +149,30 @@ storiesOf('Card', module)
                     {'Body'}
                 </InlineCardBody>
                 <InlineCardFooter>
+                    {'Footer'}
+                </InlineCardFooter>
+            </InlineCard>
+        ), {
+            source: true,
+            inline: true,
+            propTables: [InlineCard]
+        }
+    )
+    .addWithInfo(
+        'InlineCard: Subheader',
+        'A simple InlineCard.',
+        () => (
+            <InlineCard warning>
+                <InlineCardHeader inHeader>
+                    {'Header'}
+                </InlineCardHeader>
+                <InlineCardSubHeader>
+                    {'SubHeader'}
+                </InlineCardSubHeader>
+                <InlineCardBody verticalPaddingRegular>
+                    {'Body'}
+                </InlineCardBody>
+                <InlineCardFooter hasBorder>
                     {'Footer'}
                 </InlineCardFooter>
             </InlineCard>

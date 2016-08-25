@@ -89,10 +89,13 @@ storiesOf('Loader', module)
         'Loader: Inline in button',
         'Small loading indicator used in a button.',
         () => (
-            <Button>
+            <Button
+                type='primary'
+            >
                 <Loader
                     loading
                     type="inline"
+                    white
                 >
                     {'Content'}
                 </Loader>

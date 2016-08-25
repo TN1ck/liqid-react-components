@@ -117,7 +117,7 @@ function InlineCardFooter (props) {
 InlineCardFooter.propTypes = {
     /**
      * @memberof Card.props
-     * @prop {Boolean} hasBorder          - Should the footer have a border?
+     * @prop {Boolean} hasBorder        - Should the footer have a border?
      */
     hasBorder: React.PropTypes.bool
 };

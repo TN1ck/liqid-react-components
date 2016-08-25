@@ -88,31 +88,39 @@ class BigLoader extends React.Component {
 /**
  * @memberof Loader
  * @namespace props
- * @prop {Object} propTypes         - Props that are passed to this component
+ * @prop {Object} propTypes             - Props that are passed to this component
  */
 BigLoader.propTypes = {
     /**
      * @memberof NewLoader.props
-     * @prop {Boolean} big          - Toogle the loading state
+     * @prop {Boolean} big              - Toogle the loading state
      */
     loading: React.PropTypes.bool.isRequired,
     /**
      * @memberof NewLoader.props
-     * @prop {Boolean} big          - CSS value for float to const the loader float
+     * @prop {Boolean} big              - CSS value for float to const the loader float
      */
     floatCSS: React.PropTypes.string,
     /**
      * @memberof NewLoader.props
-     * @prop {Boolean} big          - Use the correct centering for the circle, looks better for small areas
+     * @prop {Boolean} big              - Use the correct centering for the circle, looks better for small areas
      */
     correctCenter: React.PropTypes.bool,
     /**
      * @memberof NewLoader.props
-     * @prop {Boolean} big          - Use the correct centering for the circle, looks better for small areas
+     * @prop {Boolean} big              - Use the correct centering for the circle, looks better for small areas
      */
     longDelay: React.PropTypes.bool,
-    // no spinner
-    noSpinner: React.PropTypes.bool
+    /**
+     * @memberof NewLoader.props
+     * @prop {Boolean} noSpinner        - Don't show the spinner while loading
+     */
+    noSpinner: React.PropTypes.bool,
+    /**
+     * @memberof NewLoader.props
+     * @prop {Boolean} noBackground     - Set background white and show a shadow.
+     */
+    noBackground: React.PropTypes.bool
 };
 
 BigLoader.defaultProps = {

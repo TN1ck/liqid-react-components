@@ -61,7 +61,7 @@ function Card (props) {
     }
 
     return (
-        <section {...props} styleName={cardClasses}>
+        <section styleName={cardClasses}>
             {innerContent}
         </section>
     );
