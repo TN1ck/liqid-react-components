@@ -1,0 +1,29 @@
+.panel {
+    overflow: hidden;
+}
+
+.panel * {
+    outline: none;
+}
+
+.panel-header {
+    background-color: #FFF;
+    position: relative;
+}
+
+.padding-left {
+    padding-left: 40px;
+}
+
+.put-right {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.panel-animated-plus-button {
+    float: left;
+    margin-left: -40px;
+    position: static;
+}

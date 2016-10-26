@@ -1,0 +1,108 @@
+$btn-font-weight: 400;
+$btn-default-color: blue;
+$cursor-disabled: none;
+$btn-disabled-color: gray;
+$btn-disabled-bg: lightgray;
+$btn-disabled-border: gray;
+$color__grey: gray;
+$gray: gray;
+
+.btn {
+  display: inline-block;
+  margin-bottom: 0; // For input.btn
+  font-weight: $btn-font-weight;
+  text-align: center;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+  border: 1px solid;
+  white-space: nowrap;
+  // @include button-size($padding-base-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, 50px);
+  // @include user-select(none);
+  padding: 6px 25px 8px;
+  transition: all 0.5s ease-out;
+
+  &,
+  &:active,
+  &.active {
+    &:focus,
+    &.focus {
+    //   @include tab-focus;
+    }
+  }
+
+  &:hover,
+  &:focus,
+  &.focus {
+    color: $btn-default-color;
+    text-decoration: none;
+  }
+
+  &:active,
+  &.active {
+    outline: 0;
+    background-image: none;
+  }
+
+  &.disabled,
+  &[disabled],
+  &.disabled:focus,
+  &.disabled:focus.btn-primary,
+  &.disabled:focus.btn-info,
+  &[disabled]:focus,
+  &[disabled]:focus.btn-info,
+  fieldset[disabled] & {
+    cursor: $cursor-disabled;
+    pointer-events: none; // Future-proof disabling of clicks
+    color: $btn-disabled-color;
+    background-color: $btn-disabled-bg;
+    border-color: $btn-disabled-border;
+    // @include box-shadow(none);
+  }
+}
+
+.btn-fancy,
+.btn-fancy:focus,
+.btn-fancy:active {
+    &:before {
+        transition: transform 0.2s ease-out;
+        transform: rotate(0deg);
+        position: absolute;
+        left: 0;
+        content: '▸'
+    }
+    position: relative;
+    text-align: left;
+    vertical-align: middle;
+    color: $color__grey;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    white-space: nowrap;
+    padding: 0;
+    padding-left: 15px;
+
+    &:hover {
+        background-color: transparent;
+        color: $gray;
+        padding-left: 25px;
+    }
+}
+
+.btn-fancy--expanded:before {
+    transition: transform 0.2s ease-out;
+    position: absolute;
+    left: 0;
+    content: '▸';
+    transform: rotate(90deg) !important;
+}
+
+// Specificity overrides
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  &.btn-block {
+    width: 100%;
+  }
+}

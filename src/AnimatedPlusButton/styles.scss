@@ -1,0 +1,74 @@
+$weight__semi-bold: 400;
+$gray: gray;
+$gray-light: lightgray;
+$brand-base: blue;
+
+$button-size: 15px * 2;
+$button-border: 1px;
+$button-height: 2px;
+$button-margin: 8px;
+
+
+.animated-plus-button {
+    border: $button-border solid rgba($brand-base, 0.2);
+    border-radius: 50px;
+    color: rgba($brand-base, 0.5);
+    font-size: $button-size;
+    font-weight: $weight__semi-bold;
+    height: $button-size;
+    line-height: $button-size;
+    position: absolute;
+    top: calc(50% - 15px);
+    transition: all 200ms ease;
+    width: $button-size;
+
+    &:hover {
+        border: 1px solid $gray;
+        color: $gray;
+        .vertical, .horizontal {
+            background: $gray;
+        }
+    }
+
+    &--active {
+        .horizontal {
+            transform: rotate(90deg);
+        }
+        .vertical {
+            transform: rotate(0deg);
+        }
+    }
+}
+
+.lines {
+    position: absolute;
+    border-radius: 3px;
+    background: $gray-light;
+    transform: rotate(0deg);
+    transition: 300ms all ease-out;
+
+    top: $button-margin;
+    left: $button-size / 2 - ($button-height / 2);
+    bottom: $button-margin;
+    width: $button-height;
+}
+
+.horizontal {
+    composes: lines;
+    transform: rotate(-90deg);
+}
+.vertical {
+    composes: lines;
+     transform: rotate(-90deg);
+}
+
+.tiny {
+    composes: animated-plus-button;
+    border: none;
+    transform: scale(0.6);
+    top: calc(50% - 14px);
+
+    &:hover {
+        border: none;
+    }
+}
