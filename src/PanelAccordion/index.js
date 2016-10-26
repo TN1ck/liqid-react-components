@@ -1,5 +1,4 @@
 import React              from 'react';
-import classNames         from 'classnames';
 import CSSModules         from 'react-css-modules';
 import styles             from './styles.scss';
 import Panel              from './Panel';
