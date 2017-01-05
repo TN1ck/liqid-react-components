@@ -2,11 +2,50 @@ import React from 'react';
 import classNames from 'classnames';
 import SelectItem from '../SelectItem';
 import ReactDom from 'react-dom';
-import _ from 'lodash';
 
 import styles from '../styles.css';
 
 let noMouseTimeout;
+
+/**
+ * Find the element that fullfills the predicate, starting from the end of the list
+ *
+ * @param {Array} list - the list we use
+ * @param {function} predicate - the accessor we use to search the list
+ * @param {Number} startPosition - where the find starts
+ * @returns {Number} The last index where the predicate returned true
+ */
+function findLastIndex (list, predicate, startPosition) {
+    let index = startPosition || list.length - 1;
+    while (index >= 0) {
+        const item = list[index];
+        if (predicate(item)) {
+            return index;
+        }
+        index--;
+    }
+    return -1;
+}
+
+/**
+ * Find the element that fullfills the predicate, starting from the start of the list
+ *
+ * @param {Array} list - the list we use
+ * @param {function} predicate - the accessor we use to search the list
+ * @param {Number} startPosition - where the find starts
+ * @returns {Number} The last index where the predicate returnedfindIndex( true
+ */
+function findIndex (list, predicate, startPosition) {
+    let index = startPosition || 0;
+    while (index < list.length) {
+        const item = list[index];
+        if (predicate(item)) {
+            return index;
+        }
+        index++;
+    }
+    return -1;
+}
 
 /**
  * Class representing a stylable Select Input
@@ -55,28 +94,35 @@ class Select extends React.Component {
      * @returns {Number} Index of value
      */
     getIndexByValue (value) {
-        return _.findIndex(this.props.children, (item) => {
+        return findIndex(this.getChildren(), item => {
             return item.props.value === value;
         });
     }
     getValueByIndex (index) {
-        return this.props.children[index] && this.props.children[index].props && this.props.children[index].props.value;
+        return this.getChildren()[index] && this.getChildren()[index].props && this.getChildren()[index].props.value;
     }
     /**
      * Retuns the last index of the list which is not disabled
      * @returns {Number} Index of last item in list which is not disabled
      */
     getLastItemIndex () {
-        return _.findLastIndex(this.props.children, (item) => {
+        return findLastIndex(this.getChildren(), (item) => {
             return !item.props.disabled;
         });
+    }
+    /**
+     * Returns the react children or empty list when none are there
+     * @returns {Array} the children
+     */
+    getChildren () {
+        return this.props.children || [];
     }
     /**
      * Retuns the first index of the list which is not disabled
      * @returns {Number} Index of first item in list which is not  disabled
      */
     getFirstItemIndex () {
-        return _.findIndex(this.props.children, (item) => {
+        return findIndex(this.getChildren(), item => {
             return !item.props.disabled;
         });
     }
@@ -103,7 +149,7 @@ class Select extends React.Component {
      */
     isDeactivatedItem (index) {
         if (index >= 0) {
-            return this.props.children[index] && this.props.children[index].props.disabled;
+            return this.getChildren()[index] && this.getChildren()[index].props.disabled;
         }
         return false;
     }
@@ -145,9 +191,9 @@ class Select extends React.Component {
      * @returns {Boolean} true if application of value worked
      */
     applyValue (event) {
-        if (_.isNumber(this.state.selectedItemIndex)) {
+        if (typeof this.state.selectedItemIndex === 'number') {
             this.setState({
-                valueEncapsulated: (this.props.children[this.state.selectedItemIndex] && this.props.children[this.state.selectedItemIndex].props.value) || ' '
+                valueEncapsulated: (this.getChildren()[this.state.selectedItemIndex] && this.getChildren()[this.state.selectedItemIndex].props.value) || ' '
             });
             this.closeList();
             setTimeout(() => {
@@ -165,7 +211,7 @@ class Select extends React.Component {
         const lastItemIndex = this.getLastItemIndex();
         let currentIndex = this.state.selectedItemIndex;
         const isFirstItem = this.isFirstItem(currentIndex);
-        const selectedItemIndex = isFirstItem ? lastItemIndex : _.findLastIndex(this.props.children, (item) => {
+        const selectedItemIndex = isFirstItem ? lastItemIndex : findLastIndex(this.getChildren(), (item) => {
             return !item.props.disabled;
         }, --currentIndex);
         this.setState({
@@ -181,7 +227,7 @@ class Select extends React.Component {
     selectNextItem () {
         let currentItemIndex = this.state.selectedItemIndex || this.getFirstItemIndex();
         const isLastItem = this.isLastItem(currentItemIndex);
-        let selectedItemIndex = isLastItem ? this.getFirstItemIndex() : _.findIndex(this.props.children, (item) => {
+        let selectedItemIndex = isLastItem ? this.getFirstItemIndex() : findIndex(this.getChildren(), item => {
             return !item.props.disabled;
         }, ++currentItemIndex);
         this.setState({
@@ -237,7 +283,7 @@ class Select extends React.Component {
      * @returns {Number}    index of selected item if present otherwise -1
      */
     selectSpecificItem (index) {
-        if (this.props.children[index] && !this.props.children[index].props.disabled) {
+        if (this.getChildren()[index] && !this.getChildren()[index].props.disabled) {
             this.setState({
                 selectedItemIndex: index
             });
@@ -270,11 +316,11 @@ class Select extends React.Component {
             return;
         }
         const startIndex = startFromZero ? 0 : (this.state.selectedItemIndex + 1);
-        const validIndex = (index) => ((index !== -1) && _.isNumber(index));
+        const validIndex = (index) => ((index !== -1) && typeof index === 'number');
         let index;
 
         if (!this.isLastItem(startIndex - 1)) {
-            index = _.findIndex(this.props.children, (child) => {
+            index = findIndex(this.getChildren(), child => {
                 if (child.props.value && !child.props.disabled && child.props.children) {
                     return (pressedChar.toLowerCase() === (child.props.children.charAt(0).toLowerCase()));
                 }
@@ -352,7 +398,7 @@ class Select extends React.Component {
      * @returns {String} Value visually shown in select as current value
      */
     createShownValue () {
-        const childWithValue = this.props.children && this.props.children.length && this.props.children.filter((child) => {
+        const childWithValue = this.getChildren().filter((child) => {
             return (child.props.value === this.state.valueEncapsulated);
         });
         if (!childWithValue || !childWithValue.length) {
@@ -383,7 +429,7 @@ class Select extends React.Component {
                     value={this.createShownValue()}
                 />
                 <ul className={styles.selectSimpleList} ref={'selectSimpleList'}>
-                    {this.props.children && this.props.children.length  && this.props.children.map((listItem, listItemIndex) => {
+                    {this.getChildren().map((listItem, listItemIndex) => {
                         const selected = (listItemIndex === this.state.selectedItemIndex);
                         const active = (listItem.props.value === this.state.valueEncapsulated);
                         return (
@@ -421,7 +467,8 @@ Select.propTypes = {
     name: React.PropTypes.string,
     /**
      * @memberof Select.props
-     * @prop {String} defaultValue  - the defaultValue set for the select
+     *
+     * @prop {String} value - the value set when one wants to override the internal value
      */
     defaultValue: React.PropTypes.string,
     /**

@@ -1,5 +1,4 @@
 import React from 'react';
-import _ from 'lodash';
 import {
     SelectItem,
     Select
@@ -61,13 +60,13 @@ storiesOf('Select', module)
                 defaultValue={'test'}
             >
                 {
-                    _.range(20).map((item, index) => {
+                    (new Array(20)).fill().map((item, index) => {
                         return (
                             <SelectItem
-                                value={'test-' + item}
+                                value={'test-' + index}
                                 key={'selectitem-' + index}
                             >
-                                {'Test-' + item}
+                                {'Test-' + index}
                             </SelectItem>
                         );
                     })
@@ -86,8 +85,7 @@ storiesOf('Select', module)
             <Select
                 defaultValue={'test'}
             >
-                <SelectItem value={''}>
-                </SelectItem>
+                <SelectItem value={''} />
                 <SelectItem value={'test'} disabled>
                     {'Test'}
                 </SelectItem>
@@ -130,8 +128,7 @@ storiesOf('Select', module)
             <Select
                 disabled
                 defaultValue={'test'}
-            >
-            </Select>
+            />
         ), {
             source: true,
             inline: true,

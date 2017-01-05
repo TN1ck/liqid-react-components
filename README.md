@@ -31,7 +31,7 @@ const {
 * Be sure to use valid JSDoc comments - it is linted as well
 
 ## Run components
-* Run ```$ npm start storybook```
+* Run ```$ npm run storybook```
 * Visit the in the terminal shown URL - you are ready to go!
 
 ## Workflow for a new component

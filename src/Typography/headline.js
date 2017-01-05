@@ -1,6 +1,5 @@
 import React from 'react';
 import classNames from 'classnames';
-import _ from 'lodash';
 
 /**
  * Class representing a Headline
@@ -25,7 +24,7 @@ function Headline (props) {
         'uppercase-small-grey',
         'uppercase-smallest-grey'
     ];
-    const type = (_.includes(validTypes, props.type)) ? props.type : 'regular';
+    const type = (validTypes.includes(props.type)) ? props.type : 'regular';
 
     return (
         <props.tag className={classNames('headline--' + type, props.className)}>
