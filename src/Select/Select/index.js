@@ -16,7 +16,7 @@ let noMouseTimeout;
  * @returns {Number} The last index where the predicate returned true
  */
 function findLastIndex (list, predicate, startPosition) {
-    let index = startPosition || list.length - 1;
+    let index = (typeof startPosition === 'number') ?  startPosition : (list.length - 1);
     while (index >= 0) {
         const item = list[index];
         if (predicate(item)) {
@@ -36,7 +36,7 @@ function findLastIndex (list, predicate, startPosition) {
  * @returns {Number} The last index where the predicate returnedfindIndex( true
  */
 function findIndex (list, predicate, startPosition) {
-    let index = startPosition || 0;
+    let index = (typeof startPosition === 'number') ?  startPosition : 0;
     while (index < list.length) {
         const item = list[index];
         if (predicate(item)) {
@@ -64,29 +64,40 @@ class Select extends React.Component {
      */
     constructor (props) {
         super(props);
-        const defaultValueItemIndex = this.getIndexByValue(props.defaultValue);
+        const defaultValueItemIndex = this.getIndexByValue(props.defaultValue || props.value);
         this.state = {
             closed: true,
             selectedItemIndex: null,
-            valueEncapsulated: this.isDeactivatedItem(defaultValueItemIndex) ? null : props.defaultValue,
+            valueEncapsulated: this.isDeactivatedItem(defaultValueItemIndex) ? null : (props.defaultValue || props.value),
             noMouse: false
         };
-        this.openList               = this.openList.bind(this);
-        this.closeList              = this.closeList.bind(this);
-        this.toggleList             = this.toggleList.bind(this);
-        this.applyValue             = this.applyValue.bind(this);
-        this.keyOnDropdown          = this.keyOnDropdown.bind(this);
-        this.selectPreviousItem     = this.selectPreviousItem.bind(this);
-        this.selectNextItem         = this.selectNextItem.bind(this);
-        this.createShownValue       = this.createShownValue.bind(this);
-        this.isDeactivatedItem      = this.isDeactivatedItem.bind(this);
-        this.getLastItemIndex       = this.getLastItemIndex.bind(this);
-        this.getFirstItemIndex      = this.getFirstItemIndex.bind(this);
-        this.scrollToSelected       = this.scrollToSelected.bind(this);
-        this.selectSpecificItem     = this.selectSpecificItem.bind(this);
-        this.searchForFirstLetter   = this.searchForFirstLetter.bind(this);
-        this.mouseSelectIndex       = this.mouseSelectIndex.bind(this);
-        this.getValueByIndex        = this.getValueByIndex.bind(this);
+        this.openList                  = this.openList.bind(this);
+        this.closeList                 = this.closeList.bind(this);
+        this.toggleList                = this.toggleList.bind(this);
+        this.applyValue                = this.applyValue.bind(this);
+        this.keyOnDropdown             = this.keyOnDropdown.bind(this);
+        this.selectPreviousItem        = this.selectPreviousItem.bind(this);
+        this.selectNextItem            = this.selectNextItem.bind(this);
+        this.createShownValue          = this.createShownValue.bind(this);
+        this.isDeactivatedItem         = this.isDeactivatedItem.bind(this);
+        this.getLastItemIndex          = this.getLastItemIndex.bind(this);
+        this.getFirstItemIndex         = this.getFirstItemIndex.bind(this);
+        this.scrollToSelected          = this.scrollToSelected.bind(this);
+        this.selectSpecificItemByIndex = this.selectSpecificItemByIndex.bind(this);
+        this.searchForFirstLetter      = this.searchForFirstLetter.bind(this);
+        this.mouseSelectIndex          = this.mouseSelectIndex.bind(this);
+        this.getValueByIndex           = this.getValueByIndex.bind(this);
+    }
+    componentWillReceiveProps (props) {
+        if (props.value) {
+            if (this.state.valueEncapsulated !== props.value) {
+                const index = this.getIndexByValue(props.value);
+                this.selectSpecificItemByIndex(index);
+                this.setState({
+                    valueEncapsulated: props.value
+                });
+            }
+        }
     }
     /**
      * Returns the index for a given value
@@ -208,12 +219,13 @@ class Select extends React.Component {
      * @returns {Number} newly selected index
      */
     selectPreviousItem () {
-        const lastItemIndex = this.getLastItemIndex();
-        let currentIndex = this.state.selectedItemIndex;
-        const isFirstItem = this.isFirstItem(currentIndex);
-        const selectedItemIndex = isFirstItem ? lastItemIndex : findLastIndex(this.getChildren(), (item) => {
+        // special case when the application starts
+        // we want to select the first element before jumping to the end of the list
+        let currentIndex = this.state.selectedItemIndex === null ? 1 : this.state.selectedItemIndex;
+        const decrementendIndex = currentIndex === 0 ? this.getChildren().length - 1 : currentIndex - 1;
+        let selectedItemIndex = findLastIndex(this.getChildren(), (item) => {
             return !item.props.disabled;
-        }, --currentIndex);
+        }, decrementendIndex);
         this.setState({
             selectedItemIndex: selectedItemIndex
         });
@@ -225,11 +237,10 @@ class Select extends React.Component {
      * @returns {Number} newly selected index
      */
     selectNextItem () {
-        let currentItemIndex = this.state.selectedItemIndex || this.getFirstItemIndex();
-        const isLastItem = this.isLastItem(currentItemIndex);
-        let selectedItemIndex = isLastItem ? this.getFirstItemIndex() : findIndex(this.getChildren(), item => {
+        let currentIndex = this.state.selectedItemIndex;
+        let selectedItemIndex = findIndex(this.getChildren(), item => {
             return !item.props.disabled;
-        }, ++currentItemIndex);
+        }, Math.abs((currentIndex + 1) % this.getChildren().length));
         this.setState({
             selectedItemIndex: selectedItemIndex
         });
@@ -282,7 +293,7 @@ class Select extends React.Component {
      * @param   {Number}    index   - index to select
      * @returns {Number}    index of selected item if present otherwise -1
      */
-    selectSpecificItem (index) {
+    selectSpecificItemByIndex (index) {
         if (this.getChildren()[index] && !this.getChildren()[index].props.disabled) {
             this.setState({
                 selectedItemIndex: index
@@ -299,7 +310,7 @@ class Select extends React.Component {
      */
     mouseSelectIndex (index) {
         if (!this.state.noMouse) {
-            this.selectSpecificItem(index);
+            this.selectSpecificItemByIndex(index);
             return index;
         }
         return -1;
@@ -334,7 +345,7 @@ class Select extends React.Component {
         }
 
         if (validIndex(index)) {
-            this.selectSpecificItem(index);
+            this.selectSpecificItemByIndex(index);
             this.scrollToSelected();
         }
 
@@ -468,9 +479,15 @@ Select.propTypes = {
     /**
      * @memberof Select.props
      *
-     * @prop {String} value - the value set when one wants to override the internal value
+     * @prop {String} value - the value set when one wants to override the internal value initially
      */
     defaultValue: React.PropTypes.string,
+    /**
+     * @memberof Select.props
+     *
+     * @prop {String} value - the value set when one wants to override the internal value whenever it differs
+     */
+    value: React.PropTypes.string,
     /**
      * @memberof Select.props
      * @prop {func} onChange        - Callback called on change of the currently selected value

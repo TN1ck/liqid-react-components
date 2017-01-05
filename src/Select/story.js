@@ -135,4 +135,51 @@ storiesOf('Select', module)
             propTables: [Select, SelectItem]
         }
     )
+    .addWithInfo(
+        'Using the value prop',
+        'The select will change its value to the given value.',
+        () => {
+            const values = ['test1', 'test2', 'test3', 'test4'];
+            class OverwriteSelect extends React.Component {
+                constructor (props) {
+                    super(props);
+                    this.state = {
+                        value: 'test3'
+                    };
+                    this.changeValue = this.changeValue.bind(this);
+                }
+                changeValue () {
+                    const currentIndex = ((values.indexOf(this.state.value) + 1) % values.length);
+                    this.setState({
+                        value: values[currentIndex]
+                    });
+                }
+                render () {
+                    return (
+                        <div>
+                            <button onClick={this.changeValue}>
+                                {'change the current value'}
+                            </button>
+                            <hr />
+                            <Select value={this.state.value}>
+                                {
+                                    values.map(item => {
+                                        return (
+                                            <SelectItem value={item} key={item}>
+                                                {item}
+                                            </SelectItem>
+                                        );
+                                    })
+                                }
+                            </Select>
+                        </div>
+                    );
+                }
+            }
+            return <OverwriteSelect />;
+        }, {
+            source: true,
+            inline: true
+        }
+    )
 ;
