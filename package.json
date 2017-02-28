@@ -4,7 +4,7 @@
   "description": "LIQID component library",
   "scripts": {
     "build": "npm run babel && npm run css",
-    "storybook": "start-storybook -p 9001",
+    "storybook": "start-storybook -p 9001 -s ./public",
     "test": "./node_modules/.bin/mocha --require .scripts/mocha_runner.js ./src/**/.test/test.js",
     "babel": "./node_modules/.bin/babel src -d lib",
     "css": "./node_modules/.bin/cpx './src/**/*.css' ./lib",
@@ -27,7 +27,7 @@
   },
   "main": "lib/index.js",
   "devDependencies": {
-    "@kadira/react-storybook-addon-info": "3.1.1",
+    "@kadira/react-storybook-addon-info": "3.3.0",
     "@kadira/storybook": "^1.39.0",
     "autoprefixer-core": "^5.1.11",
     "babel-cli": "6.11.4",

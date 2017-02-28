@@ -28,7 +28,7 @@ storiesOf('Select', module)
             </Select>
         ), {
             source: true,
-            inline: true,
+            inline: false,
             propTables: [Select, SelectItem]
         }
     )
@@ -48,7 +48,7 @@ storiesOf('Select', module)
             </Select>
         ), {
             source: true,
-            inline: true,
+            inline: false,
             propTables: [Select, SelectItem]
         }
     )
@@ -74,7 +74,7 @@ storiesOf('Select', module)
             </Select>
         ), {
             source: true,
-            inline: true,
+            inline: false,
             propTables: [Select, SelectItem]
         }
     )
@@ -117,7 +117,7 @@ storiesOf('Select', module)
             </Select>
         ), {
             source: true,
-            inline: true,
+            inline: false,
             propTables: [Select, SelectItem]
         }
     )
@@ -131,7 +131,7 @@ storiesOf('Select', module)
             />
         ), {
             source: true,
-            inline: true,
+            inline: false,
             propTables: [Select, SelectItem]
         }
     )
@@ -179,7 +179,7 @@ storiesOf('Select', module)
             return <OverwriteSelect />;
         }, {
             source: true,
-            inline: true
+            inline: false
         }
     )
 ;
