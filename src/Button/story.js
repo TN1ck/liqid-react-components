@@ -33,7 +33,7 @@ storiesOf('Button', module)
             </div>
         ), {
             source: true,
-            inline: true,
+            inline: false,
             propTables: [Button]
         }
     )
@@ -55,7 +55,7 @@ storiesOf('Button', module)
             </div>
         ), {
             source: true,
-            inline: true,
+            inline: false,
             propTables: [Button]
         }
     )
@@ -85,7 +85,7 @@ storiesOf('Button', module)
             </div>
         ), {
             source: true,
-            inline: true,
+            inline: false,
             propTables: [Button]
         }
     )
@@ -121,7 +121,7 @@ storiesOf('Button', module)
             </div>
         ), {
             source: true,
-            inline: true,
+            inline: false,
             propTables: [Button]
         }
     )
@@ -146,7 +146,7 @@ storiesOf('Button', module)
             </div>
         ), {
             source: true,
-            inline: true,
+            inline: false,
             propTables: [Button]
         }
     )
@@ -163,7 +163,7 @@ storiesOf('Button', module)
             </div>
         ), {
             source: true,
-            inline: true,
+            inline: false,
             propTables: [Button]
         }
     )
@@ -178,7 +178,7 @@ storiesOf('Button', module)
             </div>
         ), {
             source: true,
-            inline: true,
+            inline: false,
             propTables: [Button]
         }
     )
@@ -203,7 +203,7 @@ storiesOf('Button', module)
             </div>
         ), {
             source: true,
-            inline: true,
+            inline: false,
             propTables: [Button]
         }
     )

@@ -26,7 +26,7 @@ storiesOf('Icon', module)
             </div>
         ), {
             source: true,
-            inline: true,
+            inline: false,
             propTables: [Icon]
         }
    )
