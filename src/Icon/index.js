@@ -22,12 +22,12 @@ class Icon extends React.Component {
 /**
  * @memberof Icon
  * @namespace props
- * @prop {Object} propTypes         - the props that are passed to this component
+ * @prop {Object} propTypes - the props that are passed to this component
  */
 Icon.propTypes = {
     /**
      * @memberof Icon.props
-     * @prop {String} type          - type of icon, for example arrow-left
+     * @prop {String} type  - type of icon, for example arrow-left
      */
     value: React.PropTypes.string
 };

@@ -1,3 +1,5 @@
+@import '../_variables/colors.scss';
+
 /**
  * Basic button style
  * only used to compose new buttons
@@ -30,34 +32,35 @@
  */
 .primary {
     composes: button;
-    background-color: #ef233c;
-    border-color: #ef233c;
+    background-color: $color__primary;
+    border-color: $color__primary;
     color: #FFF;
+    // fill color for icon
     fill: #FFF;
 
     &:hover {
-        background-color: #d00f27;
-        border-color: #d00f27;
+        background-color: darken($color__primary, 10%);
+        border-color: darken($color__primary, 10%);
     }
 }
 .secondary {
     composes: button;
-    background-color: #6290c3;
-    border-color: #6290c3;
+    background-color: $color__secondary;
+    border-color: $color__secondary;
     color: #FFF;
 
     &:hover {
-        background-color: #4376af;
-        border-color: #4376af;
+        background-color: darken($color__secondary, 10%);
+        border-color: darken($color__secondary, 10%);
     }
 }
 .primary-outlined {
     composes: button;
-    color: #ef233c;
+    color: $color__primary;
 
     &:hover {
-        background-color: #d00f27;
-        border-color: #d00f27;
+        background-color: darken($color__primary, 10%);
+        border-color: darken($color__primary, 10%);
         color: #FFF;
     }
 }
@@ -66,8 +69,8 @@
     color: #6290c3;
 
     &:hover {
-        background-color: #4376af;
-        border-color: #4376af;
+        background-color: $color__secondary;
+        border-color: $color__secondary;
         color: #FFF;
     }
 }
@@ -75,10 +78,10 @@
     composes: button;
     background: none;
     border: none;
-    color: #ef233c;
+    color: $color__primary;
 
     &:hover {
-        color: #d00f27;
+        color: darken($color__primary, 10%);
     }
 }
 
@@ -94,26 +97,26 @@
     opacity: .65;
 
     &.primary:hover {
-        background-color: #ef233c;
-        border-color: #ef233c;
+        background-color: $color__primary;
+        border-color: $color__primary;
     }
     &.primary-outlined:hover {
         background: none;
-        border-color: #ef233c;
-        color: #ef233c;
+        border-color: $color__primary;
+        color: $color__primary;
     }
     &.secondary-outlined:hover {
         background: none;
-        border-color: #ef233c;
-        color: #ef233c;
+        border-color: $color__primary;
+        color: $color__primary;
     }
     &.secondary:hover {
-        background-color: #6290c3;
-        border-color: #6290c3;
+        background-color: $color__secondary;
+        border-color: $color__secondary;
     }
     &.secondary-outlined:hover {
         background: none;
-        border-color: #6290c3;
-        color: #6290c3;
+        border-color: $color__secondary;
+        color: $color__secondary;
     }
 }
