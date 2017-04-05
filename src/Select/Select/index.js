@@ -5,7 +5,30 @@ import ReactDom from 'react-dom';
 
 import styles from '../styles.css';
 
+const MOBILE_WINDOW_WIDTH = 780;
+
 let noMouseTimeout;
+
+/**
+ * @returns {Number} The width of the window
+ */
+function getWindowWidth () {
+    return window.innerWidth
+        || document.documentElement.clientWidth
+        || document.body.clientWidth;
+}
+
+/**
+ * returns if the device is mobile (or has a width below 780px)
+ * from http://gregfranko.com/jquery.selectBoxIt.js/
+ * @returns {Boolean} Is the device mobile?
+ */
+function isMobile () {
+    // Adapted from http://www.detectmobilebrowsers.com
+    const ua = navigator.userAgent || navigator.vendor || window.opera;
+    // Checks for iOs, Android, Blackberry, Opera Mini, and Windows mobile devices
+    return (/iPhone|iPod|iPad|Silk|Android|BlackBerry|Opera Mini|IEMobile/).test(ua) || getWindowWidth() < MOBILE_WINDOW_WIDTH;
+}
 
 /**
  * Find the element that fullfills the predicate, starting from the end of the list
@@ -48,6 +71,33 @@ function findIndex (list, predicate, startPosition) {
 }
 
 /**
+ *
+ * @param {Object} props properties handed to the Select
+ * @returns {React.Component} Component to be returned
+ */
+function NativeSelect ({disabled, children, onChange, value}) {
+    return (
+        <div className={styles.nativeSelectContainer}>
+            <select disabled={disabled} onChange={onChange} value={value}>
+                {
+                    children.map((listItem, listItemIndex) => {
+                        return (
+                            <option
+                                value={listItem.props.value}
+                                key={listItemIndex}
+                                disabled={listItem.props.disabled}
+                            >
+                                {listItem.props.children}
+                            </option>
+                        );
+                    })
+                }
+            </select>
+        </div>
+    );
+}
+
+/**
  * Class representing a stylable Select Input
  * The input consists of a regular textinput which is styled like a dropdown
  * and disabled for text input
@@ -87,6 +137,7 @@ class Select extends React.Component {
         this.searchForFirstLetter      = this.searchForFirstLetter.bind(this);
         this.mouseSelectIndex          = this.mouseSelectIndex.bind(this);
         this.getValueByIndex           = this.getValueByIndex.bind(this);
+        this.onChangeNative            = this.onChangeNative.bind(this);
     }
     componentWillReceiveProps (props) {
         if (props.value) {
@@ -417,17 +468,34 @@ class Select extends React.Component {
         }
         return childWithValue[0].props.children;
     }
+    onChangeNative (e) {
+        const value = e.target.value;
+        this.setState({
+            valueEncapsulated: value
+        });
+        this.props.onChange && this.props.onChange(e, value);
+    }
     render () {
         const wrapperClasses = classNames(styles.selectSimple, {
             [styles.selectSimpleOpen]: !this.state.closed,
             [styles.disabled]: this.props.disabled
         }, this.props.className);
-        return (
+
+        const children = this.getChildren();
+        const mobile = isMobile();
+
+        return mobile ? (
+            <NativeSelect
+                children={children}
+                value={this.state.valueEncapsulated}
+                onChange={this.onChangeNative}
+                disabled={this.props.disabled}
+            />
+        ) : (
             <div
                 className={wrapperClasses}
                 data-name={this.props.name}
             >
-                <div className={styles.overlay} />
                 <input
                     type='text'
                     readOnly
@@ -440,7 +508,7 @@ class Select extends React.Component {
                     value={this.createShownValue()}
                 />
                 <ul className={styles.selectSimpleList} ref={'selectSimpleList'}>
-                    {this.getChildren().map((listItem, listItemIndex) => {
+                    {children.map((listItem, listItemIndex) => {
                         const selected = (listItemIndex === this.state.selectedItemIndex);
                         const active = (listItem.props.value === this.state.valueEncapsulated);
                         return (
