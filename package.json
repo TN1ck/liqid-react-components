@@ -1,6 +1,6 @@
 {
   "name": "liqid-react-components",
-  "version": "0.1.5",
+  "version": "0.1.7",
   "description": "LIQID component library",
   "scripts": {
     "build": "npm run babel && npm run css",
