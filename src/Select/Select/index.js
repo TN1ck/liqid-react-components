@@ -119,7 +119,8 @@ class Select extends React.Component {
             closed: true,
             selectedItemIndex: null,
             valueEncapsulated: this.isDeactivatedItem(defaultValueItemIndex) ? null : (props.defaultValue || props.value),
-            noMouse: false
+            noMouse: false,
+            useMobileSelect: false
         };
         this.openList                  = this.openList.bind(this);
         this.closeList                 = this.closeList.bind(this);
@@ -149,6 +150,12 @@ class Select extends React.Component {
                 });
             }
         }
+    }
+    componentWillMount () {
+        // Only decide once at mounting if device is mobile
+        this.setState({
+            useMobileSelect: isMobile()
+        });
     }
     /**
      * Returns the index for a given value
@@ -482,7 +489,7 @@ class Select extends React.Component {
         }, this.props.className);
 
         const children = this.getChildren();
-        const mobile = isMobile();
+        const mobile = this.state.useMobileSelect;
 
         return mobile ? (
             <NativeSelect
