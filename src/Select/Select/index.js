@@ -135,10 +135,11 @@ class Select extends React.Component {
         this.getFirstItemIndex         = this.getFirstItemIndex.bind(this);
         this.scrollToSelected          = this.scrollToSelected.bind(this);
         this.selectSpecificItemByIndex = this.selectSpecificItemByIndex.bind(this);
-        this.searchForFirstLetter      = this.searchForFirstLetter.bind(this);
+        this.searchForMultipleLetters  = this.searchForMultipleLetters.bind(this);
         this.mouseSelectIndex          = this.mouseSelectIndex.bind(this);
         this.getValueByIndex           = this.getValueByIndex.bind(this);
         this.onChangeNative            = this.onChangeNative.bind(this);
+        this.charStore                 = [];
     }
     componentWillReceiveProps (props) {
         if (props.value) {
@@ -374,40 +375,44 @@ class Select extends React.Component {
         return -1;
     }
     /**
-     * Search for index with first char of pressed char
-     * @param   {String} code           - the pressed keyCode
-     * @param   {Boolean} startFromZero - Start at index 0 with search for letter
-     * @returns {String} pressedChar    - the pressed char
+     * Search for index with chars of pressed keys
+     * @param   {String} code   - the pressed keyCode
+     * @returns {undefined}
      */
-    searchForFirstLetter (code, startFromZero = false) {
+    searchForMultipleLetters (code) {
         const pressedChar = String.fromCharCode(code);
-        if (!pressedChar) {
+        if (code === undefined) {
+            this.charStore = [];
             return;
         }
-        const startIndex = startFromZero ? 0 : (this.state.selectedItemIndex + 1);
+        this.charStore.push(pressedChar);
+
+        const clearingTime = 580;
+        clearTimeout(this.clearCharStore);
+        this.clearCharStore = setTimeout(() => {
+            this.searchForMultipleLetters();
+        }, clearingTime);
+        // an item is only seekable if it has a value and is not disabled
+        const validChild = child => child.props.value && !child.props.disabled && child.props.children;
+        // go through children, check if it is a searchable child (see above)
+        // return index when matching child value with pressed chars
+        const matchingItemIndex = this.getChildren().findIndex(child => {
+            if (validChild(child)) {
+                return this.charStore.join('').toLowerCase() === child.props.children.substring(0, this.charStore.length).toLowerCase();
+            }
+        });
+        // go through children, check if is a searchable children, return index when
+        const alternativeItemIndex = this.getChildren().findIndex(child => {
+            if (validChild(child)) {
+                return child.props.children.charCodeAt(0) >= code;
+            }
+        });
+        // check for valid index by checking if index is a number and not -1 (not found)
         const validIndex = (index) => ((index !== -1) && typeof index === 'number');
-        let index;
-
-        if (!this.isLastItem(startIndex - 1)) {
-            index = findIndex(this.getChildren(), child => {
-                if (child.props.value && !child.props.disabled && child.props.children) {
-                    return (pressedChar.toLowerCase() === (child.props.children.charAt(0).toLowerCase()));
-                }
-                return false;
-            }, startIndex);
-        }
-
-        if (!startFromZero && !validIndex(index)) {
-            this.searchForFirstLetter(code, true);
-            return pressedChar;
-        }
-
-        if (validIndex(index)) {
-            this.selectSpecificItemByIndex(index);
-            this.scrollToSelected();
-        }
-
-        return pressedChar;
+        const index = !validIndex(matchingItemIndex) && this.charStore.length <= 1 ? alternativeItemIndex : matchingItemIndex;
+        // select item and scroll to it
+        this.selectSpecificItemByIndex(index);
+        this.scrollToSelected();
     }
     /**
      * Check pressed key on input and react accordingly
@@ -456,7 +461,7 @@ class Select extends React.Component {
 
         // if the code didn't match to any functionality - use it to search for an item
         if (!foundFunction) {
-            this.searchForFirstLetter(code);
+            this.searchForMultipleLetters(code);
         }
 
         return code;

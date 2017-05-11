@@ -51,7 +51,7 @@
     padding: 0;
     position: absolute;
     top: 100%;
-    z-index: 1;
+    z-index: 99;
 }
 
 .liq_select-simple-list__item {
