@@ -1,6 +1,3 @@
-@value variables: '../_Global/variables.css';
-@value liq_color--white from variables;
-
 .liq_select-simple {
     font-family: "Mark Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
     position: relative;
@@ -39,7 +36,7 @@
     box-shadow: inset 0 -2px 0 #6290C3;
 }
 .liq_select-simple-list {
-    background: liq_color--white;
+    background: #FFF;
     border-top: 1px solid #EEE;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.26);
     display: none;
