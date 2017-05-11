@@ -77,7 +77,7 @@ function findIndex (list, predicate, startPosition) {
  */
 function NativeSelect ({disabled, children, onChange, value}) {
     return (
-        <div className={styles.nativeSelectContainer}>
+        <div className={styles['liq_native-select-container']}>
             <select disabled={disabled} onChange={onChange} value={value}>
                 {
                     children.map((listItem, listItemIndex) => {
@@ -483,8 +483,8 @@ class Select extends React.Component {
         this.props.onChange && this.props.onChange(e, value);
     }
     render () {
-        const wrapperClasses = classNames(styles.selectSimple, {
-            [styles.selectSimpleOpen]: !this.state.closed,
+        const wrapperClasses = classNames(styles['liq_select-simple'], {
+            [styles['select-simple-open']]: !this.state.closed,
             [styles.disabled]: this.props.disabled
         }, this.props.className);
 
@@ -507,14 +507,14 @@ class Select extends React.Component {
                     type='text'
                     readOnly
                     disabled={this.props.disabled}
-                    className={[styles.selectSimpleInput]}
+                    className={[styles['liq_select-simple__input']]}
                     onClick={this.toggleList}
                     name={this.props.name}
                     onKeyDown={this.keyOnDropdown}
                     onBlur={this.closeList}
                     value={this.createShownValue()}
                 />
-                <ul className={styles.selectSimpleList} ref={'selectSimpleList'}>
+                <ul className={styles['liq_select-simple-list']} ref={'selectSimpleList'}>
                     {children.map((listItem, listItemIndex) => {
                         const selected = (listItemIndex === this.state.selectedItemIndex);
                         const active = (listItem.props.value === this.state.valueEncapsulated);

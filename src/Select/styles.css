@@ -1,9 +1,12 @@
-.selectSimple {
+@value variables: '../_Global/variables.css';
+@value liq_color--white from variables;
+
+.liq_select-simple {
     font-family: "Mark Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
     position: relative;
 }
 /* In FF a blinking caret is shown - to hide it use color: transparent and give color to the text via text-shadow; */
-.selectSimpleInput[type=text][readonly] {
+.liq_select-simple__input[type=text][readonly] {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -31,12 +34,12 @@
     text-shadow: 0px 0px 0px #252731;
     width: 100%;
 }
-.selectSimple input[type=text][readonly]:focus {
+.liq_select-simple__input[type=text][readonly]:focus {
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAMAAACelLz8AAAAJ1BMVEUhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISF8S9ewAAAADHRSTlMAAgMJC0uWpKa6wMxMdjkoAAAANUlEQVR4AeXJyQEAERAAsNl7Hf3X6xt0QL6JpZWq30pdvdadme+0PMdzvHm8YThHcT1H7K0BtOMDniZhWOgAAAAASUVORK5CYII=);
     box-shadow: inset 0 -2px 0 #6290C3;
 }
-.selectSimpleList {
-    background: #FFF;
+.liq_select-simple-list {
+    background: liq_color--white;
     border-top: 1px solid #EEE;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.26);
     display: none;
@@ -54,7 +57,7 @@
     z-index: 1;
 }
 
-.selectSimpleListItem {
+.liq_select-simple-list__item {
     border-bottom: 1px solid #eee;
     box-sizing: content-box;
     cursor: pointer;
@@ -64,23 +67,23 @@
     padding: 7px 10px;
     white-space: nowrap;
 }
-.selectSimpleListItemSelected {
+.liq_select-simple-list__item--selected {
     background: #f8f8f8;
 }
-.selectSimpleListItemActive {
+.liq_select-simple-list__item--active {
     color: #6290C3;
 }
-.selectSimpleListItemDisabled {
+.liq_select-simple-list__item--disabled {
     cursor: default;
     opacity: 0.3;
 }
-.selectSimpleListItemDisabled.selectSimpleListItemSelected {
+.liq_select-simple-list__item--disabled.liq_select-simple-list__item--selected {
     background: none;
 }
-.listSeparator {
+.liq_select-simple-list__item-separator {
     position: relative;
 }
-.listSeparator::after {
+.liq_select-simple-list__item-separator::after {
     border-top: 1px dashed #333;
     content: "";
     display: block;
@@ -91,19 +94,19 @@
     top: 50%;
     width: calc(100% - 40px);
 }
-.selectSimpleOpen .selectSimpleList {
+.select-simple-open .liq_select-simple-list {
     display: block;
 }
 
 
-.nativeSelectContainer {
+.liq_native-select-container {
     background: #ffffff;
     display: inline-block;
     position: relative;
     width: 100%;
 }
 
-.nativeSelectContainer:before {
+.liq_native-select-container:before {
     content: '';
     width: 0;
     height: 0;
@@ -115,7 +118,7 @@
     right: 4px;
 }
 
-.nativeSelectContainer select {
+.liq_native-select-container select {
     padding: 5px;
     font-size: 16px;
     height: 36px;
@@ -132,7 +135,7 @@
     border-radius: 0;
 }
 
-.nativeSelectContainer select:focus {
+.liq_native-select-container select:focus {
     outline: none;
     box-shadow: inset 0 -2px 0 #6290C3;
 }

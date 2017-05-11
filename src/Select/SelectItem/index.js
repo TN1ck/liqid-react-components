@@ -16,12 +16,12 @@ class SelectItem extends React.Component {
         this.props.onMouseEnter(this.props.indexInList);
     }
     render () {
-        const classes = classNames(styles.selectSimpleListItem, {
-            [styles.selectSimpleListItemSelected]: this.props.selected,
-            [styles.selectSimpleListItemActive]: this.props.active,
-            [styles.selectSimpleListItemDisabled]: this.props.disabled,
-            [styles.selectSimpleListItemEmpty]: !this.props.children || !this.props.children.length,
-            [styles.listSeparator]: this.props.separator
+        const classes = classNames(styles['liq_select-simple-list__item'], {
+            [styles['liq_select-simple-list__item--selected']]: this.props.selected,
+            [styles['liq_select-simple-list__item--active']]: this.props.active,
+            [styles['liq_select-simple-list__item--disabled']]: this.props.disabled,
+            [styles['liq_select-simple-list__item--empty']]: !this.props.children || !this.props.children.length,
+            [styles['liq_select-simple-list__item-separator']]: this.props.separator
         });
         const content = (this.props.children && this.props.children.length) ? this.props.children : '\u00a0';
         return (

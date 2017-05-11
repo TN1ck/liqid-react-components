@@ -6,12 +6,14 @@ require('css-modules-require-hook')({
   }
 });
 
-var jsdom = require('jsdom').jsdom;
+var { JSDOM } = require('jsdom');
+console.log(JSDOM);
 
 var exposedProperties = ['window', 'navigator', 'document'];
 
-global.document = jsdom('');
-global.window = document.defaultView;
+const dom = new JSDOM('');
+global.window = dom.window;
+global.document = dom.window.document;
 
 global.navigator = {
   userAgent: 'node.js'
