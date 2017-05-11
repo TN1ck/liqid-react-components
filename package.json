@@ -45,7 +45,7 @@
     "chai": "^3.5.0",
     "css-loader": "^0.28.1",
     "css-modules-require-hook": "*",
-    "csslint": "^1.0.5",
+    "csslint": "^0.10.0",
     "csslint-loader": "1.0.0",
     "enzyme": "^2.2.0",
     "eslint": "3.19.0",
