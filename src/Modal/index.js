@@ -97,4 +97,4 @@ Modal.Footer = ModalFooter;
 Modal.Header = ModalHeader;
 Modal.Title = ModalTitle;
 
-module.exports = Modal;
+export default Modal;

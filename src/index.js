@@ -1,3 +1,7 @@
+import Modal from './Modal';
 export * from './Select';
 export * from './Typography';
-export * from './Modal';
+export {Modal};
+
+
+
