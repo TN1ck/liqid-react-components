@@ -10,7 +10,7 @@
     width: 600px;
 }
 
-.liq_modal--half-btns button {
+.liq_modal--half-btns .liq_modal-content__footer button {
     min-width: 42%;
 }
 
