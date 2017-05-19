@@ -11,6 +11,6 @@ storiesOf('Grid', module)
     .add('Simple Grid', () => (
         <Grid>
             {'Simple Grid'}
-            <Col sm reverse>{'Column'}</Col>
+            <Col sm reverse xsOffset>{'Column'}</Col>
         </Grid>
     ));
