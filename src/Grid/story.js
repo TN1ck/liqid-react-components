@@ -1,7 +1,8 @@
 import React from 'react';
 import {
     Grid,
-    Col
+    Col,
+    Row
 } from './index.js';
 import {
     storiesOf
@@ -12,5 +13,6 @@ storiesOf('Grid', module)
         <Grid>
             {'Simple Grid'}
             <Col sm reverse xsOffset>{'Column'}</Col>
+            <Row row={'sdfkj'} center>{'Row'}</Row>
         </Grid>
     ));
