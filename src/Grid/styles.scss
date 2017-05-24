@@ -3,7 +3,7 @@
 //
 
 
-// -- Start put in extra variable file -- //
+// -- Start: Should  be moved to variables -- //
 
 // Set the number of columns you want to use on your layout.
 $fb-grid-columns: 12 !default;
@@ -35,7 +35,7 @@ $container-large-desktop:      (1140px + $fb-gutter-width) !default;
 //** For `$screen-lg-min` and up.
 $container-lg:                 $container-large-desktop !default;
 
-// -- End put in extra variable file -- //
+// -- End: Should  be moved to variables -- //
 
 
 $fb-breakpoints:
@@ -46,7 +46,7 @@ lg $screen-lg $container-lg;
 $flexboxgrid-max-width: 1200px !default;
 
 div {
-    border: 2px solid blue;
+    border: 1px solid blue;
 }
 //
 // -- Stop editing -- //

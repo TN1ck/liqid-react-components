@@ -69,9 +69,9 @@ function Col (props) {
         return colBase;
     }).join(' ').toString();
 
-    const classes = classNames('fb-col', props.className, colBaseClasses, {
+    const classes = classNames('fb-col', props.className, colBaseClasses, { // TODO: right now breakpoints (xs, sm, …) must be spezified
         'reverse': props.reverse,
-        'fb-flex': props.displayAsFlex
+        'fb-flex': props.displayAsFlex // TODO: why is this necessary?
     });
 
     const Tag = props.tagName || 'div';
@@ -89,19 +89,43 @@ const ColModificatorType = React.PropTypes.oneOfType([React.PropTypes.number, Re
 Col.propTypes = {
     /**
      * @memberof Col.props
-     * @prop {ColModificatorType} xs, sm, md, lg                - which width should the column have?
+     * @prop {ColModificatorType} xs                            - give column a xs width
      */
     xs: ColModificatorType,
+    /**
+     * @memberof Col.props
+     * @prop {ColModificatorType} sm                            - give column a sm width
+     */
     sm: ColModificatorType,
+    /**
+     * @memberof Col.props
+     * @prop {ColModificatorType} md                            - give column a md width
+     */
     md: ColModificatorType,
+    /**
+     * @memberof Col.props
+     * @prop {ColModificatorType} lg                            - give column a lg width
+     */
     lg: ColModificatorType,
     /**
      * @memberof Col.props
-     * @prop {number} xsOffset, smOffset, mdOffset, lgOffset    - add an offset to the column
+     * @prop {number} xsOffset                                  - add an xs offset to the column
      */
     xsOffset: React.PropTypes.number,
+    /**
+     * @memberof Col.props
+     * @prop {number} smOffset                                  - add an sm offset to the column
+     */
     smOffset: React.PropTypes.number,
+    /**
+     * @memberof Col.props
+     * @prop {number} mdOffset                                  - add an md offset to the column
+     */
     mdOffset: React.PropTypes.number,
+    /**
+     * @memberof Col.props
+     * @prop {number} lgOffset                                  - add an lg offset to the column
+     */
     lgOffset: React.PropTypes.number,
     /**
      * @memberof Col.props
@@ -136,7 +160,7 @@ Col.propTypes = {
  * @param {string} string - String that should be converted
  * @returns {string} - Converted string
  */
-function toCamelCase (string) {
+function toCamelCase (string) { // TODO: In utility
     const regex = /-([a-z])/g; // search for hyphen which is followed by a lowercase letter
     return (
         string.replace(
@@ -148,7 +172,7 @@ function toCamelCase (string) {
     );
 }
 
-// Props that can be passed to modify behaviour
+// Valid props that can be used to modify behaviour
 const modificatorKeys = [
     'start', 'center', 'end', 'top', 'middle',
     'blockcenter',
@@ -161,11 +185,11 @@ const modificatorKeys = [
  * @returns {React.Component} - Component to be returned
  */
 function Row (props) {
-    const modificators = modificatorKeys.filter((modificatorKey) => { // filter modificatorKeys that match recieved prop
+    const modificators = modificatorKeys.filter((modificatorKey) => { // filter modificatorKeys that are matching props
         const key = toCamelCase(modificatorKey);
         return props[key];
-    }).map((modificatorKey, index, key) =>{ // create valid classnames
-        const value = props[key];
+    }).map((modificatorKey) =>{ // create valid classnames
+        const value = props[toCamelCase(modificatorKey)];
         return `fb-${modificatorKey}-${value}`;
     });
 
@@ -199,21 +223,63 @@ Row.propTypes = {
     reverse: React.PropTypes.bool,
     /**
      * @memberof Row.props
-     * @prop {RowModificatorType} xs, sm, md, lg    - which width should the row have?
+     * @prop {RowModificatorType} xs, sm, md, lg    - place left for given viewport
      */
     start: RowModificatorType,
-    /** Center boxes and text **/
+    /**
+     * @memberof Row.props
+     * @prop {RowModificatorType} xs, sm, md, lg    - center boxes and text for given viewport
+     */
     center: RowModificatorType,
+    /**
+     * @memberof Row.props
+     * @prop {RowModificatorType} xs, sm, md, lg    - place right for given viewport
+     */
     end: RowModificatorType,
-    /** Does only center boxes and not the text-content itself **/
+    /**
+     * @memberof Row.props
+     * @prop {RowModificatorType} xs, sm, md, lg    - center boxes and not the text-content itself
+     */
     blockcenter: RowModificatorType,
+    /**
+     * @memberof Row.props
+     * @prop {RowModificatorType} xs, sm, md, lg    - vertical align top
+     */
     top: RowModificatorType,
+    /**
+     * @memberof Row.props
+     * @prop {RowModificatorType} xs, sm, md, lg    - vertical align middle
+     */
     middle: RowModificatorType,
+    /**
+     * @memberof Row.props
+     * @prop {RowModificatorType} xs, sm, md, lg    - vertical align bottom
+     */
     bottom: RowModificatorType,
+    /**
+     * @memberof Row.props
+     * @prop {RowModificatorType} xs, sm, md, lg    - distribute unused space around items evenly
+     */
     around: RowModificatorType,
+    /**
+     * @memberof Row.props
+     * @prop {RowModificatorType} xs, sm, md, lg    - stretch items to fill space
+     */
     stretch: RowModificatorType,
+    /**
+     * @memberof Row.props
+     * @prop {RowModificatorType} xs, sm, md, lg    - distribute unused space between items
+     */
     between: RowModificatorType,
+    /**
+     * @memberof Row.props
+     * @prop {RowModificatorType} xs, sm, md, lg    - ?
+     */
     first: RowModificatorType,
+    /**
+     * @memberof Row.props
+     * @prop {RowModificatorType} xs, sm, md, lg    - ?
+     */
     last: RowModificatorType,
     /**
      * @memberof Row.props
