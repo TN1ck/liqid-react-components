@@ -5,6 +5,10 @@ var config = {
             {
                 test: /\.css$/,
                 loader: 'style!css-loader?modules&importLoaders=1&localIdentName=[local]'
+            },
+            {
+                test: /\.scss$/,
+                loader: 'style-loader!css-loader!sass-loader'
             }
         ],
         preLoaders: [

@@ -1,6 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
 
+import styles from './styles.scss';
+
 /**
  * Grid wrapper component
  * @param {Object} props The props for the component
@@ -31,7 +33,7 @@ Grid.propTypes = {
     className: React.PropTypes.string,
     /**
      * @memberof Grid.props
-     * @prop {string} tagName     - return this tag instead of a div
+     * @prop {string} tagName       - return this tag instead of a div
      */
     tagName: React.PropTypes.string,
     /**
@@ -60,9 +62,9 @@ const classMap = {
  * @returns {React.Component} - Component to be returned
  */
 function Col (props) {
-    const colBaseClasses = Object.keys(props).filter((key) => {
+    const colBaseClasses = Object.keys(props).filter((key) => { // filter props that match any item in classMap
         return classMap[key];
-    }).map((key) => {
+    }).map((key) => { // create valid classnames
         const colBase = !(typeof props[key] === 'boolean') ? (classMap[key] + '-' + props[key]) : classMap[key];
         return colBase;
     }).join(' ').toString();
@@ -87,7 +89,7 @@ const ColModificatorType = React.PropTypes.oneOfType([React.PropTypes.number, Re
 Col.propTypes = {
     /**
      * @memberof Col.props
-     * @prop {ColModificatorType} xs, sm, md, lg                   - which width should the column have?
+     * @prop {ColModificatorType} xs, sm, md, lg                - which width should the column have?
      */
     xs: ColModificatorType,
     sm: ColModificatorType,
@@ -130,22 +132,23 @@ Col.propTypes = {
 
 
 /**
- * Convert string from hyphen to cameCase
+ * Converts string from hyphen to cameCase
  * @param {string} string - String that should be converted
  * @returns {string} - Converted string
  */
 function toCamelCase (string) {
-    const regex = /-([a-z])/g;
+    const regex = /-([a-z])/g; // search for hyphen which is followed by a lowercase letter
     return (
         string.replace(
             regex,
             (letter) => {
-                return letter[1].toUpperCase();
+                return letter[1].toUpperCase(); // strip hyphen and return letter as uppercase
             }
         )
     );
 }
 
+// Props that can be passed to modify behaviour
 const modificatorKeys = [
     'start', 'center', 'end', 'top', 'middle',
     'blockcenter',
@@ -158,10 +161,10 @@ const modificatorKeys = [
  * @returns {React.Component} - Component to be returned
  */
 function Row (props) {
-    const modificators = modificatorKeys.filter((modificatorKey) => {
+    const modificators = modificatorKeys.filter((modificatorKey) => { // filter modificatorKeys that match recieved prop
         const key = toCamelCase(modificatorKey);
         return props[key];
-    }).map((modificatorKey, index, key) =>{
+    }).map((modificatorKey, index, key) =>{ // create valid classnames
         const value = props[key];
         return `fb-${modificatorKey}-${value}`;
     });
