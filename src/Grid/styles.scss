@@ -3,7 +3,7 @@
 //
 
 
-// -- Start: Should  be moved to variables -- //
+// -- TODO: Start: Should  be moved to variables -- //
 
 // Set the number of columns you want to use on your layout.
 $fb-grid-columns: 12 !default;
@@ -47,6 +47,12 @@ $flexboxgrid-max-width: 1200px !default;
 
 div {
     border: 1px solid blue;
+}
+.fb-row {
+    background-color: red;
+}
+.fb-col {
+    background-color: green;
 }
 //
 // -- Stop editing -- //
@@ -256,7 +262,7 @@ $regular-bottom-margin: $fb-gutter-width / 2;
         }
 
         /**
-         * Sometimes only contentblocks should be centered -not text
+         * Sometimes only contentblocks should be centered - not text
          */
         .fb-blockcenter-#{$name} {
             justify-content: center;

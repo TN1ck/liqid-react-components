@@ -5,8 +5,8 @@ import styles from './styles.scss';
 
 /**
  * Grid wrapper component
- * @param {Object} props The props for the component
- * @returns {React.Component} Component to be returned
+ * @param {Object} props      - The props for the component
+ * @returns {React.Component} - Component to be returned
  */
 function Grid (props) {
     const containerClass = props.fluid ? 'fb-container-fluid' : 'fb-container';
@@ -47,10 +47,12 @@ Grid.propTypes = {
 
 
 const classMap = {
+    // Define from which breakpoints on the elements should flex
     xs: 'fb-col-xs',
     sm: 'fb-col-sm',
     md: 'fb-col-md',
     lg: 'fb-col-lg',
+    // Define from which breakpoints on the given offset should be applied
     xsOffset: 'fb-col-xs-offset',
     smOffset: 'fb-col-sm-offset',
     mdOffset: 'fb-col-md-offset',
@@ -58,20 +60,22 @@ const classMap = {
 };
 /**
  * Column component
- * @param {Object} props - The props for the component
+ * @param {Object} props      - The props for the component
  * @returns {React.Component} - Component to be returned
  */
 function Col (props) {
     const colBaseClasses = Object.keys(props).filter((key) => { // filter props that match any item in classMap
         return classMap[key];
-    }).map((key) => { // create valid classnames
+    }).map((key) => { // take care of valid classnames
         const colBase = !(typeof props[key] === 'boolean') ? (classMap[key] + '-' + props[key]) : classMap[key];
         return colBase;
     }).join(' ').toString();
 
-    const classes = classNames('fb-col', props.className, colBaseClasses, { // TODO: right now breakpoints (xs, sm, …) must be spezified
+    const hasBreakpoint = props.xs || props.sm || props.md || props.lg;
+    const classes = classNames('fb-col', props.className, colBaseClasses, {
+        'fb-flex': !props.noFlex,
         'reverse': props.reverse,
-        'fb-flex': props.displayAsFlex // TODO: why is this necessary?
+        [classMap.xs]: !hasBreakpoint
     });
 
     const Tag = props.tagName || 'div';
@@ -89,76 +93,76 @@ const ColModificatorType = React.PropTypes.oneOfType([React.PropTypes.number, Re
 Col.propTypes = {
     /**
      * @memberof Col.props
-     * @prop {ColModificatorType} xs                            - give column a xs width
+     * @prop {ColModificatorType} xs        - display as column from xs-breakpoint on
      */
     xs: ColModificatorType,
     /**
      * @memberof Col.props
-     * @prop {ColModificatorType} sm                            - give column a sm width
+     * @prop {ColModificatorType} sm        - display as column from sm-breakpoint on
      */
     sm: ColModificatorType,
     /**
      * @memberof Col.props
-     * @prop {ColModificatorType} md                            - give column a md width
+     * @prop {ColModificatorType} md        - display as column from md-breakpoint on
      */
     md: ColModificatorType,
     /**
      * @memberof Col.props
-     * @prop {ColModificatorType} lg                            - give column a lg width
+     * @prop {ColModificatorType} lg        - display as column from lg-breakpoint on
      */
     lg: ColModificatorType,
     /**
      * @memberof Col.props
-     * @prop {number} xsOffset                                  - add an xs offset to the column
+     * @prop {number} xsOffset              - add an xs offset to the column
      */
     xsOffset: React.PropTypes.number,
     /**
      * @memberof Col.props
-     * @prop {number} smOffset                                  - add an sm offset to the column
+     * @prop {number} smOffset              - add an sm offset to the column
      */
     smOffset: React.PropTypes.number,
     /**
      * @memberof Col.props
-     * @prop {number} mdOffset                                  - add an md offset to the column
+     * @prop {number} mdOffset              - add an md offset to the column
      */
     mdOffset: React.PropTypes.number,
     /**
      * @memberof Col.props
-     * @prop {number} lgOffset                                  - add an lg offset to the column
+     * @prop {number} lgOffset              - add an lg offset to the column
      */
     lgOffset: React.PropTypes.number,
     /**
      * @memberof Col.props
-     * @prop {boolean} reverse                                  - display elements reversed
+     * @prop {boolean} reverse              - display elements reversed
      */
     reverse: React.PropTypes.bool,
     /**
      * @memberof Col.props
-     * @prop {string} className                                 - classes that should be added to the column
+     * @prop {string} className             - classes that should be added to the column
      */
     className: React.PropTypes.string,
     /**
      * @memberof Col.props
-     * @prop {string} tagName                                   - tag that should be used instead of a div
+     * @prop {string} tagName               - tag that should be used instead of a div
      */
     tagName: React.PropTypes.string,
     /**
      * @memberof Col.props
-     * @prop {Object} children                                  - content which should be wrapped by the column
+     * @prop {Object} children              - content which should be wrapped by the column
      */
     children: React.PropTypes.node,
     /**
      * @memberof Col.props
-     * @prop {boolean} displayAsFlex                            - should the column be displayed as flex item?
+     * @prop {boolean} noFlex               - should the column not be displayed as flex item?
      */
-    displayAsFlex: React.PropTypes.bool
+    noFlex: React.PropTypes.bool
 };
 
 
 /**
  * Converts string from hyphen to cameCase
  * @param {string} string - String that should be converted
- * @returns {string} - Converted string
+ * @returns {string}      - Converted string
  */
 function toCamelCase (string) { // TODO: In utility
     const regex = /-([a-z])/g; // search for hyphen which is followed by a lowercase letter
@@ -193,10 +197,11 @@ function Row (props) {
         return `fb-${modificatorKey}-${value}`;
     });
 
-    const classes = classNames('fb-row', props.className, modificators, {
+    const classes = classNames(props.className, modificators, {
         // Col
         [`fb-col-${props.column}`]: props.column,
         // Row
+        'fb-row': !props.noFlex,
         [`fb-row-${props.row}`]: props.row,
         'fb-row--no-gutter': props.noGutter,
         'fb-row--gutter-top-bottom': props.gutterTopBottom
@@ -273,12 +278,12 @@ Row.propTypes = {
     between: RowModificatorType,
     /**
      * @memberof Row.props
-     * @prop {RowModificatorType} xs, sm, md, lg    - ?
+     * @prop {RowModificatorType} xs, sm, md, lg    - make element first first in the order
      */
     first: RowModificatorType,
     /**
      * @memberof Row.props
-     * @prop {RowModificatorType} xs, sm, md, lg    - ?
+     * @prop {RowModificatorType} xs, sm, md, lg    - make element last first in the order
      */
     last: RowModificatorType,
     /**
@@ -295,7 +300,12 @@ Row.propTypes = {
      * @memberof Row.props
      * @prop {Object} children                      - content which should be wrapped by the row
      */
-    children: React.PropTypes.node
+    children: React.PropTypes.node,
+    /**
+     * @memberof Col.props
+     * @prop {boolean} noFlex                       - should the row not be displayed as flex item?
+     */
+    noFlex: React.PropTypes.bool
 };
 
 module.exports = {
