@@ -3,6 +3,7 @@ import classNames from 'classnames';
 
 import styles from './styles.scss';
 
+
 /**
  * Grid wrapper component
  * @param {Object} props      - The props for the component
@@ -45,9 +46,8 @@ Grid.propTypes = {
     ])
 };
 
-
 const classMap = {
-    // Define from which breakpoints on the elements should flex
+    // Define width for breakpoints
     xs: 'fb-col-xs',
     sm: 'fb-col-sm',
     md: 'fb-col-md',
@@ -73,7 +73,7 @@ function Col (props) {
 
     const hasBreakpoint = props.xs || props.sm || props.md || props.lg;
     const classes = classNames('fb-col', props.className, colBaseClasses, {
-        'fb-flex': !props.noFlex,
+        'fb-flex': !props.noFlex && props.flex !== undefined,
         'reverse': props.reverse,
         [classMap.xs]: !hasBreakpoint
     });

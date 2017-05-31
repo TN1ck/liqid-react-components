@@ -45,15 +45,13 @@ md $screen-md $container-md,
 lg $screen-lg $container-lg;
 $flexboxgrid-max-width: 1200px !default;
 
-div {
-    border: 1px solid blue;
-}
-.fb-row {
-    background-color: red;
-}
+
+// TODO: Remove
 .fb-col {
-    background-color: green;
+    border: 1px solid #000;
+    background-color: #FFF;
 }
+
 //
 // -- Stop editing -- //
 //

@@ -8,17 +8,16 @@ import {
     storiesOf
 } from '@kadira/storybook';
 
- /** TODO:  if breakpoint xs in this example 'xs={6}' has a value */
 storiesOf('Grid', module)
     .add(
         'Column',
         () => (
             <Grid>
                 <Row center={'xs'}>
-                    {'Row'}
                     <Col xs={6}>
                         <div>{'Col-item-1'}</div>
                         <div>{'Col-item-2'}</div>
+                        <div>{'Col-item-3'}</div>
                     </Col>
                 </Row>
             </Grid>
@@ -27,14 +26,14 @@ storiesOf('Grid', module)
         }
     )
     .add(
-        'Comlumn – reverse',
+        'Comlumn – Reversed',
         () => (
             <Grid>
                 <Row center={'xs'}>
-                    {'Row'}
                     <Col xs={6} reverse>
                         <div>{'Col-item-1'}</div>
                         <div>{'Col-item-2'}</div>
+                        <div>{'Col-item-3'}</div>
                     </Col>
                 </Row>
             </Grid>
@@ -43,42 +42,42 @@ storiesOf('Grid', module)
         }
     )
     .add(
-        'Column – horizontal offset',
+        'Column – Horizontal offset',
         () => (
             <Grid>
                 <Row>
                     <Col xsOffset={11} xs={1}>
-                        <div>{'Col-1'}</div>
+                        {'Col-1'}
                     </Col>
                     <Col xsOffset={10} xs={2}>
-                        <div>{'Col-2'}</div>
+                        {'Col-2'}
                     </Col>
                     <Col xsOffset={9} xs={3}>
-                        <div>{'Col-3'}</div>
+                        {'Col-3'}
                     </Col>
                     <Col xsOffset={8} xs={4}>
-                        <div>{'Col-4'}</div>
+                        {'Col-4'}
                     </Col>
                     <Col xsOffset={7} xs={5}>
-                        <div>{'Col-5'}</div>
+                        {'Col-5'}
                     </Col>
                     <Col xsOffset={6} xs={6}>
-                        <div>{'Col-6'}</div>
+                        {'Col-6'}
                     </Col>
                     <Col xsOffset={5} xs={7}>
-                        <div>{'Col-7'}</div>
+                        {'Col-7'}
                     </Col>
                     <Col xsOffset={4} xs={8}>
-                        <div>{'Col-8'}</div>
+                        {'Col-8'}
                     </Col>
                     <Col xsOffset={3} xs={9}>
-                        <div>{'Col-9'}</div>
+                        {'Col-9'}
                     </Col>
                     <Col xsOffset={2} xs={10}>
-                        <div>{'Col-10'}</div>
+                        {'Col-10'}
                     </Col>
                     <Col xsOffset={1} xs={11}>
-                        <div>{'Col-11'}</div>
+                        {'Col-11'}
                     </Col>
                 </Row>
             </Grid>
@@ -88,73 +87,73 @@ storiesOf('Grid', module)
     )
     /** TODO:  stuff like around, between, … do not require xs*/
     .add(
-        'Column – distributed',
+        'Columns – Distributed',
         () => (
             <Grid>
-                <Row around={'xs'}>
-                    <Col xs={2}>
-                        <div>{'Col-1'}</div>
+                <Row around={'xs'} between={'md'}>
+                    <Col xs={4} md={2}>
+                        {'Col-1'}
                     </Col>
-                    <Col xs={2}>
-                        <div>{'Col-2'}</div>
+                    <Col xs={4} md={2}>
+                        {'Col-2'}
                     </Col>
-                    <Col xs={2}>
-                        <div>{'Col-3'}</div>
+                    <Col xs={4} md={2}>
+                        {'Col-3'}
                     </Col>
                 </Row>
-                <Row between={'xs'}>
-                    <Col xs={2}>
-                        <div>{'Col-1'}</div>
+                <Row between={'xs'} around={'md'}>
+                    <Col xs={3}>
+                        {'Col-1'}
                     </Col>
-                    <Col xs={2}>
-                        <div>{'Col-2'}</div>
+                    <Col xs={3}>
+                        {'Col-2'}
                     </Col>
-                    <Col xs={2}>
-                        <div>{'Col-3'}</div>
+                    <Col xs={3}>
+                        {'Col-3'}
                     </Col>
                 </Row>
                 <Row stretch={'xs'}>
                     <Col>
-                        <div>{'Col-1'}</div>
+                        {'Col-1'}
                     </Col>
                     <Col>
-                        <div>{'Col-2'}</div>
+                        {'Col-2'}
                     </Col>
                     <Col>
-                        <div>{'Col-3'}</div>
+                        {'Col-3'}
                     </Col>
                 </Row>
-                <Row end={'xs'}>
+                <Row end={'xs'} start={'md'}>
                     <Col xs={2}>
-                        <div>{'Col-1'}</div>
+                        {'Col-1'}
                     </Col>
                     <Col xs={2}>
-                        <div>{'Col-2'}</div>
+                        {'Col-2'}
                     </Col>
                     <Col xs={2}>
-                        <div>{'Col-3'}</div>
-                    </Col>
-                </Row>
-                <Row center={'xs'}>
-                    <Col xs={2}>
-                        <div>{'Col-1'}</div>
-                    </Col>
-                    <Col xs={2}>
-                        <div>{'Col-2'}</div>
-                    </Col>
-                    <Col xs={2}>
-                        <div>{'Col-3'}</div>
+                        {'Col-3'}
                     </Col>
                 </Row>
-                <Row start={'xs'}>
+                <Row center={'xs'} end={'md'}>
                     <Col xs={2}>
-                        <div>{'Col-1'}</div>
+                        {'Col-1'}
                     </Col>
                     <Col xs={2}>
-                        <div>{'Col-2'}</div>
+                        {'Col-2'}
                     </Col>
                     <Col xs={2}>
-                        <div>{'Col-3'}</div>
+                        {'Col-3'}
+                    </Col>
+                </Row>
+                <Row start={'xs'} center={'md'}>
+                    <Col xs={2}>
+                        {'Col-1'}
+                    </Col>
+                    <Col xs={2}>
+                        {'Col-2'}
+                    </Col>
+                    <Col xs={2}>
+                        {'Col-3'}
                     </Col>
                 </Row>
             </Grid>
@@ -163,51 +162,82 @@ storiesOf('Grid', module)
         }
     )
     .add(
-        'Test',
+        'Columns – Hey',
         () => (
             <Grid>
-                {'Multiple Columns'}
-                <Col onClick={() => console.log('yolo')}>
-                    <div>{'Col-1-item-1'}</div>
-                    <div>{'Col-1-item-2'}</div>
-                </Col>
-                <Col>
-                    <div>{'Col-2-item-1'}</div>
-                    <div>{'Col-2-item-2'}</div>
-                </Col>
-                <Col reverse>
-                    <div>{'Col-3-item-1'}</div>
-                    <div>{'Col-3-item-2'}</div>
-                </Col>
-                <Row reverseRow={'xs'}>
-                    <div>{'Row-1-item-1'}</div>
-                    <div>{'Row-1-item-2'}</div>
-                </Row>
-                <Row reverseRow>
-                    <div>{'Row-1-item-1'}</div>
-                    <div>{'Row-1-item-2'}</div>
-                </Row>
-                <Row reverseCol={'xs'}>
-                    <div>{'Row-2-item-1'}</div>
-                    <div>{'Row-2-item-2'}</div>
-                </Row>
-                <Row>
-                    <div>{'Row-3-item-1'}</div>
-                    <div>{'Row-3-item-2'}</div>
-                </Row>
-                <Row>
-                    <Col>
-                        <div>{'Col-4-item-1'}</div>
-                        <div>{'Col-4-item-2'}</div>
+                <Row around={'xs'} start={'sm'}>
+                    <Col xs={1} sm={1} md={1}>
+                        {'Col-1'}
                     </Col>
-                    <Col xsOffset={9}>
-                        <div>{'Col-5-item-1'}</div>
-                        <div>{'Col-5-item-2'}</div>
+                    <Col xs={1} sm={2} md={1} smOffset={3} mdOffset={1}>
+                        {'Col-2'}
+                    </Col>
+                    <Col xs={1} sm={1} md={2} smOffset={0} mdOffset={2}>
+                        {'Col-3'}
+                    </Col>
+                    <Col xs={1} sm={1} md={1} smOffset={2}>
+                        {'Col-4'}
+                    </Col>
+                </Row>
+                <Row around={'xs'} start={'sm'}>
+                    <Col xs={1} sm={1} md={1}>
+                        {'Col-1'}
+                    </Col>
+                    <Col xs={1} sm={1} md={1} smOffset={3} mdOffset={1}>
+                        {'Col-2'}
+                    </Col>
+                    <Col xs={1} sm={1} md={1} smOffset={1} mdOffset={2}>
+                        {'Col-3'}
+                    </Col>
+                    <Col xs={1} sm={1} md={1} smOffset={2} mdOffset={5}>
+                        {'Col-4'}
+                    </Col>
+                </Row>
+                <Row around={'xs'} start={'sm'}>
+                    <Col xs={1} sm={1} md={2}>
+                        {'Col-1'}
+                    </Col>
+                    <Col xs={1} sm={1} md={1} smOffset={3} mdOffset={0}>
+                        {'Col-2'}
+                    </Col>
+                    <Col xs={1} sm={1} md={2} smOffset={1} mdOffset={2}>
+                        {'Col-3'}
+                    </Col>
+                    <Col xs={1} sm={1} md={1} smOffset={2} mdOffset={3}>
+                        {'Col-4'}
+                    </Col>
+                </Row>
+                <Row around={'xs'} start={'sm'}>
+                    <Col xs={1} sm={1} md={1}>
+                        {'Col-1'}
+                    </Col>
+                    <Col xs={1} sm={1} md={1} smOffset={3} mdOffset={1}>
+                        {'Col-2'}
+                    </Col>
+                    <Col xs={1} sm={1} md={1} smOffset={1} mdOffset={2}>
+                        {'Col-3'}
+                    </Col>
+                    <Col xs={1} sm={1} md={1} smOffset={2} mdOffset={4}>
+                        {'Col-4'}
+                    </Col>
+                </Row>
+                <Row around={'xs'} start={'sm'}>
+                    <Col xs={1} sm={2} md={1}>
+                        {'Col-1'}
+                    </Col>
+                    <Col xs={1} sm={2} md={1} smOffset={2} mdOffset={1}>
+                        {'Col-2'}
+                    </Col>
+                    <Col xs={1} sm={1} md={2} smOffset={0} mdOffset={2}>
+                        {'Col-3'}
+                    </Col>
+                    <Col xs={1} sm={2} md={1} smOffset={2} mdOffset={3}>
+                        {'Col-4'}
                     </Col>
                 </Row>
             </Grid>
         ), {
-            propTables: [Grid, Col]
+            propTables: [Grid, Col, Row]
         }
     )
 ;
