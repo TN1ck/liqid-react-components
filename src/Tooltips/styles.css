@@ -1,8 +1,8 @@
 .liq_tooltips > div {
-  position: relative;
-  display: inline-flex;
-  cursor: pointer;
-  align-items: baseline;
+    position: relative;
+    display: inline-flex;
+    cursor: pointer;
+    align-items: baseline;
 }
 
 .liq_tooltips__icon svg {
@@ -11,7 +11,7 @@
 }
 
 .liq_tooltips__text {
-  padding-right: 5px;
+    padding-right: 5px;
 }
 
 .liq_tooltips__hint {
