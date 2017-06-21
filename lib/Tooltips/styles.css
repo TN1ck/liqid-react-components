@@ -1,0 +1,106 @@
+.liq_tooltips > div {
+    position: relative;
+    display: inline-flex;
+    cursor: pointer;
+    align-items: baseline;
+}
+
+.liq_tooltips__icon svg {
+    width: 14px;
+    height: 14px;
+}
+
+.liq_tooltips__text {
+    padding-right: 5px;
+}
+
+.liq_tooltips__hint {
+    position: absolute;
+    z-index: 999;
+    min-width: 300px;
+    left: 50%;
+    top: -20px;
+    transform: translate(-50%, -100%);
+    padding: 10px;
+    opacity: 0;
+    transition: opacity 0.2s ease-in;
+    background-color: white;
+    -webkit-box-shadow:  0px 0px 10px 0px rgba(0,0,0,0.15);
+    -moz-box-shadow:  0px 0px 10px 0px rgba(0,0,0,0.15);
+    box-shadow:  0px 0px 10px 0px rgba(0,0,0,0.15);
+}
+
+.liq_tooltips__hint:after {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-block;
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid white;
+}
+
+.liq_tooltips__hint--top:after {
+    bottom: -10px;
+    transform: translateX(-50%);
+}
+
+.liq_tooltips__hint--right {
+    top: 50%;
+    right: -15px;
+    left: auto;
+    transform: translate(100%, -50%);
+    padding: 10px;
+}
+
+.liq_tooltips__hint--right:after {
+    top: 50%;
+    right: 0;
+    bottom: 0;
+    left: -5px;
+    transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.liq_tooltips__hint--bottom {
+    top: auto;
+    bottom: -20px;
+    transform: translate(-50%, 100%);
+}
+
+.liq_tooltips__hint--bottom:after {
+    bottom: auto;
+    top: -10px;
+    transform: translateX(-50%) rotate(180deg);
+}
+
+.liq_tooltips__hint--left {
+    top: 50%;
+    right: auto;
+    left: -15px;
+    transform: translate(-100%, -50%);
+    padding: 10px;
+}
+
+.liq_tooltips__hint--left:after {
+    top: 50%;
+    right: -15px;
+    bottom: 0;
+    left: auto;
+    transform: translate(0, -50%) rotate(-90deg);
+}
+
+.liq_tooltips__hint--large {
+    min-width: 300px;
+}
+
+.liq_tooltips__hint--small {
+    min-width: auto;
+}
+
+.liq_tooltips--on-hover:hover > .liq_tooltips__hint,
+.liq_tooltips--on-toggle > .liq_tooltips__hint {
+    opacity: 1;
+}
