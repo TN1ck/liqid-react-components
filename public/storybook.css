@@ -13,3 +13,12 @@ html {
 *, *:before, *:after {
   box-sizing: inherit;
 }
+
+.liq_tooltips {
+  display: flex;
+  height: 95vh;
+}
+
+.liq_tooltips > div {
+  margin: auto;
+}
