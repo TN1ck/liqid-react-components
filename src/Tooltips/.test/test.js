@@ -26,11 +26,11 @@ describe('tests for <Tooltips> container', () => {
     });
 
     it('should contain the hint message passed as props', () => {
-        expect(container.find('.liq_tooltips__hint').text()).to.contain('hint message');
+        expect(container.find('.liq_tooltips__hint > div').text()).to.contain('hint message');
     });
 
     it('should stimulate on touch events', () => {
-        container.children('div').simulate('touchStart');
-        expect(container.children('div').hasClass('liq_tooltips--on-toggle')).to.equal(true);
+        container.simulate('touchStart');
+        expect(container.hasClass('liq_tooltips--on-toggle')).to.equal(true);
     });
 });

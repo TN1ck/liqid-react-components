@@ -16,6 +16,6 @@ storiesOf('Tooltips', module)
                 position='top'
                 text='Example'
             >
-            {'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit a quis delectus aspernatur vitae laborum nesciunt beatae.'}
+            {'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus animi totam, ipsam, aliquid veritatis voluptates cupiditate molestiae officia cum? Asperiores dolore tempora necessitatibus sunt nesciunt eligendi at, excepturi cumque dignissimos.'}
         </Tooltips>
     ));
