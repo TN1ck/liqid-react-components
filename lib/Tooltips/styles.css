@@ -26,9 +26,10 @@
     box-shadow:  0px 2px 20px 0px rgba(0,0,0,0.15);
 }
 
-.liq_tooltips__hint > div {
+.liq_tooltips__hint__inner {
     position: relative;
     z-index: 1;
+    display: block;
     padding: 10px;
     font-weight: normal;
     background-color: white;

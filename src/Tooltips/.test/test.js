@@ -26,7 +26,7 @@ describe('tests for <Tooltips> container', () => {
     });
 
     it('should contain the hint message passed as props', () => {
-        expect(container.find('.liq_tooltips__hint > div').text()).to.contain('hint message');
+        expect(container.find('.liq_tooltips__hint > span').text()).to.contain('hint message');
     });
 
     it('should stimulate on touch events', () => {
