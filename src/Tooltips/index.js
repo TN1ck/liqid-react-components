@@ -92,7 +92,10 @@ Tooltips.defaultProps = {
 Tooltips.propTypes = {
     position: React.PropTypes.string,
     size: React.PropTypes.string,
-    text: React.PropTypes.string
+    text: React.PropTypes.oneOfType([
+        React.PropTypes.string,
+        React.PropTypes.element
+    ])
 };
 
 export default Tooltips;
