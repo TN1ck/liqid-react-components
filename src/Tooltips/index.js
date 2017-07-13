@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { findDOMNode, unstable_renderSubtreeIntoContainer as renderSubtreeIntoContainer, unmountComponentAtNode } from 'react-dom';
 import InfoBox from './Components.js';
 
 import styles from './styles.css';
@@ -62,7 +62,7 @@ class Tooltips extends React.Component {
 
         // body.insertBefore(this.container, body.firstChild);
         this.body.append(this.container);
-        ReactDOM.unstable_renderSubtreeIntoContainer(
+        renderSubtreeIntoContainer(
             this,
             <InfoBox
                 position={placement}
@@ -75,7 +75,7 @@ class Tooltips extends React.Component {
     }
 
     unMountNode() {
-        ReactDOM.unmountComponentAtNode(this.container);
+        unmountComponentAtNode(this.container);
     }
 
     unmountContainer() {
@@ -83,7 +83,7 @@ class Tooltips extends React.Component {
     }
 
     getPositions() {
-        const el = ReactDOM.findDOMNode(this);
+        const el = findDOMNode(this);
         const position = el.getBoundingClientRect();
         const top = position.top;
         const right = position.right;
