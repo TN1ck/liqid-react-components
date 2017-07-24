@@ -55,6 +55,8 @@
 .liq_tooltips__hint--right {
     transform: translate(-2%, -50%);
     margin-left: 10px;
+    background-color: lime;
+    border: 1px solid green;
 }
 
 .liq_tooltips__hint--right:before {
@@ -64,8 +66,7 @@
 }
 
 .liq_tooltips__hint--bottom {
-    margin-top: 10px;
-    transform: translate(-50%, 45%);
+    transform: translate(-50%, 20px);
 }
 
 .liq_tooltips__hint--bottom:before {
@@ -106,3 +107,14 @@
 .liq_tooltips:hover + .liq_tooltips__hint--left {
     transform: translate(-100%, -50%);
 } */
+
+.liq_tooltips__hint--not-in-viewport {
+    border: 1px solid red;
+}
+
+.liq_tooltips__hint--not-in-viewport:before {
+    left: 0;
+    top: -6px;
+    margin: 0;
+    transform: translate(2px, 0) rotate(45deg);
+}

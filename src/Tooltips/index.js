@@ -12,12 +12,13 @@ import styles from './styles.css';
 class Tooltips extends React.Component {
     constructor(props) {
         super(props);
-        this.getPositions = this.getPositions.bind(this);
         this.handleMouseOver = this.handleMouseOver.bind(this);
         this.handleMouseOut = this.handleMouseOut.bind(this);
         this.state = {
             yAxis: '',
-            xAsis: '',
+            xAxis: '',
+            repositionXAxis: '',
+            respositionYAxis: '',
             hover: false
         };
     }
@@ -43,6 +44,7 @@ class Tooltips extends React.Component {
     mountContainer() {
         this.body = document.body;
         this.container = document.createElement('div');
+        // body.insertBefore(this.container, body.firstChild);
         this.body.appendChild(this.container);
     }
 
@@ -60,13 +62,19 @@ class Tooltips extends React.Component {
             left: `${this.state.xAxis}px`
         };
 
-        // body.insertBefore(this.container, body.firstChild);
-        this.body.append(this.container);
+        let newBoxStyles = {
+            top: `${this.state.yAxis}px`,
+            left: `${this.state.repositionXAxis}px`,
+            transform: `translate(0, ${this.state.respositionYAxis + 10}px)`
+        };
+
         renderSubtreeIntoContainer(
             this,
             <InfoBox
                 position={placement}
                 cssStyles={infoBoxStyles}
+                reposition={newBoxStyles}
+                handlePositioning={this.handlePositioning}
             >
                 {this.props.children}
             </InfoBox>,
@@ -101,7 +109,9 @@ class Tooltips extends React.Component {
         } else {
             this.setState({
                 yAxis: top,
-                xAxis: centerX
+                xAxis: centerX,
+                repositionXAxis: left,
+                respositionYAxis: height
             });
         }
     }
@@ -116,6 +126,12 @@ class Tooltips extends React.Component {
         this.setState({
             hover: false
         });
+    }
+
+    handlePositioning(id, value) {
+        var newState = {};
+        newState[id] = value;
+        this.setState(newState);
     }
 
     render() {
