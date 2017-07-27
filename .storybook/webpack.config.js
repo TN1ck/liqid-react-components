@@ -17,6 +17,10 @@ var config = {
                 test: /\.css$/,
                 loader: 'csslint?failOnWarning=false',
                 exclude: /node_modules/
+            },
+            {
+                 test: /\.scss$/,
+                 loader: 'style-loader!css-loader!sass-loader'
             }
         ],
     }
