@@ -42,7 +42,7 @@
 }
 
 .liq_tooltips__hint--top {
-    transform: translate(-50%, -95%);
+   transform: translate(-50%, -95%);
     margin-top: -10px;
 }
 

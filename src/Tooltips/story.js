@@ -13,8 +13,8 @@ storiesOf('Tooltips', module)
         'Default',
         () => (
         <Tooltips
-            position='left'
-            text='Example blah blah blah'
+            position='top'
+            text='Example'
         >
             {'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, eveniet consectetur deleniti provident ullam cupiditate. Natus, inventore ab! Porro saepe inventore laborum id fugiat amet quos aliquam, dolorum reiciendis ipsam!'}
         </Tooltips>

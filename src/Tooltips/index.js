@@ -15,10 +15,6 @@ class Tooltips extends React.Component {
         this.handleMouseOver = this.handleMouseOver.bind(this);
         this.handleMouseOut = this.handleMouseOut.bind(this);
         this.state = {
-            yAxis: '',
-            xAxis: '',
-            repositionXAxis: '',
-            respositionYAxis: '',
             hover: false
         };
     }
@@ -29,11 +25,10 @@ class Tooltips extends React.Component {
     }
 
     componentDidUpdate() {
-
         if (this.state.hover) {
             this.mountNode();
         } else {
-            this.unMountNode();
+            // this.unMountNode();
         }
     }
 
@@ -44,38 +39,22 @@ class Tooltips extends React.Component {
     mountContainer() {
         this.body = document.body;
         this.container = document.createElement('div');
-        // body.insertBefore(this.container, body.firstChild);
         this.body.appendChild(this.container);
     }
 
     mountNode() {
-        const positions = [
-            'top',
-            'right',
-            'bottom',
-            'left'
-        ];
-        const placement = (positions.includes(this.props.position)) ? this.props.position : 'top';
-
-        let infoBoxStyles = {
-            top: `${this.state.yAxis}px`,
-            left: `${this.state.xAxis}px`
-        };
-
-        let newBoxStyles = {
-            top: `${this.state.yAxis}px`,
-            left: `${this.state.repositionXAxis}px`,
-            transform: `translate(0, ${this.state.respositionYAxis + 10}px)`
-        };
-
+        const position = this.getPositions();
         renderSubtreeIntoContainer(
             this,
-            <InfoBox
-                position={placement}
-                cssStyles={infoBoxStyles}
-                reposition={newBoxStyles}
-                handlePositioning={this.handlePositioning}
-            >
+                <InfoBox
+                    top={position.top}
+                    right={position.right}
+                    bottom={position.bottom}
+                    left={position.left}
+                    centerX={position.centerX}
+                    centerY={position.centerY}
+                    {...this.props}
+                >
                 {this.props.children}
             </InfoBox>,
             this.container
@@ -95,25 +74,23 @@ class Tooltips extends React.Component {
         const position = el.getBoundingClientRect();
         const top = position.top;
         const right = position.right;
+        const bottom = position.bottom;
         const left = position.left;
         const width = position.width;
         const height = position.height;
-        const centerY = top + height / 2;
         const centerX = left + width / 2;
+        const centerY = top + height / 2;
 
-        if (this.props.position === 'right' || this.props.position === 'left') {
-            this.setState({
-                yAxis: centerY,
-                xAxis: this.props.position === 'left' ? left : right
-            });
-        } else {
-            this.setState({
-                yAxis: top,
-                xAxis: centerX,
-                repositionXAxis: left,
-                respositionYAxis: height
-            });
-        }
+        return {
+            top: top,
+            right: right,
+            bottom: bottom,
+            left: left,
+            centerX: centerX,
+            centerY: centerY,
+            width: width,
+            height: height
+        };
     }
 
     handleMouseOver() {
@@ -126,12 +103,6 @@ class Tooltips extends React.Component {
         this.setState({
             hover: false
         });
-    }
-
-    handlePositioning(id, value) {
-        var newState = {};
-        newState[id] = value;
-        this.setState(newState);
     }
 
     render() {

@@ -15,6 +15,10 @@ html {
 }
 
 .liq_tooltips {
- /* temporary
-  margin-left: 100px; */
+   /* position: fixed;
+  bottom: 20px;
+  left: 100px;
+  temporary  */
+  margin: 10px 0 0 200px;
+   /* margin-top: 200px; */
 }

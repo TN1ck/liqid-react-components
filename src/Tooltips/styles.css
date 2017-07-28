@@ -43,7 +43,7 @@
 
 .liq_tooltips__hint--top {
     transform: translate(-50%, -95%);
-    margin-top: -10px;
+    // margin-top: -10px;
 }
 
 .liq_tooltips__hint--top:before {
@@ -53,10 +53,8 @@
 }
 
 .liq_tooltips__hint--right {
-    transform: translate(-2%, -50%);
-    margin-left: 10px;
-    background-color: lime;
-    border: 1px solid green;
+    /* transform: translate(-2%, -50%); */
+    // margin-left: 10px;
 }
 
 .liq_tooltips__hint--right:before {
@@ -66,7 +64,8 @@
 }
 
 .liq_tooltips__hint--bottom {
-    transform: translate(-50%, 20px);
+    // margin-top: 10px;
+    /* transform: translate(-50%, 20px); */
 }
 
 .liq_tooltips__hint--bottom:before {
@@ -76,14 +75,27 @@
 }
 
 .liq_tooltips__hint--left {
-    margin-left: -10px;
-    transform: translate(-98%, -50%);
+    // margin-left: -10px;
+    /* transform: translate(-98%, -50%);  */
 }
 
 .liq_tooltips__hint--left:before {
     top: 50%;
     right: -6px;
     transform: translate(0 , -50%) rotate(45deg);
+}
+
+.liq_tooltips__hint--not-in-viewport-left {
+    /*  transform: translate(0, 0); */
+}
+
+.liq_tooltips__hint--top.liq_tooltips__hint--not-in-viewport-left {
+    /* transform: translate(0, -95%); */
+}
+
+.liq_tooltips__hint--top.liq_tooltips__hint--not-in-viewport-left:before {
+    top: auto;
+    bottom: -6px;
 }
 
 /* hover states
@@ -108,13 +120,10 @@
     transform: translate(-100%, -50%);
 } */
 
-.liq_tooltips__hint--not-in-viewport {
-    border: 1px solid red;
-}
 
-.liq_tooltips__hint--not-in-viewport:before {
+.liq_tooltips__hint--not-in-viewport-left:before {
     left: 0;
     top: -6px;
     margin: 0;
-    transform: translate(2px, 0) rotate(45deg);
+    // transform: translate(2px, 0) rotate(45deg);
 }
