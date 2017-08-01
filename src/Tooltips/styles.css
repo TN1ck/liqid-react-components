@@ -1,3 +1,5 @@
+// TODO: add transition and remove comments
+
 .liq_tooltips  {
     display: inline-flex;
     flex-align: baseline;
@@ -15,13 +17,13 @@
 
 .liq_tooltips__hint {
     position: absolute;
-    z-index: 99999;
-    max-width: 300px;
+    z-index: -1;
     background-color: white;
     box-shadow:  0px 2px 20px 0px rgba(0,0,0,0.10);
     opacity: 1;
     transition: all 0.25s ease-in;
     transition-timing-function: cubic-bezier(0.64, 0.57, 0.67, 1.53);
+    max-width: 300px;
 }
 
 .liq_tooltips__hint__inner {
@@ -43,7 +45,7 @@
 
 .liq_tooltips__hint--top {
     transform: translate(-50%, -95%);
-    // margin-top: -10px;
+    /* margin-top: -10px; */
 }
 
 .liq_tooltips__hint--top:before {
@@ -53,8 +55,8 @@
 }
 
 .liq_tooltips__hint--right {
-    /* transform: translate(-2%, -50%); */
-    // margin-left: 10px;
+    /* transform: translate(-2%, -50%);
+    margin-left: 10px; */
 }
 
 .liq_tooltips__hint--right:before {
@@ -64,7 +66,7 @@
 }
 
 .liq_tooltips__hint--bottom {
-    // margin-top: 10px;
+    /*  margin-top: 10px;
     /* transform: translate(-50%, 20px); */
 }
 
@@ -75,8 +77,8 @@
 }
 
 .liq_tooltips__hint--left {
-    // margin-left: -10px;
-    /* transform: translate(-98%, -50%);  */
+   /*  // margin-left: -10px;
+    transform: translate(-98%, -50%);  */
 }
 
 .liq_tooltips__hint--left:before {
@@ -125,5 +127,5 @@
     left: 0;
     top: -6px;
     margin: 0;
-    // transform: translate(2px, 0) rotate(45deg);
+    /*transform: translate(2px, 0) rotate(45deg);*/
 }

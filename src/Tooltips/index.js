@@ -14,13 +14,14 @@ class Tooltips extends React.Component {
         super(props);
         this.handleMouseOver = this.handleMouseOver.bind(this);
         this.handleMouseOut = this.handleMouseOut.bind(this);
+        this.getPositions = this.getPositions.bind(this);
         this.state = {
             hover: false
         };
     }
 
     componentDidMount() {
-        this.getPositions();
+        this.getPositions(findDOMNode(this));
         this.mountContainer();
     }
 
@@ -28,7 +29,7 @@ class Tooltips extends React.Component {
         if (this.state.hover) {
             this.mountNode();
         } else {
-            // this.unMountNode();
+            this.unMountNode();
         }
     }
 
@@ -43,7 +44,7 @@ class Tooltips extends React.Component {
     }
 
     mountNode() {
-        const position = this.getPositions();
+        const position = this.getPositions(findDOMNode(this));
         renderSubtreeIntoContainer(
             this,
                 <InfoBox
@@ -53,6 +54,7 @@ class Tooltips extends React.Component {
                     left={position.left}
                     centerX={position.centerX}
                     centerY={position.centerY}
+                    onOutOfViewportCheck={this.getPositions}
                     {...this.props}
                 >
                 {this.props.children}
@@ -69,8 +71,8 @@ class Tooltips extends React.Component {
         this.body.removeChild(this.container);
     }
 
-    getPositions() {
-        const el = findDOMNode(this);
+    getPositions(el) {
+        // const el = findDOMNode(this);
         const position = el.getBoundingClientRect();
         const top = position.top;
         const right = position.right;
@@ -80,7 +82,8 @@ class Tooltips extends React.Component {
         const height = position.height;
         const centerX = left + width / 2;
         const centerY = top + height / 2;
-
+        console.log('left', left);
+        console.log('top', top);
         return {
             top: top,
             right: right,
