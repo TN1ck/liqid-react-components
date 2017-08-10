@@ -42,7 +42,7 @@ class ToggleModal extends React.Component {
                 >
                     <Modal.Header>
                         <Modal.Title>
-                            {'Header Text'}
+                            {'lorem'}
                         </Modal.Title>
                     </Modal.Header>
                     <Modal.Body>

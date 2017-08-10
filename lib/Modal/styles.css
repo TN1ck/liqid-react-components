@@ -64,7 +64,7 @@
 
 .liq_modal-content {
     background: white;
-    box-shadow: 0 5px 15px rgba(0,0,0,.5);
+    box-shadow: 0 0 8px 0 rgba(0,0,0,0.10);
     display: flex;
     flex-direction: column;
     position: relative;
@@ -73,38 +73,42 @@
 
 .liq_modal-content__body {
     font-size: 14px;
-    padding: 15px;
+    padding: 32px;
+}
+
+.liq_modal-content__body p {
+    line-height: 21px;
 }
 
 .liq_modal-content__footer {
     border-top: 1px solid #eee;
-    padding: 15px;
-    text-align: right;
+    padding: 15px 32px;
 }
 
-.liq_modal-content__header {
-    padding: 15px;
-    padding-bottom: 0;
+.liq_modal-content__header + .liq_modal-content__body {
+    padding-top: 24px;
 }
 
 .liq_modal-content__title {
-    font-size: 18px;
-    line-height: 1.61803;
+    font-size: 14px;
+    font-weight: 600;
     margin: 0;
+    padding: 32px 32px 0 32px;
 }
 
 .liq_modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
     -webkit-appearance: none;
     -moz-appearance: none;
     background: transparent;
     border: 0;
     cursor: pointer;
-    line-height: 26px;
-    margin-top: 5px;
     opacity: 1;
     padding: 0;
-    position: absolute;
-    right: 15px;
+    width: 16px;
+    height: 16px;
 }
 
 .liq_modal-close:focus {
@@ -112,10 +116,17 @@
 }
 
 .liq_modal-close span {
-    color: #252731;
-    font-size: 40px;
+    display: inline-block;
+    color: #9B9B9B;
+    font-size: 34px;
     font-weight: 200;
-    line-height: 26px;
+    line-height: 0;
+    margin-top: 5px;
+    transition: color 0.2s ease-in;
+}
+
+.liq_modal-close:hover span {
+    color: #EF233C;
 }
 
 @media (max-width: 767px) {
