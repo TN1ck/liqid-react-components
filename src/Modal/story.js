@@ -49,8 +49,11 @@ class ToggleModal extends React.Component {
                         {'Body Text'}
                         {this.props.children}
                     </Modal.Body>
-                    <Modal.Footer>
-                        {'Footer'}
+                    <Modal.Footer
+                        btnStyle='half-small'
+                    >
+                        <button>{'button one'}</button>
+                        <button>{'button two'}</button>
                     </Modal.Footer>
                 </Modal>
             </div>
@@ -75,8 +78,10 @@ storiesOf('Modal', module)
                 <Modal.Body>
                     {'Body Text'}
                 </Modal.Body>
-                <Modal.Footer>
-                    {'Footer'}
+                <Modal.Footer
+                    btnStyle='default'
+                >
+                    <button>{'footer button'}</button>
                 </Modal.Footer>
             </Modal>
         ), {

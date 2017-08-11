@@ -58,10 +58,21 @@ function ModalBody ({children}) {
  * @param {Object} props The props for the component
  * @returns {React.Component} Component to be returned
  */
-function ModalFooter ({children}) {
+function ModalFooter (props) {
+    const btnStyles = [
+        'default',
+        'half-small',
+        'half-large'
+    ];
+    const style = (btnStyles.includes(props.btnStyle)) ? props.btnStyle : 'default';
     return (
-        <div className={styles['liq_modal-content__footer']}>
-            {children}
+        <div
+            className={`
+                ${styles['liq_modal-content__footer']}
+                ${classNames(`liq_modal-content__footer--btn-${style}`)}
+            `}
+        >
+            {props.children}
         </div>
     );
 }
@@ -96,5 +107,13 @@ Modal.Body = ModalBody;
 Modal.Footer = ModalFooter;
 Modal.Header = ModalHeader;
 Modal.Title = ModalTitle;
+
+Modal.Footer.defaultProps = {
+    btnStyles: 'default'
+};
+
+Modal.Footer.propTypes = {
+    btnStyles: React.PropTypes.string
+};
 
 export default Modal;
