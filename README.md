@@ -75,3 +75,7 @@ $ npm run lint:css
 ```bash
 $ npm run build
 ```
+
+## License
+
+[MIT](LICENSE). Copyright (c) 2017 LIQID Asset Management GmbH.
